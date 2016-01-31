@@ -6,9 +6,12 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "g5ReminderCompositeItem.h"
 
-@interface g5ReminderMenu : NSObject
+@interface g5ReminderMenu : g5ReminderCompositeItem
+
+@property(nonatomic, strong) NSString *type;
+@property(nonatomic, strong) NSArray *childrenReminderItems;
 
 - (g5ReminderMenu *)initWithDictionary:(NSDictionary *)dictionary;
 

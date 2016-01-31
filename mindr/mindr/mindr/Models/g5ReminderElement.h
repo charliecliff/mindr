@@ -6,13 +6,10 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "g5ReminderCompositeItem.h"
 
-@interface g5ReminderElement : NSObject
+@interface g5ReminderElement : g5ReminderCompositeItem
 
-@property(nonatomic, strong) NSString *tid;
-@property(nonatomic, strong) NSString *displayDescription;
 
-@property(nonatomic, strong) NSArray *childrenReminderItems;
 
 @end

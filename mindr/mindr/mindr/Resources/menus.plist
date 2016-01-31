@@ -247,27 +247,27 @@
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>other_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>other</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>first_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>first</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>weekdays_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>monday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>monthdays_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>23rd</string>
 			</dict>
 		</array>

@@ -10,7 +10,6 @@
 		DA6BA1ED1C5D9EC20065485D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA1EC1C5D9EC20065485D /* main.m */; };
 		DA6BA1F01C5D9EC20065485D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA1EF1C5D9EC20065485D /* AppDelegate.m */; };
 		DA6BA1F31C5D9EC20065485D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA1F21C5D9EC20065485D /* ViewController.m */; };
-		DA6BA1F61C5D9EC20065485D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA1F41C5D9EC20065485D /* Main.storyboard */; };
 		DA6BA1F81C5D9EC20065485D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA1F71C5D9EC20065485D /* Assets.xcassets */; };
 		DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */; };
 		DA6BA2061C5D9EC20065485D /* mindrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2051C5D9EC20065485D /* mindrTests.m */; };
@@ -41,7 +40,6 @@
 		DA6BA1EF1C5D9EC20065485D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DA6BA1F11C5D9EC20065485D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		DA6BA1F21C5D9EC20065485D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DA6BA1F51C5D9EC20065485D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DA6BA1F71C5D9EC20065485D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA6BA1FA1C5D9EC20065485D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA6BA1FC1C5D9EC20065485D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -101,11 +99,12 @@
 		DA6BA1EA1C5D9EC20065485D /* mindr */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BA21E1C5D9F8D0065485D /* Models */,
+				DA6BA21F1C5D9F8D0065485D /* UIElements */,
 				DA6BA1EE1C5D9EC20065485D /* AppDelegate.h */,
 				DA6BA1EF1C5D9EC20065485D /* AppDelegate.m */,
 				DA6BA1F11C5D9EC20065485D /* ViewController.h */,
 				DA6BA1F21C5D9EC20065485D /* ViewController.m */,
-				DA6BA1F41C5D9EC20065485D /* Main.storyboard */,
 				DA6BA1F71C5D9EC20065485D /* Assets.xcassets */,
 				DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */,
 				DA6BA1FC1C5D9EC20065485D /* Info.plist */,
@@ -138,6 +137,38 @@
 				DA6BA2121C5D9EC20065485D /* Info.plist */,
 			);
 			path = mindrUITests;
+			sourceTree = "<group>";
+		};
+		DA6BA21E1C5D9F8D0065485D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			path = mindr/Models;
+			sourceTree = "<group>";
+		};
+		DA6BA21F1C5D9F8D0065485D /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA2201C5D9F8D0065485D /* Classes */,
+				DA6BA2211C5D9F8D0065485D /* XIBs */,
+			);
+			name = UIElements;
+			path = mindr/UIElements;
+			sourceTree = "<group>";
+		};
+		DA6BA2201C5D9F8D0065485D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DA6BA2211C5D9F8D0065485D /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +276,6 @@
 			files = (
 				DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */,
 				DA6BA1F81C5D9EC20065485D /* Assets.xcassets in Resources */,
-				DA6BA1F61C5D9EC20065485D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,14 +338,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DA6BA1F41C5D9EC20065485D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DA6BA1F51C5D9EC20065485D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -498,6 +520,7 @@
 				DA6BA2171C5D9EC20065485D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA6BA2181C5D9EC20065485D /* Build configuration list for PBXNativeTarget "mindrTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +529,7 @@
 				DA6BA21A1C5D9EC20065485D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA6BA21B1C5D9EC20065485D /* Build configuration list for PBXNativeTarget "mindrUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +538,7 @@
 				DA6BA21D1C5D9EC20065485D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

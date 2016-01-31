@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5MenuSource.h"
 
 @interface ViewController : UIViewController
 
+@property(nonatomic, strong) id<g5MenuSource> menuSource;
 
 @end
 

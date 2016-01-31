@@ -18,6 +18,9 @@
 		DA6BA22A1C5DA2640065485D /* menus.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA2291C5DA2640065485D /* menus.plist */; };
 		DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */; };
 		DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */; };
+		DA6BA2391C5DBF650065485D /* LivePopup.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2381C5DBF650065485D /* LivePopup.m */; };
+		DA6BA23C1C5DBFCC0065485D /* gsMenuPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA23B1C5DBFCC0065485D /* gsMenuPopup.xib */; };
+		DA6BA23F1C5DBFD90065485D /* gsMenuPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA23E1C5DBFD90065485D /* gsMenuPopup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,11 @@
 		DA6BA2301C5DBB780065485D /* g5MenuSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSource.h; sourceTree = "<group>"; };
 		DA6BA2331C5DBBB40065485D /* g5MenuSourceAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSourceAsset.h; sourceTree = "<group>"; };
 		DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5MenuSourceAsset.m; sourceTree = "<group>"; };
+		DA6BA2371C5DBF650065485D /* LivePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LivePopup.h; sourceTree = "<group>"; };
+		DA6BA2381C5DBF650065485D /* LivePopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LivePopup.m; sourceTree = "<group>"; };
+		DA6BA23B1C5DBFCC0065485D /* gsMenuPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = gsMenuPopup.xib; sourceTree = "<group>"; };
+		DA6BA23D1C5DBFD90065485D /* gsMenuPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gsMenuPopup.h; sourceTree = "<group>"; };
+		DA6BA23E1C5DBFD90065485D /* gsMenuPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gsMenuPopup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +186,7 @@
 		DA6BA2201C5D9F8D0065485D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BA2361C5DBF650065485D /* Popups */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -185,6 +194,7 @@
 		DA6BA2211C5D9F8D0065485D /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BA23A1C5DBFCC0065485D /* Popups */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -215,6 +225,25 @@
 				DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */,
 			);
 			path = Menus;
+			sourceTree = "<group>";
+		};
+		DA6BA2361C5DBF650065485D /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA23D1C5DBFD90065485D /* gsMenuPopup.h */,
+				DA6BA23E1C5DBFD90065485D /* gsMenuPopup.m */,
+				DA6BA2371C5DBF650065485D /* LivePopup.h */,
+				DA6BA2381C5DBF650065485D /* LivePopup.m */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		DA6BA23A1C5DBFCC0065485D /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA23B1C5DBFCC0065485D /* gsMenuPopup.xib */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +352,7 @@
 				DA6BA22A1C5DA2640065485D /* menus.plist in Resources */,
 				DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */,
 				DA6BA1F81C5D9EC20065485D /* Assets.xcassets in Resources */,
+				DA6BA23C1C5DBFCC0065485D /* gsMenuPopup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +380,9 @@
 				DA6BA1F31C5D9EC20065485D /* ViewController.m in Sources */,
 				DA6BA1F01C5D9EC20065485D /* AppDelegate.m in Sources */,
 				DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */,
+				DA6BA23F1C5DBFD90065485D /* gsMenuPopup.m in Sources */,
 				DA6BA1ED1C5D9EC20065485D /* main.m in Sources */,
+				DA6BA2391C5DBF650065485D /* LivePopup.m in Sources */,
 				DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */,
 				DA6BA2271C5DA0D60065485D /* g5ReminderElement.m in Sources */,
 			);

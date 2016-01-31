@@ -14,6 +14,10 @@
 		DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */; };
 		DA6BA2061C5D9EC20065485D /* mindrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2051C5D9EC20065485D /* mindrTests.m */; };
 		DA6BA2111C5D9EC20065485D /* mindrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2101C5D9EC20065485D /* mindrUITests.m */; };
+		DA6BA2271C5DA0D60065485D /* g5ReminderElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */; };
+		DA6BA22A1C5DA2640065485D /* menus.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA2291C5DA2640065485D /* menus.plist */; };
+		DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */; };
+		DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,14 @@
 		DA6BA20C1C5D9EC20065485D /* mindrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6BA2101C5D9EC20065485D /* mindrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mindrUITests.m; sourceTree = "<group>"; };
 		DA6BA2121C5D9EC20065485D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA6BA2251C5DA0D50065485D /* g5ReminderElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderElement.h; sourceTree = "<group>"; };
+		DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderElement.m; sourceTree = "<group>"; };
+		DA6BA2291C5DA2640065485D /* menus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menus.plist; sourceTree = "<group>"; };
+		DA6BA22B1C5DA5B10065485D /* g5ReminderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderMenu.h; sourceTree = "<group>"; };
+		DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderMenu.m; sourceTree = "<group>"; };
+		DA6BA2301C5DBB780065485D /* g5MenuSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSource.h; sourceTree = "<group>"; };
+		DA6BA2331C5DBBB40065485D /* g5MenuSourceAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSourceAsset.h; sourceTree = "<group>"; };
+		DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5MenuSourceAsset.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,7 @@
 		DA6BA1EA1C5D9EC20065485D /* mindr */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BA22E1C5DBB530065485D /* Sources */,
 				DA6BA21E1C5D9F8D0065485D /* Models */,
 				DA6BA21F1C5D9F8D0065485D /* UIElements */,
 				DA6BA1EE1C5D9EC20065485D /* AppDelegate.h */,
@@ -108,6 +121,7 @@
 				DA6BA1F71C5D9EC20065485D /* Assets.xcassets */,
 				DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */,
 				DA6BA1FC1C5D9EC20065485D /* Info.plist */,
+				DA6BA2281C5DA2540065485D /* Resources */,
 				DA6BA1EB1C5D9EC20065485D /* Supporting Files */,
 			);
 			path = mindr;
@@ -142,6 +156,10 @@
 		DA6BA21E1C5D9F8D0065485D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DA6BA2251C5DA0D50065485D /* g5ReminderElement.h */,
+				DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */,
+				DA6BA22B1C5DA5B10065485D /* g5ReminderMenu.h */,
+				DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */,
 			);
 			name = Models;
 			path = mindr/Models;
@@ -169,6 +187,34 @@
 			children = (
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		DA6BA2281C5DA2540065485D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA2291C5DA2640065485D /* menus.plist */,
+			);
+			name = Resources;
+			path = mindr/Resources;
+			sourceTree = "<group>";
+		};
+		DA6BA22E1C5DBB530065485D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA22F1C5DBB6C0065485D /* Menus */,
+			);
+			name = Sources;
+			path = mindr/Sources;
+			sourceTree = "<group>";
+		};
+		DA6BA22F1C5DBB6C0065485D /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA2301C5DBB780065485D /* g5MenuSource.h */,
+				DA6BA2331C5DBBB40065485D /* g5MenuSourceAsset.h */,
+				DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */,
+			);
+			path = Menus;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6BA22A1C5DA2640065485D /* menus.plist in Resources */,
 				DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */,
 				DA6BA1F81C5D9EC20065485D /* Assets.xcassets in Resources */,
 			);
@@ -302,7 +349,10 @@
 			files = (
 				DA6BA1F31C5D9EC20065485D /* ViewController.m in Sources */,
 				DA6BA1F01C5D9EC20065485D /* AppDelegate.m in Sources */,
+				DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */,
 				DA6BA1ED1C5D9EC20065485D /* main.m in Sources */,
+				DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */,
+				DA6BA2271C5DA0D60065485D /* g5ReminderElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

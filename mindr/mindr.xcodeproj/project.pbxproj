@@ -14,14 +14,15 @@
 		DA6BA1FB1C5D9EC20065485D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA1F91C5D9EC20065485D /* LaunchScreen.storyboard */; };
 		DA6BA2061C5D9EC20065485D /* mindrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2051C5D9EC20065485D /* mindrTests.m */; };
 		DA6BA2111C5D9EC20065485D /* mindrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2101C5D9EC20065485D /* mindrUITests.m */; };
-		DA6BA2271C5DA0D60065485D /* g5ReminderElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */; };
 		DA6BA22A1C5DA2640065485D /* menus.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA2291C5DA2640065485D /* menus.plist */; };
-		DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */; };
 		DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */; };
 		DA6BA2391C5DBF650065485D /* LivePopup.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2381C5DBF650065485D /* LivePopup.m */; };
 		DA6BA23C1C5DBFCC0065485D /* ReminderMenuPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA6BA23B1C5DBFCC0065485D /* ReminderMenuPopup.xib */; };
 		DA6BA23F1C5DBFD90065485D /* ReminderMenuPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA23E1C5DBFD90065485D /* ReminderMenuPopup.m */; };
-		DA6BA2421C5DC4BF0065485D /* g5ReminderCompositeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2411C5DC4BF0065485D /* g5ReminderCompositeItem.m */; };
+		DA6BA24D1C5E6BB80065485D /* g5ReminderCompositeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2481C5E6BB80065485D /* g5ReminderCompositeItem.m */; };
+		DA6BA24E1C5E6BB80065485D /* g5ReminderElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA24A1C5E6BB80065485D /* g5ReminderElement.m */; };
+		DA6BA24F1C5E6BB80065485D /* g5ReminderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA24C1C5E6BB80065485D /* g5ReminderMenu.m */; };
+		DA6BA2521C5E6BCE0065485D /* g5ReminderFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6BA2511C5E6BCE0065485D /* g5ReminderFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,11 +58,7 @@
 		DA6BA20C1C5D9EC20065485D /* mindrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6BA2101C5D9EC20065485D /* mindrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mindrUITests.m; sourceTree = "<group>"; };
 		DA6BA2121C5D9EC20065485D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA6BA2251C5DA0D50065485D /* g5ReminderElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderElement.h; sourceTree = "<group>"; };
-		DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderElement.m; sourceTree = "<group>"; };
 		DA6BA2291C5DA2640065485D /* menus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = menus.plist; sourceTree = "<group>"; };
-		DA6BA22B1C5DA5B10065485D /* g5ReminderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderMenu.h; sourceTree = "<group>"; };
-		DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderMenu.m; sourceTree = "<group>"; };
 		DA6BA2301C5DBB780065485D /* g5MenuSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSource.h; sourceTree = "<group>"; };
 		DA6BA2331C5DBBB40065485D /* g5MenuSourceAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5MenuSourceAsset.h; sourceTree = "<group>"; };
 		DA6BA2341C5DBBB40065485D /* g5MenuSourceAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5MenuSourceAsset.m; sourceTree = "<group>"; };
@@ -70,8 +67,14 @@
 		DA6BA23B1C5DBFCC0065485D /* ReminderMenuPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderMenuPopup.xib; sourceTree = "<group>"; };
 		DA6BA23D1C5DBFD90065485D /* ReminderMenuPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderMenuPopup.h; sourceTree = "<group>"; };
 		DA6BA23E1C5DBFD90065485D /* ReminderMenuPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderMenuPopup.m; sourceTree = "<group>"; };
-		DA6BA2401C5DC4BF0065485D /* g5ReminderCompositeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderCompositeItem.h; sourceTree = "<group>"; };
-		DA6BA2411C5DC4BF0065485D /* g5ReminderCompositeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderCompositeItem.m; sourceTree = "<group>"; };
+		DA6BA2471C5E6BB80065485D /* g5ReminderCompositeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderCompositeItem.h; sourceTree = "<group>"; };
+		DA6BA2481C5E6BB80065485D /* g5ReminderCompositeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderCompositeItem.m; sourceTree = "<group>"; };
+		DA6BA2491C5E6BB80065485D /* g5ReminderElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderElement.h; sourceTree = "<group>"; };
+		DA6BA24A1C5E6BB80065485D /* g5ReminderElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderElement.m; sourceTree = "<group>"; };
+		DA6BA24B1C5E6BB80065485D /* g5ReminderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderMenu.h; sourceTree = "<group>"; };
+		DA6BA24C1C5E6BB80065485D /* g5ReminderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderMenu.m; sourceTree = "<group>"; };
+		DA6BA2501C5E6BCE0065485D /* g5ReminderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderFactory.h; sourceTree = "<group>"; };
+		DA6BA2511C5E6BCE0065485D /* g5ReminderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,12 +170,8 @@
 		DA6BA21E1C5D9F8D0065485D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DA6BA2401C5DC4BF0065485D /* g5ReminderCompositeItem.h */,
-				DA6BA2411C5DC4BF0065485D /* g5ReminderCompositeItem.m */,
-				DA6BA2251C5DA0D50065485D /* g5ReminderElement.h */,
-				DA6BA2261C5DA0D60065485D /* g5ReminderElement.m */,
-				DA6BA22B1C5DA5B10065485D /* g5ReminderMenu.h */,
-				DA6BA22C1C5DA5B10065485D /* g5ReminderMenu.m */,
+				DA6BA2451C5E6BB80065485D /* Factories */,
+				DA6BA2461C5E6BB80065485D /* Reminder Composites */,
 			);
 			name = Models;
 			path = mindr/Models;
@@ -249,6 +248,28 @@
 				DA6BA23B1C5DBFCC0065485D /* ReminderMenuPopup.xib */,
 			);
 			path = Popups;
+			sourceTree = "<group>";
+		};
+		DA6BA2451C5E6BB80065485D /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA2501C5E6BCE0065485D /* g5ReminderFactory.h */,
+				DA6BA2511C5E6BCE0065485D /* g5ReminderFactory.m */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
+		DA6BA2461C5E6BB80065485D /* Reminder Composites */ = {
+			isa = PBXGroup;
+			children = (
+				DA6BA2471C5E6BB80065485D /* g5ReminderCompositeItem.h */,
+				DA6BA2481C5E6BB80065485D /* g5ReminderCompositeItem.m */,
+				DA6BA2491C5E6BB80065485D /* g5ReminderElement.h */,
+				DA6BA24A1C5E6BB80065485D /* g5ReminderElement.m */,
+				DA6BA24B1C5E6BB80065485D /* g5ReminderMenu.h */,
+				DA6BA24C1C5E6BB80065485D /* g5ReminderMenu.m */,
+			);
+			path = "Reminder Composites";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,15 +403,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA6BA2521C5E6BCE0065485D /* g5ReminderFactory.m in Sources */,
 				DA6BA1F31C5D9EC20065485D /* ViewController.m in Sources */,
 				DA6BA1F01C5D9EC20065485D /* AppDelegate.m in Sources */,
-				DA6BA22D1C5DA5B10065485D /* g5ReminderMenu.m in Sources */,
+				DA6BA24E1C5E6BB80065485D /* g5ReminderElement.m in Sources */,
 				DA6BA23F1C5DBFD90065485D /* ReminderMenuPopup.m in Sources */,
+				DA6BA24F1C5E6BB80065485D /* g5ReminderMenu.m in Sources */,
 				DA6BA1ED1C5D9EC20065485D /* main.m in Sources */,
 				DA6BA2391C5DBF650065485D /* LivePopup.m in Sources */,
 				DA6BA2351C5DBBB40065485D /* g5MenuSourceAsset.m in Sources */,
-				DA6BA2271C5DA0D60065485D /* g5ReminderElement.m in Sources */,
-				DA6BA2421C5DC4BF0065485D /* g5ReminderCompositeItem.m in Sources */,
+				DA6BA24D1C5E6BB80065485D /* g5ReminderCompositeItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

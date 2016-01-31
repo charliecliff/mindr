@@ -6,9 +6,10 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "gsMenuPopup.h"
+#import "ReminderMenuPopup.h"
+#import "g5ReminderElement.h"
 
-@interface gsMenuPopup ()
+@interface ReminderMenuPopup ()
 
 @property (nonatomic, strong) g5ReminderMenu *menu;
 
@@ -16,7 +17,7 @@
 
 @end
 
-@implementation gsMenuPopup
+@implementation ReminderMenuPopup
 
 - (instancetype)init {
     self = [super init];
@@ -28,9 +29,9 @@
 
 - (void)configureForMenu:(g5ReminderMenu *)menu {
     self.menu = menu;
-//    CGFloat newPopupHeight = self.menu.menuOptions.allValues.count * 40 + 44;
-//    self.contentViewHeight = newPopupHeight;
-//    [self.menuOptionTableView reloadData];
+    CGFloat newPopupHeight = self.menu.childrenReminderItems.count * 40 + 44;
+    self.contentViewHeight = newPopupHeight;
+    [self.menuOptionTableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -42,12 +43,14 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.menu.childrenReminderItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     
+    g5ReminderElement *element = [self.menu.childrenReminderItems objectAtIndex:indexPath.row];
+    [cell.textLabel setText:element.displayPhrase];
     
     return cell;
 }

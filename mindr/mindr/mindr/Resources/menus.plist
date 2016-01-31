@@ -283,27 +283,27 @@
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_days</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>the afternoon</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>menu1</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>the morning</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_days</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>the end</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_days</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>the beginning</string>
 			</dict>
 		</array>

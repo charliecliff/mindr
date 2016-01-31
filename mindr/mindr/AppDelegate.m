@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "g5MenuSourceAsset.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UIViewController *sceneVC = [[UIViewController alloc] initWithNibName:@"g5ARSceneViewController" bundle:nil];
+    ViewController *sceneVC = [[ViewController alloc] init];
+    sceneVC.menuSource = [[g5MenuSourceAsset alloc] init];
+    
     UINavigationController *vc = [[UINavigationController alloc] initWithRootViewController:sceneVC];
     [vc setNavigationBarHidden:YES];
     

@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ReminderMenuPopup.h"
 
 @interface ViewController ()
+
+@property(nonatomic, strong) NSDictionary *menus;
 
 @end
 
@@ -18,9 +21,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
+    
+    self.menus = [self.menuSource getReminderMenus];
     
     
     
+    ReminderMenuPopup *popup = [[ReminderMenuPopup alloc] init];
+    [popup configureForMenu:[self.menus objectForKey:@"base"]];
+    [popup present];
 }
 
 @end

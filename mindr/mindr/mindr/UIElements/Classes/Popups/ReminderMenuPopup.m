@@ -37,7 +37,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    g5ReminderElement *element = [self.menu.childrenReminderItems objectAtIndex:indexPath.row];
+    NSString *nextMenuId = element.menu_id;
 }
 
 #pragma mark - UITableViewDataSource

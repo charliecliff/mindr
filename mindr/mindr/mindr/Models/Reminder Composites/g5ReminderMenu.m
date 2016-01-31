@@ -14,6 +14,8 @@
 
 @implementation g5ReminderMenu
 
+#pragma mark - Init
+
 - (g5ReminderMenu *)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
@@ -30,6 +32,21 @@
         self.childrenReminderItems = [NSArray arrayWithArray:tmp];
     }
     return self;
+}
+
+#pragma mark - Phrase Generation
+
+- (NSString *)reminderPhraseForSelectedIdnex:(NSInteger)selectedIndex {
+    if ([self.type isEqualToString:@"replace"]) {
+        g5ReminderElement *selectedElement = [self.childrenReminderItems objectAtIndex:selectedIndex];
+        return selectedElement.displayPhrase;
+    }
+    else if ([self.type isEqualToString:@"concatenate"]) {
+        g5ReminderElement *selectedElement = [self.childrenReminderItems objectAtIndex:selectedIndex];
+        NSString *resultReminderPhrase = [NSString stringWithFormat:@"%@ %@", self.displayPhrase, selectedElement.displayPhrase];
+        return resultReminderPhrase;
+    }
+    return nil;
 }
 
 @end

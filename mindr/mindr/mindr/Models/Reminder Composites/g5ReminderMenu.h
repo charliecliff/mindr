@@ -15,4 +15,6 @@
 
 - (g5ReminderMenu *)initWithDictionary:(NSDictionary *)dictionary;
 
+- (NSString *)reminderPhraseForSelectedIdnex:(NSInteger)selectedIndex;
+
 @end

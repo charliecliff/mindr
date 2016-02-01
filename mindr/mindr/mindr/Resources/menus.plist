@@ -2,6 +2,174 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>month_other_menu</key>
+	<dict>
+		<key>type</key>
+		<string>replace</string>
+		<key>menu_id</key>
+		<string>other_menu</string>
+		<key>display_phrase</key>
+		<string>other</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>week_or_month_menu</string>
+				<key>display_phrase</key>
+				<string>other</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>week_or_month_menu</string>
+				<key>display_phrase</key>
+				<string>other two</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>week_or_month_menu</string>
+				<key>display_phrase</key>
+				<string>other three</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>week_or_month_menu</string>
+				<key>display_phrase</key>
+				<string>other four</string>
+			</dict>
+		</array>
+	</dict>
+	<key>week_or_month_menu</key>
+	<dict>
+		<key>type</key>
+		<string>replace</string>
+		<key>menu_id</key>
+		<string>week_or_month_menu</string>
+		<key>display_phrase</key>
+		<string>every</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>month</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>week</string>
+			</dict>
+		</array>
+	</dict>
+	<key>every_month_menu</key>
+	<dict>
+		<key>type</key>
+		<string>concatenate</string>
+		<key>menu_id</key>
+		<string>every_day_menu</string>
+		<key>display_phrase</key>
+		<string>every</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>month_other_menu</string>
+				<key>display_phrase</key>
+				<string>other</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>week_or_month_menu</string>
+				<key>display_phrase</key>
+				<string>week</string>
+			</dict>
+		</array>
+	</dict>
+	<key>month_menu</key>
+	<dict>
+		<key>type</key>
+		<string>replace</string>
+		<key>menu_id</key>
+		<string>month_menu</string>
+		<key>display_phrase</key>
+		<string>February</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>January</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>February</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>March</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>April</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>May</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>June</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>July</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>August</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>September</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>October</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>November</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>complete</string>
+				<key>display_phrase</key>
+				<string>December</string>
+			</dict>
+		</array>
+	</dict>
 	<key>other_menu</key>
 	<dict>
 		<key>type</key>
@@ -13,136 +181,172 @@
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
-				<string>day_type_menu</string>
-				<key>option_display_phrase</key>
+				<key>menu_id</key>
+				<string></string>
+				<key>display_phrase</key>
 				<string>other</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
-				<string>day_type_menu</string>
-				<key>option_display_phrase</key>
+				<key>menu_id</key>
+				<string></string>
+				<key>display_phrase</key>
 				<string>other two</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
+				<string></string>
+				<key>display_phrase</key>
 				<string>other three</string>
-				<key>option_display_phrase</key>
-				<string>friday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
-				<string>day_type_menu</string>
-				<key>option_display_phrase</key>
+				<key>menu_id</key>
+				<string></string>
+				<key>display_phrase</key>
 				<string>other four</string>
 			</dict>
 		</array>
 	</dict>
-	<key>weekdays_menu</key>
+	<key>of_months_menu</key>
+	<dict>
+		<key>type</key>
+		<string>concatenate</string>
+		<key>menu_id</key>
+		<string>of_months_menu</string>
+		<key>display_phrase</key>
+		<string>of</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>every_month_menu</string>
+				<key>display_phrase</key>
+				<string>every</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>month_menu</string>
+				<key>display_phrase</key>
+				<string>February</string>
+			</dict>
+		</array>
+	</dict>
+	<key>week_days_menu</key>
 	<dict>
 		<key>type</key>
 		<string>replace</string>
 		<key>menu_id</key>
-		<string>weekdays_menu</string>
+		<string>week_days_menu</string>
 		<key>display_phrase</key>
 		<string>monday</string>
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>sunday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>saturday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>friday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>thursday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>wednesday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>tuesday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>monday</string>
 			</dict>
 		</array>
 	</dict>
-	<key>monthdays_menu</key>
+	<key>month_days_menu</key>
 	<dict>
 		<key>type</key>
 		<string>replace</string>
 		<key>menu_id</key>
-		<string>weekdays_menu</string>
+		<string>month_days_menu</string>
 		<key>display_phrase</key>
 		<string>monday</string>
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
+				<string>31st</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>of_months_menu</string>
+				<key>display_phrase</key>
+				<string>25th</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>of_months_menu</string>
+				<key>display_phrase</key>
+				<string>23rd</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>of_months_menu</string>
+				<key>display_phrase</key>
 				<string>sunday</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>saturday</string>
+				<key>display_phrase</key>
+				<string>15th</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>friday</string>
+				<key>display_phrase</key>
+				<string>12th</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>thursday</string>
+				<key>display_phrase</key>
+				<string>3rd</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>wednesday</string>
+				<key>display_phrase</key>
+				<string>2nd</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>tuesday</string>
-			</dict>
-			<dict>
-				<key>next_menu_id</key>
-				<string>of_months_menu</string>
-				<key>option_display_phrase</key>
-				<string>monday</string>
+				<key>display_phrase</key>
+				<string>1st</string>
 			</dict>
 		</array>
 	</dict>
@@ -157,82 +361,34 @@
 		<key>menu_options</key>
 		<array>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>days_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>last</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>days_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>fourth</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>days_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>third</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>days_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>second</string>
 			</dict>
 			<dict>
-				<key>next_menu_id</key>
+				<key>menu_id</key>
 				<string>days_menu</string>
-				<key>option_display_phrase</key>
+				<key>display_phrase</key>
 				<string>first</string>
-			</dict>
-		</array>
-	</dict>
-	<key>of_months_menu</key>
-	<dict>
-		<key>type</key>
-		<string>concatenate</string>
-		<key>menu_id</key>
-		<string>of_days_menu</string>
-		<key>display_phrase</key>
-		<string>of</string>
-		<key>menu_options</key>
-		<array>
-			<dict>
-				<key>next_menu_id</key>
-				<string>every_menu</string>
-				<key>option_display_phrase</key>
-				<string>every</string>
-			</dict>
-			<dict>
-				<key>next_menu_id</key>
-				<string>the_menu</string>
-				<key>option_display_phrase</key>
-				<string>the</string>
-			</dict>
-		</array>
-	</dict>
-	<key>of_days_menu</key>
-	<dict>
-		<key>type</key>
-		<string>concatenate</string>
-		<key>menu_id</key>
-		<string>of_days_menu</string>
-		<key>display_phrase</key>
-		<string>of</string>
-		<key>menu_options</key>
-		<array>
-			<dict>
-				<key>next_menu_id</key>
-				<string>every_menu</string>
-				<key>option_display_phrase</key>
-				<string>every</string>
-			</dict>
-			<dict>
-				<key>next_menu_id</key>
-				<string>the_menu</string>
-				<key>option_display_phrase</key>
-				<string>the</string>
 			</dict>
 		</array>
 	</dict>
@@ -260,15 +416,39 @@
 			</dict>
 			<dict>
 				<key>menu_id</key>
-				<string>weekdays_menu</string>
+				<string>week_days_menu</string>
 				<key>display_phrase</key>
 				<string>monday</string>
 			</dict>
 			<dict>
 				<key>menu_id</key>
-				<string>monthdays_menu</string>
+				<string>month_days_menu</string>
 				<key>display_phrase</key>
 				<string>23rd</string>
+			</dict>
+		</array>
+	</dict>
+	<key>of_menu</key>
+	<dict>
+		<key>type</key>
+		<string>concatenate</string>
+		<key>menu_id</key>
+		<string>of_menu</string>
+		<key>display_phrase</key>
+		<string>of</string>
+		<key>menu_options</key>
+		<array>
+			<dict>
+				<key>menu_id</key>
+				<string>every_day_menu</string>
+				<key>display_phrase</key>
+				<string>every</string>
+			</dict>
+			<dict>
+				<key>menu_id</key>
+				<string>the_day_menu</string>
+				<key>display_phrase</key>
+				<string>the</string>
 			</dict>
 		</array>
 	</dict>
@@ -284,25 +464,25 @@
 		<array>
 			<dict>
 				<key>menu_id</key>
-				<string>of_days</string>
+				<string>of_menu</string>
 				<key>display_phrase</key>
 				<string>the afternoon</string>
 			</dict>
 			<dict>
 				<key>menu_id</key>
-				<string>menu1</string>
+				<string>of_menu</string>
 				<key>display_phrase</key>
 				<string>the morning</string>
 			</dict>
 			<dict>
 				<key>menu_id</key>
-				<string>of_days</string>
+				<string>of_menu</string>
 				<key>display_phrase</key>
 				<string>the end</string>
 			</dict>
 			<dict>
 				<key>menu_id</key>
-				<string>of_days</string>
+				<string>of_menu</string>
 				<key>display_phrase</key>
 				<string>the beginning</string>
 			</dict>

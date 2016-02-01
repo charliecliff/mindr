@@ -11,8 +11,9 @@
 
 @protocol MenuPopupDelegate <NSObject>
 
-@optional
-- (void)didSelectMenuOption;
+@required
+- (void)didSelectReminderPhrase:(NSString *)reminderPhrase;
+- (void)didSelectNextMenuWithID:(NSString *)nextMenuID;
 
 @end
 

@@ -10,9 +10,10 @@
 #import "ReminderMenuPopup.h"
 #import "g5ReminderFactory.h"
 
-@interface ViewController ()
+@interface ViewController () <MenuPopupDelegate>
 
 @property(nonatomic, strong) NSDictionary *menus;
+@property(nonatomic, strong) ReminderMenuPopup *popup;
 
 @end
 
@@ -26,11 +27,27 @@
     
     self.menus = [self.menuSource getReminderMenus];
     
+    self.popup = [[ReminderMenuPopup alloc] init];
+    [self.popup configureForMenu:[self.menus objectForKey:@"base"]];
+    [self.popup setDelegate:self];
+    [self.popup present];
+}
+
+#pragma mark - MenuPopupDelegate
+
+- (void)didSelectReminderPhrase:(NSString *)reminderPhrase {
     
+}
+
+- (void)didSelectNextMenuWithID:(NSString *)nextMenuID {
+    [self.popup dismiss];
     
-    ReminderMenuPopup *popup = [[ReminderMenuPopup alloc] init];
-    [popup configureForMenu:[self.menus objectForKey:@"base"]];
-    [popup present];
+    g5ReminderMenu *nextMenu = [self.menus objectForKey:nextMenuID];
+    
+    self.popup = [[ReminderMenuPopup alloc] init];
+    [self.popup configureForMenu:nextMenu];
+    [self.popup setDelegate:self];
+    [self.popup present];
 }
 
 @end

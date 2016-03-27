@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5ReminderListViewController">
+            <connections>
+                <outlet property="createReminderButtonBackgroundImage" destination="rn1-kR-7VZ" id="GbP-au-Mpw"/>
+                <outlet property="reminderTableView" destination="uw2-LS-xDB" id="AzV-MX-hoD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="YEV-Fs-vfi" userLabel="Image - Background">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" red="0.18823529410000001" green="0.37647058820000001" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uw2-LS-xDB" userLabel="TableView - Reminder">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-kR-7VZ" userLabel="Background Create Reminder">
+                    <rect key="frame" x="245" y="545" width="110" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="Rpd-l1-bQZ"/>
+                        <constraint firstAttribute="width" constant="110" id="oCX-YZ-BUt"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERZ-VW-qkk" userLabel="Button - Create Reminder">
+                    <rect key="frame" x="273" y="545" width="55" height="55"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="J0D-g0-qRi"/>
+                        <constraint firstAttribute="height" constant="55" id="cEi-vu-U8f"/>
+                    </constraints>
+                    <state key="normal" title="B"/>
+                    <connections>
+                        <action selector="didPressCreateNewReminderButton:" destination="-1" eventType="touchUpInside" id="uRk-c8-iIu"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-nB-EVQ" userLabel="View - Header">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SaE-6m-ans" userLabel="View - Separator">
+                            <rect key="frame" x="0.0" y="62" width="600" height="2"/>
+                            <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Cpg-QJ-T0t"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKT-Ia-Xq1" userLabel="Label - Title">
+                            <rect key="frame" x="38" y="28" width="524" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="Zh4-vV-xIR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="eKT-Ia-Xq1" secondAttribute="trailing" constant="38" id="DNf-UR-dTJ"/>
+                        <constraint firstItem="SaE-6m-ans" firstAttribute="leading" secondItem="2UO-nB-EVQ" secondAttribute="leading" id="NiH-Ff-nnh"/>
+                        <constraint firstAttribute="height" constant="64" id="Qnu-Zg-abh"/>
+                        <constraint firstAttribute="trailing" secondItem="SaE-6m-ans" secondAttribute="trailing" id="Wej-BA-zZy"/>
+                        <constraint firstItem="eKT-Ia-Xq1" firstAttribute="leading" secondItem="2UO-nB-EVQ" secondAttribute="leading" constant="38" id="aEE-fk-w3a"/>
+                        <constraint firstItem="SaE-6m-ans" firstAttribute="top" secondItem="eKT-Ia-Xq1" secondAttribute="bottom" constant="2" id="f4J-Zf-p6D"/>
+                        <constraint firstAttribute="bottom" secondItem="SaE-6m-ans" secondAttribute="bottom" id="gHZ-gd-skZ"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="600" id="wga-8G-OJ8"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="wga-8G-OJ8"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2UO-nB-EVQ" secondAttribute="trailing" id="0FE-Xb-qLo"/>
+                <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7yX-bM-EZ1"/>
+                <constraint firstAttribute="bottom" secondItem="uw2-LS-xDB" secondAttribute="bottom" id="96a-OP-wXy"/>
+                <constraint firstItem="YEV-Fs-vfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tD-Ex-4qw"/>
+                <constraint firstAttribute="trailing" secondItem="uw2-LS-xDB" secondAttribute="trailing" id="AY4-53-r4b"/>
+                <constraint firstItem="2UO-nB-EVQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2b-ZH-lOw"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="YEV-Fs-vfi" secondAttribute="bottom" id="XH5-Z5-Xfu"/>
+                <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="2UO-nB-EVQ" secondAttribute="bottom" id="XME-9g-Y8c"/>
+                <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="2UO-nB-EVQ" secondAttribute="bottom" id="Z7X-rt-Wfq"/>
+                <constraint firstItem="rn1-kR-7VZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aiq-gx-D1G"/>
+                <constraint firstItem="YEV-Fs-vfi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gEU-E9-Sau"/>
+                <constraint firstAttribute="bottom" secondItem="ERZ-VW-qkk" secondAttribute="bottom" id="ieE-CL-lrd"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="lgC-az-Vs2"/>
+                <constraint firstAttribute="trailing" secondItem="YEV-Fs-vfi" secondAttribute="trailing" id="p7a-JH-p2v"/>
+                <constraint firstAttribute="bottom" secondItem="uw2-LS-xDB" secondAttribute="bottom" id="qAw-BO-ttj"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qYm-E8-yOH"/>
+                <constraint firstItem="uw2-LS-xDB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLi-6E-hzL"/>
+                <constraint firstAttribute="bottom" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="uNk-PM-xpg"/>
+                <constraint firstAttribute="bottom" secondItem="YEV-Fs-vfi" secondAttribute="bottom" id="vlK-tn-Ahc"/>
+                <constraint firstItem="2UO-nB-EVQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wCw-70-Jch"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7yX-bM-EZ1"/>
+                    <exclude reference="96a-OP-wXy"/>
+                    <exclude reference="Z7X-rt-Wfq"/>
+                    <exclude reference="XH5-Z5-Xfu"/>
+                    <exclude reference="lgC-az-Vs2"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
+</document>

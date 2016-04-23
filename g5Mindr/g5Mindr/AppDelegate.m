@@ -12,6 +12,7 @@
 #import "g5EmoticonSelectionViewController.h"
 #import "g5ReminderListViewController.h"
 
+#import "g5WeatherManager.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +20,10 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+    
     [g5ReminderManager sharedManager];
     
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
@@ -34,6 +37,14 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    [[g5WeatherManager sharedManager] updateCurrentWeather];
+    
+    if (completionHandler) {
+        completionHandler(UIBackgroundFetchResultNewData);
+    }
 }
 
 @end

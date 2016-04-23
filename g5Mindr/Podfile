@@ -4,7 +4,13 @@ inhibit_all_warnings!
 target 'g5Mindr' do
     
     source 'https://github.com/CocoaPods/Specs.git'
+    
     pod 'AFNetworking', '~> 2.6.3'
+    
+    pod 'PBJHexagon'
+    
+    pod 'Mapbox-iOS-SDK'
+    
     pod 'Mantle'
     
     pod 'PBJHexagon'

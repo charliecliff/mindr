@@ -8,15 +8,28 @@
 
 #import "g5Condition.h"
 
-NSString *const g5DateType = @"date";
-NSString *const g5TimeType = @"time";
-NSString *const g5WeatherType = @"weather";
+#define KEY_CONDITION_TYPE @"KEY_CONDITION_TYPE"
+#define KEY_CONDITION_ID   @"KEY_CONDITION_ID"
+
+NSString *const g5DateType        = @"date";
+NSString *const g5TimeType        = @"time";
+NSString *const g5WeatherType     = @"weather";
 NSString *const g5TemperatureType = @"temp";
- NSString *const g5LocationType = @"location";
+NSString *const g5LocationType    = @"location";
 
 @implementation g5Condition
 
-#pragma mark - Getters
+#pragma mark - Init
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
+
+#pragma mark - Over Ride
 
 - (BOOL)isValid {
     assert(false);
@@ -28,6 +41,20 @@ NSString *const g5TemperatureType = @"temp";
 
 - (NSString *)placeholderText {
     assert(false);
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
+    self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setObject:self.uid forKey:KEY_CONDITION_ID];
+    [dictionary setObject:self.type forKey:KEY_CONDITION_TYPE];
+    return dictionary;
 }
 
 @end

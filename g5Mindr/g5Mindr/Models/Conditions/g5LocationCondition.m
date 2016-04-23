@@ -9,13 +9,21 @@
 #import "g5LocationCondition.h"
 #import <CoreLocation/CoreLocation.h>
 
+#define KEY_CONDITION_LOCATION @"KEY_CONDITION_LOCATION"
+#define KEY_CONDITION_RADIUS   @"KEY_CONDITION_RADIUS"
+
 @implementation g5LocationCondition
 
 #pragma mark - Init
 
-- (instancetype)init {
-    assert(false);
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
 }
+
 
 - (instancetype)initWithLocationDatasource:(id<g5LocationDatasource>)datasource {
     self = [super init];
@@ -42,6 +50,22 @@
 
 - (NSString *)placeholderText {
     return @"LOCATION";
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    self.location = [dictionary objectForKey:KEY_CONDITION_LOCATION];
+    
+    NSNumber *radiusNumber = [dictionary objectForKey:KEY_CONDITION_RADIUS];
+    self.radius = [radiusNumber floatValue];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    [dictionary setObject:self.location forKey:KEY_CONDITION_LOCATION];
+    [dictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];
+    return dictionary;
 }
 
 @end

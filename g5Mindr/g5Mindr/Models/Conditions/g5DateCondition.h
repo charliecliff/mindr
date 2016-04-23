@@ -11,9 +11,11 @@
 
 @interface g5DateCondition : g5Condition
 
-@property(nonatomic, readonly) NSDate *date;
+@property(nonatomic, strong) NSArray *dates;
 @property(nonatomic, strong) id<g5EventDatasource> datasource;
 
-- (instancetype)initWithEventDatasource:(id<g5EventDatasource>)datasource;
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDates:(NSArray *)dates;
 
 @end

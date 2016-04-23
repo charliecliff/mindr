@@ -14,6 +14,13 @@
 
 #import "g5LocationManager.h"
 
+NSString *const g5WeatherSunny              = @"sunny";
+NSString *const g5WeatherPartlyCloudy       = @"partly_cloudy";
+NSString *const g5WeatherCloudy             = @"cloudy";
+NSString *const g5WeatherLightRain          = @"light_rain";
+NSString *const g5WeatherHeavyRain          = @"heavy_rain";
+NSString *const g5WeatherSeverThunderstorm  = @"severe_thunderstorm";
+
 @interface g5WeatherManager ()
 
 @property(nonatomic, strong) g5Weather *previousWeather;
@@ -53,8 +60,7 @@
 
 #pragma mark - Business Logic
 
-- (void)updateWeatherCondition:(g5Weather *)newWeather
-{
+- (void)updateWeatherCondition:(g5Weather *)newWeather {
     self.previousWeather = self.currentWeather;
     self.currentWeather  = newWeather;
     [self determineTemperatureChange];
@@ -67,8 +73,7 @@
     
 }
 
-- (void)determineTemperatureChange
-{
+- (void)determineTemperatureChange {
     if ( self.previousWeather.temperature != self.currentWeather.temperature ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NEW_TEMPERATURE object:nil];
     }
@@ -76,8 +81,7 @@
 
 #pragma mark - Weather Source Calls
 
-- (void)updateCurrentWeather
-{
+- (void)updateCurrentWeather {
     CLLocation *currentLocation = [[g5LocationManager sharedManager] currentLocation];
     
     __block __typeof(self)blockSelf = self;

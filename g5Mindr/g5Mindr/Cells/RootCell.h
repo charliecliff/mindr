@@ -15,7 +15,14 @@
 
 @interface RootCell : UICollectionViewCell
 
-// Configuration
-- (void)configureWithInt:(NSInteger)anInteger;
+@property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
+@property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
+@property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
+
+@property(nonatomic) BOOL hasSelectedEmoticon;
+
+- (void)configureWithEmoticonName:(NSString *)emoticonName;
+- (void)configureOuterRingWithColor:(UIColor *)color;
+- (void)configureInnerRingWithColor:(UIColor *)color;
 
 @end

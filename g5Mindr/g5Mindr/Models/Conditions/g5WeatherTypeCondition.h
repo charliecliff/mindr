@@ -13,6 +13,7 @@
 
 @property(nonatomic, strong) id<g5WeatherDatasource> datasource;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithWeatherDatasource:(id<g5WeatherDatasource>)datasource;
 
 @end

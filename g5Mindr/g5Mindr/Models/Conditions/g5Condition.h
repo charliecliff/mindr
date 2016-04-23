@@ -29,8 +29,11 @@ extern NSString *const g5LocationType;
 @property(nonatomic, strong) NSNumber *uid;
 @property(nonatomic, strong) NSString *type;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 - (BOOL)isValid;
 - (NSString *)detailsText;
 - (NSString *)placeholderText;
+- (NSDictionary *)encodeToDictionary;
 
 @end

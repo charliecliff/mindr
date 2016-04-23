@@ -15,6 +15,8 @@
 @property(nonatomic, strong) CLLocation *location;
 @property(nonatomic, strong) id<g5LocationDatasource> datasource;
 
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithLocationDatasource:(id<g5LocationDatasource>)datasource;
 
 @end

@@ -10,4 +10,7 @@
 
 @interface g5DateConditionViewController : g5ConditionViewController
 
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithDates:(NSArray *)dates;
+
 @end

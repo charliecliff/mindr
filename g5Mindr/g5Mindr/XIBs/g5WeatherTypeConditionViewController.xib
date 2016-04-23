@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5WeatherTypeConditionViewController">
@@ -10,6 +10,7 @@
                 <outlet property="backButton" destination="neE-tL-OaX" id="DdC-5H-VLC"/>
                 <outlet property="backButtonBackgroundImageView" destination="Tcq-mG-QfO" id="fF5-L8-UJC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weatherTypeTableView" destination="yea-4w-ZKc" id="18u-Vt-QMg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -51,6 +52,15 @@
                         <constraint firstAttribute="trailing" secondItem="vkG-mB-AEw" secondAttribute="trailing" id="w7U-fo-vDo"/>
                     </constraints>
                 </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yea-4w-ZKc">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Vle-3X-obO"/>
+                        <outlet property="delegate" destination="-1" id="OuO-hp-sxK"/>
+                    </connections>
+                </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-mG-QfO" userLabel="Button Background Image">
                     <rect key="frame" x="270" y="510" width="60" height="60"/>
                     <constraints>
@@ -67,10 +77,10 @@
                     </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neE-tL-OaX" userLabel="Back Button">
-                    <rect key="frame" x="278" y="518" width="44" height="44"/>
+                    <rect key="frame" x="270" y="510" width="60" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="44" id="5d2-DD-OFr"/>
-                        <constraint firstAttribute="height" constant="44" id="Osk-Aq-c8m"/>
+                        <constraint firstAttribute="width" constant="60" id="5d2-DD-OFr"/>
+                        <constraint firstAttribute="height" constant="60" id="Osk-Aq-c8m"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
@@ -85,10 +95,14 @@
                 <constraint firstItem="neE-tL-OaX" firstAttribute="centerY" secondItem="Tcq-mG-QfO" secondAttribute="centerY" id="BEm-Iz-1gK"/>
                 <constraint firstItem="Tcq-mG-QfO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DTg-Gk-WhC"/>
                 <constraint firstItem="neE-tL-OaX" firstAttribute="centerX" secondItem="Tcq-mG-QfO" secondAttribute="centerX" id="E00-51-NSP"/>
+                <constraint firstItem="yea-4w-ZKc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kko-t1-10C"/>
                 <constraint firstAttribute="bottom" secondItem="Oha-6K-wdl" secondAttribute="bottom" id="L2p-bv-oOz"/>
+                <constraint firstAttribute="bottom" secondItem="yea-4w-ZKc" secondAttribute="bottom" id="Noc-zh-b7N"/>
+                <constraint firstAttribute="trailing" secondItem="yea-4w-ZKc" secondAttribute="trailing" id="RlE-yl-Y7e"/>
                 <constraint firstAttribute="bottom" secondItem="Tcq-mG-QfO" secondAttribute="bottom" constant="30" id="bYE-mh-gIw"/>
                 <constraint firstAttribute="trailing" secondItem="Oha-6K-wdl" secondAttribute="trailing" id="e0b-ka-ESD"/>
                 <constraint firstAttribute="trailing" secondItem="Oc2-xO-vuR" secondAttribute="trailing" id="gAU-0v-z26"/>
+                <constraint firstItem="yea-4w-ZKc" firstAttribute="top" secondItem="Oc2-xO-vuR" secondAttribute="bottom" id="nLc-ua-aek"/>
                 <constraint firstItem="Oha-6K-wdl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uaL-cU-VQ8"/>
                 <constraint firstItem="Oc2-xO-vuR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vRm-4h-GfN"/>
             </constraints>

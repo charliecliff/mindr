@@ -13,6 +13,13 @@
 #import "g5WeatherDatasource.h"
 #import "g5LocationDatasource.h"
 
+extern NSString *const g5WeatherSunny;
+extern NSString *const g5WeatherPartlyCloudy;
+extern NSString *const g5WeatherCloudy;
+extern NSString *const g5WeatherLightRain;
+extern NSString *const g5WeatherHeavyRain;
+extern NSString *const g5WeatherSeverThunderstorm;
+
 @import CoreLocation;
 
 @class g5Weather;

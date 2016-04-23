@@ -14,6 +14,7 @@
 @property(nonatomic, readonly) NSTimeInterval timeOfDayInSeconds;
 @property(nonatomic, strong) id<g5EventDatasource> datasource;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithEventDatasource:(id<g5EventDatasource>)datasource;
 
 @end

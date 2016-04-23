@@ -29,6 +29,11 @@
     [self setUpCreateReminderButtonBackground];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.reminderTableView reloadData];
+}
+
 #pragma mark - Set Up
 
 - (void)setUpCreateReminderButtonBackground {
@@ -70,7 +75,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [g5ReminderManager sharedManager].reminderIDs.count;
+    NSInteger reminderCount = [g5ReminderManager sharedManager].reminderIDs.count;
+    return reminderCount;
 }
 
 @end

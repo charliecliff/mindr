@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Mapbox-iOS-SDK-Mapbox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>PBJHexagon.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,6 +32,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2DB59219DEF5D393F19F0753F2D9C161</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
@@ -37,12 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2E37A9D3AD12EEF20AE1C5078EC18CC</key>
+		<key>683134CCC9B89B1D865B233E088640EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF030DFA04E60774D8DA48C77F83240C</key>
+		<key>A2E37A9D3AD12EEF20AE1C5078EC18CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

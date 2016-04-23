@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class g5Reminder;
+
 @interface g5EmoticonSelectionViewController : UIViewController
+
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithReminder:(g5Reminder *)reminder;
 
 @end

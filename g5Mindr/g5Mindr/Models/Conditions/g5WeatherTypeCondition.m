@@ -8,6 +8,8 @@
 
 #import "g5WeatherTypeCondition.h"
 
+#define KEY_CONDITION_WEATHER_TYPE @"KEY_CONDITION_WEATHER_TYPE"
+
 @interface g5WeatherTypeCondition ()
 
 @property(nonatomic) g5WeatherConditionType weatherType;
@@ -17,6 +19,14 @@
 @implementation g5WeatherTypeCondition
 
 #pragma mark - Init
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
 
 - (instancetype)initWithWeatherDatasource:(id<g5WeatherDatasource>)datasource; {
     self = [super init];
@@ -43,4 +53,18 @@
 - (NSString *)placeholderText {
     return @"WEATHER";
 }
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    NSNumber *weatherTypeNumber = [dictionary objectForKey:KEY_CONDITION_WEATHER_TYPE];
+    self.weatherType = [weatherTypeNumber intValue];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    [dictionary setObject:[NSNumber numberWithInt:self.weatherType] forKey:KEY_CONDITION_WEATHER_TYPE];
+    return dictionary;
+}
+
 @end

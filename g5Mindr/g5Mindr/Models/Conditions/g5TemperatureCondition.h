@@ -16,6 +16,7 @@
 @property(nonatomic) NSComparisonResult temperatureComparisonType;
 @property(nonatomic, strong) NSNumber *temperature;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithWeatherDatasource:(id<g5WeatherDatasource>)datasource;
 
 @end

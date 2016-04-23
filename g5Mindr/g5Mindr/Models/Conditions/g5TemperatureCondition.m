@@ -8,6 +8,8 @@
 
 #import "g5TemperatureCondition.h"
 
+#define KEY_CONDITION_TEMPERATURE @"KEY_CONDITION_TEMPERATURE"
+
 @interface g5TemperatureCondition ()
 
 @property(nonatomic, strong) id<g5WeatherDatasource> datasource;
@@ -17,6 +19,14 @@
 @implementation g5TemperatureCondition
 
 #pragma mark - Init
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
 
 - (instancetype)initWithWeatherDatasource:(id<g5WeatherDatasource>)datasource;
 {
@@ -43,6 +53,18 @@
 
 - (NSString *)placeholderText {
     return @"TEMPERATURE";
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    self.temperature = [dictionary objectForKey:KEY_CONDITION_TEMPERATURE];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    [dictionary setObject:self.temperature forKey:KEY_CONDITION_TEMPERATURE];
+    return dictionary;
 }
 
 @end

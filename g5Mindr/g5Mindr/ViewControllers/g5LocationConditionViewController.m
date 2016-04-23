@@ -7,31 +7,32 @@
 //
 
 #import "g5LocationConditionViewController.h"
+#import "g5LocationManager.h"
+
+@import Mapbox;
 
 @interface g5LocationConditionViewController ()
+
+@property(nonatomic, strong) IBOutlet MGLMapView *mapView;
 
 @end
 
 @implementation g5LocationConditionViewController
 
+#pragma mark - View Life-Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setUpMapView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Setup
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setUpMapView {
+    self.mapView.showsUserLocation = NO;
+    self.mapView.zoomLevel = 14;
+    self.mapView.centerCoordinate = [g5LocationManager sharedManager].currentLocation.coordinate;
+    self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
 }
-*/
 
 @end

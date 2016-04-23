@@ -7,13 +7,15 @@
 //
 
 #import "g5ReminderViewController.h"
-#import "g5ConditionTableViewCell.h"
-#import "g5Reminder.h"
+#import "g5EmoticonSelectionViewController.h"
 #import "g5TimeConditionViewController.h"
 #import "g5DateConditionViewController.h"
 #import "g5TemperatureConditionViewController.h"
 #import "g5WeatherTypeConditionViewController.h"
 #import "g5LocationConditionViewController.h"
+#import "g5ConditionTableViewCell.h"
+#import "g5Reminder.h"
+#import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -84,7 +86,8 @@
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    
+    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableView DataSource
@@ -147,7 +150,7 @@
     switch ([condition.uid integerValue]) {
         
         case g5ConditionIDDate:
-            vc = [[g5DateConditionViewController alloc] init];
+            vc = [[g5DateConditionViewController alloc] initWithDates:nil];
             break;
         
         case g5ConditionIDLocation:

@@ -28,22 +28,20 @@
     return self;
 }
 
-- (instancetype)initWithWeatherDatasource:(id<g5WeatherDatasource>)datasource; {
+- (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.datasource  = datasource;
         self.uid         = [NSNumber numberWithInt:g5ConditionIDWeather];
         self.type        = g5WeatherType;
         self.weatherType = -1;
-
     }
     return self;
 }
 
 #pragma mark - Over Ride
 
-- (BOOL)isValid {
-    return NO;
+- (BOOL)isValidWeatherType:(g5WeatherConditionType)weatherType {
+    return (weatherType == self.weatherType);
 }
 
 - (NSString *)detailsText {

@@ -9,7 +9,7 @@
 #import "g5ReminderManager.h"
 
 #import "g5LocationManager.h"
-#import "g5WeatherManager.h"
+#import "g5WeatherMonitor.h"
 
 #import "g5WeatherClient.h"
 #import "g5OpenWeatherClient.h"
@@ -20,15 +20,20 @@
 
 #import "g5PersistenceManager.h"
 
+#import "g5ConditionMonitor.h"
+
+
 #define REMINDERS @"REMINDERS"
 
-@interface g5ReminderManager ()
+@interface g5ReminderManager () <g5ConditionMonitorDelegate, g5ConditionDataSource>
 
-@property(nonatomic, strong, readwrite) NSOrderedSet *unlockedConditionIDs;
+@property(nonatomic, strong) NSMutableArray *conditionMonitors;
+
+//@property(nonatomic, strong, readwrite) NSOrderedSet *unlockedConditionIDs;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 
-@property(nonatomic, strong) g5WeatherManager *weatherManager;
+@property(nonatomic, strong) g5WeatherMonitor *weatherMonitor;
 @property(nonatomic, strong) g5LocationManager *locationManager;
 
 @property(nonatomic, strong) g5LocationManager *locationSource;
@@ -54,17 +59,34 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
-        self.unlockedConditionIDs = [[NSOrderedSet alloc] init];
+//        self.unlockedConditionIDs = [[NSOrderedSet alloc] init];
         self.reminderIDs          = [[NSMutableOrderedSet alloc] init];
         self.reminders            = [[NSMutableDictionary alloc] init];
+        
+        self.conditionMonitors    = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+#pragma mark - Set Up
+
+- (void)setUpWeatherMonitor {
+    self.weatherMonitor = [[g5WeatherMonitor alloc] initWithDelegate:self];
+    [self.conditionMonitors addObject:self.weatherMonitor];
+}
+
+
+- (void)setUpLocationMonitor {
+    self.locationManager = [[g5WeatherMonitor alloc] initWithDelegate:self];
+    [self.conditionMonitors addObject:self.weatherMonitor];
 }
 
 #pragma mark - Getters
 
 - (g5Reminder *)newReminder {
-    return [[g5Reminder alloc] init];
+    g5Reminder *newReminder = [[g5Reminder alloc] init];
+    newReminder.datasource = self;
+    return newReminder;
 }
 
 - (void)addReminder:(g5Reminder *)reminder {
@@ -78,6 +100,24 @@
 
 #pragma mark - Update
 
+- (void)updateReminders {
+    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
+        [currentConditionMonitor updateMonitoredCondition];
+    }
+}
+
+#pragma mark - Post Push Notifications
+
+- (void)postPushNotificationForReminder:(g5Reminder *)reminder {
+    
+}
+
+#pragma mark - g5ConditionMonitorDelegate
+
+- (void)didUpdateCondition:(g5ConditionMonitor *)conditionMonitor {
+    [self validateReminderConditions];
+}
+
 - (void)validateReminderConditions {
     for (g5Reminder *reminder in self.reminders) {
         if ( [reminder haveConditionsBeenMeet] ) {
@@ -86,10 +126,26 @@
     }
 }
 
-#pragma mark - Post Push Notifications
+#pragma mark - g5ConditionDataSource
 
-- (void)postPushNotificationForReminder:(g5Reminder *)reminder {
-    
+- (NSDate *)currentTimeOfDay {
+    return [NSDate date];
+}
+
+- (NSDate *)currentDay {
+    return [NSDate date];
+}
+
+- (NSNumber *)currentTemperature {
+    return self.weatherMonitor.currentTemperature;
+}
+
+- (g5WeatherConditionType)currentWeatherCondition {
+    return self.weatherMonitor.currentWeatherType;
+}
+
+- (CLLocation *)currentLocation {
+    return nil;
 }
 
 #pragma mark - Persistence

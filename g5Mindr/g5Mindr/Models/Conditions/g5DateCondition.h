@@ -7,15 +7,15 @@
 //
 
 #import "g5Condition.h"
-#import "g5EventDatasource.h"
 
 @interface g5DateCondition : g5Condition
 
 @property(nonatomic, strong) NSArray *dates;
-@property(nonatomic, strong) id<g5EventDatasource> datasource;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithDates:(NSArray *)dates;
+
+- (BOOL)isValidDate:(NSDate *)date;
 
 @end

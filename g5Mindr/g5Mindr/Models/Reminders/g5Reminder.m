@@ -13,7 +13,7 @@
 #import "g5WeatherTypeCondition.h"
 #import "g5TemperatureCondition.h"
 
-#import "g5WeatherManager.h"
+#import "g5WeatherMonitor.h"
 #import "g5LocationManager.h"
 
 #define KEY_ID                    @"KEY_ID"
@@ -60,11 +60,11 @@
 #pragma mark - Set Up
 
 - (void)setUpConditionsArray {
-    self.timeCondition        = [[g5TimeCondition alloc] initWithEventDatasource:nil];
+    self.timeCondition        = [[g5TimeCondition alloc] init];
     self.dateCondition        = [[g5DateCondition alloc] initWithDates:nil];
-    self.weatherCondition     = [[g5WeatherTypeCondition alloc] initWithWeatherDatasource:[g5WeatherManager sharedManager]];
-    self.temperatureCondition = [[g5TemperatureCondition alloc] initWithWeatherDatasource:[g5WeatherManager sharedManager]];
-    self.locationCondition    = [[g5LocationCondition alloc] initWithLocationDatasource:[g5LocationManager sharedManager]];
+    self.temperatureCondition = [[g5TemperatureCondition alloc] init];
+    self.weatherCondition     = [[g5WeatherTypeCondition alloc] init];
+    self.locationCondition    = [[g5LocationCondition alloc] init];
     
     [self setCondition:self.timeCondition];
     [self setCondition:self.dateCondition];
@@ -83,7 +83,13 @@
 #pragma mark - Getters
 
 - (BOOL)haveConditionsBeenMeet {
-    return NO;
+    BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentTimeOfDay]];
+    BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDay]];
+    BOOL temperatureIsValid      = [self.temperatureCondition isValidTemperature:[self.datasource currentTemperature]];
+    BOOL weatherConditionIsValid = [self.weatherCondition isValidWeatherType:[self.datasource currentWeatherCondition]];
+    BOOL locationIsValid         = [self.locationCondition isValidLocation:[self.datasource currentLocation]];
+    
+    return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid);
 }
 
 - (g5Condition *)getConditionAtIndex:(NSUInteger)index {

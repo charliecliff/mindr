@@ -7,17 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "g5Condition.h"
+#import "g5TimeCondition.h"
+#import "g5DateCondition.h"
+#import "g5TemperatureCondition.h"
+#import "g5WeatherTypeCondition.h"
+#import "g5LocationCondition.h"
 
-@class g5TimeCondition;
-@class g5DateCondition;
-@class g5TemperatureCondition;
-@class g5WeatherTypeCondition;
-@class g5LocationCondition;
+@protocol g5ConditionDataSource <NSObject>
+
+@required
+- (NSDate *)currentTimeOfDay;
+- (NSDate *)currentDay;
+- (NSNumber *)currentTemperature;
+- (g5WeatherConditionType)currentWeatherCondition;
+- (CLLocation *)currentLocation;
+
+@end
 
 @interface g5Reminder : NSObject
 
 @property(nonatomic) BOOL isActive;
+
+@property(nonatomic, strong) NSString *reminderDescription;
+@property(nonatomic, strong) NSString *emoticonImageName;
+@property(nonatomic, strong) id<g5ConditionDataSource> datasource;
 
 @property(nonatomic, strong, readonly) NSString *uid;
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
@@ -28,7 +43,6 @@
 @property(nonatomic, strong) g5WeatherTypeCondition *weatherCondition;
 @property(nonatomic, strong) g5LocationCondition *locationCondition;
 
-@property(nonatomic, strong) NSString *emoticonImageName;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

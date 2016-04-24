@@ -12,7 +12,7 @@
 
 @interface g5ReminderManager : NSObject
 
-@property(nonatomic, strong, readonly) NSOrderedSet *unlockedConditionIDs;
+//@property(nonatomic, strong, readonly) NSOrderedSet *unlockedConditionIDs;
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readonly) NSMutableDictionary *reminders;
 
@@ -23,5 +23,7 @@
 - (void)addReminder:(g5Reminder *)reminder;
 
 - (g5Reminder *)reminderForID:(NSString *)reminderID;
+
+- (void)updateReminders;
 
 @end

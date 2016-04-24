@@ -7,16 +7,15 @@
 //
 
 #import "g5Condition.h"
-#import "g5LocationDatasource.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface g5LocationCondition : g5Condition
 
 @property(nonatomic) CLLocationDistance radius;
 @property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, strong) id<g5LocationDatasource> datasource;
 
-- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-- (instancetype)initWithLocationDatasource:(id<g5LocationDatasource>)datasource;
+
+- (BOOL)isValidLocation:(CLLocation *)location;
 
 @end

@@ -25,10 +25,9 @@
 }
 
 
-- (instancetype)initWithLocationDatasource:(id<g5LocationDatasource>)datasource {
+- (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.datasource = datasource;
         self.uid        = [NSNumber numberWithInt:g5ConditionIDLocation];
         self.type       = g5LocationType;
         self.location   = nil;
@@ -39,10 +38,10 @@
 
 #pragma mark - Over Ride
 
-- (BOOL)isValid {
-    CLLocationDistance distanceToCurrentLocation = [[self.datasource currentLocation] distanceFromLocation:self.location];
-    return !(distanceToCurrentLocation > self.radius);
-}
+//- (BOOL)isValid {
+//    CLLocationDistance distanceToCurrentLocation = [[self.datasource currentLocation] distanceFromLocation:self.location];
+//    return !(distanceToCurrentLocation > self.radius);
+//}
 
 - (NSString *)detailsText {
     return @"_details_";

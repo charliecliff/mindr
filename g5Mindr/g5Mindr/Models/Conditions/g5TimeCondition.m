@@ -30,10 +30,9 @@
     return self;
 }
 
-- (instancetype)initWithEventDatasource:(id<g5EventDatasource>)datasource {
+- (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.datasource         = datasource;
         self.uid                = [NSNumber numberWithInt:g5ConditionIDTime];
         self.type               = g5TimeType;
         self.timeOfDayInSeconds = NOON;
@@ -43,7 +42,7 @@
 
 #pragma mark - Over Ride
 
-- (BOOL)isValid {
+- (BOOL)isValidDate:(NSDate *)date {
     return NO;
 }
 

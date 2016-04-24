@@ -7,14 +7,13 @@
 //
 
 #import "g5Condition.h"
-#import "g5EventDatasource.h"
 
 @interface g5TimeCondition : g5Condition
 
 @property(nonatomic, readonly) NSTimeInterval timeOfDayInSeconds;
-@property(nonatomic, strong) id<g5EventDatasource> datasource;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-- (instancetype)initWithEventDatasource:(id<g5EventDatasource>)datasource;
+
+- (BOOL)isValidDate:(NSDate *)date;
 
 @end

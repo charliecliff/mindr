@@ -8,6 +8,14 @@
 
 #import <Mantle.h>
 
+typedef enum {
+    g5Rain = 0,
+    g5Storm,
+    g5ClearSky,
+    g5Snow,
+    g5Tornado
+} g5WeatherConditionType;
+
 @interface g5Weather : MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSDate *date;

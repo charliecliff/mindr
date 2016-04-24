@@ -12,7 +12,9 @@
 #import "g5EmoticonSelectionViewController.h"
 #import "g5ReminderListViewController.h"
 
-#import "g5WeatherManager.h"
+#import "g5WeatherMonitor.h"
+
+#import "g5ReminderManager.h"
 
 @interface AppDelegate ()
 
@@ -40,7 +42,7 @@
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [[g5WeatherManager sharedManager] updateCurrentWeather];
+    [[g5ReminderManager sharedManager] updateReminders];
     
     if (completionHandler) {
         completionHandler(UIBackgroundFetchResultNewData);

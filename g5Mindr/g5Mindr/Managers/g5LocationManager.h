@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "g5LocationDatasource.h"
 
 #define NOTIFICATION_LOCATION_SERVICES_ARE_NOT_AVAILABLE @"Location Services Are Not Available"
 
-@interface g5LocationManager : NSObject <g5LocationDatasource, CLLocationManagerDelegate>
+@interface g5LocationManager : NSObject <CLLocationManagerDelegate>
+
+@property(nonatomic, strong, readonly) CLLocation *currentLocation;
 
 + (g5LocationManager *)sharedManager;
 

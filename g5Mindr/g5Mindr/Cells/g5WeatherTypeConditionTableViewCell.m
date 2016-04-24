@@ -7,7 +7,7 @@
 //
 
 #import "g5WeatherTypeConditionTableViewCell.h"
-#import "g5WeatherManager.h"
+#import "g5WeatherMonitor.h"
 
 @interface g5WeatherTypeConditionTableViewCell ()
 

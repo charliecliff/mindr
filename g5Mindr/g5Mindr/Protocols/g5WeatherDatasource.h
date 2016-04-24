@@ -7,15 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "g5WeatherClient.h"
-
-typedef enum {
-    g5Rain = 0,
-    g5Storm,
-    g5ClearSky,
-    g5Snow,
-    g5Tornado
-} g5WeatherConditionType;
+#import "g5Weather.h"
 
 @protocol g5WeatherDatasource <NSObject>
 

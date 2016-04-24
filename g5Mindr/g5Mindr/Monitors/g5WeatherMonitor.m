@@ -36,11 +36,9 @@ NSString *const g5WeatherSeverThunderstorm  = @"severe_thunderstorm";
 
 #pragma mark - Init
 
-- (instancetype)initWithDelegate:(id<g5ConditionMonitorDelegate>)delegate;
-{
+- (instancetype)initWithDelegate:(id<g5ConditionMonitorDelegate>)delegate; {
     self = [super initWithDelegate:delegate];
-    if (self != nil)
-    {
+    if (self != nil) {
         self.weatherClient = [[g5OpenWeatherClient alloc] init]; // Weather Source
     }
     return self;

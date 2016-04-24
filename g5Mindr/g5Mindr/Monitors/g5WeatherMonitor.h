@@ -11,7 +11,6 @@
 #import "g5ConditionMonitor.h"
 #import "g5Weather.h"
 #import "g5WeatherClient.h"
-#import "g5WeatherDatasource.h"
 #import "g5LocationManager.h"
 
 extern NSString *const g5WeatherSunny;
@@ -21,8 +20,11 @@ extern NSString *const g5WeatherLightRain;
 extern NSString *const g5WeatherHeavyRain;
 extern NSString *const g5WeatherSeverThunderstorm;
 
-@interface g5WeatherMonitor : g5ConditionMonitor <g5WeatherDatasource>
+@interface g5WeatherMonitor : g5ConditionMonitor
 
 @property(nonatomic, strong, readonly) g5Weather *currentWeather;
+
+- (NSNumber *)currentTemperature;
+- (g5WeatherConditionType)currentWeatherType;
 
 @end

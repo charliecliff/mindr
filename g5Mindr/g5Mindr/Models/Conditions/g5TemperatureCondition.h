@@ -7,7 +7,6 @@
 //
 
 #import "g5Condition.h"
-#import "g5WeatherDatasource.h"
 
 @class g5WeatherMonitor;
 

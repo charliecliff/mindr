@@ -10,12 +10,6 @@
 
 #define KEY_CONDITION_TEMPERATURE @"KEY_CONDITION_TEMPERATURE"
 
-@interface g5TemperatureCondition ()
-
-@property(nonatomic, strong) id<g5WeatherDatasource> datasource;
-
-@end
-
 @implementation g5TemperatureCondition
 
 #pragma mark - Init

@@ -130,7 +130,6 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
-		DA8F6CB31CA0B27200DEF16B /* g5WeatherDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherDatasource.h; sourceTree = "<group>"; };
 		DAB28E741CB98D24007F14A2 /* g5CalendarRowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarRowTableViewCell.h; sourceTree = "<group>"; };
 		DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarRowTableViewCell.m; sourceTree = "<group>"; };
 		DAB28E771CB98D24007F14A2 /* g5CalendarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarTableViewController.h; sourceTree = "<group>"; };
@@ -226,7 +225,6 @@
 				DAE9CB091CA7282600849427 /* Custom Components */,
 				DABED0831CA39A40004100AF /* Notifications */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
-				DA8F6CAA1CA0B1B900DEF16B /* Protocols */,
 				DA30CF091C9DD4CC00FD4438 /* Managers */,
 				DAC8BF121CCC5E7A004CA7D6 /* Monitors */,
 				DA30CF001C9DD3AA00FD4438 /* Models */,
@@ -372,14 +370,6 @@
 				DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		DA8F6CAA1CA0B1B900DEF16B /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				DA8F6CB31CA0B27200DEF16B /* g5WeatherDatasource.h */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		DA8F6CAB1CA0B1E100DEF16B /* Client */ = {

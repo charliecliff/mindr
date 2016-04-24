@@ -30,7 +30,7 @@
 #pragma mark - Init
 
 - (instancetype)initWithReminder:(g5Reminder *)reminder {
-    self = [super initWithNibName:@"g5ReminderViewController" bundle:[NSBundle mainBundle]];
+    self = [super init];
     if (self) {
         self.reminder = reminder;
     }

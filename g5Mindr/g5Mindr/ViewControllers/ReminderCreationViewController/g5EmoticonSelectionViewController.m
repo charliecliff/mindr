@@ -7,17 +7,14 @@
 //
 
 #import "g5EmoticonSelectionViewController.h"
-
-#import <PBJHexagonFlowLayout.h>
-
+#import "g5ReminderDetailViewController.h"
 #import "RootCell.h"
-
 #import "g5Reminder.h"
 #import "g5ConfigAndMacros.h"
+#import <PBJHexagonFlowLayout.h>
 
 @interface g5EmoticonSelectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property(nonatomic, strong) g5Reminder *reminder;
 @property(nonatomic, strong) NSArray *emoticonImageNames;
 
 @property(nonatomic, strong) IBOutlet UICollectionView *hexagonGridViewController;
@@ -60,7 +57,7 @@
     
     PBJHexagonFlowLayout *flowLayout = [[PBJHexagonFlowLayout alloc] init];
     flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    flowLayout.sectionInset = UIEdgeInsetsZero;
+    flowLayout.sectionInset = UIEdgeInsetsMake(60, 0, 60, 0);
     flowLayout.headerReferenceSize = CGSizeZero;
     flowLayout.footerReferenceSize = CGSizeZero;
     flowLayout.minimumInteritemSpacing = 0;
@@ -115,7 +112,7 @@
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    g5ReminderDetailViewController *vc = [[g5ReminderDetailViewController alloc] initWithReminder:self.reminder];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

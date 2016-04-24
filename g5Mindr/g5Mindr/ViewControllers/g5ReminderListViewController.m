@@ -55,8 +55,8 @@
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
-    g5ReminderViewController *vc = [[g5ReminderViewController alloc] init];
-    vc.reminder = [[g5Reminder alloc] init];
+    g5Reminder *newReminder = [[g5Reminder alloc] init];
+    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:newReminder];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

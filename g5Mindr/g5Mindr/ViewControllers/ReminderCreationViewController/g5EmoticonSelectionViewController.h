@@ -12,6 +12,8 @@
 
 @interface g5EmoticonSelectionViewController : UIViewController
 
+@property(nonatomic, strong) g5Reminder *reminder;
+
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;
 

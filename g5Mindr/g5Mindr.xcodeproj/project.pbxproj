@@ -22,7 +22,6 @@
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
 		DA0FE3E21CBDC30F00B64632 /* g5CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */; };
 		DA0FE3E51CBDC32400B64632 /* g5CalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */; };
-		DA297EE11CA231E8001D6148 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA297EDF1CA231E8001D6148 /* g5EmoticonSelectionViewController.m */; };
 		DA297EE41CA231F9001D6148 /* g5EmoticonSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE31CA231F9001D6148 /* g5EmoticonSelectionViewController.xib */; };
 		DA297EEA1CA23ED0001D6148 /* orange_hexagon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE51CA23ED0001D6148 /* orange_hexagon.png */; };
 		DA297EEB1CA23ED0001D6148 /* orange_hexagon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE61CA23ED0001D6148 /* orange_hexagon@2x.png */; };
@@ -40,7 +39,6 @@
 		DA30CF431C9E23AD00FD4438 /* g5WeatherTypeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF421C9E23AD00FD4438 /* g5WeatherTypeCondition.m */; };
 		DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* g5TemperatureCondition.m */; };
 		DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF4A1C9E28F300FD4438 /* g5LocationManager.m */; };
-		DA30CF4F1C9E36BF00FD4438 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF4D1C9E36BF00FD4438 /* g5ReminderViewController.m */; };
 		DA30CF541C9E36DA00FD4438 /* g5ReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF521C9E36DA00FD4438 /* g5ReminderListViewController.m */; };
 		DA30CF581C9E36EF00FD4438 /* g5ReminderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA30CF561C9E36EF00FD4438 /* g5ReminderListViewController.xib */; };
 		DA30CF591C9E36EF00FD4438 /* g5ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA30CF571C9E36EF00FD4438 /* g5ReminderViewController.xib */; };
@@ -49,21 +47,25 @@
 		DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */; };
 		DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */; };
 		DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */; };
-		DABED0861CA39D13004100AF /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABED0851CA39D13004100AF /* g5ConditionViewController.m */; };
-		DABED08A1CA39DCF004100AF /* g5TemperatureConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABED0881CA39DCF004100AF /* g5TemperatureConditionViewController.m */; };
-		DABED08F1CA39DE4004100AF /* g5LocationConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABED08D1CA39DE4004100AF /* g5LocationConditionViewController.m */; };
-		DABED0941CA39DFE004100AF /* g5WeatherTypeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DABED0921CA39DFE004100AF /* g5WeatherTypeConditionViewController.m */; };
 		DABED0991CA39E27004100AF /* g5LocationConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABED0961CA39E27004100AF /* g5LocationConditionViewController.xib */; };
 		DABED09A1CA39E27004100AF /* g5TemperatureConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABED0971CA39E27004100AF /* g5TemperatureConditionViewController.xib */; };
 		DABED09B1CA39E27004100AF /* g5WeatherTypeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABED0981CA39E27004100AF /* g5WeatherTypeConditionViewController.xib */; };
 		DAC8BF171CCC5E7A004CA7D6 /* g5ConditionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF141CCC5E7A004CA7D6 /* g5ConditionMonitor.m */; };
 		DAC8BF181CCC5E7A004CA7D6 /* g5WeatherMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF161CCC5E7A004CA7D6 /* g5WeatherMonitor.m */; };
+		DAC8BF1F1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC8BF1E1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib */; };
+		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
+		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
+		DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */; };
+		DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */; };
+		DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */; };
+		DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */; };
+		DAC8BF3A1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */; };
+		DAC8BF3B1CCC6D5F004CA7D6 /* g5ReminderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF311CCC6D5F004CA7D6 /* g5ReminderDetailViewController.m */; };
+		DAC8BF3C1CCC6D5F004CA7D6 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF331CCC6D5F004CA7D6 /* g5ReminderViewController.m */; };
 		DAD71D671CCAB44700F42BB8 /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAD71D661CCAB44700F42BB8 /* emoticons.plist */; };
 		DAE9CAC81CA4A41700849427 /* g5DateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAC71CA4A41700849427 /* g5DateCondition.m */; };
 		DAE9CACB1CA4A42700849427 /* g5TimeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CACA1CA4A42700849427 /* g5TimeCondition.m */; };
 		DAE9CAD21CA4A4BF00849427 /* g5OpenWeatherClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAD01CA4A4BF00849427 /* g5OpenWeatherClient.m */; };
-		DAE9CADC1CA4AF7800849427 /* g5TimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CADA1CA4AF7800849427 /* g5TimeConditionViewController.m */; };
-		DAE9CAE11CA4AF8600849427 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CADF1CA4AF8600849427 /* g5DateConditionViewController.m */; };
 		DAE9CAE51CA4AF9F00849427 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9CAE31CA4AF9F00849427 /* g5DateConditionViewController.xib */; };
 		DAE9CAE61CA4AF9F00849427 /* g5TimeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9CAE41CA4AF9F00849427 /* g5TimeConditionViewController.xib */; };
 		DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CB0B1CA7283A00849427 /* g5TimePicker.m */; };
@@ -89,8 +91,6 @@
 		DA0FE3E31CBDC32400B64632 /* g5CalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarHeaderView.h; sourceTree = "<group>"; };
 		DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarHeaderView.m; sourceTree = "<group>"; };
 		DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConfigAndMacros.h; sourceTree = "<group>"; };
-		DA297EDE1CA231E8001D6148 /* g5EmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonSelectionViewController.h; sourceTree = "<group>"; };
-		DA297EDF1CA231E8001D6148 /* g5EmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DA297EE31CA231F9001D6148 /* g5EmoticonSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5EmoticonSelectionViewController.xib; sourceTree = "<group>"; };
 		DA297EE51CA23ED0001D6148 /* orange_hexagon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orange_hexagon.png; sourceTree = "<group>"; };
 		DA297EE61CA23ED0001D6148 /* orange_hexagon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange_hexagon@2x.png"; sourceTree = "<group>"; };
@@ -120,8 +120,6 @@
 		DA30CF451C9E23BE00FD4438 /* g5TemperatureCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperatureCondition.m; sourceTree = "<group>"; };
 		DA30CF491C9E28F300FD4438 /* g5LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5LocationManager.h; sourceTree = "<group>"; };
 		DA30CF4A1C9E28F300FD4438 /* g5LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5LocationManager.m; sourceTree = "<group>"; };
-		DA30CF4C1C9E36BF00FD4438 /* g5ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderViewController.h; sourceTree = "<group>"; };
-		DA30CF4D1C9E36BF00FD4438 /* g5ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderViewController.m; sourceTree = "<group>"; };
 		DA30CF511C9E36DA00FD4438 /* g5ReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderListViewController.h; sourceTree = "<group>"; };
 		DA30CF521C9E36DA00FD4438 /* g5ReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderListViewController.m; sourceTree = "<group>"; };
 		DA30CF561C9E36EF00FD4438 /* g5ReminderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderListViewController.xib; sourceTree = "<group>"; };
@@ -136,14 +134,6 @@
 		DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarTableViewController.m; sourceTree = "<group>"; };
 		DAB28E891CBB3E8B007F14A2 /* g5CalendarProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarProtocols.h; sourceTree = "<group>"; };
 		DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5CalendarRowTableViewCell.xib; sourceTree = "<group>"; };
-		DABED0841CA39D13004100AF /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
-		DABED0851CA39D13004100AF /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
-		DABED0871CA39DCF004100AF /* g5TemperatureConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TemperatureConditionViewController.h; sourceTree = "<group>"; };
-		DABED0881CA39DCF004100AF /* g5TemperatureConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperatureConditionViewController.m; sourceTree = "<group>"; };
-		DABED08C1CA39DE4004100AF /* g5LocationConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5LocationConditionViewController.h; sourceTree = "<group>"; };
-		DABED08D1CA39DE4004100AF /* g5LocationConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5LocationConditionViewController.m; sourceTree = "<group>"; };
-		DABED0911CA39DFE004100AF /* g5WeatherTypeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionViewController.h; sourceTree = "<group>"; };
-		DABED0921CA39DFE004100AF /* g5WeatherTypeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionViewController.m; sourceTree = "<group>"; };
 		DABED0961CA39E27004100AF /* g5LocationConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5LocationConditionViewController.xib; sourceTree = "<group>"; };
 		DABED0971CA39E27004100AF /* g5TemperatureConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5TemperatureConditionViewController.xib; sourceTree = "<group>"; };
 		DABED0981CA39E27004100AF /* g5WeatherTypeConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5WeatherTypeConditionViewController.xib; sourceTree = "<group>"; };
@@ -151,6 +141,25 @@
 		DAC8BF141CCC5E7A004CA7D6 /* g5ConditionMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionMonitor.m; sourceTree = "<group>"; };
 		DAC8BF151CCC5E7A004CA7D6 /* g5WeatherMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherMonitor.h; sourceTree = "<group>"; };
 		DAC8BF161CCC5E7A004CA7D6 /* g5WeatherMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherMonitor.m; sourceTree = "<group>"; };
+		DAC8BF1E1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailViewController.xib; sourceTree = "<group>"; };
+		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF231CCC6D5F004CA7D6 /* g5DateConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DateConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DateConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF251CCC6D5F004CA7D6 /* g5LocationConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5LocationConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5LocationConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF271CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TemperatureConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperatureConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF291CCC6D5F004CA7D6 /* g5TimeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TimeConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TimeConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF2E1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonSelectionViewController.h; sourceTree = "<group>"; };
+		DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonSelectionViewController.m; sourceTree = "<group>"; };
+		DAC8BF301CCC6D5F004CA7D6 /* g5ReminderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailViewController.h; sourceTree = "<group>"; };
+		DAC8BF311CCC6D5F004CA7D6 /* g5ReminderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailViewController.m; sourceTree = "<group>"; };
+		DAC8BF321CCC6D5F004CA7D6 /* g5ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderViewController.h; sourceTree = "<group>"; };
+		DAC8BF331CCC6D5F004CA7D6 /* g5ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderViewController.m; sourceTree = "<group>"; };
 		DAD71D661CCAB44700F42BB8 /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
 		DAE9CAC61CA4A41700849427 /* g5DateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DateCondition.h; sourceTree = "<group>"; };
 		DAE9CAC71CA4A41700849427 /* g5DateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DateCondition.m; sourceTree = "<group>"; };
@@ -160,10 +169,6 @@
 		DAE9CACF1CA4A4BF00849427 /* g5OpenWeatherClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5OpenWeatherClient.h; sourceTree = "<group>"; };
 		DAE9CAD01CA4A4BF00849427 /* g5OpenWeatherClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5OpenWeatherClient.m; sourceTree = "<group>"; };
 		DAE9CAD11CA4A4BF00849427 /* g5WeatherClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherClient.h; sourceTree = "<group>"; };
-		DAE9CAD91CA4AF7800849427 /* g5TimeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TimeConditionViewController.h; sourceTree = "<group>"; };
-		DAE9CADA1CA4AF7800849427 /* g5TimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TimeConditionViewController.m; sourceTree = "<group>"; };
-		DAE9CADE1CA4AF8600849427 /* g5DateConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DateConditionViewController.h; sourceTree = "<group>"; };
-		DAE9CADF1CA4AF8600849427 /* g5DateConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DateConditionViewController.m; sourceTree = "<group>"; };
 		DAE9CAE31CA4AF9F00849427 /* g5DateConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5DateConditionViewController.xib; sourceTree = "<group>"; };
 		DAE9CAE41CA4AF9F00849427 /* g5TimeConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5TimeConditionViewController.xib; sourceTree = "<group>"; };
 		DAE9CB0A1CA7283A00849427 /* g5TimePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TimePicker.h; sourceTree = "<group>"; };
@@ -266,24 +271,10 @@
 		DA30CF011C9DD3AA00FD4438 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */,
+				DAC8BF2D1CCC6D5F004CA7D6 /* ReminderCreationViewController */,
 				DA30CF511C9E36DA00FD4438 /* g5ReminderListViewController.h */,
 				DA30CF521C9E36DA00FD4438 /* g5ReminderListViewController.m */,
-				DA30CF4C1C9E36BF00FD4438 /* g5ReminderViewController.h */,
-				DA30CF4D1C9E36BF00FD4438 /* g5ReminderViewController.m */,
-				DA297EDE1CA231E8001D6148 /* g5EmoticonSelectionViewController.h */,
-				DA297EDF1CA231E8001D6148 /* g5EmoticonSelectionViewController.m */,
-				DABED0841CA39D13004100AF /* g5ConditionViewController.h */,
-				DABED0851CA39D13004100AF /* g5ConditionViewController.m */,
-				DABED0871CA39DCF004100AF /* g5TemperatureConditionViewController.h */,
-				DABED0881CA39DCF004100AF /* g5TemperatureConditionViewController.m */,
-				DABED08C1CA39DE4004100AF /* g5LocationConditionViewController.h */,
-				DABED08D1CA39DE4004100AF /* g5LocationConditionViewController.m */,
-				DABED0911CA39DFE004100AF /* g5WeatherTypeConditionViewController.h */,
-				DABED0921CA39DFE004100AF /* g5WeatherTypeConditionViewController.m */,
-				DAE9CAD91CA4AF7800849427 /* g5TimeConditionViewController.h */,
-				DAE9CADA1CA4AF7800849427 /* g5TimeConditionViewController.m */,
-				DAE9CADE1CA4AF8600849427 /* g5DateConditionViewController.h */,
-				DAE9CADF1CA4AF8600849427 /* g5DateConditionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				DA0C4B2E1CC4370F0030F927 /* Cells */,
+				DAC8BF1E1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib */,
 				DAE9CAE31CA4AF9F00849427 /* g5DateConditionViewController.xib */,
 				DAE9CAE41CA4AF9F00849427 /* g5TimeConditionViewController.xib */,
 				DABED0961CA39E27004100AF /* g5LocationConditionViewController.xib */,
@@ -423,6 +415,38 @@
 			path = Monitors;
 			sourceTree = "<group>";
 		};
+		DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */,
+				DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */,
+				DAC8BF231CCC6D5F004CA7D6 /* g5DateConditionViewController.h */,
+				DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */,
+				DAC8BF251CCC6D5F004CA7D6 /* g5LocationConditionViewController.h */,
+				DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */,
+				DAC8BF271CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.h */,
+				DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */,
+				DAC8BF291CCC6D5F004CA7D6 /* g5TimeConditionViewController.h */,
+				DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */,
+				DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */,
+				DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */,
+			);
+			path = ConditionViewController;
+			sourceTree = "<group>";
+		};
+		DAC8BF2D1CCC6D5F004CA7D6 /* ReminderCreationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DAC8BF2E1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.h */,
+				DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */,
+				DAC8BF301CCC6D5F004CA7D6 /* g5ReminderDetailViewController.h */,
+				DAC8BF311CCC6D5F004CA7D6 /* g5ReminderDetailViewController.m */,
+				DAC8BF321CCC6D5F004CA7D6 /* g5ReminderViewController.h */,
+				DAC8BF331CCC6D5F004CA7D6 /* g5ReminderViewController.m */,
+			);
+			path = ReminderCreationViewController;
+			sourceTree = "<group>";
+		};
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,6 +571,7 @@
 			files = (
 				DA30CF581C9E36EF00FD4438 /* g5ReminderListViewController.xib in Resources */,
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
+				DAC8BF1F1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib in Resources */,
 				DAD71D671CCAB44700F42BB8 /* emoticons.plist in Resources */,
 				DA30CF591C9E36EF00FD4438 /* g5ReminderViewController.xib in Resources */,
 				DA297EEA1CA23ED0001D6148 /* orange_hexagon.png in Resources */,
@@ -623,38 +648,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */,
 				DA30CF431C9E23AD00FD4438 /* g5WeatherTypeCondition.m in Sources */,
-				DABED08A1CA39DCF004100AF /* g5TemperatureConditionViewController.m in Sources */,
 				DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */,
 				DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* g5Reminder.m in Sources */,
-				DAE9CAE11CA4AF8600849427 /* g5DateConditionViewController.m in Sources */,
+				DAC8BF3A1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m in Sources */,
+				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
 				DAE9CACB1CA4A42700849427 /* g5TimeCondition.m in Sources */,
+				DAC8BF3B1CCC6D5F004CA7D6 /* g5ReminderDetailViewController.m in Sources */,
 				DAC8BF181CCC5E7A004CA7D6 /* g5WeatherMonitor.m in Sources */,
-				DABED0861CA39D13004100AF /* g5ConditionViewController.m in Sources */,
+				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
 				DA30CF3B1C9E064A00FD4438 /* g5Weather.m in Sources */,
 				DA30CF401C9E239200FD4438 /* g5LocationCondition.m in Sources */,
+				DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */,
 				DA0FE3E51CBDC32400B64632 /* g5CalendarHeaderView.m in Sources */,
-				DABED0941CA39DFE004100AF /* g5WeatherTypeConditionViewController.m in Sources */,
 				DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */,
+				DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */,
 				DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */,
-				DA297EE11CA231E8001D6148 /* g5EmoticonSelectionViewController.m in Sources */,
+				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,
 				DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */,
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
-				DA30CF4F1C9E36BF00FD4438 /* g5ReminderViewController.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* RootCell.m in Sources */,
+				DAC8BF3C1CCC6D5F004CA7D6 /* g5ReminderViewController.m in Sources */,
 				DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
 				DA30CF541C9E36DA00FD4438 /* g5ReminderListViewController.m in Sources */,
 				DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */,
-				DAE9CADC1CA4AF7800849427 /* g5TimeConditionViewController.m in Sources */,
 				DAC8BF171CCC5E7A004CA7D6 /* g5ConditionMonitor.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* g5Condition.m in Sources */,
 				DAE9CAD21CA4A4BF00849427 /* g5OpenWeatherClient.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* g5DateCondition.m in Sources */,
-				DABED08F1CA39DE4004100AF /* g5LocationConditionViewController.m in Sources */,
 				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

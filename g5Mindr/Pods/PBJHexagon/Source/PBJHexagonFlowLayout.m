@@ -102,7 +102,7 @@ CG_INLINE CGFloat_ceil(CGFloat cgfloat) {
 
     
     CGFloat horiOffset = ((currentRow % 2) != 0) ? self.itemSize.width * 0.5f : 0 ;
-    CGFloat vertOffset = 0;
+    CGFloat vertOffset = self.sectionInset.top;
     
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.size = self.itemSize;
@@ -123,11 +123,20 @@ CG_INLINE CGFloat_ceil(CGFloat cgfloat) {
 
     CGFloat contentWidth = self.collectionView.bounds.size.width;
     
-    CGFloat numberOfRows  = 2 * CGFloat_floor(numberOfItems / ((_itemsPerRow * 2) - 1));
+    CGFloat numberOfRows;
+    CGFloat numberOfFullRows  = 2 * CGFloat_floor(numberOfItems / ((_itemsPerRow * 2) - 1));
+    CGFloat numberOfLeftOverItems = numberOfItems % ((_itemsPerRow * 2) - 1);
+    if (numberOfLeftOverItems > _itemsPerRow) {
+        numberOfRows = numberOfFullRows + 2;
+    }
+    else {
+        numberOfRows = numberOfFullRows + 1;
+    }
     
-    CGFloat contentHeight = ( (numberOfRows * 0.75f) * self.itemSize.height) + (0.5f + self.itemSize.height);
+//    CGFloat contentHeight = ( (numberOfRows * 0.75f) * self.itemSize.height) + (0.5f + self.itemSize.height);
+    CGFloat contentHeight = (numberOfRows * self.itemSize.height);
     
-    CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
+    CGSize contentSize = CGSizeMake(contentWidth, contentHeight + self.sectionInset.top + self.sectionInset.bottom);
     return contentSize;
 }
 

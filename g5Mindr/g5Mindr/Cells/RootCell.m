@@ -66,4 +66,11 @@
     }
 }
 
+#pragma mark - Hacks to Fix Apple SDK Bullshit
+
+- (void)setBounds:(CGRect)bounds {
+    [super setBounds:bounds];
+    self.contentView.frame = bounds;
+}
+
 @end

@@ -62,6 +62,7 @@
     flowLayout.footerReferenceSize = CGSizeZero;
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+    
     flowLayout.itemsPerRow = numberOfCellsInFirstRow;
     
     [self.hexagonGridViewController setCollectionViewLayout:flowLayout];
@@ -131,6 +132,9 @@
         [self.hexagonGridViewController registerNib:tableCell forCellWithReuseIdentifier:@"RootCellID"];
         cell = [self.hexagonGridViewController dequeueReusableCellWithReuseIdentifier:@"RootCellID" forIndexPath:indexPath];
     }
+    // Forcing
+    [cell .contentView setNeedsLayout];
+    [cell.contentView layoutIfNeeded];
     
     // 1. Animation Constants
     CGFloat cellInflationSize = 1.2;

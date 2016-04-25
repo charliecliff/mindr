@@ -74,7 +74,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
-//    NSLog(@"lat: %f - lon: %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
+    NSLog(@"lat: %f - lon: %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

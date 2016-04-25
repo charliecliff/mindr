@@ -52,7 +52,7 @@
 
 - (void)setUpHexagonFlowLayout {
     
-    CGFloat numberOfCellsInFirstRow = 4;
+    CGFloat numberOfCellsInFirstRow = 3;
     CGFloat cellSize = [[UIScreen mainScreen] bounds].size.width/numberOfCellsInFirstRow;
     
     PBJHexagonFlowLayout *flowLayout = [[PBJHexagonFlowLayout alloc] init];

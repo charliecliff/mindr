@@ -15,6 +15,7 @@
 #import "g5WeatherMonitor.h"
 
 #import "g5ReminderManager.h"
+#import "g5LocationManager.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,10 @@
     
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
+    
     [g5ReminderManager sharedManager];
+    [[g5LocationManager sharedManager] startUpdatingLocation];
+    
     
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
 //    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] init];

@@ -7,6 +7,7 @@
 //
 
 #import "g5ReminderDetailViewController.h"
+#import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderDetailViewController ()
@@ -77,8 +78,9 @@
 }
 
 - (IBAction)didPressCompleteButton:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [[g5ReminderManager sharedManager] addReminder:self.reminder];
 
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -25,15 +25,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //  1. Background fetching
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    
+    //  2. Managers
     [[g5ReminderManager sharedManager] loadReminders];
     [[g5LocationManager sharedManager] startUpdatingLocation];
     
-    
+    //  3. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
-//    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] init];
     
     UINavigationController *baseNavigationViewController = [[UINavigationController alloc] initWithRootViewController:vc];
     [baseNavigationViewController setNavigationBarHidden:YES];

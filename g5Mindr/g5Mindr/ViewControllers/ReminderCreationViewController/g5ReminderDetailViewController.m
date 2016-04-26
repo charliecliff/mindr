@@ -79,7 +79,6 @@
 
 - (IBAction)didPressCompleteButton:(id)sender {
     [[g5ReminderManager sharedManager] addReminder:self.reminder];
-
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

@@ -44,6 +44,15 @@
 		DA30CF591C9E36EF00FD4438 /* g5ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA30CF571C9E36EF00FD4438 /* g5ReminderViewController.xib */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
+		DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */; };
+		DA508E011CCF0B4100C96AED /* offSwitchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */; };
+		DA508E021CCF0B4100C96AED /* offSwitchKnob.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */; };
+		DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */; };
+		DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */; };
+		DA508E051CCF0B4100C96AED /* onSwitchKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */; };
+		DA508E061CCF0B4100C96AED /* Switch.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFC1CCF0B4100C96AED /* Switch.png */; };
+		DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFD1CCF0B4100C96AED /* Switch@2x.png */; };
+		DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */; };
 		DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */; };
 		DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */; };
 		DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */; };
@@ -128,6 +137,16 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
+		DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offSwitchBackground.png; sourceTree = "<group>"; };
+		DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offSwitchBackground@2x.png"; sourceTree = "<group>"; };
+		DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offSwitchKnob.png; sourceTree = "<group>"; };
+		DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offSwitchKnob@2x.png"; sourceTree = "<group>"; };
+		DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onSwitchKnob.png; sourceTree = "<group>"; };
+		DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onSwitchKnob@2x.png"; sourceTree = "<group>"; };
+		DA508DFC1CCF0B4100C96AED /* Switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch.png; sourceTree = "<group>"; };
+		DA508DFD1CCF0B4100C96AED /* Switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch@2x.png"; sourceTree = "<group>"; };
+		DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnSwitchView.h; sourceTree = "<group>"; };
+		DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnSwitchView.m; sourceTree = "<group>"; };
 		DAB28E741CB98D24007F14A2 /* g5CalendarRowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarRowTableViewCell.h; sourceTree = "<group>"; };
 		DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarRowTableViewCell.m; sourceTree = "<group>"; };
 		DAB28E771CB98D24007F14A2 /* g5CalendarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarTableViewController.h; sourceTree = "<group>"; };
@@ -227,6 +246,7 @@
 		DA30CEE81C9DD38900FD4438 /* g5Mindr */ = {
 			isa = PBXGroup;
 			children = (
+				DA508DF41CCF0B4100C96AED /* CoreAnimator */,
 				DAE9CB091CA7282600849427 /* Custom Components */,
 				DABED0831CA39A40004100AF /* Notifications */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
@@ -362,6 +382,31 @@
 				DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DA508DF41CCF0B4100C96AED /* CoreAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				DA508DF51CCF0B4100C96AED /* images */,
+				DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */,
+				DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */,
+			);
+			path = CoreAnimator;
+			sourceTree = "<group>";
+		};
+		DA508DF51CCF0B4100C96AED /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */,
+				DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */,
+				DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */,
+				DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */,
+				DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */,
+				DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */,
+				DA508DFC1CCF0B4100C96AED /* Switch.png */,
+				DA508DFD1CCF0B4100C96AED /* Switch@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		DA8F6CAB1CA0B1E100DEF16B /* Client */ = {
@@ -572,15 +617,22 @@
 				DA30CF581C9E36EF00FD4438 /* g5ReminderListViewController.xib in Resources */,
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DAC8BF1F1CCC6CF0004CA7D6 /* g5ReminderDetailViewController.xib in Resources */,
+				DA508E021CCF0B4100C96AED /* offSwitchKnob.png in Resources */,
+				DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */,
+				DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */,
+				DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */,
 				DAD71D671CCAB44700F42BB8 /* emoticons.plist in Resources */,
 				DA30CF591C9E36EF00FD4438 /* g5ReminderViewController.xib in Resources */,
+				DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */,
 				DA297EEA1CA23ED0001D6148 /* orange_hexagon.png in Resources */,
 				DA0C4B311CC4370F0030F927 /* g5ConditionTableViewCell.xib in Resources */,
+				DA508E061CCF0B4100C96AED /* Switch.png in Resources */,
 				DA297EEB1CA23ED0001D6148 /* orange_hexagon@2x.png in Resources */,
 				DABED0991CA39E27004100AF /* g5LocationConditionViewController.xib in Resources */,
 				DA0C4B371CC437270030F927 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DABED09A1CA39E27004100AF /* g5TemperatureConditionViewController.xib in Resources */,
 				DAE9CAE61CA4AF9F00849427 /* g5TimeConditionViewController.xib in Resources */,
+				DA508E011CCF0B4100C96AED /* offSwitchBackground@2x.png in Resources */,
 				DA297EED1CA23ED0001D6148 /* RootCell.xib in Resources */,
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
@@ -590,6 +642,7 @@
 				DABED09B1CA39E27004100AF /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DA0FE3E21CBDC30F00B64632 /* g5CalendarHeaderView.xib in Resources */,
 				DA0C4B321CC4370F0030F927 /* g5ReminderTableViewCell.xib in Resources */,
+				DA508E051CCF0B4100C96AED /* onSwitchKnob@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +713,7 @@
 				DAC8BF181CCC5E7A004CA7D6 /* g5WeatherMonitor.m in Sources */,
 				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
 				DA30CF3B1C9E064A00FD4438 /* g5Weather.m in Sources */,
+				DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */,
 				DA30CF401C9E239200FD4438 /* g5LocationCondition.m in Sources */,
 				DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */,
 				DA0FE3E51CBDC32400B64632 /* g5CalendarHeaderView.m in Sources */,

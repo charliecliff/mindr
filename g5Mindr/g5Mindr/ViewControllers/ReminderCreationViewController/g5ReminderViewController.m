@@ -18,7 +18,9 @@
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate> {
+    NSMutableArray *cells;
+}
 
 @property(nonatomic, strong) IBOutlet UITableView *conditionTableView;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
@@ -43,6 +45,7 @@
     [super viewDidLoad];
     [self setUpNextButtonBackground];
     [self setUpBackButtonBackground];
+    [self setUpCells];
 }
 
 #pragma mark - Set Up
@@ -79,6 +82,30 @@
     [[self.backButtonBackground layer] addSublayer:circleLayer];
 }
 
+- (void)setUpCells {
+    cells = [[NSMutableArray alloc] init];
+    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
+        NSBundle *resourcesBundle = [NSBundle mainBundle];
+        g5ConditionTableViewCell *cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+        if (!cell) {
+            UINib *tableCell = [UINib nibWithNibName:@"g5ConditionTableViewCell" bundle:resourcesBundle] ;
+            [self.conditionTableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
+            cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+        }
+        cell.delegate = self;
+        
+        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
+        if (currentCondition.isActive) {
+            [cell configureForActiveCondition:currentCondition];
+        }
+        else {
+            [cell configureForInActiveCondition:currentCondition];
+        }
+        
+        [cells addObject:cell];
+    }
+}
+
 #pragma mark - Actions
 
 - (IBAction)didPressBackButton:(id)sender {
@@ -93,28 +120,12 @@
 #pragma mark - UITableView DataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSBundle *resourcesBundle = [NSBundle mainBundle];
-    g5ConditionTableViewCell *cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
-    if (!cell) {
-        UINib *tableCell = [UINib nibWithNibName:@"g5ConditionTableViewCell" bundle:resourcesBundle] ;
-        [self.conditionTableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
-        cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
-    }
-    cell.delegate = self;
-    
-    g5Condition *selectedCondition = [self.reminder getConditionAtIndex:indexPath.row];
-    if (selectedCondition.isActive) {
-        [cell configureForActiveCondition:selectedCondition];
-    }
-    else {
-        [cell configureForInActiveCondition:selectedCondition];
-    }
-    
+    g5ConditionTableViewCell *cell = [cells objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger rowCount = self.reminder.conditionIDs.count;
+    NSInteger rowCount = cells.count;
     return rowCount;
 }
 

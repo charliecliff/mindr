@@ -10,6 +10,8 @@
 #import "g5Condition.h"
 #import "g5ConfigAndMacros.h"
 
+#import "OnSwitchView.h"
+
 @interface g5ConditionTableViewCell ()
 
 @property(nonatomic, strong) g5Condition *condition;
@@ -18,6 +20,7 @@
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 @property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
 @property(nonatomic, strong) IBOutlet UISwitch *conditionActivationSwitch;
+@property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
 
 @end
 
@@ -27,11 +30,13 @@
 
 - (void)configureForActiveCondition:(g5Condition *)condition {
     self.condition = condition;
+    [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     [self reload];
 }
 
 - (void)configureForInActiveCondition:(g5Condition *)condition {
     self.condition = condition;
+    [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     [self reload];
 }
 
@@ -67,9 +72,24 @@
 #pragma mark - Actions
 
 - (IBAction)didToddleActivationSwitch:(id)sender {
-    [self.delegate g5Condition:self.condition didSetActive:self.conditionActivationSwitch.isOn];
+//    [self.delegate g5Condition:self.condition didSetActive:self.conditionActivationSwitch.isOn];
+//
+//    [self.condition setIsActive:self.conditionActivationSwitch.isOn];
+//    [self reload];
+}
 
-    [self.condition setIsActive:self.conditionActivationSwitch.isOn];
+- (IBAction)didPressSwitchButton:(id)sender {
+    BOOL newConditionActiveState = (!self.condition.isActive);
+    [self.delegate g5Condition:self.condition didSetActive:newConditionActiveState];
+    [self.condition setIsActive:newConditionActiveState];
+
+    if (self.condition.isActive) {
+        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+    }
+    else {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+    }
+
     [self reload];
 }
 

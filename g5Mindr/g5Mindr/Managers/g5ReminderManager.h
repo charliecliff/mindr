@@ -26,4 +26,8 @@
 
 - (void)updateReminders;
 
+// Persistence
+- (void)saveReminders;
+- (void)loadReminders;
+
 @end

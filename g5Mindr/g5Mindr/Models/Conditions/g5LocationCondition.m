@@ -54,7 +54,11 @@
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.location = [dictionary objectForKey:KEY_CONDITION_LOCATION];
+    
+    self.location = nil;
+    if ([dictionary.allKeys containsObject:KEY_CONDITION_LOCATION]) {
+        self.location = [dictionary objectForKey:KEY_CONDITION_LOCATION];
+    }
     
     NSNumber *radiusNumber = [dictionary objectForKey:KEY_CONDITION_RADIUS];
     self.radius = [radiusNumber floatValue];
@@ -62,7 +66,11 @@
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:self.location forKey:KEY_CONDITION_LOCATION];
+    
+    if (self.location != nil) {
+        [dictionary setObject:self.location forKey:KEY_CONDITION_LOCATION];
+    }
+    
     [dictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];
     return dictionary;
 }

@@ -28,7 +28,7 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     
-    [g5ReminderManager sharedManager];
+    [[g5ReminderManager sharedManager] loadReminders];
     [[g5LocationManager sharedManager] startUpdatingLocation];
     
     
@@ -51,6 +51,14 @@
     if (completionHandler) {
         completionHandler(UIBackgroundFetchResultNewData);
     }
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [[g5ReminderManager sharedManager] saveReminders];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[g5ReminderManager sharedManager] loadReminders];
 }
 
 @end

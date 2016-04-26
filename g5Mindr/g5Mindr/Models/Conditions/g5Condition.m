@@ -24,7 +24,8 @@ NSString *const g5LocationType    = @"location";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
+        self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
     }
     return self;
 }
@@ -44,11 +45,6 @@ NSString *const g5LocationType    = @"location";
 }
 
 #pragma mark - Persistence
-
-- (void)parseDictionary:(NSDictionary *)dictionary {
-    self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
-    self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
-}
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];

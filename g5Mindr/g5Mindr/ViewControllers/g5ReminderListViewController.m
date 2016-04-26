@@ -13,7 +13,9 @@
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderListViewController ()
+@interface g5ReminderListViewController () {
+    NSMutableArray *cells;
+}
 
 @property(nonatomic, strong) IBOutlet UIImageView *createReminderButtonBackgroundImage;
 @property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
@@ -31,6 +33,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setUpCells];
     [self.reminderTableView reloadData];
 }
 
@@ -52,6 +55,24 @@
     [[self.createReminderButtonBackgroundImage layer] addSublayer:circleLayer];
 }
 
+- (void)setUpCells {
+    cells = [[NSMutableArray alloc] init];
+    
+    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
+        NSBundle *resourcesBundle = [NSBundle mainBundle];
+        g5ReminderTableViewCell *cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        if (!cell) {
+            UINib *tableCell = [UINib nibWithNibName:@"g5ReminderTableViewCell" bundle:resourcesBundle] ;
+            [self.reminderTableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
+            cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        }
+        
+        g5Condition *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+
+        [cells addObject:cell];
+    }
+}
+
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
@@ -63,20 +84,12 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSBundle *resourcesBundle = [NSBundle mainBundle];
-    g5ReminderTableViewCell *cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
-    if (!cell) {
-        UINib *tableCell = [UINib nibWithNibName:@"g5ReminderTableViewCell" bundle:resourcesBundle] ;
-        [self.reminderTableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
-        cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
-    }
-    
+    g5ReminderTableViewCell *cell = [cells objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger reminderCount = [g5ReminderManager sharedManager].reminderIDs.count;
-    return reminderCount;
+    return cells.count;
 }
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5Reminder.h"
 
 @interface g5ReminderTableViewCell : UITableViewCell
+
+@property(nonatomic, strong, readonly) g5Reminder *reminder;
+
+- (void)configureWithReminder:(g5Reminder *)reminder;
 
 @end

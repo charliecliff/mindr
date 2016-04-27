@@ -17,6 +17,12 @@
     NSMutableArray *cells;
 }
 
+@property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
+@property(nonatomic, strong) IBOutlet UIView *nextButtonContainerView;
+
+@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
+@property(nonatomic, strong) IBOutlet UIView *backButtonContainerView;
+
 @property(nonatomic, strong) IBOutlet UIImageView *createReminderButtonBackgroundImage;
 @property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
 
@@ -36,11 +42,68 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self setUpBackButtonBackground];
+    [self setUpNextButtonBackground];
+    
+    [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
+    [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
+
     [self setUpCells];
+    
     [self.reminderTableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+
+}
+
 #pragma mark - Set Up
+
+- (void)setUpNextButtonBackground {
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height)
+                                                        radius:self.nextButtonBackground.frame.size.width
+                                                    startAngle:M_PI
+                                                      endAngle:3*M_PI_2
+                                                     clockwise:YES];
+    CGPathRef cgPath = path.CGPath;
+    CGMutablePathRef mutablePath = CGPathCreateMutableCopy(cgPath);
+    CGPathAddLineToPoint( mutablePath, NULL, self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height );
+    [circleLayer setPath:mutablePath];
+
+    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.nextButtonBackground bounds].size.width, [self.nextButtonBackground bounds].size.height)];
+    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.nextButtonBackground bounds]),CGRectGetMidY([self.nextButtonBackground bounds]))];
+    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
+    [circleLayer setFillColor:[PRIMARY_FILL_COLOR CGColor]];
+    [circleLayer setLineWidth:4.0f];
+    
+    [[self.nextButtonBackground layer] addSublayer:circleLayer];
+}
+
+- (void)setUpBackButtonBackground {
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, self.nextButtonBackground.frame.size.height)
+                                                        radius:self.nextButtonBackground.frame.size.width
+                                                    startAngle:3*M_PI_2
+                                                      endAngle:2*M_PI
+                                                     clockwise:YES];
+    CGPathRef cgPath = path.CGPath;
+    CGMutablePathRef mutablePath = CGPathCreateMutableCopy(cgPath);
+    CGPathAddLineToPoint( mutablePath, NULL, 0, self.nextButtonBackground.frame.size.height );
+    [circleLayer setPath:mutablePath];
+    
+    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackground bounds].size.width, [self.backButtonBackground bounds].size.height)];
+    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.backButtonBackground bounds]),CGRectGetMidY([self.backButtonBackground bounds]))];
+    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
+    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
+    [circleLayer setLineWidth:4.0f];
+    
+    [[self.backButtonBackground layer] addSublayer:circleLayer];
+}
 
 - (void)setUpCreateReminderButtonBackground {
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
@@ -80,13 +143,14 @@
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
     
-    
     self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
-    
     [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.1
+    
+    [UIView animateWithDuration:1
                      animations:^{
                          [self.view layoutIfNeeded];
+                         [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, -M_PI_2)];
+                         [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, M_PI_2)];
                      }
                      completion:^(BOOL finished) {
                          

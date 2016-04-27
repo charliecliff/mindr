@@ -7,21 +7,18 @@
 //
 
 #import "g5ReminderManager.h"
+#import "g5Reminder.h"
 
 #import "g5LocationManager.h"
+#import "g5PersistenceManager.h"
+
+#import "g5ConditionMonitor.h"
 #import "g5WeatherMonitor.h"
 
 #import "g5WeatherClient.h"
 #import "g5OpenWeatherClient.h"
 
-#import "g5LocationManager.h"
-
-#import "g5Reminder.h"
-
-#import "g5PersistenceManager.h"
-
-#import "g5ConditionMonitor.h"
-
+#import <UIKit/UIKit.h>
 
 #define REMINDERS @"REMINDERS"
 
@@ -101,15 +98,25 @@
 #pragma mark - Update
 
 - (void)updateReminders {
-    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
-        [currentConditionMonitor updateMonitoredCondition];
-    }
+    
+    [self postPushNotificationForReminder:nil];
+    
+//    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
+//        [currentConditionMonitor updateMonitoredCondition];
+//    }
 }
 
 #pragma mark - Post Push Notifications
 
 - (void)postPushNotificationForReminder:(g5Reminder *)reminder {
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:2];
+    localNotification.alertBody = @"Alert the Body!!!";
+    localNotification.alertAction = @"Show me the item";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 #pragma mark - g5ConditionMonitorDelegate

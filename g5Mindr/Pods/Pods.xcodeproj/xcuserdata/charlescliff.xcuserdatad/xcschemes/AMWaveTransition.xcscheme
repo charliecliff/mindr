@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '58A5315BDEBCF329B2FBFC25'
-               BlueprintName = 'Mapbox-iOS-SDK-Mapbox'
+               BlueprintIdentifier = '0C086CF6EAF98F41CEC64B5E'
+               BlueprintName = 'AMWaveTransition'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Mapbox.bundle'>
+               BuildableName = 'libAMWaveTransition.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

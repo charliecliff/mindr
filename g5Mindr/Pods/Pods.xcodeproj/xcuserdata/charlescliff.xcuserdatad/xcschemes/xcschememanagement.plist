@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AMWaveTransition.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>22032A34E6B317B17908590D82CC6DFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2DB59219DEF5D393F19F0753F2D9C161</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>35B27995BAE6B272A102E3FA251DAE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,11 +58,6 @@
 			<true/>
 		</dict>
 		<key>426BC4549A625B5E1E4200D5261A98BF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>683134CCC9B89B1D865B233E088640EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

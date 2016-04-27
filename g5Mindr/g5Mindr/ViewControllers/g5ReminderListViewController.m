@@ -29,6 +29,11 @@
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonBottomConstraint;
 
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonBottomConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonTrailingConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonBottomConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonLeadingConstraint;
+
 @end
 
 @implementation g5ReminderListViewController
@@ -42,12 +47,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self setUpBackButtonBackground];
-    [self setUpNextButtonBackground];
     
-    [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
-    [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
-
+    [self setUpbackButtonBackgroundAsCircle];
+    [self setUpNextButtonBackgroundAsCircle];
     [self setUpCells];
     
     [self.reminderTableView reloadData];
@@ -61,6 +63,27 @@
 
 #pragma mark - Set Up
 
+- (void)setUpNextButtonBackgroundAsCircle {
+
+    self.nextButtonBackground.backgroundColor = PRIMARY_FILL_COLOR;
+
+    self.nextButtonBackground.layer.cornerRadius = self.nextButtonBackground.frame.size.width / 2;
+    self.nextButtonBackground.layer.masksToBounds = YES;
+    self.nextButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.nextButtonBackground.layer.borderWidth = 4.0;
+}
+
+- (void)setUpbackButtonBackgroundAsCircle {
+    
+    self.backButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
+    
+    self.backButtonBackground.layer.cornerRadius = self.backButtonBackground.frame.size.width / 2;
+    self.backButtonBackground.layer.masksToBounds = YES;
+    self.backButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.backButtonBackground.layer.borderWidth = 4.0;
+}
+
+/*
 - (void)setUpNextButtonBackground {
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
     
@@ -104,6 +127,12 @@
     
     [[self.backButtonBackground layer] addSublayer:circleLayer];
 }
+ 
+ - (void)setUpButtonToRotateOntoScreen {
+ [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
+ [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
+ }
+*/
 
 - (void)setUpCreateReminderButtonBackground {
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
@@ -142,11 +171,13 @@
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
-    [self displayCornerButtons];
+    [self hideCenterButtonWithCompletion:^{
+        [self bounceCornerButtonOntoScreenWithCompletion:nil];
+    }];
 }
 
 - (IBAction)didPressBackButton:(id)sender {
-    [self hideCornerButtons];
+    
 }
 
 - (IBAction)didPressNextButton:(id)sender {
@@ -182,6 +213,47 @@
                      }
                      completion:^(BOOL finished) {
                          
+                     }];
+}
+
+- (void)hideCenterButtonWithCompletion:(void (^)(void))completion {
+    self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
+- (void)bounceCornerButtonOntoScreenWithCompletion:(void (^)(void))completion {
+    CGFloat coordinate = 65;
+    
+    self.nextButtonBottomConstraint.constant   = -coordinate;
+    self.nextButtonTrailingConstraint.constant = -coordinate;
+
+    self.backButtonBottomConstraint.constant   = -coordinate;
+    self.backButtonLeadingConstraint.constant = -coordinate;
+    
+    [self.view setNeedsUpdateConstraints];
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:20
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                        }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
                      }];
 }
 

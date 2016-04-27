@@ -7,6 +7,7 @@
 //
 
 #import "g5LocationManager.h"
+#import "g5ReminderManager.h" //    a CIRCULAR reference!!!
 
 @interface g5LocationManager ()
 
@@ -47,8 +48,10 @@
 
 - (void)configureLocationManager {
     _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.distanceFilter = kCLDistanceFilterNone;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    _locationManager.distanceFilter = 50;
+//    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     _locationManager.delegate = self;
         
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined && [self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
@@ -69,12 +72,13 @@
     [self.locationManager stopUpdatingLocation];
 }
 
-#pragma mark - CLLocaitonManager Delegate
+#pragma mark - CLLocationManager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
-    NSLog(@"lat: %f - lon: %f", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude);
+    
+    [[g5ReminderManager sharedManager] updateReminders];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

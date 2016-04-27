@@ -99,11 +99,15 @@
 
 - (void)updateReminders {
     
-    [self postPushNotificationForReminder:nil];
+    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
+        [currentConditionMonitor updateMonitoredCondition];
+    }
     
-//    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
-//        [currentConditionMonitor updateMonitoredCondition];
-//    }
+    for (g5Reminder *currentReminder in self.reminders.allValues) {
+        if ([currentReminder haveConditionsBeenMeet]) {
+            [self postPushNotificationForReminder:currentReminder];
+        }
+    }
 }
 
 #pragma mark - Post Push Notifications
@@ -111,8 +115,8 @@
 - (void)postPushNotificationForReminder:(g5Reminder *)reminder {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:2];
-    localNotification.alertBody = @"Alert the Body!!!";
-    localNotification.alertAction = @"Show me the item";
+    localNotification.alertBody = reminder.shortExplanation;
+    localNotification.alertAction = @"Remind Me";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];
     localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
     

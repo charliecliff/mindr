@@ -25,23 +25,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    //  1. Register For Push Notifications
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
 
-    // Handle launching from a notification
+    //  2. Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
-        // Set icon badge number to zero
         application.applicationIconBadgeNumber = 0;
     }
     
-    //  1. Background fetching
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:0.0];
+    //  3. Background fetching
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
-    //  2. Managers
+    //  4. Managers
     [[g5ReminderManager sharedManager] loadReminders];
     [[g5LocationManager sharedManager] startUpdatingLocation];
     
-    //  3. Root View Controller
+    //  5. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
     
     UINavigationController *baseNavigationViewController = [[UINavigationController alloc] initWithRootViewController:vc];

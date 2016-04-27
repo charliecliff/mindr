@@ -11,9 +11,9 @@
                 <outlet property="backButtonBottomConstraint" destination="tbO-W0-nhe" id="2UR-f6-oQu"/>
                 <outlet property="backButtonContainerView" destination="IjJ-lc-C2D" id="8Mk-qq-jsc"/>
                 <outlet property="backButtonLeadingConstraint" destination="6SS-cA-nTa" id="voz-5z-dgq"/>
+                <outlet property="centerButtonBackgroundImage" destination="rn1-kR-7VZ" id="7dV-9k-dIm"/>
                 <outlet property="centerButtonBottomConstraint" destination="uNk-PM-xpg" id="YdY-ie-WLL"/>
                 <outlet property="centerButtonHeightConstraint" destination="Rpd-l1-bQZ" id="g2W-bH-suw"/>
-                <outlet property="createReminderButtonBackgroundImage" destination="rn1-kR-7VZ" id="GbP-au-Mpw"/>
                 <outlet property="nextButtonBackground" destination="fNq-rv-9gl" id="S6I-Rb-C1K"/>
                 <outlet property="nextButtonBottomConstraint" destination="pI9-cO-jUd" id="CgS-39-dbH"/>
                 <outlet property="nextButtonContainerView" destination="uEN-4M-Brb" id="DlX-3c-QNd"/>
@@ -57,14 +57,14 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-2l-R6L" userLabel="Button - Next">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLp-2l-R6L" userLabel="Button - Next">
                             <rect key="frame" x="21" y="21" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="ZyR-78-X2g"/>
                                 <constraint firstAttribute="width" constant="44" id="oen-zJ-vNG"/>
                             </constraints>
-                            <state key="normal" title="N"/>
+                            <state key="normal" image="button_next"/>
                             <connections>
                                 <action selector="didPressNextButton:" destination="-1" eventType="touchUpInside" id="mdP-6j-37O"/>
                             </connections>
@@ -106,7 +106,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Button - Back">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Button - Back">
                             <rect key="frame" x="65" y="21" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <accessibility key="accessibilityConfiguration" label="Button - Back"/>
@@ -114,7 +114,7 @@
                                 <constraint firstAttribute="width" constant="44" id="2Zk-hY-YaU"/>
                                 <constraint firstAttribute="height" constant="44" id="VF1-hh-spz"/>
                             </constraints>
-                            <state key="normal" title="X"/>
+                            <state key="normal" image="button_cancel"/>
                             <connections>
                                 <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="5Fx-It-doZ"/>
                             </connections>
@@ -141,20 +141,20 @@
                     </variation>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-kR-7VZ" userLabel="Background Create Reminder">
-                    <rect key="frame" x="245" y="545" width="110" height="55"/>
+                    <rect key="frame" x="245" y="545" width="110" height="110"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="Rpd-l1-bQZ" userLabel="Center Button Height"/>
+                        <constraint firstAttribute="height" constant="110" id="Rpd-l1-bQZ" userLabel="Center Button Height"/>
                         <constraint firstAttribute="width" constant="110" id="oCX-YZ-BUt"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERZ-VW-qkk" userLabel="Button - Create Reminder">
-                    <rect key="frame" x="273" y="545" width="55" height="55"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERZ-VW-qkk" userLabel="Button - Create Reminder">
+                    <rect key="frame" x="272" y="555" width="55" height="45"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="55" id="J0D-g0-qRi"/>
-                        <constraint firstAttribute="height" constant="55" id="cEi-vu-U8f"/>
+                        <constraint firstAttribute="height" constant="45" id="cEi-vu-U8f"/>
                     </constraints>
-                    <state key="normal" title="B"/>
+                    <state key="normal" image="button_new"/>
                     <connections>
                         <action selector="didPressCreateNewReminderButton:" destination="-1" eventType="touchUpInside" id="uRk-c8-iIu"/>
                     </connections>
@@ -212,6 +212,7 @@
                 <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="2UO-nB-EVQ" secondAttribute="bottom" id="XME-9g-Y8c"/>
                 <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="2UO-nB-EVQ" secondAttribute="bottom" id="Z7X-rt-Wfq"/>
                 <constraint firstItem="rn1-kR-7VZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aiq-gx-D1G"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="rn1-kR-7VZ" secondAttribute="top" constant="10" id="ao2-jY-InM"/>
                 <constraint firstItem="YEV-Fs-vfi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gEU-E9-Sau"/>
                 <constraint firstAttribute="bottom" secondItem="ERZ-VW-qkk" secondAttribute="bottom" id="ieE-CL-lrd"/>
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="uEN-4M-Brb" secondAttribute="bottom" constant="181" id="jqV-8T-vZD"/>
@@ -223,7 +224,7 @@
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qYm-E8-yOH"/>
                 <constraint firstAttribute="bottom" secondItem="IjJ-lc-C2D" secondAttribute="bottom" constant="-130" id="tbO-W0-nhe" userLabel="Back Button Bottom"/>
                 <constraint firstItem="uw2-LS-xDB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLi-6E-hzL"/>
-                <constraint firstAttribute="bottom" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="uNk-PM-xpg" userLabel="Center Button Bottom"/>
+                <constraint firstAttribute="bottom" secondItem="rn1-kR-7VZ" secondAttribute="bottom" constant="-55" id="uNk-PM-xpg" userLabel="Center Button Bottom"/>
                 <constraint firstAttribute="bottom" secondItem="uEN-4M-Brb" secondAttribute="bottom" constant="65" id="uR5-eq-qvn"/>
                 <constraint firstAttribute="bottom" secondItem="YEV-Fs-vfi" secondAttribute="bottom" id="vlK-tn-Ahc"/>
                 <constraint firstItem="2UO-nB-EVQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wCw-70-Jch"/>
@@ -233,6 +234,7 @@
                     <exclude reference="7yX-bM-EZ1"/>
                     <exclude reference="96a-OP-wXy"/>
                     <exclude reference="Z7X-rt-Wfq"/>
+                    <exclude reference="JEj-WW-XR9"/>
                     <exclude reference="XH5-Z5-Xfu"/>
                     <exclude reference="ieE-CL-lrd"/>
                     <exclude reference="jqV-8T-vZD"/>
@@ -246,5 +248,8 @@
     </objects>
     <resources>
         <image name="background" width="375" height="667"/>
+        <image name="button_cancel" width="24" height="24"/>
+        <image name="button_new" width="24" height="24"/>
+        <image name="button_next" width="24" height="24"/>
     </resources>
 </document>

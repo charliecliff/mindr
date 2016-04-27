@@ -13,6 +13,8 @@
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
+#define coordinate 65
+
 @interface g5ReminderListViewController () {
     NSMutableArray *cells;
 }
@@ -23,7 +25,7 @@
 @property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *backButtonContainerView;
 
-@property(nonatomic, strong) IBOutlet UIImageView *createReminderButtonBackgroundImage;
+@property(nonatomic, strong) IBOutlet UIImageView *centerButtonBackgroundImage;
 @property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
 
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
@@ -42,26 +44,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpCreateReminderButtonBackground];
+    [self setUpCenterButtonBackgroundAsCircle];
+    [self setUpBackButtonBackgroundAsCircle];
+    [self setUpNextButtonBackgroundAsCircle];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self setUpbackButtonBackgroundAsCircle];
-    [self setUpNextButtonBackgroundAsCircle];
     [self setUpCells];
-    
     [self.reminderTableView reloadData];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-
-}
-
 #pragma mark - Set Up
+
+- (void)setUpCenterButtonBackgroundAsCircle {
+    
+    self.centerButtonBackgroundImage.backgroundColor = PRIMARY_FILL_COLOR;
+    
+    self.centerButtonBackgroundImage.layer.cornerRadius = self.centerButtonBackgroundImage.frame.size.width / 2;
+    self.centerButtonBackgroundImage.layer.masksToBounds = YES;
+    self.centerButtonBackgroundImage.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.centerButtonBackgroundImage.layer.borderWidth = 4.0;
+}
 
 - (void)setUpNextButtonBackgroundAsCircle {
 
@@ -73,7 +77,7 @@
     self.nextButtonBackground.layer.borderWidth = 4.0;
 }
 
-- (void)setUpbackButtonBackgroundAsCircle {
+- (void)setUpBackButtonBackgroundAsCircle {
     
     self.backButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
     
@@ -132,7 +136,6 @@
  [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
  [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
  }
-*/
 
 - (void)setUpCreateReminderButtonBackground {
     CAShapeLayer *circleLayer = [CAShapeLayer layer];
@@ -149,7 +152,7 @@
     
     [[self.createReminderButtonBackgroundImage layer] addSublayer:circleLayer];
 }
-
+*/
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
@@ -177,7 +180,9 @@
 }
 
 - (IBAction)didPressBackButton:(id)sender {
-    
+    [self hideCornerButtonsWithCompletion:^{
+        [self bounceCenterButtonOntoScreenWithCompletion:nil];
+    }];
 }
 
 - (IBAction)didPressNextButton:(id)sender {
@@ -201,18 +206,22 @@
                      }];
 }
 
-- (void)hideCornerButtons {
-    self.centerButtonBottomConstraint.constant = 0;
-    [self.view setNeedsUpdateConstraints];
+- (void)hideCornerButtonsWithCompletion:(void (^)(void))completion {
+    self.nextButtonBottomConstraint.constant   = -2*coordinate;
+    self.nextButtonTrailingConstraint.constant = -2*coordinate;
     
+    self.backButtonBottomConstraint.constant   = -2*coordinate;
+    self.backButtonLeadingConstraint.constant  = -2*coordinate;
+    
+    [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.3
                      animations:^{
                          [self.view layoutIfNeeded];
-                         [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
-                         [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
                      }
                      completion:^(BOOL finished) {
-                         
+                         if (finished && completion) {
+                             completion();
+                         }
                      }];
 }
 
@@ -232,16 +241,13 @@
 }
 
 - (void)bounceCornerButtonOntoScreenWithCompletion:(void (^)(void))completion {
-    CGFloat coordinate = 65;
-    
     self.nextButtonBottomConstraint.constant   = -coordinate;
     self.nextButtonTrailingConstraint.constant = -coordinate;
 
     self.backButtonBottomConstraint.constant   = -coordinate;
-    self.backButtonLeadingConstraint.constant = -coordinate;
+    self.backButtonLeadingConstraint.constant  = -coordinate;
     
     [self.view setNeedsUpdateConstraints];
-    
     [UIView animateWithDuration:0.3
                           delay:0.0
          usingSpringWithDamping:0.5
@@ -250,6 +256,25 @@
                      animations:^{
                          [self.view layoutIfNeeded];
                         }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
+- (void)bounceCenterButtonOntoScreenWithCompletion:(void (^)(void))completion {
+    self.centerButtonBottomConstraint.constant = -55;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:20
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
                      completion:^(BOOL finished) {
                          if (finished && completion) {
                              completion();

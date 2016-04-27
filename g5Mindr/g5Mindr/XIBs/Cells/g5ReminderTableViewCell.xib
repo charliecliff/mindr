@@ -16,15 +16,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7h1-73-PQF" userLabel="onSwitch" customClass="OnSwitchView">
-                        <rect key="frame" x="271" y="12" width="41" height="30"/>
+                        <rect key="frame" x="263" y="11" width="49" height="31"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="hLz-pA-v55"/>
-                            <constraint firstAttribute="width" constant="41" id="qEK-v9-Dwh"/>
+                            <constraint firstAttribute="height" constant="31" id="hLz-pA-v55"/>
+                            <constraint firstAttribute="width" constant="49" id="qEK-v9-Dwh"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-S3-x1i">
-                        <rect key="frame" x="271" y="12" width="41" height="30"/>
+                        <rect key="frame" x="263" y="11" width="49" height="31"/>
                         <connections>
                             <action selector="didPressSwitchButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MmL-KH-sdF"/>
                         </connections>
@@ -37,7 +37,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkn-qA-4Bq">
-                        <rect key="frame" x="68" y="27" width="195" height="20"/>
+                        <rect key="frame" x="68" y="27" width="187" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="bnv-pf-9Yq"/>
                         </constraints>
@@ -46,7 +46,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92D-4u-Asc" userLabel="Primary Label">
-                        <rect key="frame" x="68" y="7" width="195" height="20"/>
+                        <rect key="frame" x="68" y="7" width="187" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="wIF-kC-iYP"/>
                         </constraints>

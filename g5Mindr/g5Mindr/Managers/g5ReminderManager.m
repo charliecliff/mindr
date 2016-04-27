@@ -26,7 +26,6 @@
 
 @property(nonatomic, strong) NSMutableArray *conditionMonitors;
 
-//@property(nonatomic, strong, readwrite) NSOrderedSet *unlockedConditionIDs;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 

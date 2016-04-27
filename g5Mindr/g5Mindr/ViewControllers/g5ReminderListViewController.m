@@ -20,6 +20,9 @@
 @property(nonatomic, strong) IBOutlet UIImageView *createReminderButtonBackgroundImage;
 @property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
 
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonBottomConstraint;
+
 @end
 
 @implementation g5ReminderListViewController
@@ -76,9 +79,22 @@
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
-    g5Reminder *newReminder = [[g5Reminder alloc] init];
-    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:newReminder];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+    self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
+    
+//    g5Reminder *newReminder = [[g5Reminder alloc] init];
+//    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:newReminder];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDataSource

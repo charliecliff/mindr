@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5ReminderListViewController">
             <connections>
+                <outlet property="centerButtonBottomConstraint" destination="uNk-PM-xpg" id="YdY-ie-WLL"/>
+                <outlet property="centerButtonHeightConstraint" destination="Rpd-l1-bQZ" id="g2W-bH-suw"/>
                 <outlet property="createReminderButtonBackgroundImage" destination="rn1-kR-7VZ" id="GbP-au-Mpw"/>
                 <outlet property="reminderTableView" destination="uw2-LS-xDB" id="AzV-MX-hoD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,7 +35,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rn1-kR-7VZ" userLabel="Background Create Reminder">
                     <rect key="frame" x="245" y="545" width="110" height="55"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="Rpd-l1-bQZ"/>
+                        <constraint firstAttribute="height" constant="55" id="Rpd-l1-bQZ" userLabel="Center Button Height"/>
                         <constraint firstAttribute="width" constant="110" id="oCX-YZ-BUt"/>
                     </constraints>
                 </imageView>
@@ -94,6 +96,7 @@
                 <constraint firstAttribute="bottom" secondItem="uw2-LS-xDB" secondAttribute="bottom" id="96a-OP-wXy"/>
                 <constraint firstItem="YEV-Fs-vfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tD-Ex-4qw"/>
                 <constraint firstAttribute="trailing" secondItem="uw2-LS-xDB" secondAttribute="trailing" id="AY4-53-r4b"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerY" secondItem="rn1-kR-7VZ" secondAttribute="centerY" id="JEj-WW-XR9"/>
                 <constraint firstItem="2UO-nB-EVQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2b-ZH-lOw"/>
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="YEV-Fs-vfi" secondAttribute="bottom" id="XH5-Z5-Xfu"/>
                 <constraint firstItem="uw2-LS-xDB" firstAttribute="top" secondItem="2UO-nB-EVQ" secondAttribute="bottom" id="XME-9g-Y8c"/>
@@ -102,11 +105,12 @@
                 <constraint firstItem="YEV-Fs-vfi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gEU-E9-Sau"/>
                 <constraint firstAttribute="bottom" secondItem="ERZ-VW-qkk" secondAttribute="bottom" id="ieE-CL-lrd"/>
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="top" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="lgC-az-Vs2"/>
+                <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerX" secondItem="rn1-kR-7VZ" secondAttribute="centerX" id="oZt-o8-cHf"/>
                 <constraint firstAttribute="trailing" secondItem="YEV-Fs-vfi" secondAttribute="trailing" id="p7a-JH-p2v"/>
                 <constraint firstAttribute="bottom" secondItem="uw2-LS-xDB" secondAttribute="bottom" id="qAw-BO-ttj"/>
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qYm-E8-yOH"/>
                 <constraint firstItem="uw2-LS-xDB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLi-6E-hzL"/>
-                <constraint firstAttribute="bottom" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="uNk-PM-xpg"/>
+                <constraint firstAttribute="bottom" secondItem="rn1-kR-7VZ" secondAttribute="bottom" id="uNk-PM-xpg" userLabel="Center Button Bottom"/>
                 <constraint firstAttribute="bottom" secondItem="YEV-Fs-vfi" secondAttribute="bottom" id="vlK-tn-Ahc"/>
                 <constraint firstItem="2UO-nB-EVQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wCw-70-Jch"/>
             </constraints>
@@ -116,9 +120,12 @@
                     <exclude reference="96a-OP-wXy"/>
                     <exclude reference="Z7X-rt-Wfq"/>
                     <exclude reference="XH5-Z5-Xfu"/>
+                    <exclude reference="ieE-CL-lrd"/>
                     <exclude reference="lgC-az-Vs2"/>
+                    <exclude reference="qYm-E8-yOH"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="120" y="361"/>
         </view>
     </objects>
     <resources>

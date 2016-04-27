@@ -55,6 +55,9 @@
                                 <constraint firstAttribute="width" constant="44" id="oen-zJ-vNG"/>
                             </constraints>
                             <state key="normal" title="N"/>
+                            <connections>
+                                <action selector="didPressNextButton:" destination="-1" eventType="touchUpInside" id="mdP-6j-37O"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -86,6 +89,9 @@
                                 <constraint firstAttribute="height" constant="44" id="VF1-hh-spz"/>
                             </constraints>
                             <state key="normal" title="X"/>
+                            <connections>
+                                <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="5Fx-It-doZ"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

@@ -142,11 +142,24 @@
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
+    [self displayCornerButtons];
+}
+
+- (IBAction)didPressBackButton:(id)sender {
+    [self hideCornerButtons];
+}
+
+- (IBAction)didPressNextButton:(id)sender {
     
+}
+
+#pragma mark - Animations
+
+- (void)displayCornerButtons {
     self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
     [self.view setNeedsUpdateConstraints];
     
-    [UIView animateWithDuration:1
+    [UIView animateWithDuration:0.3
                      animations:^{
                          [self.view layoutIfNeeded];
                          [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, -M_PI_2)];
@@ -155,10 +168,21 @@
                      completion:^(BOOL finished) {
                          
                      }];
+}
+
+- (void)hideCornerButtons {
+    self.centerButtonBottomConstraint.constant = 0;
+    [self.view setNeedsUpdateConstraints];
     
-//    g5Reminder *newReminder = [[g5Reminder alloc] init];
-//    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:newReminder];
-//    [self.navigationController pushViewController:vc animated:YES];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                         [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
+                         [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
+                     }
+                     completion:^(BOOL finished) {
+                         
+                     }];
 }
 
 #pragma mark - UITableViewDataSource

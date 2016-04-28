@@ -2,13 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10116"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5DateConditionViewController">
             <connections>
-                <outlet property="backButton" destination="pYu-Aw-Frl" id="0qx-Jt-p5f"/>
-                <outlet property="backButtonBackgroundImageView" destination="PoZ-9Z-eTl" id="CKa-XQ-diB"/>
                 <outlet property="calendarContainerView" destination="FM7-KB-Qrr" id="Pet-Gj-JYv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,84 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="85Z-HT-YIO">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM7-KB-Qrr" userLabel="Calendar Container View">
-                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9D-Gz-YEg" userLabel="View - Header">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNV-zJ-AIt" userLabel="View - Separator">
-                            <rect key="frame" x="0.0" y="62" width="600" height="2"/>
-                            <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="2" id="0gP-se-Ccx"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDu-Cn-I2t" userLabel="Label - Title">
-                            <rect key="frame" x="38" y="28" width="524" height="32"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="gJX-yl-P37"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="19"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="SNV-zJ-AIt" secondAttribute="trailing" id="5Wr-kV-u7q"/>
-                        <constraint firstAttribute="height" constant="64" id="HI9-pu-nMD"/>
-                        <constraint firstItem="eDu-Cn-I2t" firstAttribute="leading" secondItem="A9D-Gz-YEg" secondAttribute="leading" constant="38" id="Hol-F6-6SX"/>
-                        <constraint firstAttribute="trailing" secondItem="eDu-Cn-I2t" secondAttribute="trailing" constant="38" id="IAw-0b-XpF"/>
-                        <constraint firstAttribute="bottom" secondItem="SNV-zJ-AIt" secondAttribute="bottom" id="Zi9-bH-k2d"/>
-                        <constraint firstItem="SNV-zJ-AIt" firstAttribute="top" secondItem="eDu-Cn-I2t" secondAttribute="bottom" constant="2" id="fSc-1w-yJu"/>
-                        <constraint firstItem="SNV-zJ-AIt" firstAttribute="leading" secondItem="A9D-Gz-YEg" secondAttribute="leading" id="q4n-w0-I1Q"/>
-                    </constraints>
-                </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PoZ-9Z-eTl" userLabel="Button Background Image">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="0Ny-mj-ndU"/>
-                        <constraint firstAttribute="height" constant="60" id="9db-Nk-moS"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYu-Aw-Frl" userLabel="Back Button">
-                    <rect key="frame" x="278" y="518" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="CbO-It-xXD"/>
-                        <constraint firstAttribute="height" constant="44" id="GAR-s2-86U"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="GDk-6W-13C"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="A9D-Gz-YEg" secondAttribute="trailing" id="0LL-U9-91m"/>
-                <constraint firstAttribute="bottom" secondItem="PoZ-9Z-eTl" secondAttribute="bottom" constant="30" id="5Df-uB-x46"/>
-                <constraint firstItem="pYu-Aw-Frl" firstAttribute="centerX" secondItem="PoZ-9Z-eTl" secondAttribute="centerX" id="73H-EJ-Jcv"/>
-                <constraint firstItem="A9D-Gz-YEg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7Ly-Xl-aDc"/>
-                <constraint firstItem="pYu-Aw-Frl" firstAttribute="centerY" secondItem="PoZ-9Z-eTl" secondAttribute="centerY" id="9b9-fq-YpK"/>
-                <constraint firstItem="FM7-KB-Qrr" firstAttribute="top" secondItem="A9D-Gz-YEg" secondAttribute="bottom" id="CWF-z9-PTr"/>
                 <constraint firstAttribute="trailing" secondItem="FM7-KB-Qrr" secondAttribute="trailing" id="ILn-dN-fg1"/>
-                <constraint firstItem="85Z-HT-YIO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L2s-5x-Q32"/>
-                <constraint firstAttribute="bottom" secondItem="85Z-HT-YIO" secondAttribute="bottom" id="Mrr-Ky-eY6"/>
-                <constraint firstItem="PoZ-9Z-eTl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Wcq-ec-VVy"/>
                 <constraint firstItem="FM7-KB-Qrr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jiJ-4S-FVh"/>
                 <constraint firstAttribute="bottom" secondItem="FM7-KB-Qrr" secondAttribute="bottom" id="mWL-55-hZp"/>
-                <constraint firstItem="A9D-Gz-YEg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nPa-2O-CYF"/>
-                <constraint firstItem="85Z-HT-YIO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pL4-Xo-t6M"/>
-                <constraint firstAttribute="trailing" secondItem="85Z-HT-YIO" secondAttribute="trailing" id="v4s-iO-Neb"/>
+                <constraint firstItem="FM7-KB-Qrr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="twD-RC-1CW"/>
             </constraints>
+            <point key="canvasLocation" x="68" y="323"/>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="375" height="667"/>
-    </resources>
 </document>

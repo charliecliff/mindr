@@ -16,15 +16,24 @@
 #import "AMWaveTransition.h"
 
 #define coordinate 65
+#define previous_button_bottom_constraint_on_screen 30
 
-@interface g5ReminderListViewController () <UINavigationControllerDelegate> {
+typedef enum {
+    g5ViewReminderList = 0,
+    g5ViewReminder,
+    g5ViewCondition,
+} g5ReminderState;
+
+@interface g5ReminderListViewController () <UINavigationControllerDelegate, g5ReminderViewControllerDelegate> {
+    g5ReminderState state;
     NSMutableArray *cells;
 }
 
+@property(nonatomic, strong) IBOutlet UIView *previousButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonContainerView;
-@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
-@property(nonatomic, strong) IBOutlet UIView *backButtonContainerView;
+@property(nonatomic, strong) IBOutlet UIView *cancelButtonBackground;
+@property(nonatomic, strong) IBOutlet UIView *cancelButtonContainerView;
 @property(nonatomic, strong) IBOutlet UIImageView *centerButtonBackgroundImage;
 
 @property(nonatomic, strong) IBOutlet UIView *contentView;
@@ -32,6 +41,8 @@
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonBottomConstraint;
 
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *previousButtonHeightConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *previousButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonTrailingConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonBottomConstraint;
@@ -48,15 +59,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setUpCenterButtonBackgroundAsCircle];
     [self setUpBackButtonBackgroundAsCircle];
     [self setUpNextButtonBackgroundAsCircle];
+    [self setUpPreviousButtonBackgroundAsCircle];
+    
     [self setUpNavigationController];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.contentNavigationController setDelegate:self];
+    state = g5ViewReminderList;
 }
 
 #pragma mark - Set Up
@@ -78,11 +93,19 @@
 }
 
 - (void)setUpBackButtonBackgroundAsCircle {
-    self.backButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
-    self.backButtonBackground.layer.cornerRadius = self.backButtonBackground.frame.size.width / 2;
-    self.backButtonBackground.layer.masksToBounds = YES;
-    self.backButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
-    self.backButtonBackground.layer.borderWidth = 4.0;
+    self.cancelButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
+    self.cancelButtonBackground.layer.cornerRadius = self.cancelButtonBackground.frame.size.width / 2;
+    self.cancelButtonBackground.layer.masksToBounds = YES;
+    self.cancelButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.cancelButtonBackground.layer.borderWidth = 4.0;
+}
+
+- (void)setUpPreviousButtonBackgroundAsCircle {
+    self.previousButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
+    self.previousButtonBackground.layer.cornerRadius = self.previousButtonBackground.frame.size.width / 2;
+    self.previousButtonBackground.layer.masksToBounds = YES;
+    self.previousButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.previousButtonBackground.layer.borderWidth = 4.0;
 }
 
 - (void)setUpNavigationController {
@@ -134,19 +157,31 @@
     
     g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     g5ReminderViewController *reminderVC = [[g5ReminderViewController alloc] initWithReminder:newReminder];
+    reminderVC.delegate = self;
     [self.contentNavigationController pushViewController:reminderVC animated:YES];
 }
 
-- (IBAction)didPressBackButton:(id)sender {
+- (IBAction)didPressPreviousButton:(id)sender {
+    [self hidePreviousButtonWithCompletion:^{
+        [self bounceCornerButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.contentNavigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)didPressNextButton:(id)sender {
+    
+}
+
+- (IBAction)didPressCancelButton:(id)sender {
     [self hideCornerButtonsWithCompletion:^{
         [self bounceCenterButtonOntoScreenWithCompletion:nil];
     }];
     [self.contentNavigationController popToRootViewControllerAnimated:YES];
 }
 
-- (IBAction)didPressNextButton:(id)sender {
-    
-}
+#pragma mark - Segues
+
+
 
 #pragma mark - Button Animations
 
@@ -171,6 +206,21 @@
 
 - (void)hideCenterButtonWithCompletion:(void (^)(void))completion {
     self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
+- (void)hidePreviousButtonWithCompletion:(void (^)(void))completion {
+    self.previousButtonBottomConstraint.constant = -self.previousButtonHeightConstraint.constant;
     
     [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.3
@@ -226,6 +276,25 @@
                      }];
 }
 
+- (void)bouncePreviousButtonOntoScreenWithCompletion:(void (^)(void))completion {
+    self.previousButtonBottomConstraint.constant = previous_button_bottom_constraint_on_screen;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:20
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -253,6 +322,14 @@
         return [AMWaveTransition transitionWithOperation:operation];
     }
     return nil;
+}
+
+#pragma mark - g5ReminderViewControllerDelegate
+
+- (void)didSelectConditionCell {
+    [self hideCornerButtonsWithCompletion:^{
+        [self bouncePreviousButtonOntoScreenWithCompletion:nil];
+    }];
 }
 
 @end

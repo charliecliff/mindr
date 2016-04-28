@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5TimeConditionViewController">
             <connections>
-                <outlet property="backButton" destination="ycp-qB-Yq3" id="tBj-Eh-zF3"/>
-                <outlet property="backButtonBackgroundImageView" destination="ZPU-8j-Zfw" id="fL8-YN-DEg"/>
                 <outlet property="currentTimeLabel" destination="ZPt-bu-ih3" id="TJs-1O-cGI"/>
                 <outlet property="picker" destination="NX3-RA-rST" id="9Wy-AX-g6h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,58 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="LjQ-3g-z8B">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-Ma-zB3" userLabel="View - Header">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kS2-q9-C6q" userLabel="View - Separator">
-                            <rect key="frame" x="0.0" y="62" width="600" height="2"/>
-                            <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="2" id="fhK-aB-2PO"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaS-Vt-51k" userLabel="Label - Title">
-                            <rect key="frame" x="38" y="28" width="524" height="32"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="Z25-CD-8hu"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="19"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="kS2-q9-C6q" firstAttribute="top" secondItem="gaS-Vt-51k" secondAttribute="bottom" constant="2" id="2Vb-UB-tKz"/>
-                        <constraint firstAttribute="bottom" secondItem="kS2-q9-C6q" secondAttribute="bottom" id="BeA-w9-qxg"/>
-                        <constraint firstAttribute="height" constant="64" id="fyd-RJ-rQ4"/>
-                        <constraint firstAttribute="trailing" secondItem="gaS-Vt-51k" secondAttribute="trailing" constant="38" id="hSq-yc-ztu"/>
-                        <constraint firstAttribute="trailing" secondItem="kS2-q9-C6q" secondAttribute="trailing" id="r9D-ME-Jni"/>
-                        <constraint firstItem="kS2-q9-C6q" firstAttribute="leading" secondItem="BuE-Ma-zB3" secondAttribute="leading" id="tuo-P4-yO1"/>
-                        <constraint firstItem="gaS-Vt-51k" firstAttribute="leading" secondItem="BuE-Ma-zB3" secondAttribute="leading" constant="38" id="vV8-VW-mqv"/>
-                    </constraints>
-                </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPU-8j-Zfw" userLabel="Button Background Image">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="36h-2i-U0U"/>
-                        <constraint firstAttribute="height" constant="60" id="NDP-Qm-Ely"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycp-qB-Yq3" userLabel="Back Button">
-                    <rect key="frame" x="278" y="518" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="JXZ-me-YmV"/>
-                        <constraint firstAttribute="height" constant="44" id="Xos-UP-5vP"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="lXw-2j-gcs"/>
-                    </connections>
-                </button>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-RA-rST" customClass="g5TimePicker">
                     <rect key="frame" x="40" y="128" width="520" height="180"/>
                     <constraints>
@@ -168,40 +114,18 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="ZPU-8j-Zfw" firstAttribute="top" secondItem="NX3-RA-rST" secondAttribute="bottom" constant="159" id="55C-qK-1wO"/>
-                <constraint firstAttribute="trailing" secondItem="LjQ-3g-z8B" secondAttribute="trailing" id="C65-79-9W0"/>
-                <constraint firstItem="ycp-qB-Yq3" firstAttribute="centerY" secondItem="ZPU-8j-Zfw" secondAttribute="centerY" id="F5w-qc-opc"/>
-                <constraint firstItem="ZPU-8j-Zfw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="G78-OZ-n67"/>
                 <constraint firstItem="NX3-RA-rST" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="GJa-t4-cVz"/>
-                <constraint firstItem="LjQ-3g-z8B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JSP-jU-7Vs"/>
                 <constraint firstItem="ty2-UY-L1Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JSe-IN-USA"/>
-                <constraint firstAttribute="bottom" secondItem="ZPU-8j-Zfw" secondAttribute="bottom" constant="30" id="KT7-E4-n6I"/>
+                <constraint firstItem="BsD-N0-MnJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="P9z-zA-GhH"/>
                 <constraint firstAttribute="trailing" secondItem="BsD-N0-MnJ" secondAttribute="trailing" id="SJh-VN-Qwj"/>
-                <constraint firstItem="LjQ-3g-z8B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sfu-BP-rJ8"/>
                 <constraint firstItem="BsD-N0-MnJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V5j-ON-RdN"/>
-                <constraint firstItem="BuE-Ma-zB3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aBd-zO-zhh"/>
-                <constraint firstAttribute="trailing" secondItem="BuE-Ma-zB3" secondAttribute="trailing" id="cXL-Vz-WlW"/>
                 <constraint firstAttribute="trailing" secondItem="NX3-RA-rST" secondAttribute="trailing" constant="40" id="f5A-9E-3gG"/>
-                <constraint firstItem="NX3-RA-rST" firstAttribute="top" secondItem="BuE-Ma-zB3" secondAttribute="bottom" constant="71" id="fOt-2y-Zce"/>
-                <constraint firstItem="ycp-qB-Yq3" firstAttribute="centerX" secondItem="ZPU-8j-Zfw" secondAttribute="centerX" id="jM9-VB-U7H"/>
-                <constraint firstItem="BuE-Ma-zB3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lE2-Cy-QdY"/>
-                <constraint firstAttribute="bottom" secondItem="LjQ-3g-z8B" secondAttribute="bottom" id="udt-Gs-yyH"/>
                 <constraint firstItem="ty2-UY-L1Y" firstAttribute="top" secondItem="NX3-RA-rST" secondAttribute="bottom" id="ueb-n8-1Ys"/>
-                <constraint firstItem="BsD-N0-MnJ" firstAttribute="top" secondItem="BuE-Ma-zB3" secondAttribute="bottom" id="unk-Kp-j72"/>
                 <constraint firstItem="NX3-RA-rST" firstAttribute="top" secondItem="BsD-N0-MnJ" secondAttribute="bottom" id="wz6-dU-FZk"/>
                 <constraint firstAttribute="trailing" secondItem="ty2-UY-L1Y" secondAttribute="trailing" id="yqe-Hz-qEJ"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="fOt-2y-Zce"/>
-                    <exclude reference="55C-qK-1wO"/>
-                </mask>
-            </variation>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="375" height="667"/>
-    </resources>
 </document>

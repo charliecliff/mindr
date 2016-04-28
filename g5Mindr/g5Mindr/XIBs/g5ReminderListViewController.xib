@@ -7,10 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5ReminderListViewController">
             <connections>
-                <outlet property="backButtonBackground" destination="43e-Lo-CK2" id="jvc-Wt-LGF"/>
                 <outlet property="backButtonBottomConstraint" destination="tbO-W0-nhe" id="2UR-f6-oQu"/>
-                <outlet property="backButtonContainerView" destination="IjJ-lc-C2D" id="8Mk-qq-jsc"/>
                 <outlet property="backButtonLeadingConstraint" destination="6SS-cA-nTa" id="voz-5z-dgq"/>
+                <outlet property="cancelButtonBackground" destination="43e-Lo-CK2" id="ZKS-hG-B5h"/>
+                <outlet property="cancelButtonContainerView" destination="IjJ-lc-C2D" id="LXi-eb-Mer"/>
                 <outlet property="centerButtonBackgroundImage" destination="rn1-kR-7VZ" id="7dV-9k-dIm"/>
                 <outlet property="centerButtonBottomConstraint" destination="uNk-PM-xpg" id="YdY-ie-WLL"/>
                 <outlet property="centerButtonHeightConstraint" destination="Rpd-l1-bQZ" id="g2W-bH-suw"/>
@@ -19,6 +19,9 @@
                 <outlet property="nextButtonBottomConstraint" destination="pI9-cO-jUd" id="CgS-39-dbH"/>
                 <outlet property="nextButtonContainerView" destination="uEN-4M-Brb" id="DlX-3c-QNd"/>
                 <outlet property="nextButtonTrailingConstraint" destination="8Uc-vA-oTY" id="UkY-4g-GRV"/>
+                <outlet property="previousButtonBackground" destination="5Zh-0Y-BIo" id="2yU-Os-5D6"/>
+                <outlet property="previousButtonBottomConstraint" destination="IMY-AV-95v" id="Uig-9f-Rcu"/>
+                <outlet property="previousButtonHeightConstraint" destination="DZx-Vq-EUd" id="eFX-Jx-vFR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,6 +37,27 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-WI-tIC" userLabel="Content View">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zh-0Y-BIo" userLabel="Previous Button Container">
+                    <rect key="frame" x="270" y="600" width="60" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdf-Ze-TJu" userLabel="Previous Button">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            <state key="normal" image="button_back"/>
+                            <connections>
+                                <action selector="didPressPreviousButton:" destination="-1" eventType="touchUpInside" id="5v0-9E-rkJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="DZx-Vq-EUd" userLabel="Previous Button Height"/>
+                        <constraint firstAttribute="trailing" secondItem="Hdf-Ze-TJu" secondAttribute="trailing" id="GFQ-O1-INu"/>
+                        <constraint firstItem="Hdf-Ze-TJu" firstAttribute="top" secondItem="5Zh-0Y-BIo" secondAttribute="top" id="WPe-lE-35b"/>
+                        <constraint firstItem="Hdf-Ze-TJu" firstAttribute="leading" secondItem="5Zh-0Y-BIo" secondAttribute="leading" id="oVl-iW-rp9"/>
+                        <constraint firstAttribute="bottom" secondItem="Hdf-Ze-TJu" secondAttribute="bottom" id="ojr-cd-zQy"/>
+                        <constraint firstAttribute="width" constant="60" id="xuR-35-UyD"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEN-4M-Brb">
                     <rect key="frame" x="600" y="600" width="130" height="130"/>
@@ -85,10 +109,10 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjJ-lc-C2D">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjJ-lc-C2D" userLabel="Cancel Button Container View">
                     <rect key="frame" x="-130" y="600" width="130" height="130"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="43e-Lo-CK2" userLabel="Background - Back">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="43e-Lo-CK2" userLabel="Background - Cancel">
                             <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="65" id="5Aw-cd-AaT"/>
@@ -101,7 +125,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Button - Back">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Button - Cancel">
                             <rect key="frame" x="65" y="21" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <accessibility key="accessibilityConfiguration" label="Button - Back"/>
@@ -111,7 +135,7 @@
                             </constraints>
                             <state key="normal" image="button_cancel"/>
                             <connections>
-                                <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="5Fx-It-doZ"/>
+                                <action selector="didPressCancelButton:" destination="-1" eventType="touchUpInside" id="drj-cQ-wKM"/>
                             </connections>
                         </button>
                     </subviews>
@@ -120,17 +144,25 @@
                         <constraint firstAttribute="height" constant="130" id="1A3-zu-uc9"/>
                         <constraint firstItem="43e-Lo-CK2" firstAttribute="leading" secondItem="IjJ-lc-C2D" secondAttribute="leading" id="3jy-DP-r4i"/>
                         <constraint firstAttribute="bottom" secondItem="43e-Lo-CK2" secondAttribute="bottom" id="43p-BB-OVK"/>
+                        <constraint firstItem="xMY-Wn-pBc" firstAttribute="centerX" secondItem="IjJ-lc-C2D" secondAttribute="centerX" constant="22" id="5eR-9A-oMR"/>
+                        <constraint firstItem="xMY-Wn-pBc" firstAttribute="top" secondItem="IjJ-lc-C2D" secondAttribute="top" id="6D3-8a-eBJ"/>
+                        <constraint firstItem="xMY-Wn-pBc" firstAttribute="centerY" secondItem="IjJ-lc-C2D" secondAttribute="centerY" constant="-22" id="9H0-pZ-DvL"/>
                         <constraint firstItem="xMY-Wn-pBc" firstAttribute="centerX" secondItem="IjJ-lc-C2D" secondAttribute="centerX" constant="22" id="Dpd-Pp-8zw"/>
                         <constraint firstItem="xMY-Wn-pBc" firstAttribute="bottom" secondItem="43e-Lo-CK2" secondAttribute="bottom" id="RfT-tp-ura"/>
                         <constraint firstItem="xMY-Wn-pBc" firstAttribute="centerY" secondItem="IjJ-lc-C2D" secondAttribute="centerY" constant="-22" id="V7k-Lk-t5H"/>
                         <constraint firstItem="43e-Lo-CK2" firstAttribute="top" secondItem="IjJ-lc-C2D" secondAttribute="top" id="mGo-Qq-j3M"/>
                         <constraint firstAttribute="width" constant="130" id="mYm-tK-SXK"/>
+                        <constraint firstAttribute="trailing" secondItem="xMY-Wn-pBc" secondAttribute="trailing" id="ncC-Su-1pQ"/>
                         <constraint firstItem="xMY-Wn-pBc" firstAttribute="leading" secondItem="43e-Lo-CK2" secondAttribute="leading" id="tKE-3q-7xi"/>
                         <constraint firstAttribute="trailing" secondItem="43e-Lo-CK2" secondAttribute="trailing" id="tkz-Kv-1ig"/>
                     </constraints>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="6D3-8a-eBJ"/>
+                            <exclude reference="Dpd-Pp-8zw"/>
                             <exclude reference="RfT-tp-ura"/>
+                            <exclude reference="V7k-Lk-t5H"/>
+                            <exclude reference="ncC-Su-1pQ"/>
                             <exclude reference="tKE-3q-7xi"/>
                         </mask>
                     </variation>
@@ -196,9 +228,12 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="2UO-nB-EVQ" secondAttribute="trailing" id="0FE-Xb-qLo"/>
                 <constraint firstItem="IjJ-lc-C2D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-130" id="6SS-cA-nTa" userLabel="Back Button Leading"/>
+                <constraint firstItem="rn1-kR-7VZ" firstAttribute="top" secondItem="5Zh-0Y-BIo" secondAttribute="bottom" constant="181" id="73c-q1-DPs"/>
                 <constraint firstAttribute="trailing" secondItem="uEN-4M-Brb" secondAttribute="trailing" constant="-130" id="8Uc-vA-oTY" userLabel="Next Button Trailing"/>
                 <constraint firstItem="YEV-Fs-vfi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tD-Ex-4qw"/>
+                <constraint firstAttribute="bottom" secondItem="5Zh-0Y-BIo" secondAttribute="bottom" constant="-60" id="IMY-AV-95v" userLabel="Previous Button Bottom"/>
                 <constraint firstItem="ERZ-VW-qkk" firstAttribute="centerY" secondItem="rn1-kR-7VZ" secondAttribute="centerY" id="JEj-WW-XR9"/>
+                <constraint firstItem="5Zh-0Y-BIo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LBe-Z9-BDv"/>
                 <constraint firstAttribute="bottom" secondItem="Sog-WI-tIC" secondAttribute="bottom" id="Nis-wT-Jst"/>
                 <constraint firstItem="2UO-nB-EVQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="R2b-ZH-lOw"/>
                 <constraint firstItem="Sog-WI-tIC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UJc-0c-KpR"/>
@@ -224,6 +259,7 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="73c-q1-DPs"/>
                     <exclude reference="jsW-eK-xlh"/>
                     <exclude reference="JEj-WW-XR9"/>
                     <exclude reference="XH5-Z5-Xfu"/>
@@ -239,6 +275,7 @@
     </objects>
     <resources>
         <image name="background" width="375" height="667"/>
+        <image name="button_back" width="24" height="24"/>
         <image name="button_cancel" width="24" height="24"/>
         <image name="button_new" width="24" height="24"/>
         <image name="button_next" width="24" height="24"/>

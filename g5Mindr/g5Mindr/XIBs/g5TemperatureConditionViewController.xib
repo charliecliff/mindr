@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5TemperatureConditionViewController">
             <connections>
-                <outlet property="backButton" destination="KLc-3z-qIy" id="Mh3-ak-fFA"/>
-                <outlet property="backButtonBackgroundImageView" destination="JSw-04-eMN" id="4n9-Ex-mqw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,9 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="sfm-iu-EaZ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZG-Fo-H6m" userLabel="View - Header">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
@@ -51,42 +46,13 @@
                         <constraint firstItem="Ha3-Jv-NYZ" firstAttribute="leading" secondItem="cZG-Fo-H6m" secondAttribute="leading" id="zcI-lm-tME"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JSw-04-eMN" userLabel="Button Background Image">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="4jC-jF-q2Y"/>
-                        <constraint firstAttribute="width" constant="60" id="JmD-Or-ljg"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLc-3z-qIy" userLabel="Back Button">
-                    <rect key="frame" x="278" y="518" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="8eA-yG-3q5"/>
-                        <constraint firstAttribute="width" constant="44" id="dbR-a5-ZE9"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="K4U-9X-l2q"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.99735954400000004" blue="0.057499010289999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="JSw-04-eMN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="191-je-VmK"/>
-                <constraint firstItem="sfm-iu-EaZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1pZ-hs-R4f"/>
                 <constraint firstItem="cZG-Fo-H6m" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="2OO-lK-q7g"/>
-                <constraint firstAttribute="trailing" secondItem="sfm-iu-EaZ" secondAttribute="trailing" id="ArQ-Ke-GYn"/>
                 <constraint firstAttribute="trailing" secondItem="cZG-Fo-H6m" secondAttribute="trailing" id="Iw3-ui-pCL"/>
-                <constraint firstAttribute="bottom" secondItem="JSw-04-eMN" secondAttribute="bottom" constant="30" id="Nfu-F2-E1b"/>
                 <constraint firstItem="cZG-Fo-H6m" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VKl-Ag-65K"/>
-                <constraint firstItem="KLc-3z-qIy" firstAttribute="centerY" secondItem="JSw-04-eMN" secondAttribute="centerY" id="cu2-s2-cx8"/>
-                <constraint firstItem="KLc-3z-qIy" firstAttribute="centerX" secondItem="JSw-04-eMN" secondAttribute="centerX" id="hzq-As-3rV"/>
-                <constraint firstAttribute="bottom" secondItem="sfm-iu-EaZ" secondAttribute="bottom" id="jxN-QP-k2a"/>
-                <constraint firstItem="sfm-iu-EaZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vnO-3a-Dmb"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="375" height="667"/>
-    </resources>
 </document>

@@ -142,6 +142,7 @@
     if (selectedCondition.isActive) {
         g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
         [self.navigationController pushViewController:vc animated:YES];
+        [self.delegate didSelectConditionCell];
     }
 }
 

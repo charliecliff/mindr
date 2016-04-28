@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5LocationConditionViewController">
             <connections>
-                <outlet property="backButton" destination="bN1-mt-mOu" id="5Sd-wa-uyz"/>
-                <outlet property="backButtonBackgroundImageView" destination="cyn-9d-b4T" id="V1Y-VH-fKR"/>
                 <outlet property="mapView" destination="608-7Z-cwY" id="Z4z-e4-t08"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,9 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="d4Y-U5-qw6">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVn-yS-hUh" userLabel="View - Header">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
@@ -56,41 +51,15 @@
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cyn-9d-b4T" userLabel="Button Background Image">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="9Hh-nh-vPz"/>
-                        <constraint firstAttribute="width" constant="60" id="TMT-Fd-DG3"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN1-mt-mOu" userLabel="Back Button">
-                    <rect key="frame" x="278" y="518" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="SdX-pm-z4e"/>
-                        <constraint firstAttribute="height" constant="44" id="kve-9c-d62"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="20S-D2-nva"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="cyn-9d-b4T" secondAttribute="bottom" constant="30" id="0XU-DX-BL0"/>
-                <constraint firstItem="d4Y-U5-qw6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="1yx-Ph-bKj"/>
-                <constraint firstAttribute="trailing" secondItem="d4Y-U5-qw6" secondAttribute="trailing" id="56b-G2-Jl3"/>
-                <constraint firstAttribute="bottom" secondItem="d4Y-U5-qw6" secondAttribute="bottom" id="57B-3j-6WD"/>
                 <constraint firstAttribute="trailing" secondItem="bVn-yS-hUh" secondAttribute="trailing" id="6bX-QB-lmR"/>
                 <constraint firstItem="608-7Z-cwY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BGz-Q3-oc5"/>
-                <constraint firstItem="d4Y-U5-qw6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CC2-SV-38r"/>
-                <constraint firstItem="bN1-mt-mOu" firstAttribute="centerY" secondItem="cyn-9d-b4T" secondAttribute="centerY" id="HS0-NB-HpF"/>
-                <constraint firstItem="bN1-mt-mOu" firstAttribute="centerX" secondItem="cyn-9d-b4T" secondAttribute="centerX" id="Ifs-Fu-hBx"/>
                 <constraint firstItem="bVn-yS-hUh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Itp-VL-Q8v"/>
                 <constraint firstAttribute="bottom" secondItem="bVn-yS-hUh" secondAttribute="bottom" id="JhG-63-pYZ"/>
                 <constraint firstItem="bVn-yS-hUh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JqB-iz-0mp"/>
                 <constraint firstItem="608-7Z-cwY" firstAttribute="top" secondItem="bVn-yS-hUh" secondAttribute="bottom" id="LpO-Hl-Jss"/>
-                <constraint firstItem="cyn-9d-b4T" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="buG-fW-dPb"/>
                 <constraint firstAttribute="bottom" secondItem="608-7Z-cwY" secondAttribute="bottom" id="c2D-lm-jIA"/>
                 <constraint firstAttribute="trailing" secondItem="608-7Z-cwY" secondAttribute="trailing" id="v9a-qB-L4k"/>
             </constraints>
@@ -102,7 +71,4 @@
             <point key="canvasLocation" x="185" y="310"/>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="375" height="667"/>
-    </resources>
 </document>

@@ -37,8 +37,11 @@ typedef NS_ENUM(NSInteger, AMWaveTransitionViewControllers) {
 
 #define SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
 
-const CGFloat DURATION = 0.65;
-const CGFloat MAX_DELAY = 0.15;
+//const CGFloat DURATION = 0.65;
+//const CGFloat MAX_DELAY = 0.15;
+
+const CGFloat DURATION = 1;
+const CGFloat MAX_DELAY = 0.3;
 
 - (void)dealloc {
     [self detachInteractiveGesture];
@@ -193,9 +196,11 @@ const CGFloat MAX_DELAY = 0.15;
         }];
         [self.attachmentsTo removeAllObjects];
         
+        
+        CGFloat duration = 3;
         if (gesture.state == UIGestureRecognizerStateEnded && velocity > 0) {
             // Complete the transition
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:duration animations:^{
                 [fromViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
                     [self completeFromVC:view];
                 }];
@@ -212,7 +217,7 @@ const CGFloat MAX_DELAY = 0.15;
             }];
         } else {
             // Abort
-            [UIView animateWithDuration:0.3 animations:^{
+            [UIView animateWithDuration:duration animations:^{
                 [fromViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
                     [self setPresentedFrameForView:view];
                 }];

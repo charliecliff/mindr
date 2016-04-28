@@ -10,7 +10,7 @@
 
 @class g5Reminder;
 
-@interface g5ReminderViewController : UIViewController
+@interface g5ReminderViewController : UITableViewController
 
 @property(nonatomic, strong) g5Reminder *reminder;
 

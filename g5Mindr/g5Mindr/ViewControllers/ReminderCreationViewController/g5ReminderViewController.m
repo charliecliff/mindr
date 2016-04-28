@@ -18,11 +18,13 @@
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate> {
+#import "AMWaveViewController.h"
+
+@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
     NSMutableArray *cells;
 }
 
-@property(nonatomic, strong) IBOutlet UITableView *conditionTableView;
+//@property(nonatomic, strong) IBOutlet UITableView *conditionTableView;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
 @end
@@ -84,23 +86,24 @@
 
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
-    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
+    for ( int i = 0; i < 10; i++ ) {
+//    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
-        g5ConditionTableViewCell *cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+        g5ConditionTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         if (!cell) {
             UINib *tableCell = [UINib nibWithNibName:@"g5ConditionTableViewCell" bundle:resourcesBundle] ;
-            [self.conditionTableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
-            cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+            [self.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         }
-        cell.delegate = self;
-        
-        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
-        if (currentCondition.isActive) {
-            [cell configureForActiveCondition:currentCondition];
-        }
-        else {
-            [cell configureForInActiveCondition:currentCondition];
-        }
+//        cell.delegate = self;
+//        
+//        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
+//        if (currentCondition.isActive) {
+//            [cell configureForActiveCondition:currentCondition];
+//        }
+//        else {
+//            [cell configureForInActiveCondition:currentCondition];
+//        }
         
         [cells addObject:cell];
     }
@@ -145,7 +148,7 @@
 - (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
     [self.reminder setCondition:condition];
-    [self.conditionTableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - g5ConditionViewController Delegate

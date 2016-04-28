@@ -13,7 +13,7 @@
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
-#import "AMWaveViewController.h"
+#import "AMWaveTransition.h"
 
 #define coordinate 65
 
@@ -29,8 +29,6 @@
 
 @property(nonatomic, strong) IBOutlet UIView *contentView;
 
-@property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
-
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonBottomConstraint;
 
@@ -39,6 +37,7 @@
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonLeadingConstraint;
 
+@property(nonatomic, strong) UITableViewController *reminderTableViewController;
 @property(nonatomic, strong) UINavigationController *contentNavigationController;
 
 @end
@@ -52,15 +51,12 @@
     [self setUpCenterButtonBackgroundAsCircle];
     [self setUpBackButtonBackgroundAsCircle];
     [self setUpNextButtonBackgroundAsCircle];
-//    [self setUpCells];
-
+    [self setUpNavigationController];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self setUpNavigationController];
-    [self.reminderTableView reloadData];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.contentNavigationController setDelegate:self];
 }
 
 #pragma mark - Set Up
@@ -90,33 +86,43 @@
 }
 
 - (void)setUpNavigationController {
-    UITableViewController *tableViewVC = [[UITableViewController alloc] init];
-    tableViewVC.tableView.dataSource = self;
-    
-    self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:tableViewVC];
+    self.reminderTableViewController = [[UITableViewController alloc] init];
+    self.reminderTableViewController.view.backgroundColor = [UIColor clearColor];
+    self.reminderTableViewController.tableView.dataSource = self;
+    self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
+    self.reminderTableViewController.tableView.rowHeight = 64;
+    self.reminderTableViewController.tableView.separatorStyle = UITableViewCellEditingStyleNone;
+
+    self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:self.reminderTableViewController];
+    self.contentNavigationController.view.backgroundColor = [UIColor clearColor];
+
     self.contentNavigationController.delegate = self;
     self.contentNavigationController.navigationBarHidden = YES;
     
     self.contentNavigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     [self.contentView addSubview:self.contentNavigationController.view];
+    
+    [self setUpCells];
 }
 
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
-    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
+//    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
+    for ( int i = 0; i < 10; i++ ) {
+        
         NSBundle *resourcesBundle = [NSBundle mainBundle];
-        g5ReminderTableViewCell *cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        g5ReminderTableViewCell *cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        
         if (!cell) {
             UINib *tableCell = [UINib nibWithNibName:@"g5ReminderTableViewCell" bundle:resourcesBundle] ;
-            [self.reminderTableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
-            cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+            [self.reminderTableViewController.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
+            cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         }
-        
 //        g5Condition *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
-
         [cells addObject:cell];
     }
+    
 }
 
 #pragma mark - Actions
@@ -134,6 +140,7 @@
     [self hideCornerButtonsWithCompletion:^{
         [self bounceCenterButtonOntoScreenWithCompletion:nil];
     }];
+    [self.contentNavigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)didPressNextButton:(id)sender {
@@ -242,7 +249,6 @@
                                                fromViewController:(UIViewController*)fromVC
                                                  toViewController:(UIViewController*)toVC {
     if (operation != UINavigationControllerOperationNone) {
-        // Return your preferred transition operation
         return [AMWaveTransition transitionWithOperation:operation];
     }
     return nil;

@@ -40,7 +40,7 @@ typedef NS_ENUM(NSInteger, AMWaveTransitionViewControllers) {
 //const CGFloat DURATION = 0.65;
 //const CGFloat MAX_DELAY = 0.15;
 
-const CGFloat DURATION = 1;
+const CGFloat DURATION = 0.3;
 const CGFloat MAX_DELAY = 0.3;
 
 - (void)dealloc {

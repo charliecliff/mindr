@@ -20,13 +20,14 @@
 
 #import "AMWaveViewController.h"
 
-@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
+@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+{
     NSMutableArray *cells;
 }
 
-//@property(nonatomic, strong) IBOutlet UITableView *conditionTableView;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
+
 @end
 
 @implementation g5ReminderViewController
@@ -86,8 +87,9 @@
 
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
-    for ( int i = 0; i < 10; i++ ) {
-//    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
+    
+//    for ( int i = 0; i < 10; i++ ) {
+    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ConditionTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         if (!cell) {
@@ -95,15 +97,15 @@
             [self.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         }
-//        cell.delegate = self;
-//        
-//        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
-//        if (currentCondition.isActive) {
-//            [cell configureForActiveCondition:currentCondition];
-//        }
-//        else {
-//            [cell configureForInActiveCondition:currentCondition];
-//        }
+        cell.delegate = self;
+        
+        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
+        if (currentCondition.isActive) {
+            [cell configureForActiveCondition:currentCondition];
+        }
+        else {
+            [cell configureForInActiveCondition:currentCondition];
+        }
         
         [cells addObject:cell];
     }

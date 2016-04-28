@@ -90,8 +90,8 @@
     self.reminderTableViewController.view.backgroundColor = [UIColor clearColor];
     self.reminderTableViewController.tableView.dataSource = self;
     self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
-    self.reminderTableViewController.tableView.rowHeight = 64;
     self.reminderTableViewController.tableView.separatorStyle = UITableViewCellEditingStyleNone;
+    self.reminderTableViewController.tableView.rowHeight = 80;
 
     self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:self.reminderTableViewController];
     self.contentNavigationController.view.backgroundColor = [UIColor clearColor];
@@ -132,7 +132,8 @@
         [self bounceCornerButtonOntoScreenWithCompletion:nil];
     }];
     
-    g5ReminderViewController *reminderVC = [[g5ReminderViewController alloc] initWithReminder:nil];
+    g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
+    g5ReminderViewController *reminderVC = [[g5ReminderViewController alloc] initWithReminder:newReminder];
     [self.contentNavigationController pushViewController:reminderVC animated:YES];
 }
 

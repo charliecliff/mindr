@@ -22,7 +22,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.1450980392" green="0.29411764709999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-85-haf" userLabel="TableView - Conditions">
+                <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x4s-85-haf" userLabel="TableView - Conditions">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -31,21 +31,21 @@
                         <outlet property="delegate" destination="-1" id="Fi2-nc-gdH"/>
                     </connections>
                 </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-JP-WEy" userLabel="Background - Back">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-JP-WEy" userLabel="Background - Back">
                     <rect key="frame" x="0.0" y="535" width="65" height="65"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="LiD-Hc-pdC"/>
                         <constraint firstAttribute="height" constant="65" id="tZW-SZ-QSB"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EL2-Uu-hUN" userLabel="Background - Next">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EL2-Uu-hUN" userLabel="Background - Next">
                     <rect key="frame" x="535" y="535" width="65" height="65"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="65" id="8D2-WG-Z0j"/>
                         <constraint firstAttribute="height" constant="65" id="e70-Q1-pDZ"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEb-jU-5bu" userLabel="Button - Back">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEb-jU-5bu" userLabel="Button - Back">
                     <rect key="frame" x="0.0" y="556" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <accessibility key="accessibilityConfiguration" label="Button - Back"/>
@@ -58,7 +58,7 @@
                         <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="xLF-O4-uCt"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7X-km-I7j" userLabel="Button - Next">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7X-km-I7j" userLabel="Button - Next">
                     <rect key="frame" x="556" y="556" width="44" height="44"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -70,7 +70,7 @@
                         <action selector="didPressNextButton:" destination="-1" eventType="touchUpInside" id="c9P-Zc-6fj"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc9-1h-xEu" userLabel="View - Header">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc9-1h-xEu" userLabel="View - Header">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiN-3k-tlV" userLabel="View - Separator">

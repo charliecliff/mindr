@@ -28,4 +28,6 @@
 @property(nonatomic, strong) id<g5TimePickerDatasource> g5PickerDatasource;
 @property(nonatomic, strong) id<g5TimePickerDelegate> g5PickerDelegate;
 
+- (void)configureForDate:(NSDate *)date;
+
 @end

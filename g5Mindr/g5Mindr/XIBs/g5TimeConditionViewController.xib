@@ -18,13 +18,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NX3-RA-rST" customClass="g5TimePicker">
-                    <rect key="frame" x="40" y="128" width="520" height="180"/>
+                    <rect key="frame" x="40" y="64" width="520" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="oe2-Aw-D6F"/>
                     </constraints>
                 </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BsD-N0-MnJ" userLabel="View - Timer">
-                    <rect key="frame" x="0.0" y="64" width="600" height="64"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfv-aR-rLH" userLabel="Separator">
                             <rect key="frame" x="0.0" y="62" width="600" height="2"/>
@@ -73,7 +73,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ty2-UY-L1Y" userLabel="View - Repetition">
-                    <rect key="frame" x="0.0" y="308" width="600" height="64"/>
+                    <rect key="frame" x="0.0" y="244" width="600" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="455-0u-vSt" userLabel="Separator">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="2"/>
@@ -118,7 +118,7 @@
             <constraints>
                 <constraint firstItem="NX3-RA-rST" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="GJa-t4-cVz"/>
                 <constraint firstItem="ty2-UY-L1Y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JSe-IN-USA"/>
-                <constraint firstItem="BsD-N0-MnJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="P9z-zA-GhH"/>
+                <constraint firstItem="BsD-N0-MnJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="P9z-zA-GhH"/>
                 <constraint firstAttribute="trailing" secondItem="BsD-N0-MnJ" secondAttribute="trailing" id="SJh-VN-Qwj"/>
                 <constraint firstItem="BsD-N0-MnJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V5j-ON-RdN"/>
                 <constraint firstAttribute="trailing" secondItem="NX3-RA-rST" secondAttribute="trailing" constant="40" id="f5A-9E-3gG"/>

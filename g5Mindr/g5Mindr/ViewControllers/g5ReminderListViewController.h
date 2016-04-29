@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface g5ReminderListViewController : UIViewController <UITableViewDataSource>
+@interface g5ReminderListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

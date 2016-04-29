@@ -123,6 +123,7 @@ typedef enum {
     self.reminderTableViewController = [[UITableViewController alloc] init];
     self.reminderTableViewController.view.backgroundColor = [UIColor clearColor];
     self.reminderTableViewController.tableView.dataSource = self;
+    self.reminderTableViewController.tableView.delegate   = self;
     self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
     self.reminderTableViewController.tableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.reminderTableViewController.tableView.rowHeight = 80;
@@ -143,8 +144,6 @@ typedef enum {
     cells = [[NSMutableArray alloc] init];
     
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-//    for ( int i = 0; i < 10; i++ ) {
-    
         NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ReminderTableViewCell *cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         
@@ -153,10 +152,12 @@ typedef enum {
             [self.reminderTableViewController.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
             cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         }
-//        g5Condition *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+        
+        g5Reminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+        [cell configureWithReminder:currentReminder];
+        
         [cells addObject:cell];
     }
-    
 }
 
 #pragma mark - Actions
@@ -337,7 +338,8 @@ typedef enum {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+    g5Reminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
+    [self segueToConditionViewControllerWithReminder:selectedReminder];
 }
 
 #pragma mark - UITableViewDataSource

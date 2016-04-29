@@ -33,8 +33,8 @@
                             <constraint firstAttribute="width" constant="40" id="b8b-P9-qDn"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga2-Lj-lva" userLabel="Label - Title">
-                        <rect key="frame" x="68" y="30" width="187" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga2-Lj-lva" userLabel="Label - Title">
+                        <rect key="frame" x="68" y="29" width="187" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="aBe-Oz-kcw"/>
                         </constraints>
@@ -50,9 +50,6 @@
                         </constraints>
                         <color key="onTintColor" red="0.16078431369999999" green="0.80000000000000004" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <action selector="didToddleActivationSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ROZ-H9-y0r"/>
-                        </connections>
                     </switch>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSn-1X-6ND" userLabel="View - Custom Switch" customClass="OnSwitchView">
                         <rect key="frame" x="263" y="24" width="49" height="31"/>

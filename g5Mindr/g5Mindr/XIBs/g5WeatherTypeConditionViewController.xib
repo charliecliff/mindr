@@ -16,39 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-xO-vuR" userLabel="View - Header">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkG-mB-AEw" userLabel="View - Separator">
-                            <rect key="frame" x="0.0" y="62" width="600" height="2"/>
-                            <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="2" id="zBZ-Py-gpC"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFe-4s-MjL" userLabel="Label - Title">
-                            <rect key="frame" x="38" y="28" width="524" height="32"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="rTs-x7-BoA"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="19"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="sFe-4s-MjL" firstAttribute="leading" secondItem="Oc2-xO-vuR" secondAttribute="leading" constant="38" id="2eQ-Kq-bst"/>
-                        <constraint firstItem="vkG-mB-AEw" firstAttribute="leading" secondItem="Oc2-xO-vuR" secondAttribute="leading" id="87C-Ft-sSp"/>
-                        <constraint firstAttribute="bottom" secondItem="vkG-mB-AEw" secondAttribute="bottom" id="9Kj-J8-sac"/>
-                        <constraint firstAttribute="trailing" secondItem="sFe-4s-MjL" secondAttribute="trailing" constant="38" id="ULQ-M0-bb5"/>
-                        <constraint firstAttribute="height" constant="64" id="ev7-Xa-CGL"/>
-                        <constraint firstItem="vkG-mB-AEw" firstAttribute="top" secondItem="sFe-4s-MjL" secondAttribute="bottom" constant="2" id="rsd-mO-KMg"/>
-                        <constraint firstAttribute="trailing" secondItem="vkG-mB-AEw" secondAttribute="trailing" id="w7U-fo-vDo"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yea-4w-ZKc">
-                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -59,13 +28,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Oc2-xO-vuR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Vf-Ga-31H"/>
+                <constraint firstItem="yea-4w-ZKc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4AT-aV-Dht"/>
                 <constraint firstItem="yea-4w-ZKc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kko-t1-10C"/>
                 <constraint firstAttribute="bottom" secondItem="yea-4w-ZKc" secondAttribute="bottom" id="Noc-zh-b7N"/>
                 <constraint firstAttribute="trailing" secondItem="yea-4w-ZKc" secondAttribute="trailing" id="RlE-yl-Y7e"/>
-                <constraint firstAttribute="trailing" secondItem="Oc2-xO-vuR" secondAttribute="trailing" id="gAU-0v-z26"/>
-                <constraint firstItem="yea-4w-ZKc" firstAttribute="top" secondItem="Oc2-xO-vuR" secondAttribute="bottom" id="nLc-ua-aek"/>
-                <constraint firstItem="Oc2-xO-vuR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vRm-4h-GfN"/>
             </constraints>
         </view>
     </objects>

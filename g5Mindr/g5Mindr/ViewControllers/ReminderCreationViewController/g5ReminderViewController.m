@@ -179,7 +179,7 @@
             break;
             
         case g5ConditionIDTime:
-            vc = [[g5TimeConditionViewController alloc] init];
+            vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDWeather:

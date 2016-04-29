@@ -25,6 +25,8 @@
 @property(nonatomic, strong) IBOutlet UIButton *backButton;
 @property(nonatomic, strong) IBOutlet UIImageView *backButtonBackgroundImageView;
 
+- (instancetype)initWithCondition:(g5Condition *)condition;
+
 - (void)setUpBackButton;
 - (IBAction)didPressBackButton:(id)sender;
 

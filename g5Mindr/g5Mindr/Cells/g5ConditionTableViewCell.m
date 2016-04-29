@@ -71,13 +71,6 @@
 
 #pragma mark - Actions
 
-- (IBAction)didToddleActivationSwitch:(id)sender {
-//    [self.delegate g5Condition:self.condition didSetActive:self.conditionActivationSwitch.isOn];
-//
-//    [self.condition setIsActive:self.conditionActivationSwitch.isOn];
-//    [self reload];
-}
-
 - (IBAction)didPressSwitchButton:(id)sender {
     BOOL newConditionActiveState = (!self.condition.isActive);
     [self.delegate g5Condition:self.condition didSetActive:newConditionActiveState];

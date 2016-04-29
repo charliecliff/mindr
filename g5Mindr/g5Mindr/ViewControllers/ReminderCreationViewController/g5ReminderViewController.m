@@ -167,15 +167,15 @@
     switch ([condition.uid integerValue]) {
         
         case g5ConditionIDDate:
-            vc = [[g5DateConditionViewController alloc] initWithDates:nil];
+            vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDLocation:
-            vc = [[g5LocationConditionViewController alloc] init];
+            vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDTemperature:
-            vc = [[g5TemperatureConditionViewController alloc] init];
+            vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
             break;
             
         case g5ConditionIDTime:
@@ -183,7 +183,7 @@
             break;
         
         case g5ConditionIDWeather:
-            vc = [[g5WeatherTypeConditionViewController alloc] init];
+            vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
             break;
         
         default:

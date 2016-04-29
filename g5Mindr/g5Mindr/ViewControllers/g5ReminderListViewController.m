@@ -75,7 +75,6 @@ typedef enum {
     [self setUpBackButtonBackgroundAsCircle];
     [self setUpNextButtonBackgroundAsCircle];
     [self setUpPreviousButtonBackgroundAsCircle];
-    
     [self setUpNavigationController];
 }
 
@@ -122,19 +121,21 @@ typedef enum {
 - (void)setUpNavigationController {
     self.reminderTableViewController = [[UITableViewController alloc] init];
     self.reminderTableViewController.view.backgroundColor = [UIColor clearColor];
+    self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
     self.reminderTableViewController.tableView.dataSource = self;
     self.reminderTableViewController.tableView.delegate   = self;
-    self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
     self.reminderTableViewController.tableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.reminderTableViewController.tableView.rowHeight = 80;
 
     self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:self.reminderTableViewController];
     self.contentNavigationController.view.backgroundColor = [UIColor clearColor];
-
+    self.contentNavigationController.view.tintColor = [UIColor clearColor];
+    
     self.contentNavigationController.delegate = self;
     self.contentNavigationController.navigationBarHidden = YES;
     
     self.contentNavigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    
     [self.contentView addSubview:self.contentNavigationController.view];
     
     [self setUpCells];
@@ -182,7 +183,18 @@ typedef enum {
         [self segueToExplanationViewController];
     }
     else if (state == g5ViewExplanation) {
+        g5Reminder *reminderCurrentlyBeingBuilt = detailVC.reminder;
+        [[g5ReminderManager sharedManager] addReminder:reminderCurrentlyBeingBuilt];
         
+        [self setUpCells];
+        [self.reminderTableViewController.tableView reloadData];
+        
+        [self hideCornerButtonsWithCompletion:^{
+            [self bounceCenterButtonOntoScreenWithCompletion:nil];
+        }];
+        [self.contentNavigationController popToRootViewControllerAnimated:YES];
+        
+        state = g5ViewReminderList;
     }
 }
 
@@ -362,7 +374,7 @@ typedef enum {
     if ([toVC isKindOfClass:[g5ConditionViewController class]]) {
         return nil;
     }
-    
+
     if (operation != UINavigationControllerOperationNone) {
         return [AMWaveTransition transitionWithOperation:operation];
     }

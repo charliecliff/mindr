@@ -14,6 +14,8 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+- (void)setDate:(NSDate *)date;
+
 - (BOOL)isValidDate:(NSDate *)date;
 
 @end

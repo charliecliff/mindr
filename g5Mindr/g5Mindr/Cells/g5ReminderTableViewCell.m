@@ -29,23 +29,46 @@
     self.reminder = reminder;
     [self.titleLabel setText:self.reminder.name];
     [self.explanationLabel setText:self.reminder.shortExplanation];
+    
+    if (reminder.isActive) {
+        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+        [self reload];
+    }
+    else {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+    }
+}
+
+- (void)reload {
+//    [self.conditionExplanationLabel setText:self.condition.placeholderText];
+//    [self.backgroundImageView setHidden:!self.condition.isActive];
+//    [self.conditionActivationSwitch setOn:self.condition.isActive];
+//    
+//    if (self.condition.isActive) {
+//        [self.conditionExplanationLabel setTextColor:[UIColor whiteColor]];
+//        [self.conditionIconImageView setImage:[self activeImageForCondition:self.condition]];
+//    }
+//    else {
+//        [self.conditionExplanationLabel setTextColor:SECONDARY_FILL_COLOR];
+//        [self.conditionIconImageView setImage:[self inActiveImageForCondition:self.condition]];
+//    }
 }
 
 #pragma mark - Actions
 
 - (IBAction)didPressSwitchButton:(id)sender {
-//    BOOL newConditionActiveState = (!self.condition.isActive);
-//    [self.delegate g5Condition:self.condition didSetActive:newConditionActiveState];
-//    [self.condition setIsActive:newConditionActiveState];
-//    
-//    if (self.condition.isActive) {
-//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
-//    }
-//    else {
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
-//    }
-//    
-//    [self reload];
+    BOOL newReminderActiveState = (!self.reminder.isActive);
+    [self.delegate g5Reminder:self.reminder didSetActive:newReminderActiveState];
+    [self.reminder setIsActive:newReminderActiveState];
+
+    if (self.reminder.isActive) {
+        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+    }
+    else {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+    }
+    
+    [self reload];
 }
 
 @end

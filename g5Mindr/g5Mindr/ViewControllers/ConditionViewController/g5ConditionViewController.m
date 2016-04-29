@@ -15,11 +15,26 @@
 
 @implementation g5ConditionViewController
 
+#pragma mark - Init
+
+- (instancetype)initWithCondition:(g5Condition *)condition {
+    self = [super init];
+    if (self != nil) {
+        self.condition = condition;
+    }
+    return self;
+}
+
 #pragma mark - View Life-Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpBackButton];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.delegate didUpdateCondition:self.condition];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up

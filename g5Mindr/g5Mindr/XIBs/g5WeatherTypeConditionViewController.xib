@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5WeatherTypeConditionViewController">
             <connections>
-                <outlet property="backButton" destination="neE-tL-OaX" id="DdC-5H-VLC"/>
-                <outlet property="backButtonBackgroundImageView" destination="Tcq-mG-QfO" id="fF5-L8-UJC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherTypeTableView" destination="yea-4w-ZKc" id="18u-Vt-QMg"/>
             </connections>
@@ -18,42 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Oha-6K-wdl">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc2-xO-vuR" userLabel="View - Header">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkG-mB-AEw" userLabel="View - Separator">
-                            <rect key="frame" x="0.0" y="62" width="600" height="2"/>
-                            <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="2" id="zBZ-Py-gpC"/>
-                            </constraints>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Conditions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFe-4s-MjL" userLabel="Label - Title">
-                            <rect key="frame" x="38" y="28" width="524" height="32"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="rTs-x7-BoA"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="19"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="sFe-4s-MjL" firstAttribute="leading" secondItem="Oc2-xO-vuR" secondAttribute="leading" constant="38" id="2eQ-Kq-bst"/>
-                        <constraint firstItem="vkG-mB-AEw" firstAttribute="leading" secondItem="Oc2-xO-vuR" secondAttribute="leading" id="87C-Ft-sSp"/>
-                        <constraint firstAttribute="bottom" secondItem="vkG-mB-AEw" secondAttribute="bottom" id="9Kj-J8-sac"/>
-                        <constraint firstAttribute="trailing" secondItem="sFe-4s-MjL" secondAttribute="trailing" constant="38" id="ULQ-M0-bb5"/>
-                        <constraint firstAttribute="height" constant="64" id="ev7-Xa-CGL"/>
-                        <constraint firstItem="vkG-mB-AEw" firstAttribute="top" secondItem="sFe-4s-MjL" secondAttribute="bottom" constant="2" id="rsd-mO-KMg"/>
-                        <constraint firstAttribute="trailing" secondItem="vkG-mB-AEw" secondAttribute="trailing" id="w7U-fo-vDo"/>
-                    </constraints>
-                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yea-4w-ZKc">
-                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
@@ -61,54 +25,14 @@
                         <outlet property="delegate" destination="-1" id="OuO-hp-sxK"/>
                     </connections>
                 </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-mG-QfO" userLabel="Button Background Image">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="3Nw-H5-FuM"/>
-                        <constraint firstAttribute="width" constant="60" id="Eod-so-E7e"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="Ljh-cg-iP7"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="VhZ-dv-JVU"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Ljh-cg-iP7"/>
-                            <exclude reference="VhZ-dv-JVU"/>
-                        </mask>
-                    </variation>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neE-tL-OaX" userLabel="Back Button">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="5d2-DD-OFr"/>
-                        <constraint firstAttribute="height" constant="60" id="Osk-Aq-c8m"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="didPressBackButton:" destination="-1" eventType="touchUpInside" id="6d4-Vs-NRm"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" red="0.1450980392" green="0.29411764709999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Oha-6K-wdl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2HS-gy-K9P"/>
-                <constraint firstItem="Oc2-xO-vuR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Vf-Ga-31H"/>
-                <constraint firstItem="neE-tL-OaX" firstAttribute="centerY" secondItem="Tcq-mG-QfO" secondAttribute="centerY" id="BEm-Iz-1gK"/>
-                <constraint firstItem="Tcq-mG-QfO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="DTg-Gk-WhC"/>
-                <constraint firstItem="neE-tL-OaX" firstAttribute="centerX" secondItem="Tcq-mG-QfO" secondAttribute="centerX" id="E00-51-NSP"/>
+                <constraint firstItem="yea-4w-ZKc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4AT-aV-Dht"/>
                 <constraint firstItem="yea-4w-ZKc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kko-t1-10C"/>
-                <constraint firstAttribute="bottom" secondItem="Oha-6K-wdl" secondAttribute="bottom" id="L2p-bv-oOz"/>
                 <constraint firstAttribute="bottom" secondItem="yea-4w-ZKc" secondAttribute="bottom" id="Noc-zh-b7N"/>
                 <constraint firstAttribute="trailing" secondItem="yea-4w-ZKc" secondAttribute="trailing" id="RlE-yl-Y7e"/>
-                <constraint firstAttribute="bottom" secondItem="Tcq-mG-QfO" secondAttribute="bottom" constant="30" id="bYE-mh-gIw"/>
-                <constraint firstAttribute="trailing" secondItem="Oha-6K-wdl" secondAttribute="trailing" id="e0b-ka-ESD"/>
-                <constraint firstAttribute="trailing" secondItem="Oc2-xO-vuR" secondAttribute="trailing" id="gAU-0v-z26"/>
-                <constraint firstItem="yea-4w-ZKc" firstAttribute="top" secondItem="Oc2-xO-vuR" secondAttribute="bottom" id="nLc-ua-aek"/>
-                <constraint firstItem="Oha-6K-wdl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uaL-cU-VQ8"/>
-                <constraint firstItem="Oc2-xO-vuR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vRm-4h-GfN"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="background" width="375" height="667"/>
-    </resources>
 </document>

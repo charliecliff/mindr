@@ -10,9 +10,17 @@
 
 @class g5Reminder;
 
-@interface g5ReminderViewController : UIViewController
+@protocol g5ReminderViewControllerDelegate <NSObject>
+
+@required
+- (void)didSelectConditionCell;
+
+@end
+
+@interface g5ReminderViewController : UITableViewController
 
 @property(nonatomic, strong) g5Reminder *reminder;
+@property(nonatomic, strong) id<g5ReminderViewControllerDelegate> delegate;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;

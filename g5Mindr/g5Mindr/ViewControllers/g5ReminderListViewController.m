@@ -9,32 +9,58 @@
 #import "g5ReminderListViewController.h"
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
+
 #import "g5ReminderViewController.h"
+#import "g5ConditionViewController.h"
+#import "g5EmoticonSelectionViewController.h"
+#import "g5ReminderDetailViewController.h"
+
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
-#define coordinate 65
+#import "AMWaveTransition.h"
 
-@interface g5ReminderListViewController () {
+#define coordinate 65
+#define previous_button_bottom_constraint_on_screen 30
+
+typedef enum {
+    g5ViewReminderList = 0,
+    g5ViewReminder,
+    g5ViewCondition,
+    g5ViewEmoticon,
+    g5ViewExplanation
+} g5ReminderState;
+
+@interface g5ReminderListViewController () <UINavigationControllerDelegate, g5ReminderViewControllerDelegate> {
+    g5ReminderState state;
     NSMutableArray *cells;
+    
+    g5ReminderViewController *reminderVC;
+    g5EmoticonSelectionViewController *emoticonVC;
+    g5ReminderDetailViewController *detailVC;
 }
 
+@property(nonatomic, strong) IBOutlet UIView *previousButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonContainerView;
-
-@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
-@property(nonatomic, strong) IBOutlet UIView *backButtonContainerView;
-
+@property(nonatomic, strong) IBOutlet UIView *cancelButtonBackground;
+@property(nonatomic, strong) IBOutlet UIView *cancelButtonContainerView;
 @property(nonatomic, strong) IBOutlet UIImageView *centerButtonBackgroundImage;
-@property(nonatomic, strong) IBOutlet UITableView *reminderTableView;
+
+@property(nonatomic, strong) IBOutlet UIView *contentView;
 
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonHeightConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *centerButtonBottomConstraint;
 
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *previousButtonHeightConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *previousButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *nextButtonTrailingConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *backButtonLeadingConstraint;
+
+@property(nonatomic, strong) UITableViewController *reminderTableViewController;
+@property(nonatomic, strong) UINavigationController *contentNavigationController;
 
 @end
 
@@ -44,23 +70,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self setUpCenterButtonBackgroundAsCircle];
     [self setUpBackButtonBackgroundAsCircle];
     [self setUpNextButtonBackgroundAsCircle];
+    [self setUpPreviousButtonBackgroundAsCircle];
+    [self setUpNavigationController];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setUpCells];
-    [self.reminderTableView reloadData];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.contentNavigationController setDelegate:self];
+    state = g5ViewReminderList;
 }
 
 #pragma mark - Set Up
 
 - (void)setUpCenterButtonBackgroundAsCircle {
-    
     self.centerButtonBackgroundImage.backgroundColor = PRIMARY_FILL_COLOR;
-    
     self.centerButtonBackgroundImage.layer.cornerRadius = self.centerButtonBackgroundImage.frame.size.width / 2;
     self.centerButtonBackgroundImage.layer.masksToBounds = YES;
     self.centerButtonBackgroundImage.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
@@ -68,9 +95,7 @@
 }
 
 - (void)setUpNextButtonBackgroundAsCircle {
-
     self.nextButtonBackground.backgroundColor = PRIMARY_FILL_COLOR;
-
     self.nextButtonBackground.layer.cornerRadius = self.nextButtonBackground.frame.size.width / 2;
     self.nextButtonBackground.layer.masksToBounds = YES;
     self.nextButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
@@ -78,95 +103,60 @@
 }
 
 - (void)setUpBackButtonBackgroundAsCircle {
-    
-    self.backButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
-    
-    self.backButtonBackground.layer.cornerRadius = self.backButtonBackground.frame.size.width / 2;
-    self.backButtonBackground.layer.masksToBounds = YES;
-    self.backButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
-    self.backButtonBackground.layer.borderWidth = 4.0;
+    self.cancelButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
+    self.cancelButtonBackground.layer.cornerRadius = self.cancelButtonBackground.frame.size.width / 2;
+    self.cancelButtonBackground.layer.masksToBounds = YES;
+    self.cancelButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.cancelButtonBackground.layer.borderWidth = 4.0;
 }
 
-/*
-- (void)setUpNextButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height)
-                                                        radius:self.nextButtonBackground.frame.size.width
-                                                    startAngle:M_PI
-                                                      endAngle:3*M_PI_2
-                                                     clockwise:YES];
-    CGPathRef cgPath = path.CGPath;
-    CGMutablePathRef mutablePath = CGPathCreateMutableCopy(cgPath);
-    CGPathAddLineToPoint( mutablePath, NULL, self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height );
-    [circleLayer setPath:mutablePath];
-
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.nextButtonBackground bounds].size.width, [self.nextButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.nextButtonBackground bounds]),CGRectGetMidY([self.nextButtonBackground bounds]))];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[PRIMARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.nextButtonBackground layer] addSublayer:circleLayer];
+- (void)setUpPreviousButtonBackgroundAsCircle {
+    self.previousButtonBackground.backgroundColor = SECONDARY_FILL_COLOR;
+    self.previousButtonBackground.layer.cornerRadius = self.previousButtonBackground.frame.size.width / 2;
+    self.previousButtonBackground.layer.masksToBounds = YES;
+    self.previousButtonBackground.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+    self.previousButtonBackground.layer.borderWidth = 4.0;
 }
 
-- (void)setUpBackButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, self.nextButtonBackground.frame.size.height)
-                                                        radius:self.nextButtonBackground.frame.size.width
-                                                    startAngle:3*M_PI_2
-                                                      endAngle:2*M_PI
-                                                     clockwise:YES];
-    CGPathRef cgPath = path.CGPath;
-    CGMutablePathRef mutablePath = CGPathCreateMutableCopy(cgPath);
-    CGPathAddLineToPoint( mutablePath, NULL, 0, self.nextButtonBackground.frame.size.height );
-    [circleLayer setPath:mutablePath];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackground bounds].size.width, [self.backButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.backButtonBackground bounds]),CGRectGetMidY([self.backButtonBackground bounds]))];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.backButtonBackground layer] addSublayer:circleLayer];
-}
- 
- - (void)setUpButtonToRotateOntoScreen {
- [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, M_PI_2)];
- [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, -M_PI_2)];
- }
+- (void)setUpNavigationController {
+    self.reminderTableViewController = [[UITableViewController alloc] init];
+    self.reminderTableViewController.view.backgroundColor = [UIColor clearColor];
+    self.reminderTableViewController.tableView.backgroundColor = [UIColor clearColor];
+    self.reminderTableViewController.tableView.dataSource = self;
+    self.reminderTableViewController.tableView.delegate   = self;
+    self.reminderTableViewController.tableView.separatorStyle = UITableViewCellEditingStyleNone;
+    self.reminderTableViewController.tableView.rowHeight = 80;
 
-- (void)setUpCreateReminderButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:self.reminderTableViewController];
+    self.contentNavigationController.view.backgroundColor = [UIColor clearColor];
+    self.contentNavigationController.view.tintColor = [UIColor clearColor];
     
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.createReminderButtonBackgroundImage bounds].size.width, [self.createReminderButtonBackgroundImage bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.createReminderButtonBackgroundImage bounds]),CGRectGetMidY([self.createReminderButtonBackgroundImage bounds]))];
+    self.contentNavigationController.delegate = self;
+    self.contentNavigationController.navigationBarHidden = YES;
     
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.createReminderButtonBackgroundImage.frame.size.width/2, self.createReminderButtonBackgroundImage.frame.size.height) radius:self.createReminderButtonBackgroundImage.frame.size.height startAngle:0 endAngle:M_PI_2 clockwise:NO];
+    self.contentNavigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
+    [self.contentView addSubview:self.contentNavigationController.view];
     
-    [[self.createReminderButtonBackgroundImage layer] addSublayer:circleLayer];
+    [self setUpCells];
 }
-*/
+
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
-        g5ReminderTableViewCell *cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        g5ReminderTableViewCell *cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        
         if (!cell) {
             UINib *tableCell = [UINib nibWithNibName:@"g5ReminderTableViewCell" bundle:resourcesBundle] ;
-            [self.reminderTableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
-            cell = [self.reminderTableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+            [self.reminderTableViewController.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
+            cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         }
         
-        g5Condition *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
-
+        g5Reminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+        [cell configureWithReminder:currentReminder];
+        
         [cells addObject:cell];
     }
 }
@@ -174,37 +164,78 @@
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
-    [self hideCenterButtonWithCompletion:^{
-        [self bounceCornerButtonOntoScreenWithCompletion:nil];
-    }];
+    g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
+    [self segueToConditionViewControllerWithReminder:newReminder];
 }
 
-- (IBAction)didPressBackButton:(id)sender {
-    [self hideCornerButtonsWithCompletion:^{
-        [self bounceCenterButtonOntoScreenWithCompletion:nil];
+- (IBAction)didPressPreviousButton:(id)sender {
+    [self hidePreviousButtonWithCompletion:^{
+        [self bounceCornerButtonOntoScreenWithCompletion:nil];
     }];
+    [self.contentNavigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    
+    if (state == g5ViewCondition) {
+        [self segueToEmoticonViewController];
+    }
+    else if (state == g5ViewEmoticon) {
+        [self segueToExplanationViewController];
+    }
+    else if (state == g5ViewExplanation) {
+        g5Reminder *reminderCurrentlyBeingBuilt = detailVC.reminder;
+        [[g5ReminderManager sharedManager] addReminder:reminderCurrentlyBeingBuilt];
+        
+        [self setUpCells];
+        [self.reminderTableViewController.tableView reloadData];
+        
+        [self hideCornerButtonsWithCompletion:^{
+            [self bounceCenterButtonOntoScreenWithCompletion:nil];
+        }];
+        [self.contentNavigationController popToRootViewControllerAnimated:YES];
+        
+        state = g5ViewReminderList;
+    }
 }
 
-#pragma mark - Animations
-
-- (void)displayCornerButtons {
-    self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
-    [self.view setNeedsUpdateConstraints];
-    
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                         [self.nextButtonContainerView setTransform:CGAffineTransformRotate(self.nextButtonContainerView.transform, -M_PI_2)];
-                         [self.backButtonContainerView setTransform:CGAffineTransformRotate(self.backButtonContainerView.transform, M_PI_2)];
-                     }
-                     completion:^(BOOL finished) {
-                         
-                     }];
+- (IBAction)didPressCancelButton:(id)sender {
+    [self hideCornerButtonsWithCompletion:^{
+        [self bounceCenterButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.contentNavigationController popToRootViewControllerAnimated:YES];
 }
+
+#pragma mark - Segues
+
+- (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+    [self hideCenterButtonWithCompletion:^{
+        [self bounceCornerButtonOntoScreenWithCompletion:nil];
+    }];
+    
+    reminderVC = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    reminderVC.delegate = self;
+    [self.contentNavigationController pushViewController:reminderVC animated:YES];
+    
+    state = g5ViewCondition;
+}
+
+- (void)segueToEmoticonViewController {
+    g5Reminder *reminderCurrentlyBeingBuilt = reminderVC.reminder;
+    emoticonVC = [[g5EmoticonSelectionViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
+    [self.contentNavigationController pushViewController:emoticonVC animated:YES];
+    
+    state = g5ViewEmoticon;
+}
+
+- (void)segueToExplanationViewController {
+    g5Reminder *reminderCurrentlyBeingBuilt = reminderVC.reminder;
+    detailVC = [[g5ReminderDetailViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
+    [self.contentNavigationController pushViewController:detailVC animated:YES];
+    
+    state = g5ViewExplanation;
+}
+
+#pragma mark - Button Animations
 
 - (void)hideCornerButtonsWithCompletion:(void (^)(void))completion {
     self.nextButtonBottomConstraint.constant   = -2*coordinate;
@@ -227,6 +258,21 @@
 
 - (void)hideCenterButtonWithCompletion:(void (^)(void))completion {
     self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
+- (void)hidePreviousButtonWithCompletion:(void (^)(void))completion {
+    self.previousButtonBottomConstraint.constant = -self.previousButtonHeightConstraint.constant;
     
     [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:0.3
@@ -282,6 +328,32 @@
                      }];
 }
 
+- (void)bouncePreviousButtonOntoScreenWithCompletion:(void (^)(void))completion {
+    self.previousButtonBottomConstraint.constant = previous_button_bottom_constraint_on_screen;
+    
+    [self.view setNeedsUpdateConstraints];
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+         usingSpringWithDamping:0.5
+          initialSpringVelocity:20
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:^(BOOL finished) {
+                         if (finished && completion) {
+                             completion();
+                         }
+                     }];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    g5Reminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
+    [self segueToConditionViewControllerWithReminder:selectedReminder];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -291,6 +363,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return cells.count;
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC {
+    if ([toVC isKindOfClass:[g5ConditionViewController class]]) {
+        return nil;
+    }
+
+    if (operation != UINavigationControllerOperationNone) {
+        return [AMWaveTransition transitionWithOperation:operation];
+    }
+    return nil;
+}
+
+#pragma mark - g5ReminderViewControllerDelegate
+
+- (void)didSelectConditionCell {
+    [self hideCornerButtonsWithCompletion:^{
+        [self bouncePreviousButtonOntoScreenWithCompletion:nil];
+    }];
 }
 
 @end

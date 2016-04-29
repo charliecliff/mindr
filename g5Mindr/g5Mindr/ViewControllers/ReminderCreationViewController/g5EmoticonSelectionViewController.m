@@ -48,6 +48,11 @@
     [self.hexagonGridViewController registerNib:nib forCellWithReuseIdentifier:@"RootCellID"];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController.view setBackgroundColor:[UIColor clearColor]];
+}
+
 #pragma mark - Set Up
 
 - (void)setUpHexagonFlowLayout {

@@ -40,9 +40,39 @@
     return self;
 }
 
+#pragma mark - Setters
+
+- (void)setDate:(NSDate *)date {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    self.timeOfDayInSeconds = minute * 60 + hour * 60 * 60;
+}
+
+#pragma mark - Helpers
+
+- (NSDate *)todayAtMidnight {
+    NSDate *const date = NSDate.date;
+    NSCalendar *const calendar = NSCalendar.currentCalendar;
+    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
+    NSDate *const normalizedDate = [calendar dateFromComponents:components];
+    return normalizedDate;
+}
+
 #pragma mark - Over Ride
 
 - (BOOL)isValidDate:(NSDate *)date {
+
+    NSCalendar *const calendar = NSCalendar.currentCalendar;
+    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
+    NSDate *const normalizedDate = [calendar dateFromComponents:components];
+    
+    NSDate *dateWithTimeOfDayAdded = [normalizedDate dateByAddingTimeInterval:self.timeOfDayInSeconds];
+    
     return NO;
 }
 

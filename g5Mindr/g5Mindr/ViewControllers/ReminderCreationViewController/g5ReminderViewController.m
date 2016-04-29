@@ -18,13 +18,16 @@
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate> {
+#import "AMWaveViewController.h"
+
+@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+{
     NSMutableArray *cells;
 }
 
-@property(nonatomic, strong) IBOutlet UITableView *conditionTableView;
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
+
 @end
 
 @implementation g5ReminderViewController
@@ -84,13 +87,15 @@
 
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
+    
+//    for ( int i = 0; i < 10; i++ ) {
     for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
-        g5ConditionTableViewCell *cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+        g5ConditionTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         if (!cell) {
             UINib *tableCell = [UINib nibWithNibName:@"g5ConditionTableViewCell" bundle:resourcesBundle] ;
-            [self.conditionTableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
-            cell = [self.conditionTableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
+            [self.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ConditionTableViewCell"];
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         }
         cell.delegate = self;
         
@@ -137,6 +142,7 @@
     if (selectedCondition.isActive) {
         g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
         [self.navigationController pushViewController:vc animated:YES];
+        [self.delegate didSelectConditionCell];
     }
 }
 
@@ -145,7 +151,7 @@
 - (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
     [self.reminder setCondition:condition];
-    [self.conditionTableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - g5ConditionViewController Delegate
@@ -161,23 +167,23 @@
     switch ([condition.uid integerValue]) {
         
         case g5ConditionIDDate:
-            vc = [[g5DateConditionViewController alloc] initWithDates:nil];
+            vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDLocation:
-            vc = [[g5LocationConditionViewController alloc] init];
+            vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDTemperature:
-            vc = [[g5TemperatureConditionViewController alloc] init];
+            vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
             break;
             
         case g5ConditionIDTime:
-            vc = [[g5TimeConditionViewController alloc] init];
+            vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
             break;
         
         case g5ConditionIDWeather:
-            vc = [[g5WeatherTypeConditionViewController alloc] init];
+            vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
             break;
         
         default:

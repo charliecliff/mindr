@@ -10,6 +10,9 @@
 
 #define kRowsInPicker 10000
 
+#define STARTING_HOUR_ROW_FOR_12 479
+#define STARTING_MINUTE_ROW_FOR_00 480
+
 @interface g5TimePicker ()
 
 @property(nonatomic, strong) UILabel *colonLabel;
@@ -35,8 +38,8 @@
     self.delegate = self;
     self.dataSource = self;
     
-    [self selectRow:479 inComponent:0 animated:NO];
-    [self selectRow:479 inComponent:1 animated:NO];
+    [self selectRow:STARTING_HOUR_ROW_FOR_12 inComponent:0 animated:NO];
+    [self selectRow:STARTING_MINUTE_ROW_FOR_00 inComponent:1 animated:NO];
 }
 
 #pragma mark - View Life-Cycle
@@ -93,6 +96,18 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateFormat:@"hh:mm a"];
     [self.dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+}
+
+#pragma mark - Configure 
+
+- (void)configureForDate:(NSDate *)date {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
+    NSInteger hour = [components hour];
+    NSInteger minute = [components minute];
+    
+    [self selectRow:STARTING_HOUR_ROW_FOR_12+hour inComponent:0 animated:NO];
+    [self selectRow:STARTING_MINUTE_ROW_FOR_00+minute inComponent:1 animated:NO];
 }
 
 #pragma mark - UIPickerViewDataSource

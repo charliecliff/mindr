@@ -21,8 +21,11 @@
 
 - (void)addReminder:(g5Reminder *)reminder;
 
+// Getters
+- (g5Reminder *)reminderForIndex:(NSInteger)index;
 - (g5Reminder *)reminderForID:(NSString *)reminderID;
 
+// Updating the Conditions
 - (void)updateReminders;
 
 // Persistence

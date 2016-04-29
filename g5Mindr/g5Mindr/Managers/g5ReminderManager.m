@@ -90,6 +90,11 @@
     [self.reminders setObject:reminder forKey:reminder.uid];
 }
 
+- (g5Reminder *)reminderForIndex:(NSInteger)index {
+    NSString *reminderID = [self.reminderIDs objectAtIndex:index];
+    return [self reminderForID:reminderID];
+}
+
 - (g5Reminder *)reminderForID:(NSString *)reminderID {
     return [self.reminders objectForKey:reminderID];
 }

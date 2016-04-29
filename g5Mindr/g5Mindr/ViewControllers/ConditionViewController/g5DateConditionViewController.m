@@ -39,8 +39,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view from its nib.
     [self setUpCalendarView];
 }
 
@@ -59,15 +57,15 @@
 
 - (void)setUpCalendarView{
     self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:self.dateCondition.dates];
-    self.calendarVC.calendar = [NSCalendar currentCalendar];
+    self.calendarVC.view.backgroundColor = [UIColor clearColor];
     
+    self.calendarVC.calendar = [NSCalendar currentCalendar];
     self.calendarVC.firstDate = [NSDate date];
 
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     offsetComponents.year = 3;
     offsetComponents.month = 0;
     self.calendarVC.lastDate = [[NSCalendar currentCalendar] dateByAddingComponents:offsetComponents toDate:[NSDate date] options:0];
-    
     
     self.calendarVC.gridColor               = [UIColor colorWithRed:57.0/255.0 green:85.0/255.0 blue:115.0/255.0 alpha:1];
     self.calendarVC.normalTextColor         = [UIColor whiteColor];;

@@ -19,6 +19,8 @@
 
 - (g5Reminder *)newReminder;
 
+- (g5Reminder *)newReminder;
+
 - (void)addReminder:(g5Reminder *)reminder;
 
 - (g5Reminder *)reminderForID:(NSString *)reminderID;

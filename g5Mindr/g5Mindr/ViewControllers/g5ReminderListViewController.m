@@ -9,7 +9,12 @@
 #import "g5ReminderListViewController.h"
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
+
 #import "g5ReminderViewController.h"
+#import "g5ConditionViewController.h"
+#import "g5EmoticonSelectionViewController.h"
+#import "g5ReminderDetailViewController.h"
+
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
@@ -22,11 +27,17 @@ typedef enum {
     g5ViewReminderList = 0,
     g5ViewReminder,
     g5ViewCondition,
+    g5ViewEmoticon,
+    g5ViewExplanation
 } g5ReminderState;
 
 @interface g5ReminderListViewController () <UINavigationControllerDelegate, g5ReminderViewControllerDelegate> {
     g5ReminderState state;
     NSMutableArray *cells;
+    
+    g5ReminderViewController *reminderVC;
+    g5EmoticonSelectionViewController *emoticonVC;
+    g5ReminderDetailViewController *detailVC;
 }
 
 @property(nonatomic, strong) IBOutlet UIView *previousButtonBackground;
@@ -131,9 +142,9 @@ typedef enum {
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
-//    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-    for ( int i = 0; i < 10; i++ ) {
-        
+    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
+//    for ( int i = 0; i < 10; i++ ) {
+    
         NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ReminderTableViewCell *cell = [self.reminderTableViewController.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         
@@ -151,14 +162,8 @@ typedef enum {
 #pragma mark - Actions
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
-    [self hideCenterButtonWithCompletion:^{
-        [self bounceCornerButtonOntoScreenWithCompletion:nil];
-    }];
-    
     g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
-    g5ReminderViewController *reminderVC = [[g5ReminderViewController alloc] initWithReminder:newReminder];
-    reminderVC.delegate = self;
-    [self.contentNavigationController pushViewController:reminderVC animated:YES];
+    [self segueToConditionViewControllerWithReminder:newReminder];
 }
 
 - (IBAction)didPressPreviousButton:(id)sender {
@@ -169,7 +174,15 @@ typedef enum {
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    
+    if (state == g5ViewCondition) {
+        [self segueToEmoticonViewController];
+    }
+    else if (state == g5ViewEmoticon) {
+        [self segueToExplanationViewController];
+    }
+    else if (state == g5ViewExplanation) {
+        
+    }
 }
 
 - (IBAction)didPressCancelButton:(id)sender {
@@ -181,7 +194,33 @@ typedef enum {
 
 #pragma mark - Segues
 
+- (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+    [self hideCenterButtonWithCompletion:^{
+        [self bounceCornerButtonOntoScreenWithCompletion:nil];
+    }];
+    
+    reminderVC = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    reminderVC.delegate = self;
+    [self.contentNavigationController pushViewController:reminderVC animated:YES];
+    
+    state = g5ViewCondition;
+}
 
+- (void)segueToEmoticonViewController {
+    g5Reminder *reminderCurrentlyBeingBuilt = reminderVC.reminder;
+    emoticonVC = [[g5EmoticonSelectionViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
+    [self.contentNavigationController pushViewController:emoticonVC animated:YES];
+    
+    state = g5ViewEmoticon;
+}
+
+- (void)segueToExplanationViewController {
+    g5Reminder *reminderCurrentlyBeingBuilt = reminderVC.reminder;
+    detailVC = [[g5ReminderDetailViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
+    [self.contentNavigationController pushViewController:detailVC animated:YES];
+    
+    state = g5ViewExplanation;
+}
 
 #pragma mark - Button Animations
 
@@ -318,6 +357,10 @@ typedef enum {
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
                                                fromViewController:(UIViewController*)fromVC
                                                  toViewController:(UIViewController*)toVC {
+    if ([toVC isKindOfClass:[g5ConditionViewController class]]) {
+        return nil;
+    }
+    
     if (operation != UINavigationControllerOperationNone) {
         return [AMWaveTransition transitionWithOperation:operation];
     }

@@ -36,7 +36,7 @@
     return self;
 }
 
-#pragma mark - View LIfe-Cycle
+#pragma mark - View Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

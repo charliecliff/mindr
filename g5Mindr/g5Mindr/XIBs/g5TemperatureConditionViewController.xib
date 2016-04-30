@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5TemperatureConditionViewController">
             <connections>
+                <outlet property="picker" destination="rVY-OR-1sB" id="Dih-n0-uHy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVY-OR-1sB" customClass="g5TimePicker">
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVY-OR-1sB" customClass="g5TemperaturePicker">
                     <rect key="frame" x="40" y="64" width="520" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="4vn-bI-ebh"/>

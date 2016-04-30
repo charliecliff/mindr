@@ -17,14 +17,17 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-hC-yje">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVY-OR-1sB" customClass="g5TemperaturePicker">
-                    <rect key="frame" x="40" y="64" width="520" height="180"/>
+                    <rect key="frame" x="40" y="128" width="520" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="4vn-bI-ebh"/>
                     </constraints>
                 </pickerView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7v5-hx-R6C" userLabel="View - Timer">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31X-51-hup" userLabel="Separator">
                             <rect key="frame" x="0.0" y="62" width="600" height="2"/>
@@ -82,12 +85,19 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rVY-OR-1sB" firstAttribute="top" secondItem="7v5-hx-R6C" secondAttribute="bottom" id="3Yl-xh-4Nr"/>
+                <constraint firstAttribute="trailing" secondItem="b4G-hC-yje" secondAttribute="trailing" id="4UV-Uf-ffP"/>
                 <constraint firstItem="7v5-hx-R6C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5g6-gM-l6b"/>
+                <constraint firstItem="b4G-hC-yje" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kVe-GU-5AN"/>
                 <constraint firstItem="rVY-OR-1sB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="mTz-fb-PIu"/>
+                <constraint firstAttribute="bottom" secondItem="b4G-hC-yje" secondAttribute="bottom" id="qJp-UP-lio"/>
                 <constraint firstAttribute="trailing" secondItem="7v5-hx-R6C" secondAttribute="trailing" id="qnd-rd-kcz"/>
-                <constraint firstItem="7v5-hx-R6C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="upg-5i-qU3"/>
+                <constraint firstItem="b4G-hC-yje" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uTZ-hl-VB4"/>
+                <constraint firstItem="7v5-hx-R6C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="upg-5i-qU3"/>
                 <constraint firstAttribute="trailing" secondItem="rVY-OR-1sB" secondAttribute="trailing" constant="40" id="wRv-J7-8Yh"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
 </document>

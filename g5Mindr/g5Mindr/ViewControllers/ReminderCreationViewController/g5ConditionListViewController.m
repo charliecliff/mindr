@@ -45,7 +45,8 @@
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Choose Conditions";
-
+    self.navigationItem.hidesBackButton = YES;
+    
     [self setUpCells];
 }
 

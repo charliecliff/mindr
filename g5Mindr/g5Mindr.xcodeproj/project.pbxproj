@@ -83,6 +83,8 @@
 		DAE9CAE51CA4AF9F00849427 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9CAE31CA4AF9F00849427 /* g5DateConditionViewController.xib */; };
 		DAE9CAE61CA4AF9F00849427 /* g5TimeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAE9CAE41CA4AF9F00849427 /* g5TimeConditionViewController.xib */; };
 		DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CB0B1CA7283A00849427 /* g5TimePicker.m */; };
+		DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */; };
+		DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +207,9 @@
 		DAE9CAE41CA4AF9F00849427 /* g5TimeConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5TimeConditionViewController.xib; sourceTree = "<group>"; };
 		DAE9CB0A1CA7283A00849427 /* g5TimePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TimePicker.h; sourceTree = "<group>"; };
 		DAE9CB0B1CA7283A00849427 /* g5TimePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TimePicker.m; sourceTree = "<group>"; };
+		DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailSectionTableViewCell.h; sourceTree = "<group>"; };
+		DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailSectionTableViewCell.m; sourceTree = "<group>"; };
+		DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailSectionTableViewCell.xib; sourceTree = "<group>"; };
 		DF012F8FE2553B4858C780AC /* Pods-g5Mindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.release.xcconfig"; sourceTree = "<group>"; };
 		F68F2BBC91E335A39C3983EB /* libPods-g5Mindr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-g5Mindr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -415,6 +420,9 @@
 				DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */,
 				DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */,
 				DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */,
+				DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */,
+				DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */,
+				DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -676,6 +684,7 @@
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DA1EC0D01CD461D700605573 /* g5ReminderTableViewCell.xib in Resources */,
 				DA1EC0D21CD461D700605573 /* g5ReminderViewController.xib in Resources */,
+				DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */,
 				DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */,
 				DAE9CAE51CA4AF9F00849427 /* g5DateConditionViewController.xib in Resources */,
 				DA297EE41CA231F9001D6148 /* g5EmoticonSelectionViewController.xib in Resources */,
@@ -772,6 +781,7 @@
 				DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
 				DA30CF541C9E36DA00FD4438 /* g5ReminderListViewController.m in Sources */,
+				DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */,
 				DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */,
 				DAC8BF171CCC5E7A004CA7D6 /* g5ConditionMonitor.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* g5Condition.m in Sources */,

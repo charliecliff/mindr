@@ -10,6 +10,7 @@
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
 
+#import "g5ReminderViewController.h"
 #import "g5ConditionListViewController.h"
 #import "g5ConditionViewController.h"
 #import "g5EmoticonSelectionViewController.h"
@@ -233,8 +234,11 @@ typedef enum {
     state = g5ViewExplanation;
 }
 
-- (void)segueToReminderViewController {
-    
+- (void)segueToReminderViewControllerWithReminder:(g5Reminder *)reminder {
+    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    [self presentViewController:vc animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - Button Animations
@@ -353,7 +357,7 @@ typedef enum {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     g5Reminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
-    [self segueToConditionViewControllerWithReminder:selectedReminder];
+    [self segueToReminderViewControllerWithReminder:selectedReminder];
 }
 
 #pragma mark - UITableViewDataSource

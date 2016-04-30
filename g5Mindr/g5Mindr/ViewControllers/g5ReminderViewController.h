@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5Reminder.h"
 
 @interface g5ReminderViewController : UIViewController
+
+@property(nonatomic, strong, readonly) g5Reminder *reminder;
+
+- (instancetype)init NS_UNAVAILABLE;
+- (instancetype)initWithReminder:(g5Reminder *)reminder;
 
 @end

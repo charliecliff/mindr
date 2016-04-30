@@ -13,6 +13,7 @@
 
 @interface g5TemperatureConditionViewController () <g5TemperaturePickerDatasource, g5TemperaturePickerDelegate>
 
+@property(nonatomic, strong) IBOutlet UILabel *currentTemperatureLabel;
 @property(nonatomic, strong) IBOutlet g5TemperaturePicker *picker;
 
 @end
@@ -35,11 +36,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.picker.g5PickerDelegate   = self;
     self.picker.g5PickerDatasource = self;
 }
 
+- (void)reload {
+    NSString *temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %u",((g5TemperatureCondition *)self.condition).temperature, ((g5TemperatureCondition *)self.condition).temperatureunit];
+    
+    [self.currentTemperatureLabel setText:temperatureLabelString];
+}
 
 #pragma mark - g5TemperaturePickerDatasource
 
@@ -53,10 +58,13 @@
 
 #pragma mark - g5TemperaturePickerDelegate
 
-- (void)didSelectDate:(NSDate *)date {
-//    self.date = date;
-//    [((g5TimeCondition *)self.condition) setDate:self.date];
-//    [self reload];
+- (void)didSelectTemperature:(NSInteger)temperature withComparionResult:(NSComparisonResult)comparison withUnit:(g5TemperatureUnit)unit {
+    
+    ((g5TemperatureCondition *)self.condition).temperature = [NSNumber numberWithInteger:temperature];
+    ((g5TemperatureCondition *)self.condition).temperatureComparisonType = comparison;
+    ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
+    
+    [self reload];
 }
 
 @end

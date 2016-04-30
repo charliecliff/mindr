@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5TemperatureCondition.h"
 
 @protocol g5TemperaturePickerDatasource <NSObject>
 
@@ -19,7 +20,7 @@
 @protocol g5TemperaturePickerDelegate <NSObject>
 
 @required
-- (void)didSelectDate:(NSDate *)date;
+- (void)didSelectTemperature:(NSInteger)temperature withComparionResult:(NSComparisonResult)comarison withUnit:(g5TemperatureUnit)units;
 
 @end
 

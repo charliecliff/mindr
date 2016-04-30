@@ -33,8 +33,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setUpComponentsRows];
-//    [self setUpDateFormatter];
-    
     self.showsSelectionIndicator = YES;
     
     self.delegate = self;
@@ -48,7 +46,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self highlightSelectedElements];
     [self setUpSeparators];
 }
 
@@ -165,25 +162,6 @@
     self.prepostions = [[NSOrderedSet alloc] initWithObjects:@"Above",@"Exactly",@"Below",nil];
 }
 
-//- (void)setUpColonLabel {
-//    CGFloat widthOfHourColumn = [self rowSizeForComponent:0].width;
-//    CGFloat heightOfFrame     = [self frame].size.height;
-//
-//    UIColor *selectedColor = [self.g5PickerDatasource textColor];
-//
-//    if (self.colonLabel != nil) {
-//        [self.colonLabel removeFromSuperview];
-//    }
-//    self.colonLabel = [[UILabel alloc] initWithFrame:CGRectMake((widthOfHourColumn - 40/2), (heightOfFrame - 40)/2, 40, 40)];
-//    [self.colonLabel setBackgroundColor:[UIColor clearColor]];
-//    [self.colonLabel setText:@" : "];
-//    [self.colonLabel setTextColor:selectedColor];
-//    [self.colonLabel setTextAlignment:NSTextAlignmentCenter];
-//    [self.colonLabel setFont:[UIFont systemFontOfSize:25.0]];
-//
-//    [self addSubview:self.colonLabel];
-//}
-
 - (void)setUpSeparators {
     if (self.subviews.count > 2) {
         UIView *view1 = [self.subviews objectAtIndex:1];
@@ -193,12 +171,6 @@
         [view2 removeFromSuperview];
     }
 }
-
-//- (void)setUpDateFormatter {
-//    self.dateFormatter = [[NSDateFormatter alloc] init];
-//    [self.dateFormatter setDateFormat:@"hh:mm a"];
-//    [self.dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-//}
 
 #pragma mark - Configure 
 
@@ -265,12 +237,43 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self reloadAllComponents];
-    [self highlightSelectedElements];
     
-    if ([self.g5PickerDelegate respondsToSelector:@selector(didSelectDate:)]) {
-        NSDate *selectedDate = [self generateDate];
-        [self.g5PickerDelegate didSelectDate:selectedDate];
+    //  1. Comparison
+    NSInteger comparisonRow    = [self selectedRowInComponent:0];
+    UILabel *label1   = (UILabel*)[self viewForRow:comparisonRow forComponent:0];
+    NSString *comparisonString = label1.text;
+    
+    NSComparisonResult comparison;
+    if ([comparisonString isEqualToString:@"Above"]) {
+        comparison = NSOrderedAscending;
     }
+    else if ([comparisonString isEqualToString:@"Exactly"]) {
+        comparison = NSOrderedSame;
+    }
+    else if ([comparisonString isEqualToString:@"Below"]) {
+        comparison = NSOrderedDescending;
+    }
+    
+    //  2. Temperature
+    NSInteger temperatureRow    = [self selectedRowInComponent:1];
+    UILabel *label2   = (UILabel*)[self viewForRow:temperatureRow forComponent:1];
+    NSInteger temperature = [label2.text integerValue];
+    
+    //  3. Units
+    NSInteger unitRow    = [self selectedRowInComponent:2];
+    UILabel *label3   = (UILabel*)[self viewForRow:unitRow forComponent:2];
+    NSString *unitString = label3.text;
+    
+    g5TemperatureUnit unit;
+    if ([unitString isEqualToString:@"F"]) {
+        unit = g5TemperatureFahrenheit;
+    }
+    else if ([unitString isEqualToString:@"C"]) {
+        unit = g5TemperatureCelsius;
+    }
+    
+    //  4. Delegate Method
+    [self.g5PickerDelegate didSelectTemperature:temperature withComparionResult:comparison withUnit:unit];
 }
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
@@ -288,38 +291,6 @@
         return (pickerView.frame.size.width - WIDTH_FOR_DEGREE_COMPONENT) / 2;
     }
     return 0;
-}
-
-#pragma mark - Helpers
-
-- (void)highlightSelectedElements
-{
-    UIColor *selectedColor = [self.g5PickerDatasource textColor];
-    
-    for (int i = 0; i < 3; i++) {
-        NSInteger row = [self selectedRowInComponent:i];
-        UILabel *labelSelected = (UILabel*)[self viewForRow:row forComponent:i];
-        [labelSelected setTextColor:selectedColor];
-    }
-}
-
-- (NSDate *)generateDate
-{
-    NSInteger hourRow    = [self selectedRowInComponent:0];
-    UILabel *hourLabel   = (UILabel*)[self viewForRow:hourRow forComponent:0];
-    NSString *hourString = hourLabel.text;
-    
-    NSInteger minuteRow    = [self selectedRowInComponent:1];
-    UILabel *minuteLabel   = (UILabel*)[self viewForRow:minuteRow forComponent:1];
-    NSString *minuteString = minuteLabel.text;
-    
-    NSInteger meridianRow    = [self selectedRowInComponent:2];
-    UILabel *meridianLabel   = (UILabel*)[self viewForRow:meridianRow forComponent:2];
-    NSString *meridianString = meridianLabel.text;
-
-    NSString *dateString = [NSString stringWithFormat:@"%@:%@ %@", hourString, minuteString, meridianString];
-    NSDate *date = [self.dateFormatter dateFromString:dateString];
-    return date;
 }
 
 @end

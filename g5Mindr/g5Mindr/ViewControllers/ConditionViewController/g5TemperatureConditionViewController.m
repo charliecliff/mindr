@@ -38,12 +38,22 @@
     [super viewDidLoad];
     self.picker.g5PickerDelegate   = self;
     self.picker.g5PickerDatasource = self;
+    [self reload];
 }
 
 - (void)reload {
-    NSString *temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %u",((g5TemperatureCondition *)self.condition).temperature, ((g5TemperatureCondition *)self.condition).temperatureunit];
+    NSString *temperatureLabelString;
+    if (((g5TemperatureCondition *)self.condition).temperatureunit == g5TemperatureFahrenheit) {
+        temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %@",((g5TemperatureCondition *)self.condition).temperature, @"F"];
+    }
+    else if (((g5TemperatureCondition *)self.condition).temperatureunit == g5TemperatureCelsius) {
+        temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %@",((g5TemperatureCondition *)self.condition).temperature, @"C"];
+    }
     
     [self.currentTemperatureLabel setText:temperatureLabelString];
+    [self.picker configureForTemperature:((g5TemperatureCondition *)self.condition).temperature
+                           forComparison:((g5TemperatureCondition *)self.condition).temperatureComparisonType
+                                 forUnit:((g5TemperatureCondition *)self.condition).temperatureunit];
 }
 
 #pragma mark - g5TemperaturePickerDatasource

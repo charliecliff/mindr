@@ -10,8 +10,9 @@
 
 #define kRowsInPicker 10000
 
-#define STARTING_HOUR_ROW_FOR_12 479
-#define STARTING_MINUTE_ROW_FOR_00 480
+#define STARTING_ROW_FOR_DEGREE_COMPONENT 416
+#define STARTING_ROW_FOR_COMPARISON_COMPONENT 480
+#define STARTING_ROW_FOR_UNIT_COMPONENT 480
 
 #define WIDTH_FOR_DEGREE_COMPONENT 80
 
@@ -38,8 +39,7 @@
     self.delegate = self;
     self.dataSource = self;
     
-    [self selectRow:STARTING_HOUR_ROW_FOR_12 inComponent:0 animated:NO];
-    [self selectRow:STARTING_MINUTE_ROW_FOR_00 inComponent:1 animated:NO];
+    [self selectRow:STARTING_ROW_FOR_DEGREE_COMPONENT inComponent:1 animated:NO];
 }
 
 #pragma mark - View Life-Cycle
@@ -174,14 +174,29 @@
 
 #pragma mark - Configure 
 
-- (void)configureForDate:(NSDate *)date {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
+- (void)configureForTemperature:(NSNumber *)temperature forComparison:(NSComparisonResult)comparison forUnit:(g5TemperatureUnit)unit {
     
-    [self selectRow:STARTING_HOUR_ROW_FOR_12+hour inComponent:0 animated:NO];
-    [self selectRow:STARTING_MINUTE_ROW_FOR_00+minute inComponent:1 animated:NO];
+    //  1. Comparison Component
+    if (comparison == NSOrderedSame) {
+        [self selectRow:1 inComponent:0 animated:NO];
+    }
+    else if (comparison == NSOrderedAscending) {
+        [self selectRow:0 inComponent:0 animated:NO];
+    }
+    else if (comparison == NSOrderedDescending) {
+        [self selectRow:2 inComponent:0 animated:NO];
+    }
+    
+    //  2. Degree Component
+    [self selectRow:STARTING_ROW_FOR_DEGREE_COMPONENT + [temperature integerValue] inComponent:1 animated:NO];
+    
+    //  3. Unit Component
+    if (unit == g5TemperatureCelsius) {
+        [self selectRow:0 inComponent:2 animated:NO];
+    }
+    else if (unit == g5TemperatureFahrenheit) {
+        [self selectRow:1 inComponent:2 animated:NO];
+    }
 }
 
 #pragma mark - UIPickerViewDataSource

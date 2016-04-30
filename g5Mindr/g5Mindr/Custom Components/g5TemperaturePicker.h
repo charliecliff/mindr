@@ -29,6 +29,6 @@
 @property(nonatomic, strong) id<g5TemperaturePickerDatasource> g5PickerDatasource;
 @property(nonatomic, strong) id<g5TemperaturePickerDelegate> g5PickerDelegate;
 
-- (void)configureForDate:(NSDate *)date;
+- (void)configureForTemperature:(NSNumber *)temperature forComparison:(NSComparisonResult)comparison forUnit:(g5TemperatureUnit)unit;
 
 @end

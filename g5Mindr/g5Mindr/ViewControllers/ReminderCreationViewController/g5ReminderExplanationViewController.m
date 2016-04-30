@@ -7,13 +7,11 @@
 //
 
 #import "g5ReminderExplanationViewController.h"
+#import "g5BounceNavigationController.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderExplanationViewController ()
-
-@property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
-@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
+@interface g5ReminderExplanationViewController () <g5BounceNavigationDelegate>
 
 @end
 
@@ -33,53 +31,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpNextButtonBackground];
-    [self setUpBackButtonBackground];
 }
 
-#pragma mark - Set Up
-
-- (void)setUpNextButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.nextButtonBackground bounds].size.width, [self.nextButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.nextButtonBackground bounds]),CGRectGetMidY([self.nextButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height) radius:self.nextButtonBackground.frame.size.width startAngle:3*M_PI_4 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[PRIMARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.nextButtonBackground layer] addSublayer:circleLayer];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bounceNavigationController.delegate = self;
 }
 
-- (void)setUpBackButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackground bounds].size.width, [self.backButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.backButtonBackground bounds]),CGRectGetMidY([self.backButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, self.backButtonBackground.frame.size.height) radius:self.backButtonBackground.frame.size.width startAngle:M_PI_2 endAngle:3*M_PI_2 clockwise:NO];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.backButtonBackground layer] addSublayer:circleLayer];
+#pragma mark - g5BounceNavigationDelegate
+
+- (void)didPressCenterButton {
+    assert(false);
 }
 
-#pragma mark - Actions
-
-- (IBAction)didPressBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)didPressPreviousButton {
+    assert(false);
 }
 
-- (IBAction)didPressCompleteButton:(id)sender {
-    [[g5ReminderManager sharedManager] addReminder:self.reminder];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+- (void)didPressNextButton {
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)didPressCancelButton {
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

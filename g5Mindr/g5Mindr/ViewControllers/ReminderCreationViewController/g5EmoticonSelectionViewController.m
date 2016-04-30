@@ -18,8 +18,7 @@
 @property(nonatomic, strong) NSArray *emoticonImageNames;
 
 @property(nonatomic, strong) IBOutlet UICollectionView *hexagonGridViewController;
-@property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
-@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
+
 @end
 
 @implementation g5EmoticonSelectionViewController
@@ -39,8 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setUpNextButtonBackground];
-    [self setUpBackButtonBackground];
     [self setUpHexagonFlowLayout];
     [self setUpEmoticonImageNames];
     
@@ -50,7 +47,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController.view setBackgroundColor:[UIColor clearColor]];
+    self.bounceNavigationController.delegate = self;
 }
 
 #pragma mark - Set Up
@@ -79,49 +76,6 @@
     self.emoticonImageNames = [plistDictionary objectForKey:@"emoticons"];
 }
 
-- (void)setUpNextButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.nextButtonBackground bounds].size.width, [self.nextButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.nextButtonBackground bounds]),CGRectGetMidY([self.nextButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height) radius:self.nextButtonBackground.frame.size.width startAngle:3*M_PI_4 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[PRIMARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.nextButtonBackground layer] addSublayer:circleLayer];
-}
-
-- (void)setUpBackButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackground bounds].size.width, [self.backButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.backButtonBackground bounds]),CGRectGetMidY([self.backButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, self.backButtonBackground.frame.size.height) radius:self.backButtonBackground.frame.size.width startAngle:M_PI_2 endAngle:3*M_PI_2 clockwise:NO];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.backButtonBackground layer] addSublayer:circleLayer];
-}
-
-#pragma mark - Actions
-
-- (IBAction)didPressBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)didPressNextButton:(id)sender {
-    g5ReminderExplanationViewController *vc = [[g5ReminderExplanationViewController alloc] initWithReminder:self.reminder];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 #pragma mark - UICollectionView DataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -137,7 +91,7 @@
         [self.hexagonGridViewController registerNib:tableCell forCellWithReuseIdentifier:@"RootCellID"];
         cell = [self.hexagonGridViewController dequeueReusableCellWithReuseIdentifier:@"RootCellID" forIndexPath:indexPath];
     }
-    // Forcing
+    // Forcing a Layout
     [cell .contentView setNeedsLayout];
     [cell.contentView layoutIfNeeded];
     
@@ -190,8 +144,8 @@
 #pragma mark - UICollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger cellNumber = indexPath.row;
-    NSString *selectedEmoticonImageName = [self.emoticonImageNames objectAtIndex:cellNumber];
+//    NSInteger cellNumber = indexPath.row;
+//    NSString *selectedEmoticonImageName = [self.emoticonImageNames objectAtIndex:cellNumber];
 //    self.reminder.emoticonImageName = selectedEmoticonImageName;
     self.reminder.emoticonImageName = @"emoticon_smile";
     
@@ -202,6 +156,33 @@
     } completion:^(BOOL finished) {
         [UIView setAnimationsEnabled:YES];
     }];
+}
+
+#pragma mark - g5BounceNavigationDelegate
+
+- (void)didPressCenterButton {
+    assert(false);
+}
+
+- (void)didPressPreviousButton {
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
+        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
+    }];
+    
+    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didPressNextButton {
+    g5ReminderExplanationViewController *vc = [[g5ReminderExplanationViewController alloc] initWithReminder:self.reminder];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didPressCancelButton {
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -20,13 +20,9 @@
 
 #import "AMWaveViewController.h"
 
-@interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
-{
+@interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
     NSMutableArray *cells;
 }
-
-@property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
-@property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
 
 @end
 
@@ -46,49 +42,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUpNextButtonBackground];
-    [self setUpBackButtonBackground];
+
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"Choose Conditions";
+
     [self setUpCells];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bounceNavigationController.delegate = self;
 }
 
 #pragma mark - Set Up
 
-- (void)setUpNextButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.nextButtonBackground bounds].size.width, [self.nextButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.nextButtonBackground bounds]),CGRectGetMidY([self.nextButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.nextButtonBackground.frame.size.width, self.nextButtonBackground.frame.size.height) radius:self.nextButtonBackground.frame.size.width startAngle:3*M_PI_4 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[PRIMARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-
-    [[self.nextButtonBackground layer] addSublayer:circleLayer];
-}
-
-- (void)setUpBackButtonBackground {
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackground bounds].size.width, [self.backButtonBackground bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(CGRectGetMidX([self.backButtonBackground bounds]),CGRectGetMidY([self.backButtonBackground bounds]))];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, self.backButtonBackground.frame.size.height) radius:self.backButtonBackground.frame.size.width startAngle:M_PI_2 endAngle:3*M_PI_2 clockwise:NO];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.backButtonBackground layer] addSublayer:circleLayer];
-}
-
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
-//    for ( int i = 0; i < 10; i++ ) {
     for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ConditionTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
@@ -111,17 +81,6 @@
     }
 }
 
-#pragma mark - Actions
-
-- (IBAction)didPressBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)didPressNextButton:(id)sender {
-    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] initWithReminder:self.reminder];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
 #pragma mark - UITableView DataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -140,6 +99,10 @@
     NSInteger selectedRow = indexPath.row;
     g5Condition *selectedCondition = [self.reminder getConditionAtIndex:selectedRow];
     if (selectedCondition.isActive) {
+        [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+            [self.bounceNavigationController displayPreviousButtonOntoScreenWithCompletion:nil];
+        }];
+        
         g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
         [self.navigationController pushViewController:vc animated:YES];
         [self.delegate didSelectConditionCell];
@@ -192,6 +155,33 @@
     vc.delegate = self;
     vc.condition = condition;
     return vc;
+}
+
+#pragma mark - g5BounceNavigationDelegate
+
+- (void)didPressCenterButton {
+    assert(false);
+}
+
+- (void)didPressPreviousButton {
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
+        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
+    }];
+    
+    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)didPressNextButton {
+    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didPressCancelButton {
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+    }];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

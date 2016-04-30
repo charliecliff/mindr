@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5BounceNavigationController.h"
 
-@interface g5ReminderListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface g5ReminderListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, g5BounceNavigationDatasource, g5BounceNavigationDelegate>
+
+@property(nonatomic, weak) g5BounceNavigationController *bounceNavigationController;
 
 @end

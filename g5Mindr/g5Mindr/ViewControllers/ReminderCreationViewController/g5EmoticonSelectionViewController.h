@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "g5BounceNavigationController.h"
 
 @class g5Reminder;
 
-@interface g5EmoticonSelectionViewController : UIViewController
+@interface g5EmoticonSelectionViewController : UIViewController <g5BounceNavigationDelegate>
 
 @property(nonatomic, strong) g5Reminder *reminder;
+
+@property(nonatomic, weak) g5BounceNavigationController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;

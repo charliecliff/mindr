@@ -10,6 +10,8 @@
 #import "g5ReminderManager.h"
 
 #import "g5EmoticonSelectionViewController.h"
+
+#import "g5BounceNavigationController.h"
 #import "g5ReminderListViewController.h"
 
 #import "g5WeatherMonitor.h"
@@ -43,12 +45,12 @@
     
     //  5. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
+    g5BounceNavigationController *bounceVC = [[g5BounceNavigationController alloc] initWithRootViewController:vc withDelegate:vc withDatasource:vc];
     
-    UINavigationController *baseNavigationViewController = [[UINavigationController alloc] initWithRootViewController:vc];
-    [baseNavigationViewController setNavigationBarHidden:YES];
+    vc.bounceNavigationController = bounceVC;
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = baseNavigationViewController;
+    self.window.rootViewController = bounceVC;
     [self.window makeKeyAndVisible];
     
     return YES;

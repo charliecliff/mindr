@@ -128,14 +128,11 @@ typedef enum {
     self.reminderTableViewController.tableView.rowHeight = 80;
 
     self.contentNavigationController = [[UINavigationController alloc] initWithRootViewController:self.reminderTableViewController];
+    self.contentNavigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     self.contentNavigationController.view.backgroundColor = [UIColor clearColor];
     self.contentNavigationController.view.tintColor = [UIColor clearColor];
-    
-    self.contentNavigationController.delegate = self;
     self.contentNavigationController.navigationBarHidden = YES;
-    
-    self.contentNavigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
-    
+    self.contentNavigationController.delegate = self;
     [self.contentView addSubview:self.contentNavigationController.view];
     
     [self setUpCells];
@@ -367,10 +364,8 @@ typedef enum {
 
 #pragma mark - UINavigationControllerDelegate
 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController*)fromVC
-                                                 toViewController:(UIViewController*)toVC {
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {
+    
     if ([toVC isKindOfClass:[g5ConditionViewController class]]) {
         return nil;
     }

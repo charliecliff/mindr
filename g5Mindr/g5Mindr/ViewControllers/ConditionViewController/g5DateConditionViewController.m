@@ -25,11 +25,11 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithDates:(NSArray *)dates {
-    self = [super init];
+- (instancetype)initWithCondition:(g5Condition *)condition {
+    self = [super initWithCondition:condition];
     if (self != nil) {
-        if (self != nil) {
-            self.dateCondition = [[g5DateCondition alloc] initWithDates:dates];
+        if (condition == nil) {
+            self.condition = [[g5DateCondition alloc] initWithDates:nil];
         }
     }
     return self;
@@ -43,14 +43,10 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
     NSArray *dates = [NSArray arrayWithObject:[self.calendarVC.selectedDates allObjects]];
     self.dateCondition.dates = dates;
     
-    if ([self.delegate respondsToSelector:@selector(didUpdateCondition:)]) {
-        [self.delegate didUpdateCondition:self.dateCondition];
-    }
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up

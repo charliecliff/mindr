@@ -25,6 +25,7 @@
 @property(nonatomic, strong) IBOutlet UIButton *backButton;
 @property(nonatomic, strong) IBOutlet UIImageView *backButtonBackgroundImageView;
 
+- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithCondition:(g5Condition *)condition;
 
 - (void)setUpBackButton;

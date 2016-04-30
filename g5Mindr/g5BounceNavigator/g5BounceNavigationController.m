@@ -55,7 +55,8 @@
 #pragma mark - Init
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController withDelegate:(id<g5BounceNavigationDelegate>)delegate withDatasource:(id<g5BounceNavigationDatasource>)datasource {
-    self = [super init];
+    NSBundle *bundle = [NSBundle bundleForClass:[g5BounceNavigationController class]];
+    self = [super initWithNibName:@"g5BounceNavigationController" bundle:bundle];
     if (self != nil) {
         rootVC = rootViewController;
         self.delegate = delegate;
@@ -148,7 +149,7 @@
 #pragma mark - Setters
 
 - (void)setNextButtonEnabled:(BOOL)nextButtonEnabled {
-    [self.nextButtonOverlayImageView setHidden:!nextButtonEnabled];
+    [self.nextButtonOverlayImageView setHidden:nextButtonEnabled];
 }
 
 #pragma mark - Actions

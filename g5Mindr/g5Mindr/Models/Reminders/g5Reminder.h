@@ -50,6 +50,9 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+- (BOOL)hasActiveConditions;
+- (BOOL)hasEmoticon;
+
 - (BOOL)haveConditionsBeenMeet;
 
 - (g5Condition *)getConditionAtIndex:(NSUInteger)index;

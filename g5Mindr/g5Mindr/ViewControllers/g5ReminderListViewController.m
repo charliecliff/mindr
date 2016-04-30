@@ -18,9 +18,6 @@
 #import "AMWaveTransition.h"
 #import "IBCellFlipSegue.h"
 
-#define coordinate 65
-#define previous_button_bottom_constraint_on_screen 30
-
 @interface g5ReminderListViewController () <UINavigationControllerDelegate> {
     NSMutableArray *cells;
 }
@@ -126,6 +123,8 @@
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressCenterButton {
+    [self.bounceNavigationController setNextButtonEnabled:NO];
+
     [self.bounceNavigationController hideCenterButtonWithCompletion:^{
         [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
     }];
@@ -147,20 +146,6 @@
         [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
     }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
-}
-
-#pragma mark - g5BounceNavigationDatasource
-
-- (UIColor *)primaryFillColor {
-    return PRIMARY_FILL_COLOR;
-}
-
-- (UIColor *)secondaryFillColor {
-    return SECONDARY_FILL_COLOR;
-}
-
-- (UIColor *)strokeColor {
-    return PRIMARY_STROKE_COLOR;
 }
 
 @end

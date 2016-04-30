@@ -11,7 +11,7 @@
 
 #import "g5EmoticonSelectionViewController.h"
 
-#import "g5BounceNavigationController.h"
+#import "mindrBounceNavigationViewController.h"
 #import "g5ReminderListViewController.h"
 
 #import "g5WeatherMonitor.h"
@@ -45,7 +45,8 @@
     
     //  5. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
-    g5BounceNavigationController *bounceVC = [[g5BounceNavigationController alloc] initWithRootViewController:vc withDelegate:vc withDatasource:vc];
+    mindrBounceNavigationViewController *bounceVC = [[mindrBounceNavigationViewController alloc] initWithRootViewController:vc withDelegate:vc withDatasource:nil];
+    bounceVC.datasource = bounceVC;
     
     vc.bounceNavigationController = bounceVC;
     

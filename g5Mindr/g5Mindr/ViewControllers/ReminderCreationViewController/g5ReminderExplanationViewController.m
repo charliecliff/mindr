@@ -36,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+//    [self reload];
 }
 
 #pragma mark - g5BounceNavigationDelegate
@@ -52,6 +53,9 @@
     [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
         [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
     }];
+    
+    [[g5ReminderManager sharedManager] addReminder:self.reminder];
+    
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

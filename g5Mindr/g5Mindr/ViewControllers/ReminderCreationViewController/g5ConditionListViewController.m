@@ -52,6 +52,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self reload];
+}
+
+- (void)reload {
+    if ([self.reminder hasActiveConditions]) {
+        [self.bounceNavigationController setNextButtonEnabled:YES];
+    }
+    else {
+        [self.bounceNavigationController setNextButtonEnabled:NO];
+    }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Set Up
@@ -114,7 +125,7 @@
 - (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
     [self.reminder setCondition:condition];
-    [self.tableView reloadData];
+    [self reload];
 }
 
 #pragma mark - g5ConditionViewController Delegate

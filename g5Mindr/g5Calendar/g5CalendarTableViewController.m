@@ -48,6 +48,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpTableView];
+    self.view.backgroundColor = [UIColor clearColor];
 }
 
 #pragma mark - Set Up

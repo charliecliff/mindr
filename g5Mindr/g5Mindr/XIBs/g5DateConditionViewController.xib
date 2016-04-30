@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5DateConditionViewController">
@@ -16,19 +16,29 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM7-KB-Qrr" userLabel="Calendar Container View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Q2C-gf-Yyd">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FM7-KB-Qrr" userLabel="Calendar Container View">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Q2C-gf-Yyd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="00c-gA-RDp"/>
+                <constraint firstAttribute="bottom" secondItem="Q2C-gf-Yyd" secondAttribute="bottom" id="05b-Mz-0dD"/>
                 <constraint firstAttribute="trailing" secondItem="FM7-KB-Qrr" secondAttribute="trailing" id="ILn-dN-fg1"/>
+                <constraint firstAttribute="trailing" secondItem="Q2C-gf-Yyd" secondAttribute="trailing" id="OCF-zu-Ljd"/>
                 <constraint firstItem="FM7-KB-Qrr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jiJ-4S-FVh"/>
                 <constraint firstAttribute="bottom" secondItem="FM7-KB-Qrr" secondAttribute="bottom" id="mWL-55-hZp"/>
-                <constraint firstItem="FM7-KB-Qrr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="twD-RC-1CW"/>
+                <constraint firstItem="Q2C-gf-Yyd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oL0-Nl-XBM"/>
+                <constraint firstItem="FM7-KB-Qrr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="twD-RC-1CW"/>
             </constraints>
             <point key="canvasLocation" x="68" y="323"/>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
 </document>

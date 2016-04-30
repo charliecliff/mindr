@@ -82,6 +82,20 @@
 
 #pragma mark - Getters
 
+- (BOOL)hasActiveConditions {
+    BOOL hasTimeCondition        = [self.timeCondition isActive];
+    BOOL hasDateCondition        = [self.dateCondition isActive];
+    BOOL hasTemperatureCondition = [self.temperatureCondition isActive];
+    BOOL hasWeatherCondition     = [self.weatherCondition isActive];
+    BOOL hasLocationCondition    = [self.locationCondition isActive];
+    
+    return (hasTimeCondition || hasDateCondition || hasWeatherCondition || hasTemperatureCondition || hasLocationCondition);
+}
+
+- (BOOL)hasEmoticon {
+    return !(self.emoticonImageName == nil);
+}
+
 - (BOOL)haveConditionsBeenMeet {
     BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentTimeOfDay]];
     BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDay]];
@@ -164,8 +178,3 @@
 }
 
 @end
-
-
-
-
-

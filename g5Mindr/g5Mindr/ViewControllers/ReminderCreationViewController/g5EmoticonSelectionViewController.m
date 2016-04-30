@@ -48,6 +48,16 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self reload];
+}
+
+- (void)reload {
+    if ([self.reminder hasEmoticon]) {
+        [self.bounceNavigationController setNextButtonEnabled:YES];
+    }
+    else {
+        [self.bounceNavigationController setNextButtonEnabled:NO];
+    }
 }
 
 #pragma mark - Set Up
@@ -156,6 +166,8 @@
     } completion:^(BOOL finished) {
         [UIView setAnimationsEnabled:YES];
     }];
+    
+    [self reload];
 }
 
 #pragma mark - g5BounceNavigationDelegate

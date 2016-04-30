@@ -15,8 +15,6 @@
 @property(nonatomic, strong) NSArray *selectedDates;
 @property(nonatomic, strong) g5CalendarTableViewController *calendarVC;
 
-@property(nonatomic, strong) g5DateCondition *dateCondition;
-
 @property(nonatomic, strong) IBOutlet UIView *calendarContainerView;
 
 @end
@@ -28,7 +26,7 @@
 - (instancetype)initWithCondition:(g5Condition *)condition {
     self = [super initWithCondition:condition];
     if (self != nil) {
-        if (condition == nil) {
+        if (self.condition == nil) {
             self.condition = [[g5DateCondition alloc] initWithDates:nil];
         }
     }
@@ -43,16 +41,22 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSArray *dates = [NSArray arrayWithObject:[self.calendarVC.selectedDates allObjects]];
-    self.dateCondition.dates = dates;
-    
+    NSArray *dates = [self.calendarVC.selectedDates allObjects];
+    ((g5DateCondition *)self.condition).dates = dates;
     [super viewWillDisappear:animated];
+}
+
+- (void)reload {
+//    NSString *dateString = [self.dateFormatter stringFromDate:self.date];
+//    [self.currentTimeLabel setText:dateString];
+//    [self.picker configureForDate:self.date];
 }
 
 #pragma mark - Set Up
 
 - (void)setUpCalendarView{
-    self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:self.dateCondition.dates];
+    
+    self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:((g5DateCondition *)self.condition).dates];
     self.calendarVC.view.backgroundColor = [UIColor clearColor];
     
     self.calendarVC.calendar = [NSCalendar currentCalendar];

@@ -7,7 +7,7 @@
 //
 
 #import "g5EmoticonSelectionViewController.h"
-#import "g5ReminderDetailViewController.h"
+#import "g5ReminderExplanationViewController.h"
 #import "RootCell.h"
 #import "g5Reminder.h"
 #import "g5ConfigAndMacros.h"
@@ -118,7 +118,7 @@
 }
 
 - (IBAction)didPressNextButton:(id)sender {
-    g5ReminderDetailViewController *vc = [[g5ReminderDetailViewController alloc] initWithReminder:self.reminder];
+    g5ReminderExplanationViewController *vc = [[g5ReminderExplanationViewController alloc] initWithReminder:self.reminder];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

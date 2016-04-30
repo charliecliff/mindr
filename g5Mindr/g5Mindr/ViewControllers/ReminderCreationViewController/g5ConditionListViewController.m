@@ -1,12 +1,12 @@
 //
-//  g5ReminderViewController.m
+//  g5ConditionListViewController.m
 //  g5Mindr
 //
 //  Created by Charles Cliff on 3/19/16.
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderViewController.h"
+#import "g5ConditionListViewController.h"
 #import "g5EmoticonSelectionViewController.h"
 #import "g5TimeConditionViewController.h"
 #import "g5DateConditionViewController.h"
@@ -20,7 +20,7 @@
 
 #import "AMWaveViewController.h"
 
-@interface g5ReminderViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
+@interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 {
     NSMutableArray *cells;
 }
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation g5ReminderViewController
+@implementation g5ConditionListViewController
 
 #pragma mark - Init
 

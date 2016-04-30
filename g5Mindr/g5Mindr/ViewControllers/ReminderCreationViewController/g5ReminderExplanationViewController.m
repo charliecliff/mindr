@@ -1,23 +1,23 @@
 //
-//  g5ReminderDetailViewController.m
+//  g5ReminderExplanationViewController.m
 //  g5Mindr
 //
 //  Created by Charles Cliff on 4/23/16.
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderDetailViewController.h"
+#import "g5ReminderExplanationViewController.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderDetailViewController ()
+@interface g5ReminderExplanationViewController ()
 
 @property(nonatomic, strong) IBOutlet UIView *nextButtonBackground;
 @property(nonatomic, strong) IBOutlet UIView *backButtonBackground;
 
 @end
 
-@implementation g5ReminderDetailViewController
+@implementation g5ReminderExplanationViewController
 
 #pragma mark - Init
 

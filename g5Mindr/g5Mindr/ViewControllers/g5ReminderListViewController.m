@@ -10,15 +10,16 @@
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
 
-#import "g5ReminderViewController.h"
+#import "g5ConditionListViewController.h"
 #import "g5ConditionViewController.h"
 #import "g5EmoticonSelectionViewController.h"
-#import "g5ReminderDetailViewController.h"
+#import "g5ReminderExplanationViewController.h"
 
 #import "g5ReminderTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
 #import "AMWaveTransition.h"
+#import "IBCellFlipSegue.h"
 
 #define coordinate 65
 #define previous_button_bottom_constraint_on_screen 30
@@ -31,13 +32,13 @@ typedef enum {
     g5ViewExplanation
 } g5ReminderState;
 
-@interface g5ReminderListViewController () <UINavigationControllerDelegate, g5ReminderViewControllerDelegate> {
+@interface g5ReminderListViewController () <UINavigationControllerDelegate, g5ConditionListViewControllerDelegate> {
     g5ReminderState state;
     NSMutableArray *cells;
     
-    g5ReminderViewController *reminderVC;
+    g5ConditionListViewController *reminderVC;
     g5EmoticonSelectionViewController *emoticonVC;
-    g5ReminderDetailViewController *detailVC;
+    g5ReminderExplanationViewController *detailVC;
 }
 
 @property(nonatomic, strong) IBOutlet UIView *previousButtonBackground;
@@ -209,7 +210,7 @@ typedef enum {
         [self bounceCornerButtonOntoScreenWithCompletion:nil];
     }];
     
-    reminderVC = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    reminderVC = [[g5ConditionListViewController alloc] initWithReminder:reminder];
     reminderVC.delegate = self;
     [self.contentNavigationController pushViewController:reminderVC animated:YES];
     
@@ -226,10 +227,14 @@ typedef enum {
 
 - (void)segueToExplanationViewController {
     g5Reminder *reminderCurrentlyBeingBuilt = reminderVC.reminder;
-    detailVC = [[g5ReminderDetailViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
+    detailVC = [[g5ReminderExplanationViewController alloc] initWithReminder:reminderCurrentlyBeingBuilt];
     [self.contentNavigationController pushViewController:detailVC animated:YES];
     
     state = g5ViewExplanation;
+}
+
+- (void)segueToReminderViewController {
+    
 }
 
 #pragma mark - Button Animations
@@ -376,7 +381,7 @@ typedef enum {
     return nil;
 }
 
-#pragma mark - g5ReminderViewControllerDelegate
+#pragma mark - g5ConditionListViewControllerDelegate
 
 - (void)didSelectConditionCell {
     [self hideCornerButtonsWithCompletion:^{

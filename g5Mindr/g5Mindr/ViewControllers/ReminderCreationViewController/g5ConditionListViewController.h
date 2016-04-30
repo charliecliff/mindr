@@ -1,5 +1,5 @@
 //
-//  g5ReminderViewController.h
+//  g5ConditionListViewController.h
 //  g5Mindr
 //
 //  Created by Charles Cliff on 3/19/16.
@@ -10,17 +10,17 @@
 
 @class g5Reminder;
 
-@protocol g5ReminderViewControllerDelegate <NSObject>
+@protocol g5ConditionListViewControllerDelegate <NSObject>
 
 @required
 - (void)didSelectConditionCell;
 
 @end
 
-@interface g5ReminderViewController : UITableViewController
+@interface g5ConditionListViewController : UITableViewController
 
 @property(nonatomic, strong) g5Reminder *reminder;
-@property(nonatomic, strong) id<g5ReminderViewControllerDelegate> delegate;
+@property(nonatomic, strong) id<g5ConditionListViewControllerDelegate> delegate;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;

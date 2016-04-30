@@ -1,5 +1,5 @@
 //
-//  g5ReminderDetailViewController.h
+//  g5ReminderExplanationViewController.h
 //  g5Mindr
 //
 //  Created by Charles Cliff on 4/23/16.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "g5Reminder.h"
 
-@interface g5ReminderDetailViewController : UIViewController
+@interface g5ReminderExplanationViewController : UIViewController
 
 @property(nonatomic, strong) g5Reminder *reminder;
 

@@ -36,7 +36,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
     self = [super init];
     if (self != nil) {
         if (dates != nil)
-            self.selectedDates = [[NSMutableSet alloc] initWithArray:dates];
+            self.selectedDates = [NSMutableSet setWithArray:dates];
         else
             self.selectedDates = [[NSMutableSet alloc] init];
     }

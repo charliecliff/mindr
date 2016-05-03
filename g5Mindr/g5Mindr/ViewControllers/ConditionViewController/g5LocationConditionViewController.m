@@ -23,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Location";
+    
     [self setUpMapView];
     
     MGLPolygon *shape = [self polygonCircleForCoordinate:[g5LocationManager sharedManager].currentLocation.coordinate

@@ -36,8 +36,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Temperature";
+
     self.picker.g5PickerDelegate   = self;
     self.picker.g5PickerDatasource = self;
+
     [self reload];
 }
 

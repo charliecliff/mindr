@@ -14,12 +14,15 @@
 
 #import "g5LocationManager.h"
 
-NSString *const g5WeatherSunny              = @"sunny";
-NSString *const g5WeatherPartlyCloudy       = @"partly_cloudy";
-NSString *const g5WeatherCloudy             = @"cloudy";
-NSString *const g5WeatherLightRain          = @"light_rain";
-NSString *const g5WeatherHeavyRain          = @"heavy_rain";
-NSString *const g5WeatherSeverThunderstorm  = @"severe_thunderstorm";
+NSString *const g5WeatherSunny              = @"weather_mostlysunny";
+NSString *const g5WeatherPartlyCloudy       = @"weather_partlycloudy";
+NSString *const g5WeatherMostlyCloudy       = @"weather_mostlycloudy";
+NSString *const g5WeatherLightRain          = @"weather_rainy";
+NSString *const g5WeatherHeavyRain          = @"weather_reallyrainy";
+NSString *const g5WeatherSeverThunderstorm  = @"weather_thunderstorms";
+NSString *const g5WeatherFoggy              = @"weather_foggy";
+NSString *const g5WeatherWindy              = @"weather_windy";
+NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 @interface g5WeatherMonitor () {
     g5WeatherConditionType currentWeatherCondition;

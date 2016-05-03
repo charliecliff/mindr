@@ -40,6 +40,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Time";
+
     [self setUpDateFromatter];
     
     self.picker.g5PickerDelegate   = self;

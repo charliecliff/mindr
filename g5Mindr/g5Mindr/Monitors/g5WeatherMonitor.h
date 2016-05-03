@@ -15,10 +15,13 @@
 
 extern NSString *const g5WeatherSunny;
 extern NSString *const g5WeatherPartlyCloudy;
-extern NSString *const g5WeatherCloudy;
+extern NSString *const g5WeatherMostlyCloudy;
 extern NSString *const g5WeatherLightRain;
 extern NSString *const g5WeatherHeavyRain;
 extern NSString *const g5WeatherSeverThunderstorm;
+extern NSString *const g5WeatherFoggy;
+extern NSString *const g5WeatherWindy;
+extern NSString *const g5WeatherSnowy;
 
 @interface g5WeatherMonitor : g5ConditionMonitor
 

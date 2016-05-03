@@ -32,30 +32,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.weatherTypes = [NSArray arrayWithObjects:g5WeatherSunny, g5WeatherPartlyCloudy, g5WeatherCloudy, g5WeatherLightRain, g5WeatherHeavyRain, g5WeatherSeverThunderstorm, nil];
+    self.navigationItem.title = @"Weather";
+
+    self.weatherTypes = [NSArray arrayWithObjects:g5WeatherSunny, g5WeatherPartlyCloudy, g5WeatherMostlyCloudy, g5WeatherLightRain, g5WeatherHeavyRain, g5WeatherSeverThunderstorm, g5WeatherFoggy, g5WeatherWindy, g5WeatherSnowy, nil];    
 }
 
 #pragma mark - UITableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.weatherTypes.count;
+    return self.weatherTypes.count + 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    g5WeatherTypeConditionTableViewCell *cell = [self.weatherTypeTableView dequeueReusableCellWithIdentifier:@"weather_cell"];
-    if (!cell) {
-        NSBundle *resourcesBundle = [NSBundle mainBundle];
-        UINib *tableCell = [UINib nibWithNibName:@"g5WeatherTypeConditionTableViewCell" bundle:resourcesBundle] ;
-        [self.weatherTypeTableView registerNib:tableCell forCellReuseIdentifier:@"weather_cell"];
-        cell = [self.weatherTypeTableView dequeueReusableCellWithIdentifier:@"weather_cell"];
+    if (self.weatherTypes.count > indexPath.row) {
+        g5WeatherTypeConditionTableViewCell *cell = [self.weatherTypeTableView dequeueReusableCellWithIdentifier:@"weather_cell"];
+        if (!cell) {
+            NSBundle *resourcesBundle = [NSBundle mainBundle];
+            UINib *tableCell = [UINib nibWithNibName:@"g5WeatherTypeConditionTableViewCell" bundle:resourcesBundle] ;
+            [self.weatherTypeTableView registerNib:tableCell forCellReuseIdentifier:@"weather_cell"];
+            cell = [self.weatherTypeTableView dequeueReusableCellWithIdentifier:@"weather_cell"];
+        }
+        
+        NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
+        cell.weatherConditionType = weatherTypeForRow;
+        return cell;
     }
-    
-    NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
-    cell.weatherConditionType = weatherTypeForRow;
-    
-    [cell setSelected:[self.selectedWeatherTypes containsObject:weatherTypeForRow]];
-    
-    return cell;
+    else {
+        UITableViewCell *blankCell = [[UITableViewCell alloc] init];
+        blankCell.backgroundColor = [UIColor clearColor];
+        return blankCell;
+    }
+//    [cell setSelected:[self.selectedWeatherTypes containsObject:weatherTypeForRow]];
 }
 
 #pragma mark - UITableViewDelegate

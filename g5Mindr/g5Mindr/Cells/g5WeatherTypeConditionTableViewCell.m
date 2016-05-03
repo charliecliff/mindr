@@ -22,12 +22,21 @@
 #pragma mark - Setters
 
 - (void)setWeatherConditionType:(NSString *)weatherConditionType {
-    NSString *labelText = [self labelTextForWeatherConditionType:weatherConditionType];
-    [self.weatherLabel setText:labelText];
-    
-    UIImage *activeImage = [UIImage imageNamed:weatherConditionType];
-    if (activeImage != nil) {
-        [self.weatherImage setImage:activeImage];
+    if (weatherConditionType != nil) {
+        self.weatherLabel.hidden = NO;
+        self.weatherImage.hidden = NO;
+        
+        NSString *labelText = [self labelTextForWeatherConditionType:weatherConditionType];
+        [self.weatherLabel setText:labelText];
+        
+        UIImage *activeImage = [UIImage imageNamed:weatherConditionType];
+        if (activeImage != nil) {
+            [self.weatherImage setImage:activeImage];
+        }
+    }
+    else {
+        self.weatherLabel.hidden = YES;
+        self.weatherImage.hidden = YES;
     }
 }
 
@@ -46,8 +55,8 @@
     else if ( [weatherConditionType isEqualToString:g5WeatherPartlyCloudy] ) {
         return @"Partly Cloudy";
     }
-    else if ( [weatherConditionType isEqualToString:g5WeatherCloudy] ) {
-        return @"Cloudy";
+    else if ( [weatherConditionType isEqualToString:g5WeatherMostlyCloudy] ) {
+        return @"Mostly Cloudy";
     }
     else if ( [weatherConditionType isEqualToString:g5WeatherLightRain] ) {
         return @"Light Rain";
@@ -57,6 +66,15 @@
     }
     else if ( [weatherConditionType isEqualToString:g5WeatherSeverThunderstorm] ) {
         return @"Severe Thunderstorm";
+    }
+    else if ( [weatherConditionType isEqualToString:g5WeatherFoggy] ) {
+        return @"Foggy";
+    }
+    else if ( [weatherConditionType isEqualToString:g5WeatherWindy] ) {
+        return @"Windy";
+    }
+    else if ( [weatherConditionType isEqualToString:g5WeatherSnowy] ) {
+        return @"Snowy";
     }
     return nil;
 }

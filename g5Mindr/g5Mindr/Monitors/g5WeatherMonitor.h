@@ -28,6 +28,6 @@ extern NSString *const g5WeatherSnowy;
 @property(nonatomic, strong, readonly) g5Weather *currentWeather;
 
 - (NSNumber *)currentTemperature;
-- (g5WeatherConditionType)currentWeatherType;
+- (kWeatherType)currentWeatherType;
 
 @end

@@ -12,7 +12,7 @@
 
 @interface g5WeatherTypeCondition ()
 
-@property(nonatomic) g5WeatherConditionType weatherType;
+@property(nonatomic) kWeatherType weatherType;
 
 @end
 
@@ -40,7 +40,7 @@
 
 #pragma mark - Over Ride
 
-- (BOOL)isValidWeatherType:(g5WeatherConditionType)weatherType {
+- (BOOL)isValidWeatherType:(kWeatherType)weatherType {
     return (weatherType == self.weatherType);
 }
 

@@ -100,7 +100,7 @@
     BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentTimeOfDay]];
     BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDay]];
     BOOL temperatureIsValid      = [self.temperatureCondition isValidTemperature:[self.datasource currentTemperature]];
-    BOOL weatherConditionIsValid = [self.weatherCondition isValidWeatherType:[self.datasource currentWeatherCondition]];
+    BOOL weatherConditionIsValid = [self.weatherCondition isValidWeatherType:[self.datasource currentWeatherType]];
     BOOL locationIsValid         = [self.locationCondition isValidLocation:[self.datasource currentLocation]];
     
     return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid);

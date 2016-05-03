@@ -8,6 +8,7 @@
 
 #import "g5WeatherTypeConditionViewController.h"
 #import "g5WeatherTypeConditionTableViewCell.h"
+#import "g5WeatherTypeCondition.h"
 
 @interface g5WeatherTypeConditionViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -20,10 +21,14 @@
 
 @implementation g5WeatherTypeConditionViewController
 
-- (instancetype)init {
-    self = [super init];
+#pragma mark - Init
+
+- (instancetype)initWithCondition:(g5Condition *)condition {
+    self = [super initWithCondition:condition];
     if (self != nil) {
-        self.selectedWeatherTypes = [[NSMutableArray alloc] init];
+        if (condition == nil) {
+            self.condition = [[g5WeatherTypeCondition alloc] init];
+        }
     }
     return self;
 }

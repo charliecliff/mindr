@@ -14,7 +14,7 @@ typedef enum {
     g5ClearSky,
     g5Snow,
     g5Tornado
-} g5WeatherConditionType;
+} kWeatherType;
 
 @interface g5Weather : MTLModel <MTLJSONSerializing>
 

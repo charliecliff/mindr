@@ -155,7 +155,7 @@
     return self.weatherMonitor.currentTemperature;
 }
 
-- (g5WeatherConditionType)currentWeatherCondition {
+- (kWeatherType)currentWeatherType {
     return self.weatherMonitor.currentWeatherType;
 }
 

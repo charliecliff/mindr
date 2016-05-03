@@ -13,6 +13,6 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)isValidWeatherType:(g5WeatherConditionType)weatherType;
+- (BOOL)isValidWeatherType:(kWeatherType)weatherType;
 
 @end

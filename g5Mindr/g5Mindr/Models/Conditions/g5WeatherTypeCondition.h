@@ -14,5 +14,9 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (BOOL)isValidWeatherType:(kWeatherType)weatherType;
+- (BOOL)containsWeatherType:(kWeatherType)weatherType;
+
+- (void)removeWeatherType:(kWeatherType)weatherType;
+- (void)addWeatherType:(kWeatherType)weatherType;
 
 @end

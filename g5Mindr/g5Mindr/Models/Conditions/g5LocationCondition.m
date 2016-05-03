@@ -38,10 +38,10 @@
 
 #pragma mark - Over Ride
 
-//- (BOOL)isValid {
-//    CLLocationDistance distanceToCurrentLocation = [[self.datasource currentLocation] distanceFromLocation:self.location];
-//    return !(distanceToCurrentLocation > self.radius);
-//}
+- (BOOL)isValidLocation:(CLLocation *)location {
+    CLLocationDistance distanceToCurrentLocation = [location distanceFromLocation:self.location];
+    return !(distanceToCurrentLocation > self.radius);
+}
 
 - (NSString *)detailsText {
     return @"_details_";

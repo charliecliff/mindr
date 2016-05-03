@@ -36,20 +36,6 @@
     return self;
 }
 
-#pragma mark - Over Ride
-
-- (BOOL)isValid {
-    return NO;
-}
-
-- (NSString *)detailsText {
-    return @"_details_";
-}
-
-- (NSString *)placeholderText {
-    return @"DATE";
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

@@ -48,10 +48,8 @@
 
 - (void)configureLocationManager {
     _locationManager = [[CLLocationManager alloc] init];
-//    _locationManager.distanceFilter = kCLDistanceFilterNone;
-    _locationManager.distanceFilter = 50;
-//    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    _locationManager.distanceFilter = kCLDistanceFilterNone;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     _locationManager.delegate = self;
         
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined && [self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
@@ -79,6 +77,8 @@
     self.currentLocation = location;
     
     [[g5ReminderManager sharedManager] updateReminders];
+    
+    NSLog(@"Location Update: %@", [NSDate date]);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

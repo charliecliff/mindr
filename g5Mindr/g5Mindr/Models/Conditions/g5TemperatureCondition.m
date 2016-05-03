@@ -33,18 +33,14 @@
     return self;
 }
 
-#pragma mark - Over Ride
+#pragma mark - Validation
 
-- (BOOL)isValid {
+- (BOOL)isValidTemperature:(NSNumber *)temperature {
+    if ( ([self.temperature integerValue]< ([temperature integerValue]+ 1))  &&
+         ([self.temperature integerValue]> ([temperature integerValue] - 1))) {
+        return YES;
+    }
     return NO;
-}
-
-- (NSString *)detailsText {
-    return @"_details_";
-}
-
-- (NSString *)placeholderText {
-    return @"TEMPERATURE";
 }
 
 #pragma mark - Persistence

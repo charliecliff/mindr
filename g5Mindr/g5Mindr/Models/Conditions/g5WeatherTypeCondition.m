@@ -8,11 +8,11 @@
 
 #import "g5WeatherTypeCondition.h"
 
-#define KEY_CONDITION_WEATHER_TYPE @"KEY_CONDITION_WEATHER_TYPE"
+#define KEY_CONDITION_WEATHER_TYPES @"KEY_CONDITION_WEATHER_TYPES"
 
 @interface g5WeatherTypeCondition ()
 
-@property(nonatomic) kWeatherType weatherType;
+@property(nonatomic, strong) NSMutableSet *weatherTypes;
 
 @end
 
@@ -33,7 +33,6 @@
     if (self != nil) {
         self.uid         = [NSNumber numberWithInt:g5ConditionIDWeather];
         self.type        = g5WeatherType;
-        self.weatherType = -1;
     }
     return self;
 }
@@ -41,27 +40,31 @@
 #pragma mark - Over Ride
 
 - (BOOL)isValidWeatherType:(kWeatherType)weatherType {
-    return (weatherType == self.weatherType);
+    return [self.weatherTypes containsObject:[NSNumber numberWithInt:weatherType]];
 }
 
-- (NSString *)detailsText {
-    return @"_details_";
+- (BOOL)containsWeatherType:(kWeatherType)weatherType {
+    return [self.weatherTypes containsObject:[NSNumber numberWithInt:weatherType]];
 }
 
-- (NSString *)placeholderText {
-    return @"WEATHER";
+- (void)removeWeatherType:(kWeatherType)weatherType {
+    [self.weatherTypes addObject:[NSNumber numberWithInt:weatherType]];
+}
+
+- (void)addWeatherType:(kWeatherType)weatherType {
+    [self.weatherTypes removeObject:[NSNumber numberWithInt:weatherType]];
 }
 
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    NSNumber *weatherTypeNumber = [dictionary objectForKey:KEY_CONDITION_WEATHER_TYPE];
-    self.weatherType = [weatherTypeNumber intValue];
+    NSArray *arrayOfWeatherTypes = [dictionary objectForKey:KEY_CONDITION_WEATHER_TYPES];
+    self.weatherTypes = [NSMutableSet setWithArray:arrayOfWeatherTypes];
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:[NSNumber numberWithInt:self.weatherType] forKey:KEY_CONDITION_WEATHER_TYPE];
+    [dictionary setObject:self.weatherTypes.allObjects forKey:KEY_CONDITION_WEATHER_TYPES];
     return dictionary;
 }
 

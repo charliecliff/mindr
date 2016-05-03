@@ -31,8 +31,8 @@ extern NSString *const g5LocationType;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (NSString *)detailsText;
 - (NSString *)placeholderText;
+
 - (NSDictionary *)encodeToDictionary;
 
 @end

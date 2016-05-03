@@ -33,6 +33,12 @@
     return self;
 }
 
+#pragma mark - Over Ride
+
+- (NSString *)placeholderText {
+    return @"TEMPERATURE";
+}
+
 #pragma mark - Validation
 
 - (BOOL)isValidTemperature:(NSNumber *)temperature {

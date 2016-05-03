@@ -38,17 +38,15 @@
 
 #pragma mark - Over Ride
 
+- (NSString *)placeholderText {
+    return @"LOCATION";
+}
+
+#pragma mark - Validation
+
 - (BOOL)isValidLocation:(CLLocation *)location {
     CLLocationDistance distanceToCurrentLocation = [location distanceFromLocation:self.location];
     return !(distanceToCurrentLocation > self.radius);
-}
-
-- (NSString *)detailsText {
-    return @"_details_";
-}
-
-- (NSString *)placeholderText {
-    return @"LOCATION";
 }
 
 #pragma mark - Persistence

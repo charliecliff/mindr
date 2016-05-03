@@ -39,6 +39,12 @@
 
 #pragma mark - Over Ride
 
+- (NSString *)placeholderText {
+    return @"WEATHER";
+}
+
+#pragma mark - Validation
+
 - (BOOL)isValidWeatherType:(kWeatherType)weatherType {
     return [self.weatherTypes containsObject:[NSNumber numberWithInt:weatherType]];
 }

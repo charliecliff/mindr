@@ -40,6 +40,12 @@
     return self;
 }
 
+#pragma mark - Over Ride
+
+- (NSString *)placeholderText {
+    return @"TIME";
+}
+
 #pragma mark - Setters
 
 - (void)setDate:(NSDate *)date {
@@ -51,21 +57,10 @@
     self.timeOfDayInSeconds = minute * 60 + hour * 60 * 60;
 }
 
-#pragma mark - Helpers
-
-- (NSDate *)todayAtMidnight {
-    NSDate *const date = NSDate.date;
-    NSCalendar *const calendar = NSCalendar.currentCalendar;
-    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
-    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
-    NSDate *const normalizedDate = [calendar dateFromComponents:components];
-    return normalizedDate;
-}
-
-#pragma mark - Over Ride
+#pragma mark - Validation
 
 - (BOOL)isValidDate:(NSDate *)date {
-
+    
     NSCalendar *const calendar = NSCalendar.currentCalendar;
     NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
     NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
@@ -78,12 +73,15 @@
     return NO;
 }
 
-- (NSString *)detailsText {
-    return @"_details_";
-}
+#pragma mark - Helpers
 
-- (NSString *)placeholderText {
-    return @"TIME";
+- (NSDate *)todayAtMidnight {
+    NSDate *const date = NSDate.date;
+    NSCalendar *const calendar = NSCalendar.currentCalendar;
+    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
+    NSDate *const normalizedDate = [calendar dateFromComponents:components];
+    return normalizedDate;
 }
 
 #pragma mark - Persistence

@@ -36,6 +36,12 @@
     return self;
 }
 
+#pragma mark - Over Ride
+
+- (NSString *)placeholderText {
+    return @"DATE";
+}
+
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

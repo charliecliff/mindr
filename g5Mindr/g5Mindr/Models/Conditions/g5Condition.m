@@ -32,10 +32,6 @@ NSString *const g5LocationType    = @"location";
 
 #pragma mark - Over Ride
 
-- (BOOL)isValid {
-    assert(false);
-}
-
 - (NSString *)detailsText {
     assert(false);
 }

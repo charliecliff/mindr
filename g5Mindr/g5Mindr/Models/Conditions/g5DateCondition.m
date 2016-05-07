@@ -42,6 +42,10 @@
     return @"DATE";
 }
 
+- (BOOL)isValidDate:(NSDate *)date {
+    return YES;
+}
+
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

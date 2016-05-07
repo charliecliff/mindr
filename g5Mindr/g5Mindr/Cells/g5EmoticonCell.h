@@ -9,20 +9,19 @@
 #import <UIKit/UIKit.h>
 
 #define RootCell_ID     @"RootCellID"
-#define RootCell_XIB    @"RootCell"
+#define RootCell_XIB    @"g5EmoticonCell"
 #define RootCell_SIZE   CGSizeMake(160, 145)
 
 
-@interface RootCell : UICollectionViewCell
+@interface g5EmoticonCell : UICollectionViewCell
 
+@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
+@property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
-@property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
 
 @property(nonatomic) BOOL hasSelectedEmoticon;
 
-- (void)configureWithEmoticonName:(NSString *)emoticonName;
-- (void)configureOuterRingWithColor:(UIColor *)color;
-- (void)configureInnerRingWithColor:(UIColor *)color;
+- (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor;
 
 @end

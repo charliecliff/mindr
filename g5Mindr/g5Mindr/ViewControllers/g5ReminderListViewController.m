@@ -18,11 +18,9 @@
 #import "AMWaveTransition.h"
 #import "IBCellFlipSegue.h"
 
-@interface g5ReminderListViewController () <UINavigationControllerDelegate> {
-    NSMutableArray *cells;
-}
+@interface g5ReminderListViewController () <UINavigationControllerDelegate>
 
-@property(nonatomic, strong) UITableViewController *reminderTableViewController;
+@property(nonatomic, strong) NSMutableArray *cells;
 
 @end
 
@@ -32,23 +30,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Something";
-
     [self setUpTableView];
-    [self setUpCells];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self refresh];
 }
 
 #pragma mark - Set Up
 
 - (void)setUpTableView {
-    self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellEditingStyleNone;
     self.tableView.rowHeight = 80;
@@ -57,7 +52,7 @@
 }
 
 - (void)setUpCells {
-    cells = [[NSMutableArray alloc] init];
+    self.cells = [[NSMutableArray alloc] init];
     
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
@@ -72,8 +67,16 @@
         g5Reminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
         [cell configureWithReminder:currentReminder];
         
-        [cells addObject:cell];
+        [self.cells addObject:cell];
     }
+    
+}
+
+#pragma mark - Resets
+
+- (void)refresh {
+    [self setUpCells];
+    [self.tableView reloadData];
 }
 
 #pragma mark - Segues
@@ -102,22 +105,19 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    g5ReminderTableViewCell *cell = [cells objectAtIndex:indexPath.row];
+    if (indexPath.row >= self.cells.count) {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.contentView.backgroundColor =  [UIColor clearColor];
+        cell.backgroundColor = [UIColor clearColor];
+        return cell;
+    }
+    g5ReminderTableViewCell *cell = [self.cells objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger count = cells.count;
-    return count;
-}
-
-#pragma mark - UINavigationControllerDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {
-    if (operation != UINavigationControllerOperationNone) {
-        return [AMWaveTransition transitionWithOperation:operation];
-    }
-    return nil;
+    NSUInteger count = self.cells.count;
+    return count + 1;
 }
 
 #pragma mark - g5BounceNavigationDelegate

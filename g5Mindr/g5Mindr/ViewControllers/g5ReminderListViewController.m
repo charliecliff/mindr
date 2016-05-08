@@ -34,12 +34,12 @@
     self.navigationItem.title = @"Something";
     
     [self setUpTableView];
-    [self refresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self refresh];
 }
 
 #pragma mark - Set Up

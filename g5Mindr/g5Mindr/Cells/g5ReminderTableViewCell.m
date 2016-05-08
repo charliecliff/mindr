@@ -32,7 +32,6 @@
 
 - (void)configureWithReminder:(g5Reminder *)reminder {
     self.reminder = reminder;
-    [self.titleLabel setText:self.reminder.name];
     [self.explanationLabel setText:self.reminder.shortExplanation];
     [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];
     

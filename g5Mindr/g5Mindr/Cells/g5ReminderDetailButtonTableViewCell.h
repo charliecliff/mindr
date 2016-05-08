@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OnSwitchView.h"
+
+@class g5Reminder;
+
+@protocol g5ReminderButtonCellDelegate <NSObject>
+
+@required
+- (void)didPressSwitchButton;
+@end
 
 @interface g5ReminderDetailButtonTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
+
+@property(nonatomic, strong) id<g5ReminderButtonCellDelegate> delegate;
+
+- (void)configWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate;
 
 @end

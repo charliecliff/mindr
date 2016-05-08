@@ -7,18 +7,38 @@
 //
 
 #import "g5ReminderDetailButtonTableViewCell.h"
+#import "g5Reminder.h"
+
+@interface g5ReminderDetailButtonTableViewCell ()
+
+@property(nonatomic) BOOL switchShouldBeOn;
+
+@end
 
 @implementation g5ReminderDetailButtonTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+#pragma mark - Config
+
+- (void)configWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate {
+    self.delegate = delegate;
+    self.switchShouldBeOn = reminder.isIconOnlyNotification;
+    if (!self.switchShouldBeOn) {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00 andRemoveOnCompletion:NO completion:NULL];
+    }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+#pragma mark - Actions
 
-    // Configure the view for the selected state
+- (IBAction)didPressSwitchButton:(id)sender {
+    self.switchShouldBeOn = !self.switchShouldBeOn;
+    if (self.switchShouldBeOn) {
+        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
+    }
+    else {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
+    }
+    
+    [self.delegate didPressSwitchButton];
 }
 
 @end

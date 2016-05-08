@@ -11,7 +11,7 @@
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderViewController ()
+@interface g5ReminderViewController () <g5ReminderButtonCellDelegate>
 
 @property(nonatomic, strong, readwrite) g5Reminder *reminder;
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
@@ -23,6 +23,7 @@
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
 
+@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 
 @property(nonatomic, strong) IBOutlet UITableView *reminderDetailTableview;
@@ -51,12 +52,14 @@
     [self setUpCells];
     [self setUpDeleteButtonBackgroundAsCircle];
     [self setUpOuterRingWithColor:[UIColor whiteColor]];
-    [self setUpInnerRingWithColor:[UIColor grayColor]];
+    [self setUpInnerRingWithColor:PRIMARY_STROKE_COLOR];
     
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
-    [self.explanationLabel setText:self.reminder.shortExplanation];
     
-    self.tableViewHeightConstraint.constant = 44 * 4;
+    self.explanationLabel.text = self.reminder.shortExplanation;
+    self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
+    
+    self.tableViewHeightConstraint.constant = 44 * 3;
 }
 
 #pragma mark - Set Up
@@ -108,7 +111,7 @@
     
     g5ReminderDetailSectionTableViewCell *cell1 = [self newBlankSectionCell];
     cell1.titleLabel.text = @"Title";
-    [self.cells addObject:cell1];
+//    [self.cells addObject:cell1];
     
     g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
     cell2.titleLabel.text = @"Conditions";
@@ -120,6 +123,8 @@
 
     g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];
     cell4.titleLabel.text = @"Icon-only Notification";
+    [cell4 configWithReminder:self.reminder withDelegate:self];
+    
     [self.cells addObject:cell4];
 }
 
@@ -135,12 +140,24 @@
     return cell;
 }
 
+#pragma mark - Refresh
+
+- (void)refresh {
+
+}
+
 #pragma mark - Actions
 
 - (IBAction)didPressBackButton:(id)sender {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
         
     }];
+}
+
+#pragma mark - g5ReminderButtonCellDelegate
+
+- (void)didPressSwitchButton {
+    self.reminder.isIconOnlyNotification = !self.reminder.isIconOnlyNotification;
 }
 
 #pragma mark - UITableViewDelegate

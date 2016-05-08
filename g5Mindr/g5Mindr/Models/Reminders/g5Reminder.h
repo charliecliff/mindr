@@ -30,15 +30,17 @@
 
 @property(nonatomic) BOOL isActive;
 
-@property(nonatomic, strong) NSString *name;
+@property(nonatomic, strong, readonly) NSString *uid;
 @property(nonatomic, strong) NSString *shortExplanation;
-@property(nonatomic, strong) NSString *longExplanation;
 @property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
 
-@property(nonatomic, strong) NSString *reminderDescription;
+@property(nonatomic) BOOL pushNotificationHasSound;
+@property(nonatomic, strong) NSString *pushNotificationSoundFileName;
+
+@property(nonatomic) BOOL isIconOnlyNotification;
+
 @property(nonatomic, strong) id<g5ConditionDataSource> datasource;
 
-@property(nonatomic, strong, readonly) NSString *uid;
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
 
 @property(nonatomic, strong) g5TimeCondition *timeCondition;

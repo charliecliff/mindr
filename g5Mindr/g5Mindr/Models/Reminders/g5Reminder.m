@@ -16,12 +16,21 @@
 #import "g5WeatherMonitor.h"
 #import "g5LocationManager.h"
 
-#define KEY_ID                    @"KEY_ID"
-#define KEY_TIME_CONDITION        @"KEY_TIME_CONDITION"
-#define KEY_DATE_CONDITION        @"KEY_DATE_CONDITION"
-#define KEY_WEATHER_CONDITION     @"KEY_WEATHER_CONDITION"
-#define KEY_TEMPERATURE_CONDITION @"KEY_TEMPERATURE_CONDITION"
-#define KEY_LOCATION_CONDITION    @"KEY_LOCATION_CONDITION"
+#define KEY_ID                          @"KEY_ID"
+#define KEY_SHORT_EXPLANATION           @"KEY_SHORT_EXPLANATION"
+#define KEY_EMOTICON_UNICODE_CHARACTER  @"KEY_EMOTICON_UNICODE_CHARACTER"
+#define KEY_IS_ACTIVE                   @"KEY_IS_ACTIVE"
+
+#define KEY_NOTIFICATION_HAS_SOUND          @"KEY_NOTIFICATION_HAS_SOUND"
+#define KEY_NOTIFICATION_SOUND_FILE_NAME    @"KEY_NOTIFICATION_SOUND_FILE_NAME"
+
+#define KEY_IS_ICON_ONLY_NOTIFICATION   @"KEY_IS_ICON_ONLY_NOTIFICATION"
+
+#define KEY_TIME_CONDITION          @"KEY_TIME_CONDITION"
+#define KEY_DATE_CONDITION          @"KEY_DATE_CONDITION"
+#define KEY_WEATHER_CONDITION       @"KEY_WEATHER_CONDITION"
+#define KEY_TEMPERATURE_CONDITION   @"KEY_TEMPERATURE_CONDITION"
+#define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
 
 @interface g5Reminder ()
 
@@ -42,6 +51,11 @@
         self.isActive = NO;
         self.conditionIDs = [[NSMutableOrderedSet alloc] init];
         self.conditions   = [[NSMutableDictionary alloc] init];
+        
+        self.pushNotificationHasSound = NO;
+        self.pushNotificationSoundFileName = @"";
+        
+        self.isIconOnlyNotification = NO;
         
         [self setUpConditionsArray];
         [self generateUID];
@@ -132,7 +146,15 @@
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
     self.uid = [dictionary objectForKey:KEY_ID];
+    self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
+    self.shortExplanation = [dictionary objectForKey:KEY_SHORT_EXPLANATION];
+    self.emoticonUnicodeCharacter = [dictionary objectForKey:KEY_EMOTICON_UNICODE_CHARACTER];
     
+    self.pushNotificationHasSound = [[dictionary objectForKey:KEY_NOTIFICATION_HAS_SOUND] boolValue];
+    self.pushNotificationSoundFileName = [dictionary objectForKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
+    
+    self.isIconOnlyNotification = [[dictionary objectForKey:KEY_IS_ICON_ONLY_NOTIFICATION] boolValue];
+
     NSDictionary *timeDictionary = [dictionary objectForKey:KEY_TIME_CONDITION];
     self.timeCondition = [[g5TimeCondition alloc] initWithDictionary:timeDictionary];
 
@@ -157,8 +179,17 @@
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    [dictionary setObject:self.uid forKey:KEY_ID];
     
+    [dictionary setObject:self.uid forKey:KEY_ID];
+    [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:KEY_IS_ACTIVE];
+    [dictionary setObject:self.shortExplanation forKey:KEY_SHORT_EXPLANATION];
+    [dictionary setObject:self.emoticonUnicodeCharacter forKey:KEY_EMOTICON_UNICODE_CHARACTER];
+    
+    [dictionary setObject:[NSNumber numberWithBool:self.pushNotificationHasSound] forKey:KEY_NOTIFICATION_HAS_SOUND];
+    [dictionary setObject:self.pushNotificationSoundFileName forKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
+    
+    [dictionary setObject:[NSNumber numberWithBool:self.isIconOnlyNotification] forKey:KEY_IS_ICON_ONLY_NOTIFICATION];
+
     NSDictionary *timeDictionary = [self.timeCondition encodeToDictionary];
     [dictionary setObject:timeDictionary forKey:KEY_TIME_CONDITION];
     

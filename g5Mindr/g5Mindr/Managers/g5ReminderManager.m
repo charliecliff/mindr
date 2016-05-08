@@ -134,11 +134,11 @@
 }
 
 - (void)validateReminderConditions {
-    for (g5Reminder *reminder in self.reminders) {
-        if ( [reminder haveConditionsBeenMeet] ) {
-            [self postPushNotificationForReminder:reminder];
-        }
-    }
+//    for (g5Reminder *reminder in self.reminders) {
+//        if ( [reminder haveConditionsBeenMeet] ) {
+//            [self postPushNotificationForReminder:reminder];
+//        }
+//    }
 }
 
 #pragma mark - g5ConditionDataSource

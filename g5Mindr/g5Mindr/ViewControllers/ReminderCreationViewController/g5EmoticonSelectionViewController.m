@@ -8,7 +8,7 @@
 
 #import "g5EmoticonSelectionViewController.h"
 #import "g5ReminderExplanationViewController.h"
-#import "RootCell.h"
+#import "g5EmoticonCell.h"
 #import "g5Reminder.h"
 #import "g5ConfigAndMacros.h"
 #import <PBJHexagonFlowLayout.h>
@@ -37,6 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
+    self.navigationItem.title = @"Choose an Emoticon";
+    self.navigationItem.hidesBackButton = YES;
     
     [self setUpHexagonFlowLayout];
     [self setUpEmoticonImageNames];
@@ -95,7 +99,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSBundle *resourcesBundle = [NSBundle mainBundle];
-    RootCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RootCellID" forIndexPath:indexPath];
+    g5EmoticonCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"RootCellID" forIndexPath:indexPath];
     if (!cell) {
         UINib *tableCell = [UINib nibWithNibName:@"RootCell" bundle:resourcesBundle] ;
         [self.hexagonGridViewController registerNib:tableCell forCellWithReuseIdentifier:@"RootCellID"];
@@ -137,16 +141,15 @@
                          cell.contentView.alpha = 1.0;
                      }
                      completion:nil];
-    
-    // 4. Configureing the Colors
-    [cell configureOuterRingWithColor:[UIColor whiteColor]];
-    [cell configureInnerRingWithColor:[UIColor grayColor]];
-    
-    // 5. Configure the Emoticon
+        
+    // 4. Configure the Emoticon Cell
     NSInteger cellNumber = indexPath.row;
     NSString *selectedEmoticonImageName = [self.emoticonImageNames objectAtIndex:cellNumber];
-    [cell configureWithEmoticonName:selectedEmoticonImageName];
-    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoticonImageName]];
+    [cell configureWithEmoticonName:selectedEmoticonImageName
+             withOuterRingWithColor:[UIColor whiteColor]
+             withInnerRingWithColor:PRIMARY_STROKE_COLOR];
+    
+    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoticonUnicodeCharacter]];
 
     return cell;
 }
@@ -154,15 +157,17 @@
 #pragma mark - UICollectionView Delegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSInteger cellNumber = indexPath.row;
-//    NSString *selectedEmoticonImageName = [self.emoticonImageNames objectAtIndex:cellNumber];
-//    self.reminder.emoticonImageName = selectedEmoticonImageName;
-    self.reminder.emoticonImageName = @"emoticon_smile";
+    NSInteger newSelectedCellNumber = indexPath.row;
+    NSInteger previousSelectedCellNumber = [self.emoticonImageNames indexOfObject:self.reminder.emoticonUnicodeCharacter];
+
+    NSString *selectedEmoticon = [self.emoticonImageNames objectAtIndex:newSelectedCellNumber];
+    self.reminder.emoticonUnicodeCharacter = selectedEmoticon;
+    
     
     [UIView setAnimationsEnabled:NO];
     
     [collectionView performBatchUpdates:^{
-        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        [collectionView reloadItemsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previousSelectedCellNumber inSection:0]]];
     } completion:^(BOOL finished) {
         [UIView setAnimationsEnabled:YES];
     }];

@@ -6,18 +6,20 @@
 //  Copyright (c) 2014 PlayAdz. All rights reserved.
 //
 
-#import "RootCell.h"
+#import "g5EmoticonCell.h"
 
-@interface RootCell ()
+@interface g5EmoticonCell ()
 
 @end
 
-@implementation RootCell
+@implementation g5EmoticonCell
 
 #pragma mark - Configuration
 
-- (void)configureWithEmoticonName:(NSString *)emoticonName {
-    [self.emoticonImageView setImage:[UIImage imageNamed:emoticonName]];
+- (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor {    
+    self.emoticonLabel.text = emoticonName;
+    [self configureOuterRingWithColor:outerRingColor];
+    [self configureInnerRingWithColor:innerRingColor];
 }
 
 - (void)configureOuterRingWithColor:(UIColor *)color {

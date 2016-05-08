@@ -48,7 +48,7 @@
     [self setUpOuterRingWithColor:[UIColor whiteColor]];
     [self setUpInnerRingWithColor:[UIColor grayColor]];
     
-    [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonImageName]];
+    [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
     [self.explanationLabel setText:self.reminder.shortExplanation];
 }
 

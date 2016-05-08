@@ -93,7 +93,7 @@
 }
 
 - (BOOL)hasEmoticon {
-    return !(self.emoticonImageName == nil);
+    return !(self.emoticonUnicodeCharacter == nil);
 }
 
 - (BOOL)haveConditionsBeenMeet {

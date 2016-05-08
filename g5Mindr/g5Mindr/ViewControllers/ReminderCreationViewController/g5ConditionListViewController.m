@@ -42,7 +42,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Choose Conditions";
     self.navigationItem.hidesBackButton = YES;

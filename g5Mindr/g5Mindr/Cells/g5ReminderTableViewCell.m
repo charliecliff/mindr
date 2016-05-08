@@ -12,6 +12,7 @@
 @interface g5ReminderTableViewCell ()
 
 @property(nonatomic, strong) IBOutlet UIImageView *iconImageView;
+@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 @property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
@@ -29,6 +30,7 @@
     self.reminder = reminder;
     [self.titleLabel setText:self.reminder.name];
     [self.explanationLabel setText:self.reminder.shortExplanation];
+    [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];
     
     if (reminder.isActive) {
         [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];

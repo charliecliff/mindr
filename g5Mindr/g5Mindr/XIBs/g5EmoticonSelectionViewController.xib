@@ -16,8 +16,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KVD-ni-Cx8">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="TtP-Rr-nDB">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="KVD-ni-Cx8">
+                    <rect key="frame" x="0.0" y="-89" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="odx-eb-BgZ">
                         <size key="itemSize" width="80" height="120"/>
@@ -35,9 +38,16 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="KVD-ni-Cx8" secondAttribute="bottom" id="3Ao-AD-Vhs"/>
                 <constraint firstItem="KVD-ni-Cx8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="97F-2j-Ulh"/>
+                <constraint firstAttribute="trailing" secondItem="TtP-Rr-nDB" secondAttribute="trailing" id="bDG-CH-Us2"/>
+                <constraint firstItem="TtP-Rr-nDB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h78-yp-FR9"/>
                 <constraint firstItem="KVD-ni-Cx8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hqd-Fu-lwU"/>
+                <constraint firstItem="TtP-Rr-nDB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="py4-8x-Crk"/>
+                <constraint firstAttribute="bottom" secondItem="TtP-Rr-nDB" secondAttribute="bottom" id="toW-a6-hON"/>
                 <constraint firstAttribute="trailing" secondItem="KVD-ni-Cx8" secondAttribute="trailing" id="xSR-MB-vuW"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
 </document>

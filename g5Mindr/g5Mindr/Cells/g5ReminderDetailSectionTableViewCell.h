@@ -10,4 +10,7 @@
 
 @interface g5ReminderDetailSectionTableViewCell : UITableViewCell
 
+@property(nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
+
 @end

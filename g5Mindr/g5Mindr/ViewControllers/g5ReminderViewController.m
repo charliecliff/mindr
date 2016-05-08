@@ -8,11 +8,13 @@
 
 #import "g5ReminderViewController.h"
 #import "g5ReminderDetailSectionTableViewCell.h"
+#import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderViewController ()
 
 @property(nonatomic, strong, readwrite) g5Reminder *reminder;
+@property(nonatomic, strong, readwrite) NSMutableArray *cells;
 
 @property(nonatomic, strong) IBOutlet UIButton *deleteButton;
 @property(nonatomic, strong) IBOutlet UIView *deleteButtonBackgroundView;
@@ -24,6 +26,8 @@
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 
 @property(nonatomic, strong) IBOutlet UITableView *reminderDetailTableview;
+
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
 @end
 
@@ -44,18 +48,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setUpCells];
     [self setUpDeleteButtonBackgroundAsCircle];
     [self setUpOuterRingWithColor:[UIColor whiteColor]];
     [self setUpInnerRingWithColor:[UIColor grayColor]];
     
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
     [self.explanationLabel setText:self.reminder.shortExplanation];
+    
+    self.tableViewHeightConstraint.constant = 44 * 4;
 }
 
 #pragma mark - Set Up
 
 - (void)setUpDeleteButtonBackgroundAsCircle {
-    self.deleteButtonBackgroundView.backgroundColor = PRIMARY_FILL_COLOR;
+    self.deleteButtonBackgroundView.backgroundColor = DELETE_FILL_COLOR;
     self.deleteButtonBackgroundView.layer.cornerRadius = self.deleteButtonBackgroundView.frame.size.width / 2;
     self.deleteButtonBackgroundView.layer.masksToBounds = YES;
     self.deleteButtonBackgroundView.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
@@ -96,25 +103,37 @@
     [[self.innerRingImageView layer] addSublayer:circleLayer];
 }
 
-//- (void)setUpCells {
-//    cells = [[NSMutableArray alloc] init];
-//    
-//    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-//        NSBundle *resourcesBundle = [NSBundle mainBundle];
-//        g5ReminderDetailSectionTableViewCell *cell = [self.reminderDetailTableview.tableView dequeueReusableCellWithIdentifier:@"g5ReminderDetailSectionTableViewCell"];
-//        
-//        if (!cell) {
-//            UINib *tableCell = [UINib nibWithNibName:@"g5ReminderDetailSectionTableViewCell" bundle:resourcesBundle] ;
-//            [self.reminderDetailTableview registerNib:tableCell forCellReuseIdentifier:@"g5ReminderDetailSectionTableViewCell"];
-//            cell = [self.reminderDetailTableview dequeueReusableCellWithIdentifier:@"g5ReminderDetailSectionTableViewCell"];
-//        }
-//        
-//        g5Reminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
-////        [cell configureWithReminder:currentReminder];
-//        
-//        [cells addObject:cell];
-//    }
-//}
+- (void)setUpCells {
+    self.cells = [[NSMutableArray alloc] init];
+    
+    g5ReminderDetailSectionTableViewCell *cell1 = [self newBlankSectionCell];
+    cell1.titleLabel.text = @"Title";
+    [self.cells addObject:cell1];
+    
+    g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
+    cell2.titleLabel.text = @"Conditions";
+    [self.cells addObject:cell2];
+
+    g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
+    cell3.titleLabel.text = @"Sound";
+    [self.cells addObject:cell3];
+
+    g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];
+    cell4.titleLabel.text = @"Icon-only Notification";
+    [self.cells addObject:cell4];
+}
+
+- (g5ReminderDetailSectionTableViewCell *)newBlankSectionCell {
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"g5ReminderDetailSectionTableViewCell" owner:self options:nil];
+    g5ReminderDetailSectionTableViewCell *cell = [nibObjects objectAtIndex:0];
+    return cell;
+}
+
+- (g5ReminderDetailButtonTableViewCell *)newBlankButtonCell {
+    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"g5ReminderDetailButtonTableViewCell" owner:self options:nil];
+    g5ReminderDetailButtonTableViewCell *cell = [nibObjects objectAtIndex:0];
+    return cell;
+}
 
 #pragma mark - Actions
 
@@ -133,11 +152,13 @@
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.backgroundColor = [UIColor yellowColor];
+    return [self.cells objectAtIndex:indexPath.row];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.cells.count;
 }
 
 @end

@@ -88,11 +88,10 @@
 }
 
 - (void)segueToReminderViewControllerWithReminder:(g5Reminder *)reminder {
-    assert(false);
-//    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
-//    [self presentViewController:vc animated:YES completion:^{
-//        
-//    }];
+    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    [self presentViewController:vc animated:YES completion:^{
+
+    }];
 }
 
 #pragma mark - UITableViewDelegate

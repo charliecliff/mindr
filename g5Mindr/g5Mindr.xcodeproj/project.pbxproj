@@ -57,6 +57,8 @@
 		DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFD1CCF0B4100C96AED /* Switch@2x.png */; };
 		DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */; };
 		DAB092421CDD839F00F1157B /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons.plist */; };
+		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
+		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
 		DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */; };
 		DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */; };
 		DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */; };
@@ -164,6 +166,9 @@
 		DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnSwitchView.h; sourceTree = "<group>"; };
 		DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnSwitchView.m; sourceTree = "<group>"; };
 		DAB092411CDD839F00F1157B /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
+		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
+		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
+		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
 		DAB28E741CB98D24007F14A2 /* g5CalendarRowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarRowTableViewCell.h; sourceTree = "<group>"; };
 		DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarRowTableViewCell.m; sourceTree = "<group>"; };
 		DAB28E771CB98D24007F14A2 /* g5CalendarTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarTableViewController.h; sourceTree = "<group>"; };
@@ -436,6 +441,9 @@
 				DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */,
 				DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */,
 				DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */,
+				DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */,
+				DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */,
+				DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -711,6 +719,7 @@
 				DA1EC0D01CD461D700605573 /* g5ReminderTableViewCell.xib in Resources */,
 				DA1EC0D21CD461D700605573 /* g5ReminderViewController.xib in Resources */,
 				DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */,
+				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */,
 				DAB092421CDD839F00F1157B /* emoticons.plist in Resources */,
 				DAE9CAE51CA4AF9F00849427 /* g5DateConditionViewController.xib in Resources */,
@@ -804,6 +813,7 @@
 				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,
 				DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */,
+				DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */,
 				DA1EC0C41CD434E400605573 /* g5TemperaturePicker.m in Sources */,
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,

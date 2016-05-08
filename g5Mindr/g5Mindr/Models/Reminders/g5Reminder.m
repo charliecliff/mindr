@@ -47,7 +47,7 @@
     self= [super init];
     if (self != nil) {
         
-        self.isActive = NO;
+        self.isActive = YES;
         self.conditionIDs = [[NSMutableOrderedSet alloc] init];
         self.conditions   = [[NSMutableDictionary alloc] init];
         

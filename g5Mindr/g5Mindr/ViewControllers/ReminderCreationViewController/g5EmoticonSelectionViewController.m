@@ -149,7 +149,7 @@
              withOuterRingWithColor:[UIColor whiteColor]
              withInnerRingWithColor:PRIMARY_STROKE_COLOR];
     
-    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoticonImageName]];
+    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoticonUnicodeCharacter]];
 
     return cell;
 }
@@ -158,10 +158,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger newSelectedCellNumber = indexPath.row;
-    NSInteger previousSelectedCellNumber = [self.emoticonImageNames indexOfObject:self.reminder.emoticonImageName];
+    NSInteger previousSelectedCellNumber = [self.emoticonImageNames indexOfObject:self.reminder.emoticonUnicodeCharacter];
 
     NSString *selectedEmoticon = [self.emoticonImageNames objectAtIndex:newSelectedCellNumber];
-    self.reminder.emoticonImageName = selectedEmoticon;
+    self.reminder.emoticonUnicodeCharacter = selectedEmoticon;
     
     
     [UIView setAnimationsEnabled:NO];

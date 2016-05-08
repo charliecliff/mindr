@@ -33,6 +33,7 @@
     if (self != nil) {
         self.uid         = [NSNumber numberWithInt:g5ConditionIDWeather];
         self.type        = g5WeatherType;
+        self.weatherTypes= [[NSMutableSet alloc] init];
     }
     return self;
 }

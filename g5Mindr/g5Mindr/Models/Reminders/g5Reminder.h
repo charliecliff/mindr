@@ -33,9 +33,9 @@
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *shortExplanation;
 @property(nonatomic, strong) NSString *longExplanation;
+@property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
 
 @property(nonatomic, strong) NSString *reminderDescription;
-@property(nonatomic, strong) NSString *emoticonImageName;
 @property(nonatomic, strong) id<g5ConditionDataSource> datasource;
 
 @property(nonatomic, strong, readonly) NSString *uid;

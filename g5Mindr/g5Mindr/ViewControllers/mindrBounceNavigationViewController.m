@@ -7,7 +7,10 @@
 //
 
 #import "mindrBounceNavigationViewController.h"
+#import "g5ConditionViewController.h"
 #import "g5ConfigAndMacros.h"
+
+#import "AMWaveTransition.h"
 
 @interface mindrBounceNavigationViewController ()
 
@@ -35,6 +38,18 @@
 
 - (UIColor *)textColor {
     return [UIColor whiteColor];
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {
+    
+    if (operation != UINavigationControllerOperationNone) {
+        if ( [fromVC isKindOfClass:[UITableViewController class]] && [toVC isKindOfClass:[UITableViewController class]] ) {
+            return [AMWaveTransition transitionWithOperation:operation];
+        }
+    }
+    return nil;
 }
 
 @end

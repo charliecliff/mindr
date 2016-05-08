@@ -7,19 +7,7 @@
 //
 
 #import "g5BounceNavigationController.h"
-#import "g5ReminderManager.h"
-#import "g5Reminder.h"
-
-#import "g5ReminderViewController.h"
-#import "g5ConditionListViewController.h"
-#import "g5ConditionViewController.h"
-#import "g5EmoticonSelectionViewController.h"
-#import "g5ReminderExplanationViewController.h"
-
-#import "g5ReminderTableViewCell.h"
-
 #import "AMWaveTransition.h"
-#import "IBCellFlipSegue.h"
 
 #define coordinate 65
 #define previous_button_bottom_constraint_on_screen 30
@@ -141,7 +129,6 @@
         [navBorder setBackgroundColor:[self.datasource borderColor]];
     }
     [self.navigationController.navigationBar addSubview:navBorder];
-
     
     [self.contentView addSubview:self.navigationController.view];
 }
@@ -280,20 +267,6 @@
                              completion();
                          }
                      }];
-}
-
-#pragma mark - UINavigationControllerDelegate
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {
-    
-    if ([toVC isKindOfClass:[g5ConditionViewController class]]) {
-        return nil;
-    }
-
-    if (operation != UINavigationControllerOperationNone) {
-        return [AMWaveTransition transitionWithOperation:operation];
-    }
-    return nil;
 }
 
 @end

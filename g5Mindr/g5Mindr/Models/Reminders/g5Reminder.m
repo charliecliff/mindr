@@ -34,7 +34,6 @@
 
 @interface g5Reminder ()
 
-@property(nonatomic, strong, readwrite) NSString *uid;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *conditionIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *conditions;
 
@@ -53,11 +52,11 @@
         self.conditions   = [[NSMutableDictionary alloc] init];
         
         self.pushNotificationHasSound = NO;
-        self.pushNotificationSoundFileName = @"";
+        self.pushNotificationSoundFileName = @"default";
         
         self.isIconOnlyNotification = NO;
         
-        [self setUpConditionsArray];
+        [self setUpConditionsSet];
         [self generateUID];
     }
     return self;
@@ -73,7 +72,7 @@
 
 #pragma mark - Set Up
 
-- (void)setUpConditionsArray {
+- (void)setUpConditionsSet{
     self.timeCondition        = [[g5TimeCondition alloc] init];
     self.dateCondition        = [[g5DateCondition alloc] initWithDates:nil];
     self.temperatureCondition = [[g5TemperatureCondition alloc] init];
@@ -120,6 +119,21 @@
     return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid);
 }
 
+- (NSString *)conditionDescription {
+    NSString *outputString = @"";
+    for (NSString *currentConditionKey in self.conditionIDs) {
+        g5Condition *currentCondition = [self.conditions objectForKey:currentConditionKey];
+        if ( currentCondition.isActive ) {
+            if ( [outputString isEqualToString:@""] ) {
+                outputString = [NSString stringWithFormat:@"%@", currentCondition.conditionDescription];
+            }
+            else {
+                outputString = [NSString stringWithFormat:@"%@, %@", outputString, currentCondition.conditionDescription];
+            }
+        }
+    }
+    return outputString;
+}
 - (g5Condition *)getConditionAtIndex:(NSUInteger)index {
     NSNumber *conditionUID = [self.conditionIDs objectAtIndex:index];
     g5Condition *selectedCondition = [self.conditions objectForKey:conditionUID];
@@ -132,10 +146,6 @@
 }
 
 #pragma mark - Setters
-
-- (void)setIsActive:(BOOL)isActive {
-    _isActive = isActive;
-}
 
 - (void)setCondition:(g5Condition *)condition {
     [self.conditions setObject:condition forKey:condition.uid];

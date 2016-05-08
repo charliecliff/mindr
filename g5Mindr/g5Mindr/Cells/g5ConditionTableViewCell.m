@@ -41,7 +41,7 @@
 }
 
 - (void)reload {
-    [self.conditionExplanationLabel setText:self.condition.placeholderText];
+    [self.conditionExplanationLabel setText:self.condition.conditionDescription];
     
     [self.backgroundImageView setHidden:!self.condition.isActive];
     [self.conditionActivationSwitch setOn:self.condition.isActive];

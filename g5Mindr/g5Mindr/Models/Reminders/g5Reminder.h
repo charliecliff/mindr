@@ -29,15 +29,13 @@
 @interface g5Reminder : NSObject
 
 @property(nonatomic) BOOL isActive;
+@property(nonatomic) BOOL pushNotificationHasSound;
+@property(nonatomic) BOOL isIconOnlyNotification;
 
-@property(nonatomic, strong, readonly) NSString *uid;
+@property(nonatomic, strong) NSString *uid;
 @property(nonatomic, strong) NSString *shortExplanation;
 @property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
-
-@property(nonatomic) BOOL pushNotificationHasSound;
 @property(nonatomic, strong) NSString *pushNotificationSoundFileName;
-
-@property(nonatomic) BOOL isIconOnlyNotification;
 
 @property(nonatomic, strong) id<g5ConditionDataSource> datasource;
 
@@ -52,14 +50,14 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)hasActiveConditions;
 - (BOOL)hasEmoticon;
-
+- (BOOL)hasActiveConditions;
 - (BOOL)haveConditionsBeenMeet;
+
+- (NSString *)conditionDescription;
 
 - (g5Condition *)getConditionAtIndex:(NSUInteger)index;
 - (g5Condition *)getConditionForID:(NSNumber *)conditionID;
-
 - (void)setCondition:(g5Condition *)condition;
 
 - (NSDictionary *)encodeToDictionary;

@@ -115,10 +115,12 @@
     
     g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
     cell2.titleLabel.text = @"Conditions";
+    cell2.explanationLabel.text = self.reminder.conditionDescription;
     [self.cells addObject:cell2];
 
     g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
     cell3.titleLabel.text = @"Sound";
+    cell3.explanationLabel.text = self.reminder.pushNotificationSoundFileName;
     [self.cells addObject:cell3];
 
     g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];

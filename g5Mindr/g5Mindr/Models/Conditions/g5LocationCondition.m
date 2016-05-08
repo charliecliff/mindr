@@ -38,7 +38,7 @@
 
 #pragma mark - Over Ride
 
-- (NSString *)placeholderText {
+- (NSString *)conditionDescription {
     return @"LOCATION";
 }
 

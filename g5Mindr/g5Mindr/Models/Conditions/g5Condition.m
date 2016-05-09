@@ -24,13 +24,22 @@ NSString *const g5LocationType    = @"location";
 
 #pragma mark - Init
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)init {
     self = [super init];
     if (self != nil) {
         self.type = g5NoType;
         self.isActive = NO;
         self.isLocked = NO;
         [self generateUID];
+    }
+    return self;
+}
+
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [self init];
+    if (self != nil) {
+
     }
     return self;
 }

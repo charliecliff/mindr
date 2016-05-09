@@ -33,7 +33,6 @@
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.uid                = [NSNumber numberWithInt:g5ConditionIDTime];
         self.type               = g5TimeType;
         self.timeOfDayInSeconds = NOON;
     }

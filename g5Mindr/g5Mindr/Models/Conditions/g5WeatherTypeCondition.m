@@ -23,6 +23,9 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
+        self.type        = g5WeatherType;
+        self.weatherTypes= [[NSMutableSet alloc] init];
+        
         [self parseDictionary:dictionary];
     }
     return self;
@@ -31,7 +34,6 @@
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.uid         = [NSNumber numberWithInt:g5ConditionIDWeather];
         self.type        = g5WeatherType;
         self.weatherTypes= [[NSMutableSet alloc] init];
     }
@@ -40,27 +42,26 @@
 
 #pragma mark - Over Ride
 
-
 - (NSString *)conditionDescription {
     return @"WEATHER";
 }
 
 #pragma mark - Validation
 
-- (BOOL)isValidWeatherType:(kWeatherType)weatherType {
-    return [self.weatherTypes containsObject:[NSNumber numberWithInt:weatherType]];
+- (BOOL)isValidWeatherType:(NSString *)weatherType {
+    return [self.weatherTypes containsObject:weatherType];
 }
 
-- (BOOL)containsWeatherType:(kWeatherType)weatherType {
-    return [self.weatherTypes containsObject:[NSNumber numberWithInt:weatherType]];
+- (BOOL)containsWeatherType:(NSString *)weatherType {
+    return [self.weatherTypes containsObject:weatherType];
 }
 
-- (void)removeWeatherType:(kWeatherType)weatherType {
-    [self.weatherTypes addObject:[NSNumber numberWithInt:weatherType]];
+- (void)removeWeatherType:(NSString *)weatherType {
+    [self.weatherTypes removeObject:weatherType];
 }
 
-- (void)addWeatherType:(kWeatherType)weatherType {
-    [self.weatherTypes removeObject:[NSNumber numberWithInt:weatherType]];
+- (void)addWeatherType:(NSString *)weatherType {
+    [self.weatherTypes addObject:weatherType];
 }
 
 #pragma mark - Persistence

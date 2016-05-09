@@ -60,6 +60,9 @@
         
         NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
         cell.weatherConditionType = weatherTypeForRow;
+        
+        [cell setSelected:[((g5WeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow]];
+
         return cell;
     }
     else {
@@ -67,14 +70,18 @@
         blankCell.backgroundColor = [UIColor clearColor];
         return blankCell;
     }
-//    [cell setSelected:[self.selectedWeatherTypes containsObject:weatherTypeForRow]];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
-    [self.selectedWeatherTypes addObject:weatherTypeForRow];
+    if ( [((g5WeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow] ) {
+        [((g5WeatherTypeCondition *)self.condition) removeWeatherType:weatherTypeForRow];
+    }
+    else {
+        [((g5WeatherTypeCondition *)self.condition) addWeatherType:weatherTypeForRow];
+    }
     [self.weatherTypeTableView reloadData];
 }
 

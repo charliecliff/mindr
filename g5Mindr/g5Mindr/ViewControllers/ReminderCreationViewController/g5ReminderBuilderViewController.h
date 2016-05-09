@@ -23,6 +23,6 @@
 
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderBuilderDelegate>)delegate;
+//- (instancetype)initWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderBuilderDelegate>)delegate;
 
 @end

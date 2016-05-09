@@ -21,7 +21,7 @@
 - (NSDate *)currentTimeOfDay;
 - (NSDate *)currentDay;
 - (NSNumber *)currentTemperature;
-- (kWeatherType)currentWeatherType;
+- (NSString *)currentWeatherType;
 - (CLLocation *)currentLocation;
 
 @end

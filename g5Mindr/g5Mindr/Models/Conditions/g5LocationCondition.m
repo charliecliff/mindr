@@ -28,7 +28,6 @@
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.uid        = [NSNumber numberWithInt:g5ConditionIDLocation];
         self.type       = g5LocationType;
         self.location   = nil;
         self.radius     = 0;

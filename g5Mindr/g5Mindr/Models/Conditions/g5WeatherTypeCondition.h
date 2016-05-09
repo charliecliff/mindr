@@ -13,10 +13,10 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)isValidWeatherType:(kWeatherType)weatherType;
-- (BOOL)containsWeatherType:(kWeatherType)weatherType;
+- (BOOL)isValidWeatherType:(NSString *)weatherType;
+- (BOOL)containsWeatherType:(NSString *)weatherType;
 
-- (void)removeWeatherType:(kWeatherType)weatherType;
-- (void)addWeatherType:(kWeatherType)weatherType;
+- (void)removeWeatherType:(NSString *)weatherType;
+- (void)addWeatherType:(NSString *)weatherType;
 
 @end

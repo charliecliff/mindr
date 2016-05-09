@@ -29,7 +29,6 @@
 - (instancetype)initWithDates:(NSArray *)dates {
     self = [super init];
     if (self != nil) {
-        self.uid   = [NSNumber numberWithInt:g5ConditionIDDate];
         self.type  = g5DateType;
         self.dates = dates;
     }

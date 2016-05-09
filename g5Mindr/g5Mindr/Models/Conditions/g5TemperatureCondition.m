@@ -25,7 +25,6 @@
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.uid         = [NSNumber numberWithInt:g5ConditionIDTemperature];
         self.type        = g5TemperatureType;
         self.temperature = [NSNumber numberWithFloat:67.0];
         self.temperatureComparisonType = NSOrderedSame;

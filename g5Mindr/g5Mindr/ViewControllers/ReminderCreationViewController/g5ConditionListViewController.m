@@ -138,30 +138,24 @@
 
 - (g5ConditionViewController *)viewControllerForCondition:(g5Condition *)condition {
     g5ConditionViewController *vc;
-    switch ([condition.uid integerValue]) {
-        
-        case g5ConditionIDDate:
-            vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
-            break;
-        
-        case g5ConditionIDLocation:
-            vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
-            break;
-        
-        case g5ConditionIDTemperature:
-            vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
-            break;
-            
-        case g5ConditionIDTime:
-            vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
-            break;
-        
-        case g5ConditionIDWeather:
-            vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
-            break;
-        
-        default:
-            break;
+    
+    if ( [condition.type isEqualToString:g5DateType] ) {
+        vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5TimeType] ) {
+        vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5LocationType] ) {
+        vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5TemperatureType] ) {
+        vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5WeatherType] ) {
+        vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
+    }
+    else {
+        assert(false);
     }
     vc.delegate = self;
     vc.condition = condition;

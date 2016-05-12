@@ -7,6 +7,7 @@
 //
 
 #import "g5ReminderViewController.h"
+#import "g5ConditionListViewController.h"
 #import "g5ReminderDetailSectionTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ConfigAndMacros.h"
@@ -60,6 +61,13 @@
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
     
     self.tableViewHeightConstraint.constant = 44 * 3;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
 }
 
 #pragma mark - Set Up
@@ -151,9 +159,21 @@
 #pragma mark - Actions
 
 - (IBAction)didPressBackButton:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+//    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+}
+
+#pragma mark - Segues
+
+- (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
+    
+    g5ConditionListViewController *conditionListVC = [[g5ConditionListViewController alloc] initWithReminder:reminder];
+    conditionListVC.bounceNavigationController = self.bounceNavigationController;
+    [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
 }
 
 #pragma mark - g5ReminderButtonCellDelegate
@@ -165,7 +185,15 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
+    if ( indexPath.row == 0 ) {
+        [self segueToConditionViewControllerWithReminder:self.reminder];
+    }
+    else if ( indexPath.row == 1 ) {
+        
+    }
+    else if ( indexPath.row == 2 ) {
+        
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -178,6 +206,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.cells.count;
+}
+
+#pragma mark - g5BounceNavigationDelegate
+
+- (void)didPressCenterButton {
+//    [self.bounceNavigationController setNextButtonEnabled:NO];
+//    
+//    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
+//        [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
+//    }];
+//    
+//    g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
+//    [self segueToConditionViewControllerWithReminder:newReminder];
+}
+
+- (void)didPressPreviousButton {
+    assert(false);
+}
+
+- (void)didPressNextButton {
+    assert(false);
+}
+
+- (void)didPressCancelButton {
+//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+//    }];
+//    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

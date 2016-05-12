@@ -38,8 +38,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
     self.bounceNavigationController.delegate = self;
     [self refresh];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
 }
 
 #pragma mark - Set Up
@@ -83,6 +91,12 @@
 #pragma mark - Segues
 
 - (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
+        [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
+    }];
+    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
+    
     g5ConditionListViewController *conditionListVC = [[g5ConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
@@ -90,9 +104,8 @@
 
 - (void)segueToReminderViewControllerWithReminder:(g5Reminder *)reminder {
     g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
-    [self presentViewController:vc animated:YES completion:^{
-
-    }];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -125,9 +138,7 @@
 - (void)didPressCenterButton {
     [self.bounceNavigationController setNextButtonEnabled:NO];
 
-    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
-        [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-    }];
+
     
     g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     [self segueToConditionViewControllerWithReminder:newReminder];

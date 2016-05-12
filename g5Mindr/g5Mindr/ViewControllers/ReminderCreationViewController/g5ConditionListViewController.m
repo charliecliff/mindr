@@ -34,6 +34,8 @@
     self = [super init];
     if (self) {
         self.reminder = reminder;
+        self.tableView.backgroundColor  = [UIColor clearColor];
+        self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -42,11 +44,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpCells];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    
     self.navigationItem.title = @"Choose Conditions";
     self.navigationItem.hidesBackButton = YES;
-    
-    [self setUpCells];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,6 +95,34 @@
     }
 }
 
+#pragma mark - g5ConditionViewController Factory
+
+- (g5ConditionViewController *)viewControllerForCondition:(g5Condition *)condition {
+    g5ConditionViewController *vc;
+    
+    if ( [condition.type isEqualToString:g5DateType] ) {
+        vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5TimeType] ) {
+        vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5LocationType] ) {
+        vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5TemperatureType] ) {
+        vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5WeatherType] ) {
+        vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
+    }
+    else {
+        assert(false);
+    }
+    vc.delegate = self;
+    vc.condition = condition;
+    return vc;
+}
+
 #pragma mark - UITableView DataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -120,6 +151,10 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 80;
+}
+
 #pragma mark - g5ConditionCell Delegate
 
 - (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active {
@@ -132,34 +167,6 @@
 
 - (void)didUpdateCondition:(g5Condition *)condition {
     [self.reminder setCondition:condition];
-}
-
-#pragma mark - g5ConditionViewController Factory
-
-- (g5ConditionViewController *)viewControllerForCondition:(g5Condition *)condition {
-    g5ConditionViewController *vc;
-    
-    if ( [condition.type isEqualToString:g5DateType] ) {
-        vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
-    }
-    else if ( [condition.type isEqualToString:g5TimeType] ) {
-        vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
-    }
-    else if ( [condition.type isEqualToString:g5LocationType] ) {
-        vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
-    }
-    else if ( [condition.type isEqualToString:g5TemperatureType] ) {
-        vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
-    }
-    else if ( [condition.type isEqualToString:g5WeatherType] ) {
-        vc = [[g5WeatherTypeConditionViewController alloc] initWithCondition:condition];
-    }
-    else {
-        assert(false);
-    }
-    vc.delegate = self;
-    vc.condition = condition;
-    return vc;
 }
 
 #pragma mark - g5BounceNavigationDelegate

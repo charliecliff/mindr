@@ -44,7 +44,6 @@
 		DA30CF431C9E23AD00FD4438 /* g5WeatherTypeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF421C9E23AD00FD4438 /* g5WeatherTypeCondition.m */; };
 		DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* g5TemperatureCondition.m */; };
 		DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF4A1C9E28F300FD4438 /* g5LocationManager.m */; };
-		DA30CF591C9E36EF00FD4438 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA30CF571C9E36EF00FD4438 /* g5ConditionListViewController.xib */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
 		DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */; };
@@ -150,7 +149,6 @@
 		DA30CF451C9E23BE00FD4438 /* g5TemperatureCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperatureCondition.m; sourceTree = "<group>"; };
 		DA30CF491C9E28F300FD4438 /* g5LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5LocationManager.h; sourceTree = "<group>"; };
 		DA30CF4A1C9E28F300FD4438 /* g5LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5LocationManager.m; sourceTree = "<group>"; };
-		DA30CF571C9E36EF00FD4438 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
 		DA30CF5F1C9E3ABB00FD4438 /* g5ConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				DABED0971CA39E27004100AF /* g5TemperatureConditionViewController.xib */,
 				DABED0981CA39E27004100AF /* g5WeatherTypeConditionViewController.xib */,
 				DA297EE31CA231F9001D6148 /* g5EmoticonSelectionViewController.xib */,
-				DA30CF571C9E36EF00FD4438 /* g5ConditionListViewController.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -702,7 +699,6 @@
 				DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */,
 				DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */,
 				DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */,
-				DA30CF591C9E36EF00FD4438 /* g5ConditionListViewController.xib in Resources */,
 				DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */,
 				DA297EEA1CA23ED0001D6148 /* orange_hexagon.png in Resources */,
 				DA508E061CCF0B4100C96AED /* Switch.png in Resources */,

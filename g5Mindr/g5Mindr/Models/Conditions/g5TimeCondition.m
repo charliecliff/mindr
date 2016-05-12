@@ -59,17 +59,17 @@
 #pragma mark - Validation
 
 - (BOOL)isValidDate:(NSDate *)date {
-    
-    NSCalendar *const calendar = NSCalendar.currentCalendar;
-    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
-    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
-    NSDate *const normalizedDate = [calendar dateFromComponents:components];
-    
-    NSDate *dateWithTimeOfDayAdded = [normalizedDate dateByAddingTimeInterval:self.timeOfDayInSeconds];
-    
-    
-    
     return NO;
+
+//    NSCalendar *const calendar = NSCalendar.currentCalendar;
+//    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
+//    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
+//    NSDate *const normalizedDate = [calendar dateFromComponents:components];
+//    
+//    NSDate *dateWithTimeOfDayAdded = [normalizedDate dateByAddingTimeInterval:self.timeOfDayInSeconds];
+//    
+//    
+//    
 }
 
 #pragma mark - Helpers

@@ -8,28 +8,40 @@
 
 #import "g5LocationConditionViewController.h"
 #import "g5LocationManager.h"
+#import "g5LocationCondition.h"
 
 @import Mapbox;
+@import MapKit;
 
 @interface g5LocationConditionViewController () <MGLMapViewDelegate>
 
 @property(nonatomic, strong) IBOutlet MGLMapView *mapView;
 
+@property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
+
 @end
 
 @implementation g5LocationConditionViewController
+
+#pragma mark - Init
+
+- (instancetype)initWithCondition:(g5Condition *)condition {
+    self = [super initWithCondition:condition];
+    if (self != nil) {
+        if (self.condition == nil) {
+            self.condition = [[g5LocationCondition alloc] init];
+        }
+    }
+    return self;
+}
 
 #pragma mark - View Life-Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Location";
-    
     [self setUpMapView];
-    
-    MGLPolygon *shape = [self polygonCircleForCoordinate:[g5LocationManager sharedManager].currentLocation.coordinate
-                                         withMeterRadius:1000];
-    [self.mapView addAnnotation:shape];
+    [self refreshMap];
 }
 
 #pragma mark - Setup
@@ -40,6 +52,36 @@
     self.mapView.centerCoordinate = [g5LocationManager sharedManager].currentLocation.coordinate;
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
+        
+    UILongPressGestureRecognizer *gsRecog = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressMapView:)];
+    [self.mapView addGestureRecognizer:gsRecog];
+}
+
+- (void)didLongPressMapView:(UIGestureRecognizer *)gesureRecognizer {
+    //  1. Set the location of the Condition
+    CGPoint point = [gesureRecognizer locationInView:self.mapView];
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    
+    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude
+                                                                                  longitude:coord.longitude];
+    
+    //  2. Refresh the Map
+    [self refreshMap];
+}
+
+#pragma mark - Refresh
+
+- (void)refreshMap {
+    if ( ((g5LocationCondition *)self.condition).location != nil ) {
+        if (self.locationAnnotation) {
+            [self.mapView removeAnnotation:self.locationAnnotation];
+        }
+        
+        self.locationAnnotation = [[MGLPointAnnotation alloc] init];
+        self.locationAnnotation.coordinate = ((g5LocationCondition *)self.condition).location.coordinate;
+        self.locationAnnotation.title = @"Leaning Tower of Pisa";
+        [self.mapView addAnnotation:self.locationAnnotation];
+    }
 }
 
 #pragma mark - MapBox
@@ -83,6 +125,33 @@
 {
     // Mapbox cyan fill color
     return [UIColor colorWithRed:59.0f/255.0f green:178.0f/255.0f blue:208.0f/255.0f alpha:1.0f];
+}
+
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
+{
+    // Try to reuse the existing ‘pisa’ annotation image, if it exists
+    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"pisa"];
+    
+    // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here
+    if ( ! annotationImage)
+    {
+        // Leaning Tower of Pisa by Stefan Spieler from the Noun Project
+        UIImage *image = [UIImage imageNamed:@"location_on"];
+        
+        // The anchor point of an annotation is currently always the center. To
+        // shift the anchor point to the bottom of the annotation, the image
+        // asset includes transparent bottom padding equal to the original image
+        // height.
+        //
+        // To make this padding non-interactive, we create another image object
+        // with a custom alignment rect that excludes the padding.
+        image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
+        
+        // Initialize the ‘pisa’ annotation image with the UIImage we just loaded
+        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"pisa"];
+    }
+    
+    return annotationImage;
 }
 
 @end

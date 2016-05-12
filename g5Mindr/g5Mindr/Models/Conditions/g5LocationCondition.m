@@ -30,7 +30,7 @@
     if (self != nil) {
         self.type       = g5LocationType;
         self.location   = nil;
-        self.radius     = 0;
+        self.radius     = 100;              // 100 Meters
     }
     return self;
 }

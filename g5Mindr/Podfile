@@ -10,6 +10,7 @@ target 'g5Mindr' do
     pod 'PBJHexagon'
     
     pod 'Mapbox-iOS-SDK'
+    pod 
     
     pod 'Mantle'
     

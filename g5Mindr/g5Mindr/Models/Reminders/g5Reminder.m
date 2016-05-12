@@ -46,25 +46,29 @@
 - (instancetype)init {
     self= [super init];
     if (self != nil) {
-        
-        self.isActive = YES;
         self.conditionIDs = [[NSMutableOrderedSet alloc] init];
         self.conditions   = [[NSMutableDictionary alloc] init];
         
+        [self generateUID];
+
+        self.isActive = YES;
+        self.shortExplanation = nil;
+        self.emoticonUnicodeCharacter = nil;
         self.pushNotificationHasSound = NO;
         self.pushNotificationSoundFileName = @"default";
-        
         self.isIconOnlyNotification = NO;
         
         [self setUpConditionsSet];
-        [self generateUID];
     }
     return self;
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self= [self init];
+    self= [super init];
     if (self != nil) {
+        self.conditionIDs = [[NSMutableOrderedSet alloc] init];
+        self.conditions   = [[NSMutableDictionary alloc] init];
+        
         [self parseDictionary:dictionary];
     }
     return self;

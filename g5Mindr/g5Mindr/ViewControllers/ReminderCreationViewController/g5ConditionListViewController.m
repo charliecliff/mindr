@@ -47,7 +47,6 @@
     [self setUpCells];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
     self.navigationItem.title = @"Choose Conditions";
     self.navigationItem.hidesBackButton = YES;
 }
@@ -93,6 +92,7 @@
         
         [cells addObject:cell];
     }
+    
 }
 
 #pragma mark - g5ConditionViewController Factory

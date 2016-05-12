@@ -39,7 +39,7 @@ NSString *const g5LocationType    = @"location";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self != nil) {
-
+        [self parseDictionary:dictionary];
     }
     return self;
 }

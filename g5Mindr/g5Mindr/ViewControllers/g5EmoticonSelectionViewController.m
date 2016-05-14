@@ -57,10 +57,10 @@
 
 - (void)reload {
     if ([self.reminder hasEmoticon]) {
-        [self.bounceNavigationController setNextButtonEnabled:YES];
+        [self.bounceNavigationController setRightButtonEnabled:YES];
     }
     else {
-        [self.bounceNavigationController setNextButtonEnabled:NO];
+        [self.bounceNavigationController setRightButtonEnabled:NO];
     }
 }
 
@@ -182,10 +182,9 @@
 }
 
 - (void)didPressPreviousButton {
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
-        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-    }];
-    
+//    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
+//        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
+//    }];
     [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
@@ -196,9 +195,9 @@
 }
 
 - (void)didPressCancelButton {
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-    }];
+//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+//    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

@@ -23,18 +23,15 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
-    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
-        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-    }];
+    [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
 - (void)reload {
     if ([super.reminder hasActiveConditions]) {
-        [self.bounceNavigationController setNextButtonEnabled:YES];
+        [self.bounceNavigationController setRightButtonEnabled:YES];
     }
     else {
-        [self.bounceNavigationController setNextButtonEnabled:NO];
+        [self.bounceNavigationController setRightButtonEnabled:NO];
     }
     [self.tableView reloadData];
 }

@@ -65,9 +65,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
 #pragma mark - Set Up
@@ -167,9 +165,7 @@
 #pragma mark - Segues
 
 - (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
-    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
     g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;

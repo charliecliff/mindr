@@ -30,9 +30,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     self.bounceNavigationController.delegate = self;
 }
 

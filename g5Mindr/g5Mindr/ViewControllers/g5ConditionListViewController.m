@@ -57,10 +57,10 @@
 
 - (void)reload {
     if ([self.reminder hasActiveConditions]) {
-        [self.bounceNavigationController setNextButtonEnabled:YES];
+        [self.bounceNavigationController setRightButtonEnabled:YES];
     }
     else {
-        [self.bounceNavigationController setNextButtonEnabled:NO];
+        [self.bounceNavigationController setRightButtonEnabled:NO];
     }
     [self.tableView reloadData];
 }
@@ -138,10 +138,9 @@
     NSInteger selectedRow = indexPath.row;
     g5Condition *selectedCondition = [self.reminder getConditionAtIndex:selectedRow];
     if (selectedCondition.isActive) {
-        [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-            [self.bounceNavigationController displayPreviousButtonOntoScreenWithCompletion:nil];
+        [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
+            [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
         }];
-        
         g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
         [self.navigationController pushViewController:vc animated:YES];
         [self.delegate didSelectConditionCell];

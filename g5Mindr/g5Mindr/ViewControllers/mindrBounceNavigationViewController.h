@@ -6,8 +6,8 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5BounceNavigationController.h"
+#import "HROBounceNavigationController.h"
 
-@interface mindrBounceNavigationViewController : g5BounceNavigationController <g5BounceNavigationDatasource>
+@interface mindrBounceNavigationViewController : HROBounceNavigationController <HROBounceNavigationDatasource>
 
 @end

@@ -20,6 +20,25 @@
 
 #pragma mark - g5BounceNavigationDatasource
 
+- (UIColor *)rightButtonFillColor {
+    return PRIMARY_FILL_COLOR;
+
+}
+
+- (UIColor *)leftButtonFillColor {
+    return SECONDARY_FILL_COLOR;
+}
+
+- (UIColor *)bounceButtonFillColor {
+    return PRIMARY_FILL_COLOR;
+
+}
+
+- (UIColor *)bottomButtonFillColor {
+    return PRIMARY_FILL_COLOR;
+
+}
+
 - (UIColor *)primaryFillColor {
     return PRIMARY_FILL_COLOR;
 }

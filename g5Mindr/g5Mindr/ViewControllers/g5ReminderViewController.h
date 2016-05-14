@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "g5BounceNavigationController.h"
+#import "HROBounceNavigationController.h"
 #import "g5Reminder.h"
 
-@interface g5ReminderViewController : UIViewController <g5BounceNavigationDatasource, g5BounceNavigationDelegate>
+@interface g5ReminderViewController : UIViewController <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
 @property(nonatomic, strong, readonly) g5Reminder *reminder;
 
-@property(nonatomic, weak) g5BounceNavigationController *bounceNavigationController;
+@property(nonatomic, weak) HROBounceNavigationController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;

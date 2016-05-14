@@ -38,16 +38,14 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.bounceNavigationController hideCenterButtonWithCompletion:nil];
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
     self.bounceNavigationController.delegate = self;
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     [self refresh];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:YES bounceButton:NO withCompletion:nil];
 }
 
 #pragma mark - Set Up
@@ -91,12 +89,8 @@
 #pragma mark - Segues
 
 - (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
-    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
-        [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-    }];
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
-    
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+
     g5CreateReminderConditionListViewController *conditionListVC = [[g5CreateReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
@@ -136,7 +130,7 @@
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressCenterButton {
-    [self.bounceNavigationController setNextButtonEnabled:NO];
+    [self.bounceNavigationController setRightButtonEnabled:NO];
     
     g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     [self segueToConditionViewControllerWithReminder:newReminder];
@@ -151,9 +145,6 @@
 }
 
 - (void)didPressCancelButton {
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

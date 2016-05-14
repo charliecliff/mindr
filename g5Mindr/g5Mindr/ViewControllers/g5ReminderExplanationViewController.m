@@ -7,12 +7,12 @@
 //
 
 #import "g5ReminderExplanationViewController.h"
-#import "g5BounceNavigationController.h"
+#import "HROBounceNavigationController.h"
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderExplanationViewController () <g5BounceNavigationDelegate, UITextFieldDelegate> {
+@interface g5ReminderExplanationViewController () <HROBounceNavigationDelegate, UITextFieldDelegate> {
     CGFloat initialBottomConstraintConstant;
     BOOL textFieldIsActive;
 }
@@ -127,9 +127,9 @@
 }
 
 - (void)didPressNextButton {
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-    }];
+//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+//    }];
     
     [[g5ReminderManager sharedManager] addReminder:self.reminder];
     
@@ -137,9 +137,9 @@
 }
 
 - (void)didPressCancelButton {
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-    }];
+//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
+//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
+//    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

@@ -45,7 +45,7 @@
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {
     
     if (operation != UINavigationControllerOperationNone) {
-        if ( [fromVC isKindOfClass:[UITableViewController class]] && [toVC isKindOfClass:[UITableViewController class]] ) {
+        if ( [toVC isKindOfClass:[UITableViewController class]] ) {
             return [AMWaveTransition transitionWithOperation:operation];
         }
     }

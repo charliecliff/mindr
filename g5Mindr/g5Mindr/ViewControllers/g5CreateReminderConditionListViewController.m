@@ -14,18 +14,19 @@
 
 @implementation g5CreateReminderConditionListViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+#pragma mark - View Life-Cycle
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self reload];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
     [self.bounceNavigationController hideCenterButtonWithCompletion:^{
         [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
     }];
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
-    [self reload];
 }
 
 - (void)reload {

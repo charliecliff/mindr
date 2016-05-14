@@ -55,8 +55,12 @@
 		DA508E061CCF0B4100C96AED /* Switch.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFC1CCF0B4100C96AED /* Switch.png */; };
 		DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFD1CCF0B4100C96AED /* Switch@2x.png */; };
 		DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */; };
-		DA863AB11CE6C7E500568A79 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB01CE6C7E500568A79 /* g5EditReminderConditionListViewController.m */; };
-		DA863AB41CE6C7F400568A79 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB31CE6C7F400568A79 /* g5CreateReminderConditionListViewController.m */; };
+		DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */; };
+		DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */; };
+		DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */; };
+		DA863AC41CE6CC5900568A79 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */; };
+		DA863AC51CE6CC5900568A79 /* g5ReminderBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABE1CE6CC5900568A79 /* g5ReminderBuilderViewController.m */; };
+		DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */; };
 		DAB092421CDD839F00F1157B /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
@@ -75,9 +79,6 @@
 		DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */; };
 		DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */; };
 		DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */; };
-		DAC8BF3A1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */; };
-		DAC8BF3B1CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF311CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.m */; };
-		DAC8BF3C1CCC6D5F004CA7D6 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF331CCC6D5F004CA7D6 /* g5ConditionListViewController.m */; };
 		DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */; };
 		DAE9CAC81CA4A41700849427 /* g5DateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAC71CA4A41700849427 /* g5DateCondition.m */; };
 		DAE9CACB1CA4A42700849427 /* g5TimeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CACA1CA4A42700849427 /* g5TimeCondition.m */; };
@@ -87,7 +88,6 @@
 		DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CB0B1CA7283A00849427 /* g5TimePicker.m */; };
 		DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */; };
 		DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */; };
-		DAFD651F1CD5339900E92729 /* g5ReminderBuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD651E1CD5339900E92729 /* g5ReminderBuilderViewController.m */; };
 		DAFD65221CD5414700E92729 /* g5ReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* g5ReminderListViewController.m */; };
 		DAFD65271CD5610500E92729 /* g5BounceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65251CD5610500E92729 /* g5BounceNavigationController.m */; };
 		DAFD65281CD5610500E92729 /* g5BounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD65261CD5610500E92729 /* g5BounceNavigationController.xib */; };
@@ -165,10 +165,18 @@
 		DA508DFD1CCF0B4100C96AED /* Switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch@2x.png"; sourceTree = "<group>"; };
 		DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnSwitchView.h; sourceTree = "<group>"; };
 		DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnSwitchView.m; sourceTree = "<group>"; };
-		DA863AAF1CE6C7E500568A79 /* g5EditReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EditReminderConditionListViewController.h; sourceTree = "<group>"; };
-		DA863AB01CE6C7E500568A79 /* g5EditReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EditReminderConditionListViewController.m; sourceTree = "<group>"; };
-		DA863AB21CE6C7F400568A79 /* g5CreateReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CreateReminderConditionListViewController.h; sourceTree = "<group>"; };
-		DA863AB31CE6C7F400568A79 /* g5CreateReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CreateReminderConditionListViewController.m; sourceTree = "<group>"; };
+		DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
+		DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
+		DA863AB71CE6CC5900568A79 /* g5CreateReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CreateReminderConditionListViewController.h; sourceTree = "<group>"; };
+		DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CreateReminderConditionListViewController.m; sourceTree = "<group>"; };
+		DA863AB91CE6CC5900568A79 /* g5EditReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EditReminderConditionListViewController.h; sourceTree = "<group>"; };
+		DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EditReminderConditionListViewController.m; sourceTree = "<group>"; };
+		DA863ABB1CE6CC5900568A79 /* g5EmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonSelectionViewController.h; sourceTree = "<group>"; };
+		DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonSelectionViewController.m; sourceTree = "<group>"; };
+		DA863ABD1CE6CC5900568A79 /* g5ReminderBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderBuilderViewController.h; sourceTree = "<group>"; };
+		DA863ABE1CE6CC5900568A79 /* g5ReminderBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderBuilderViewController.m; sourceTree = "<group>"; };
+		DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderExplanationViewController.h; sourceTree = "<group>"; };
+		DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderExplanationViewController.m; sourceTree = "<group>"; };
 		DAB092411CDD839F00F1157B /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
@@ -199,12 +207,6 @@
 		DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TimeConditionViewController.m; sourceTree = "<group>"; };
 		DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionViewController.m; sourceTree = "<group>"; };
-		DAC8BF2E1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonSelectionViewController.h; sourceTree = "<group>"; };
-		DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonSelectionViewController.m; sourceTree = "<group>"; };
-		DAC8BF301CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderExplanationViewController.h; sourceTree = "<group>"; };
-		DAC8BF311CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderExplanationViewController.m; sourceTree = "<group>"; };
-		DAC8BF321CCC6D5F004CA7D6 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
-		DAC8BF331CCC6D5F004CA7D6 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
 		DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons_2.plist; sourceTree = "<group>"; };
 		DAE9CAC61CA4A41700849427 /* g5DateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DateCondition.h; sourceTree = "<group>"; };
 		DAE9CAC71CA4A41700849427 /* g5DateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DateCondition.m; sourceTree = "<group>"; };
@@ -221,8 +223,6 @@
 		DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailSectionTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailSectionTableViewCell.m; sourceTree = "<group>"; };
 		DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailSectionTableViewCell.xib; sourceTree = "<group>"; };
-		DAFD651D1CD5339900E92729 /* g5ReminderBuilderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderBuilderViewController.h; sourceTree = "<group>"; };
-		DAFD651E1CD5339900E92729 /* g5ReminderBuilderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderBuilderViewController.m; sourceTree = "<group>"; };
 		DAFD65201CD5414700E92729 /* g5ReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderListViewController.h; sourceTree = "<group>"; };
 		DAFD65211CD5414700E92729 /* g5ReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderListViewController.m; sourceTree = "<group>"; };
 		DAFD65241CD5610500E92729 /* g5BounceNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5BounceNavigationController.h; sourceTree = "<group>"; };
@@ -350,7 +350,18 @@
 			isa = PBXGroup;
 			children = (
 				DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */,
-				DAC8BF2D1CCC6D5F004CA7D6 /* ReminderCreationViewController */,
+				DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */,
+				DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */,
+				DA863AB71CE6CC5900568A79 /* g5CreateReminderConditionListViewController.h */,
+				DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */,
+				DA863AB91CE6CC5900568A79 /* g5EditReminderConditionListViewController.h */,
+				DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */,
+				DA863ABB1CE6CC5900568A79 /* g5EmoticonSelectionViewController.h */,
+				DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */,
+				DA863ABD1CE6CC5900568A79 /* g5ReminderBuilderViewController.h */,
+				DA863ABE1CE6CC5900568A79 /* g5ReminderBuilderViewController.m */,
+				DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */,
+				DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */,
 				DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */,
 				DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */,
 				DAFD65201CD5414700E92729 /* g5ReminderListViewController.h */,
@@ -544,25 +555,6 @@
 				DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */,
 			);
 			path = ConditionViewController;
-			sourceTree = "<group>";
-		};
-		DAC8BF2D1CCC6D5F004CA7D6 /* ReminderCreationViewController */ = {
-			isa = PBXGroup;
-			children = (
-				DAFD651D1CD5339900E92729 /* g5ReminderBuilderViewController.h */,
-				DAFD651E1CD5339900E92729 /* g5ReminderBuilderViewController.m */,
-				DAC8BF2E1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.h */,
-				DAC8BF2F1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m */,
-				DAC8BF301CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.h */,
-				DAC8BF311CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.m */,
-				DAC8BF321CCC6D5F004CA7D6 /* g5ConditionListViewController.h */,
-				DAC8BF331CCC6D5F004CA7D6 /* g5ConditionListViewController.m */,
-				DA863AAF1CE6C7E500568A79 /* g5EditReminderConditionListViewController.h */,
-				DA863AB01CE6C7E500568A79 /* g5EditReminderConditionListViewController.m */,
-				DA863AB21CE6C7F400568A79 /* g5CreateReminderConditionListViewController.h */,
-				DA863AB31CE6C7F400568A79 /* g5CreateReminderConditionListViewController.m */,
-			);
-			path = ReminderCreationViewController;
 			sourceTree = "<group>";
 		};
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
@@ -791,19 +783,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA863AB11CE6C7E500568A79 /* g5EditReminderConditionListViewController.m in Sources */,
+				DA863AC41CE6CC5900568A79 /* g5EmoticonSelectionViewController.m in Sources */,
 				DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */,
 				DA30CF431C9E23AD00FD4438 /* g5WeatherTypeCondition.m in Sources */,
 				DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */,
 				DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */,
 				DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */,
+				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* g5Reminder.m in Sources */,
-				DAC8BF3A1CCC6D5F004CA7D6 /* g5EmoticonSelectionViewController.m in Sources */,
 				DAFD65221CD5414700E92729 /* g5ReminderListViewController.m in Sources */,
+				DA863AC51CE6CC5900568A79 /* g5ReminderBuilderViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
+				DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */,
 				DAE9CACB1CA4A42700849427 /* g5TimeCondition.m in Sources */,
-				DAC8BF3B1CCC6D5F004CA7D6 /* g5ReminderExplanationViewController.m in Sources */,
-				DA863AB41CE6C7F400568A79 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */,
 				DAC8BF181CCC5E7A004CA7D6 /* g5WeatherMonitor.m in Sources */,
 				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
@@ -816,7 +808,6 @@
 				DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */,
 				DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */,
 				DAFD65271CD5610500E92729 /* g5BounceNavigationController.m in Sources */,
-				DAFD651F1CD5339900E92729 /* g5ReminderBuilderViewController.m in Sources */,
 				DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */,
 				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,
@@ -826,11 +817,12 @@
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */,
-				DAC8BF3C1CCC6D5F004CA7D6 /* g5ConditionListViewController.m in Sources */,
 				DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */,
+				DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
 				DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */,
 				DAE9CB0C1CA7283A00849427 /* g5TimePicker.m in Sources */,
+				DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAC8BF171CCC5E7A004CA7D6 /* g5ConditionMonitor.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* g5Condition.m in Sources */,
 				DAE9CAD21CA4A4BF00849427 /* g5OpenWeatherClient.m in Sources */,

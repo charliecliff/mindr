@@ -16,7 +16,6 @@
 #import "g5ConditionTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
-
 #import "AMWaveViewController.h"
 
 @interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
@@ -33,22 +32,23 @@
     self = [super init];
     if (self) {
         self.reminder = reminder;
+        
+        self.edgesForExtendedLayout     = UIRectEdgeNone;
+        
+        self.navigationItem.title = @"Choose Conditions";
+        self.navigationItem.hidesBackButton = YES;
+        
+        self.tableView.bounces          = NO;
         self.tableView.backgroundColor  = [UIColor clearColor];
         self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
+        self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+        
+        [self setUpCells];
     }
     return self;
 }
 
 #pragma mark - View Life-Cycle
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setUpCells];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    self.navigationItem.title = @"Choose Conditions";
-    self.navigationItem.hidesBackButton = YES;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -90,7 +90,6 @@
         
         [cells addObject:cell];
     }
-    
 }
 
 #pragma mark - g5ConditionViewController Factory
@@ -174,10 +173,6 @@
 }
 
 - (void)didPressPreviousButton {
-    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
-        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-    }];
-    
     [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
@@ -188,9 +183,6 @@
 }
 
 - (void)didPressCancelButton {
-    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

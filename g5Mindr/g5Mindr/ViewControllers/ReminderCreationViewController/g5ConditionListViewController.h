@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "g5BounceNavigationController.h"
-
-@class g5Reminder;
+#import "g5Reminder.h"
 
 @protocol g5ConditionListViewControllerDelegate <NSObject>
 

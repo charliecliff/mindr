@@ -27,7 +27,7 @@
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (self.condition == nil) {
-            self.condition = [[g5DateCondition alloc] initWithDates:nil];
+            self.condition = [[g5DateCondition alloc] init];
         }
     }
     return self;

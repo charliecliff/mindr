@@ -14,7 +14,6 @@
 #import "g5WeatherTypeConditionViewController.h"
 #import "g5LocationConditionViewController.h"
 #import "g5ConditionTableViewCell.h"
-#import "g5Reminder.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
@@ -54,7 +53,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
-    [self reload];
 }
 
 - (void)reload {

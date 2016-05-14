@@ -78,7 +78,7 @@
 
 - (void)setUpConditionsSet{
     self.timeCondition        = [[g5TimeCondition alloc] init];
-    self.dateCondition        = [[g5DateCondition alloc] initWithDates:nil];
+    self.dateCondition        = [[g5DateCondition alloc] init];
     self.temperatureCondition = [[g5TemperatureCondition alloc] init];
     self.weatherCondition     = [[g5WeatherTypeCondition alloc] init];
     self.locationCondition    = [[g5LocationCondition alloc] init];

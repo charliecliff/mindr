@@ -26,11 +26,11 @@
     return self;
 }
 
-- (instancetype)initWithDates:(NSArray *)dates {
+- (instancetype)init {
     self = [super init];
     if (self != nil) {
         self.type  = g5DateType;
-        self.dates = dates;
+        self.dates = nil;
     }
     return self;
 }

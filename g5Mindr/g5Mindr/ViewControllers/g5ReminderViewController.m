@@ -7,7 +7,7 @@
 //
 
 #import "g5ReminderViewController.h"
-#import "g5ConditionListViewController.h"
+#import "g5EditReminderConditionListViewController.h"
 #import "g5ReminderDetailSectionTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ConfigAndMacros.h"
@@ -171,7 +171,7 @@
     [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
     [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
     
-    g5ConditionListViewController *conditionListVC = [[g5ConditionListViewController alloc] initWithReminder:reminder];
+    g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
 }

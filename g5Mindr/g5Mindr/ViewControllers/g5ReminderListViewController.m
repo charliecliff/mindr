@@ -8,7 +8,7 @@
 
 #import "g5ReminderListViewController.h"
 #import "g5ReminderViewController.h"
-#import "g5ConditionListViewController.h"
+#import "g5CreateReminderConditionListViewController.h"
 #import "g5ReminderTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
@@ -97,7 +97,7 @@
     [self.bounceNavigationController hideCornerButtonsWithCompletion:nil];
     [self.bounceNavigationController hidePreviousButtonWithCompletion:nil];
     
-    g5ConditionListViewController *conditionListVC = [[g5ConditionListViewController alloc] initWithReminder:reminder];
+    g5CreateReminderConditionListViewController *conditionListVC = [[g5CreateReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
 }
@@ -137,8 +137,6 @@
 
 - (void)didPressCenterButton {
     [self.bounceNavigationController setNextButtonEnabled:NO];
-
-
     
     g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     [self segueToConditionViewControllerWithReminder:newReminder];

@@ -12,9 +12,7 @@
 
 @property(nonatomic, strong) NSArray *dates;
 
-- (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-- (instancetype)initWithDates:(NSArray *)dates;
 
 - (BOOL)isValidDate:(NSDate *)date;
 

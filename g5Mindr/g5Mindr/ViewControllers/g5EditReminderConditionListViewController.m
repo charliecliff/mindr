@@ -21,7 +21,7 @@
     if (self) {
         self.navigationItem.title = @"Edit Conditions";
         
-        [self setUpSkipButton];
+        [self setUpBackButton];
     }
     return self;
 }
@@ -34,7 +34,9 @@
     self.bounceNavigationController.delegate = self;
 }
 
-- (void)setUpSkipButton {
+#pragma mark - Set Up
+
+- (void)setUpBackButton {
     UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
@@ -50,7 +52,6 @@
 #pragma mark - Actions
 
 - (void)pressBackButton {
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

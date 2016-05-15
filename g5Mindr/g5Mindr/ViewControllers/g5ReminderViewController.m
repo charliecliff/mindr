@@ -41,6 +41,14 @@
     self = [super init];
     if (self != nil) {
         self.reminder = reminder;
+        
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        
+        self.navigationItem.title = @"Reminder";
+        self.navigationItem.hidesBackButton = YES;
+
+        [self setUpCells];
+        [self setUpBackButton];
     }
     return self;
 }
@@ -50,11 +58,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    [self setUpCells];
-    [self setUpDeleteButtonBackgroundAsCircle];
-    [self setUpOuterRingWithColor:[UIColor whiteColor]];
-    [self setUpInnerRingWithColor:PRIMARY_STROKE_COLOR];
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
     self.explanationLabel.text = self.reminder.shortExplanation;
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
@@ -75,47 +78,60 @@
 
 #pragma mark - Set Up
 
-- (void)setUpDeleteButtonBackgroundAsCircle {
-    self.deleteButtonBackgroundView.backgroundColor = DELETE_FILL_COLOR;
-    self.deleteButtonBackgroundView.layer.cornerRadius = self.deleteButtonBackgroundView.frame.size.width / 2;
-    self.deleteButtonBackgroundView.layer.masksToBounds = YES;
-    self.deleteButtonBackgroundView.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
-    self.deleteButtonBackgroundView.layer.borderWidth = 4.0;
+- (void)setUpBackButton {
+    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    [backButton setImage:[UIImage imageNamed:@"button_back_grey"] forState:UIControlStateNormal];
+    [backButton addTarget:self action:@selector(pressBackButton) forControlEvents:UIControlEventTouchUpInside];
+    [backButtonView addSubview:backButton];
+    
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
+    
+    self.navigationItem.leftBarButtonItem = barBtn;
 }
 
-- (void)setUpOuterRingWithColor:(UIColor *)color {
-    CGFloat radius = self.outerRingImageView.frame.size.width/2;
-    CGPoint center = CGPointMake(self.outerRingImageView.frame.size.width, self.outerRingImageView.frame.size.height);
-    
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.outerRingImageView bounds].size.width, [self.outerRingImageView bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(0,0)];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setFillColor:[color CGColor]];
-    [circleLayer setLineWidth:0.0f];
-    
-    [[self.outerRingImageView layer] addSublayer:circleLayer];
-}
-
-- (void)setUpInnerRingWithColor:(UIColor *)color {
-    CGFloat radius = self.innerRingImageView.frame.size.width/2;
-    CGPoint center = CGPointMake(self.innerRingImageView.frame.size.width, self.innerRingImageView.frame.size.height);
-    
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.innerRingImageView bounds].size.width, [self.innerRingImageView bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(0,0)];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setFillColor:[color CGColor]];
-    [circleLayer setLineWidth:0.0f];
-    
-    [[self.innerRingImageView layer] addSublayer:circleLayer];
-}
+//- (void)setUpDeleteButtonBackgroundAsCircle {
+//    self.deleteButtonBackgroundView.backgroundColor = DELETE_FILL_COLOR;
+//    self.deleteButtonBackgroundView.layer.cornerRadius = self.deleteButtonBackgroundView.frame.size.width / 2;
+//    self.deleteButtonBackgroundView.layer.masksToBounds = YES;
+//    self.deleteButtonBackgroundView.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
+//    self.deleteButtonBackgroundView.layer.borderWidth = 4.0;
+//}
+//
+//- (void)setUpOuterRingWithColor:(UIColor *)color {
+//    CGFloat radius = self.outerRingImageView.frame.size.width/2;
+//    CGPoint center = CGPointMake(self.outerRingImageView.frame.size.width, self.outerRingImageView.frame.size.height);
+//    
+//    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+//    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.outerRingImageView bounds].size.width, [self.outerRingImageView bounds].size.height)];
+//    [circleLayer setPosition:CGPointMake(0,0)];
+//    
+//    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
+//    
+//    [circleLayer setPath:[path CGPath]];
+//    [circleLayer setFillColor:[color CGColor]];
+//    [circleLayer setLineWidth:0.0f];
+//    
+//    [[self.outerRingImageView layer] addSublayer:circleLayer];
+//}
+//
+//- (void)setUpInnerRingWithColor:(UIColor *)color {
+//    CGFloat radius = self.innerRingImageView.frame.size.width/2;
+//    CGPoint center = CGPointMake(self.innerRingImageView.frame.size.width, self.innerRingImageView.frame.size.height);
+//    
+//    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+//    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.innerRingImageView bounds].size.width, [self.innerRingImageView bounds].size.height)];
+//    [circleLayer setPosition:CGPointMake(0,0)];
+//    
+//    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
+//    
+//    [circleLayer setPath:[path CGPath]];
+//    [circleLayer setFillColor:[color CGColor]];
+//    [circleLayer setLineWidth:0.0f];
+//    
+//    [[self.innerRingImageView layer] addSublayer:circleLayer];
+//}
 
 - (void)setUpCells {
     self.cells = [[NSMutableArray alloc] init];
@@ -161,6 +177,11 @@
 #pragma mark - Actions
 
 - (IBAction)didPressBackButton:(id)sender {
+    
+}
+
+- (void)pressBackButton {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Segues

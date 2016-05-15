@@ -41,7 +41,7 @@
         self.tableView.bounces          = NO;
         self.tableView.backgroundColor  = [UIColor clearColor];
         self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
-        self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+        self.tableView.backgroundView   = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
         
         [self setUpCells];
     }

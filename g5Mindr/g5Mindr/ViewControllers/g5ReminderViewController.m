@@ -50,19 +50,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self setUpCells];
     [self setUpDeleteButtonBackgroundAsCircle];
     [self setUpOuterRingWithColor:[UIColor whiteColor]];
     [self setUpInnerRingWithColor:PRIMARY_STROKE_COLOR];
-    
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
-    
     self.explanationLabel.text = self.reminder.shortExplanation;
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
-    
     self.tableViewHeightConstraint.constant = 44 * 3;
-    
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -129,13 +132,12 @@
     g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
     cell3.titleLabel.text = @"Sound";
     cell3.explanationLabel.text = self.reminder.pushNotificationSoundFileName;
-    [self.cells addObject:cell3];
+//    [self.cells addObject:cell3];
 
     g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];
     cell4.titleLabel.text = @"Icon-only Notification";
     [cell4 configWithReminder:self.reminder withDelegate:self];
-    
-    [self.cells addObject:cell4];
+//    [self.cells addObject:cell4];
 }
 
 - (g5ReminderDetailSectionTableViewCell *)newBlankSectionCell {
@@ -159,9 +161,6 @@
 #pragma mark - Actions
 
 - (IBAction)didPressBackButton:(id)sender {
-//    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
 }
 
 #pragma mark - Segues
@@ -209,14 +208,7 @@
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressCenterButton {
-//    [self.bounceNavigationController setNextButtonEnabled:NO];
-//    
-//    [self.bounceNavigationController hideCenterButtonWithCompletion:^{
-//        [self. bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-//    }];
-//    
-//    g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
-//    [self segueToConditionViewControllerWithReminder:newReminder];
+    assert(false);
 }
 
 - (void)didPressPreviousButton {
@@ -228,10 +220,7 @@
 }
 
 - (void)didPressCancelButton {
-//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-//    }];
-//    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 @end

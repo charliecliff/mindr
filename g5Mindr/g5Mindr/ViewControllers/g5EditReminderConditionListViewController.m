@@ -50,7 +50,8 @@
 #pragma mark - Actions
 
 - (void)pressBackButton {
-    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

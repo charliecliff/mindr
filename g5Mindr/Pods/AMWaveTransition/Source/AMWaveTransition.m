@@ -43,9 +43,9 @@ typedef NS_ENUM(NSInteger, AMWaveTransitionViewControllers) {
 const CGFloat DURATION = 0.3;
 const CGFloat MAX_DELAY = 0.3;
 
-- (void)dealloc {
-    [self detachInteractiveGesture];
-}
+//- (void)dealloc {
+//    [self detachInteractiveGesture];
+//}
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -86,6 +86,7 @@ const CGFloat MAX_DELAY = 0.3;
     _maxDelay = MAX_DELAY;
 }
 
+/*
 - (void)attachInteractiveGestureToNavigationController:(UINavigationController *)navigationController {
     self.navigationController = navigationController;
     if (self.interactiveTransitionType == AMWaveTransitionEdgePan) {
@@ -343,7 +344,7 @@ const CGFloat MAX_DELAY = 0.3;
         return 1.0;
     }
 }
-
+*/
 #pragma mark - Non interactive transition
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -403,8 +404,8 @@ const CGFloat MAX_DELAY = 0.3;
         }];
     }
 
-    NSArray *fromViews = [self visibleCellsForViewController:fromVC];
-    NSArray *toViews = [self visibleCellsForViewController:toVC];
+    NSArray *fromViews  = [self visibleCellsForViewController:fromVC];
+    NSArray *toViews    = [self visibleCellsForViewController:toVC];
 
     __block NSArray *currentViews;
     __block NSUInteger currentVisibleViewsCount;

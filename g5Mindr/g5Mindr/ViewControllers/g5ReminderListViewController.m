@@ -97,8 +97,10 @@
 }
 
 - (void)segueToReminderViewControllerWithReminder:(g5Reminder *)reminder {
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    
     g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
-    vc.bounceNavigationController = self.bounceNavigationController;
+    vc.bounceNavigationController = ((mindrBounceNavigationViewController *)self.bounceNavigationController);
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
 

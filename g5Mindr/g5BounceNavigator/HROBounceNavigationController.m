@@ -69,6 +69,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpNavigationController];
     [self reload];
 }
 
@@ -79,64 +80,13 @@
 
 #pragma mark - Set Up
 
-- (void)setUpBottomButtonBackgroundAsCircle {
-    self.bottomButtonBackgroundImage.backgroundColor = [self.datasource bottomButtonFillColor];
-    self.bottomButtonBackgroundImage.layer.cornerRadius = self.bottomButtonBackgroundImage.frame.size.width / 2;
-    self.bottomButtonBackgroundImage.layer.masksToBounds = YES;
-    self.bottomButtonBackgroundImage.layer.borderColor = [[self.datasource strokeColor] CGColor];
-    self.bottomButtonBackgroundImage.layer.borderWidth = 4.0;
-    
-    if ([self.datasource respondsToSelector:@selector(bottomButtonImage)]) {
-        [self.bottomButton setImage:[self.datasource bottomButtonImage] forState:UIControlStateNormal];
-    }
-}
-
-- (void)setUpRightButtonBackgroundAsCircle {
-    self.rightButtonBackground.backgroundColor = [self.datasource rightButtonFillColor];
-    self.rightButtonBackground.layer.cornerRadius = self.rightButtonBackground.frame.size.width / 2;
-    self.rightButtonBackground.layer.masksToBounds = YES;
-    self.rightButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
-    self.rightButtonBackground.layer.borderWidth = 4.0;
-    
-    self.rightButtonOverlayImageView.layer.cornerRadius = self.rightButtonBackground.frame.size.width / 2;
-    self.rightButtonOverlayImageView.layer.masksToBounds = YES;
-    
-    if ([self.datasource respondsToSelector:@selector(leftCornerButtonImage)]) {
-        [self.rightButton setImage:[self.datasource leftCornerButtonImage] forState:UIControlStateNormal];
-    }
-}
-
-- (void)setUpBounceButtonBackgroundAsCircle {
-    self.bounceButtonBackground.backgroundColor = [self.datasource leftButtonFillColor];
-    self.bounceButtonBackground.layer.cornerRadius = self.bounceButtonBackground.frame.size.width / 2;
-    self.bounceButtonBackground.layer.masksToBounds = YES;
-    self.bounceButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
-    self.bounceButtonBackground.layer.borderWidth = 4.0;
-    
-    if ([self.datasource respondsToSelector:@selector(bounceButtonImage)]) {
-        [self.bounceButton setImage:[self.datasource bounceButtonImage] forState:UIControlStateNormal];
-    }
-}
-
-- (void)setUpLeftButtonBackgroundAsCircle {
-    self.leftButtonBackground.backgroundColor = [self.datasource bounceButtonFillColor];
-    self.leftButtonBackground.layer.cornerRadius = self.leftButtonBackground.frame.size.width / 2;
-    self.leftButtonBackground.layer.masksToBounds = YES;
-    self.leftButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
-    self.leftButtonBackground.layer.borderWidth = 4.0;
-    
-    if ([self.datasource respondsToSelector:@selector(rightCornerButtonImage)]) {
-        [self.leftButton setImage:[self.datasource rightCornerButtonImage] forState:UIControlStateNormal];
-    }
-}
-
 - (void)setUpNavigationController {
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:rootVC];
     self.navigationController.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width, self.contentView.frame.size.height);
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.navigationController.view.tintColor = [UIColor clearColor];
     self.navigationController.delegate = self;
-
+    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
@@ -156,14 +106,65 @@
     [self.contentView addSubview:self.navigationController.view];
 }
 
+
 #pragma mark - Reload
 
 - (void)reload {
-    [self setUpBottomButtonBackgroundAsCircle];
-    [self setUpRightButtonBackgroundAsCircle];
-    [self setUpLeftButtonBackgroundAsCircle];
-    [self setUpBounceButtonBackgroundAsCircle];
-    [self setUpNavigationController];
+    [self reloadBottomButtonBackgroundAsCircle];
+    [self reloadRightButtonBackgroundAsCircle];
+    [self reloadLeftButtonBackgroundAsCircle];
+    [self reloadBounceButtonBackgroundAsCircle];
+}
+
+- (void)reloadBottomButtonBackgroundAsCircle {
+    self.bottomButtonBackgroundImage.backgroundColor = [self.datasource bottomButtonFillColor];
+    self.bottomButtonBackgroundImage.layer.cornerRadius = self.bottomButtonBackgroundImage.frame.size.width / 2;
+    self.bottomButtonBackgroundImage.layer.masksToBounds = YES;
+    self.bottomButtonBackgroundImage.layer.borderColor = [[self.datasource strokeColor] CGColor];
+    self.bottomButtonBackgroundImage.layer.borderWidth = 4.0;
+    
+    if ([self.datasource respondsToSelector:@selector(bottomButtonImage)]) {
+        [self.bottomButton setImage:[self.datasource bottomButtonImage] forState:UIControlStateNormal];
+    }
+}
+
+- (void)reloadRightButtonBackgroundAsCircle {
+    self.rightButtonBackground.backgroundColor = [self.datasource rightButtonFillColor];
+    self.rightButtonBackground.layer.cornerRadius = self.rightButtonBackground.frame.size.width / 2;
+    self.rightButtonBackground.layer.masksToBounds = YES;
+    self.rightButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
+    self.rightButtonBackground.layer.borderWidth = 4.0;
+    
+    self.rightButtonOverlayImageView.layer.cornerRadius = self.rightButtonBackground.frame.size.width / 2;
+    self.rightButtonOverlayImageView.layer.masksToBounds = YES;
+    
+    if ([self.datasource respondsToSelector:@selector(leftCornerButtonImage)]) {
+        [self.rightButton setImage:[self.datasource leftCornerButtonImage] forState:UIControlStateNormal];
+    }
+}
+
+- (void)reloadBounceButtonBackgroundAsCircle {
+    self.bounceButtonBackground.backgroundColor = [self.datasource leftButtonFillColor];
+    self.bounceButtonBackground.layer.cornerRadius = self.bounceButtonBackground.frame.size.width / 2;
+    self.bounceButtonBackground.layer.masksToBounds = YES;
+    self.bounceButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
+    self.bounceButtonBackground.layer.borderWidth = 4.0;
+    
+    if ([self.datasource respondsToSelector:@selector(bounceButtonImage)]) {
+        [self.bounceButton setImage:[self.datasource bounceButtonImage] forState:UIControlStateNormal];
+    }
+}
+
+- (void)reloadLeftButtonBackgroundAsCircle {
+    self.leftButtonBackground.backgroundColor = [self.datasource bounceButtonFillColor];
+    self.leftButtonBackground.layer.cornerRadius = self.leftButtonBackground.frame.size.width / 2;
+    self.leftButtonBackground.layer.masksToBounds = YES;
+    self.leftButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
+    self.leftButtonBackground.layer.borderWidth = 4.0;
+    
+    if ([self.datasource respondsToSelector:@selector(rightCornerButtonImage)]) {
+        [self.leftButton setImage:[self.datasource rightCornerButtonImage] forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Setters

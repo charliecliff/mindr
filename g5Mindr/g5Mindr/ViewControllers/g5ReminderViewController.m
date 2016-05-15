@@ -61,11 +61,13 @@
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
     
     self.tableViewHeightConstraint.constant = 44 * 3;
+    
+    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
 }
 
 #pragma mark - Set Up

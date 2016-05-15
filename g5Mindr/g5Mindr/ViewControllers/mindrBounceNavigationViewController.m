@@ -18,6 +18,13 @@
 
 @implementation mindrBounceNavigationViewController
 
+#pragma mark - Setters
+
+- (void)setShouldShowTrashCanOnBounceButton:(BOOL)shouldShowTrashCanOnBounceButton {
+    _shouldShowTrashCanOnBounceButton = shouldShowTrashCanOnBounceButton;
+    [self reload];
+}
+
 #pragma mark - g5BounceNavigationDatasource
 
 - (UIColor *)rightButtonFillColor {
@@ -30,6 +37,9 @@
 }
 
 - (UIColor *)bounceButtonFillColor {
+    if (self.shouldShowTrashCanOnBounceButton) {
+        return [UIColor redColor];
+    }
     return PRIMARY_FILL_COLOR;
 
 }

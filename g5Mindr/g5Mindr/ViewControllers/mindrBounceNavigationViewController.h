@@ -10,4 +10,7 @@
 
 @interface mindrBounceNavigationViewController : HROBounceNavigationController <HROBounceNavigationDatasource>
 
+@property (nonatomic) BOOL shouldShowTrashCanOnBounceButton;
+@property (nonatomic) BOOL shouldShowCheckMarkOnRightButton;
+
 @end

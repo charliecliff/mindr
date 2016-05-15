@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5ReminderViewController">
             <connections>
-                <outlet property="deleteButton" destination="MFu-YE-cmz" id="U8c-68-1NE"/>
-                <outlet property="deleteButtonBackgroundView" destination="WeI-ja-v12" id="cYt-iU-21O"/>
                 <outlet property="emoticonImageView" destination="U0h-X0-5jE" id="Yp1-wS-LAb"/>
                 <outlet property="emoticonLabel" destination="Bg9-CY-hWp" id="uqr-Qg-Jaf"/>
                 <outlet property="explanationLabel" destination="5I2-ZU-FR5" id="Fks-Qk-8oQ"/>
@@ -156,36 +154,17 @@
                         <outlet property="delegate" destination="-1" id="BM4-en-5Ir"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WeI-ja-v12" userLabel="View - Delete Button">
-                    <rect key="frame" x="270" y="510" width="60" height="60"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFu-YE-cmz">
-                            <rect key="frame" x="7" y="7" width="46" height="46"/>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="MFu-YE-cmz" firstAttribute="top" secondItem="WeI-ja-v12" secondAttribute="top" constant="7" id="HYW-5c-t06"/>
-                        <constraint firstAttribute="height" constant="60" id="Mdu-7o-1OH"/>
-                        <constraint firstAttribute="bottom" secondItem="MFu-YE-cmz" secondAttribute="bottom" constant="7" id="U8E-Ck-U50"/>
-                        <constraint firstItem="MFu-YE-cmz" firstAttribute="leading" secondItem="WeI-ja-v12" secondAttribute="leading" constant="7" id="Wbs-uR-X53"/>
-                        <constraint firstAttribute="trailing" secondItem="MFu-YE-cmz" secondAttribute="trailing" constant="7" id="aWc-xs-a7I"/>
-                        <constraint firstAttribute="width" constant="60" id="pPQ-lv-H99"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gSL-8G-KAa" secondAttribute="bottom" id="2xX-q6-9EK"/>
                 <constraint firstItem="wbd-an-rOM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6VS-JR-VZv"/>
                 <constraint firstItem="Sqq-Ie-jHv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lub-tZ-q11"/>
-                <constraint firstItem="WeI-ja-v12" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Q3j-VO-VfH"/>
                 <constraint firstItem="BtL-Ci-QyF" firstAttribute="top" secondItem="wbd-an-rOM" secondAttribute="bottom" id="S7y-wt-2e9"/>
                 <constraint firstAttribute="trailing" secondItem="wbd-an-rOM" secondAttribute="trailing" id="ZRn-dA-AOe"/>
                 <constraint firstAttribute="trailing" secondItem="gSL-8G-KAa" secondAttribute="trailing" id="cA1-va-Znu"/>
                 <constraint firstItem="Sqq-Ie-jHv" firstAttribute="top" secondItem="BtL-Ci-QyF" secondAttribute="bottom" id="fBu-PJ-rcA"/>
                 <constraint firstItem="BtL-Ci-QyF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fj8-xh-RaH"/>
-                <constraint firstAttribute="bottom" secondItem="WeI-ja-v12" secondAttribute="bottom" constant="30" id="gEb-4Y-AAn"/>
                 <constraint firstItem="wbd-an-rOM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gFh-nw-qTN"/>
                 <constraint firstItem="gSL-8G-KAa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ox9-3c-K0y"/>
                 <constraint firstItem="gSL-8G-KAa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qua-pL-fBI"/>

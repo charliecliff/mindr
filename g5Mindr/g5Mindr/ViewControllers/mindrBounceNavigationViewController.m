@@ -38,7 +38,7 @@
 
 - (UIColor *)bounceButtonFillColor {
     if (self.shouldShowTrashCanOnBounceButton) {
-        return [UIColor redColor];
+        return DELETE_FILL_COLOR;
     }
     return PRIMARY_FILL_COLOR;
 

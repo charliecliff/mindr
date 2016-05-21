@@ -69,6 +69,15 @@
     return [UIColor whiteColor];
 }
 
+- (UIImage *)bounceButtonImage {
+    if (self.shouldShowTrashCanOnBounceButton) {
+        return [UIImage imageNamed:@"button_delete"];
+    }
+    else {
+        return [UIImage imageNamed:@"button_back"];
+    }
+}
+
 #pragma mark - UINavigationControllerDelegate
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController*)fromVC toViewController:(UIViewController*)toVC {

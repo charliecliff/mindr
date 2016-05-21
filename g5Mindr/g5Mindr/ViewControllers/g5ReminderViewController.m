@@ -63,8 +63,6 @@
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
     self.tableViewHeightConstraint.constant = 44 * 3;
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,48 +88,6 @@
     
     self.navigationItem.leftBarButtonItem = barBtn;
 }
-
-//- (void)setUpDeleteButtonBackgroundAsCircle {
-//    self.deleteButtonBackgroundView.backgroundColor = DELETE_FILL_COLOR;
-//    self.deleteButtonBackgroundView.layer.cornerRadius = self.deleteButtonBackgroundView.frame.size.width / 2;
-//    self.deleteButtonBackgroundView.layer.masksToBounds = YES;
-//    self.deleteButtonBackgroundView.layer.borderColor = [PRIMARY_STROKE_COLOR CGColor];
-//    self.deleteButtonBackgroundView.layer.borderWidth = 4.0;
-//}
-//
-//- (void)setUpOuterRingWithColor:(UIColor *)color {
-//    CGFloat radius = self.outerRingImageView.frame.size.width/2;
-//    CGPoint center = CGPointMake(self.outerRingImageView.frame.size.width, self.outerRingImageView.frame.size.height);
-//    
-//    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-//    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.outerRingImageView bounds].size.width, [self.outerRingImageView bounds].size.height)];
-//    [circleLayer setPosition:CGPointMake(0,0)];
-//    
-//    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
-//    
-//    [circleLayer setPath:[path CGPath]];
-//    [circleLayer setFillColor:[color CGColor]];
-//    [circleLayer setLineWidth:0.0f];
-//    
-//    [[self.outerRingImageView layer] addSublayer:circleLayer];
-//}
-//
-//- (void)setUpInnerRingWithColor:(UIColor *)color {
-//    CGFloat radius = self.innerRingImageView.frame.size.width/2;
-//    CGPoint center = CGPointMake(self.innerRingImageView.frame.size.width, self.innerRingImageView.frame.size.height);
-//    
-//    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-//    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.innerRingImageView bounds].size.width, [self.innerRingImageView bounds].size.height)];
-//    [circleLayer setPosition:CGPointMake(0,0)];
-//    
-//    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
-//    
-//    [circleLayer setPath:[path CGPath]];
-//    [circleLayer setFillColor:[color CGColor]];
-//    [circleLayer setLineWidth:0.0f];
-//    
-//    [[self.innerRingImageView layer] addSublayer:circleLayer];
-//}
 
 - (void)setUpCells {
     self.cells = [[NSMutableArray alloc] init];

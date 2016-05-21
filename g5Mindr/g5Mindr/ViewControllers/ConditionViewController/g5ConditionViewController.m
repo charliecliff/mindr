@@ -29,11 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:NO];
     [self setUpBackButton];
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background"]];
     self.view.backgroundColor = background;
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

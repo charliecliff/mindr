@@ -50,6 +50,11 @@
 
 #pragma mark - View Life-Cycle
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:NO];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
@@ -117,6 +122,7 @@
     }
     vc.delegate = self;
     vc.condition = condition;
+    vc.bounceNavigationController = self.bounceNavigationController;
     return vc;
 }
 

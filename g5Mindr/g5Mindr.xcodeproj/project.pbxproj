@@ -942,7 +942,7 @@
 				);
 				INFOPLIST_FILE = g5Mindr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gateFive.g5Mindr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -958,7 +958,7 @@
 				);
 				INFOPLIST_FILE = g5Mindr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gateFive.g5Mindr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

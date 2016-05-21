@@ -39,7 +39,10 @@ NSString *const g5LocationType    = @"location";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
+        self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
+        self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
+        self.isLocked = [[dictionary objectForKey:KEY_IS_LOCKED] boolValue];
     }
     return self;
 }
@@ -68,13 +71,6 @@ NSString *const g5LocationType    = @"location";
 }
 
 #pragma mark - Persistence
-
-- (void)parseDictionary:(NSDictionary *)dictionary {
-    self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
-    self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
-    self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
-    self.isLocked = [[dictionary objectForKey:KEY_IS_LOCKED] boolValue];
-}
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];

@@ -11,13 +11,13 @@
                 <outlet property="backButtonLeadingConstraint" destination="6SS-cA-nTa" id="voz-5z-dgq"/>
                 <outlet property="bottomButton" destination="ERZ-VW-qkk" id="3DB-EA-lKh"/>
                 <outlet property="bottomButtonBackgroundImage" destination="rn1-kR-7VZ" id="js6-B9-tXg"/>
-                <outlet property="bounceButton" destination="xMY-Wn-pBc" id="Wy0-T2-Veq"/>
+                <outlet property="bounceButton" destination="Hdf-Ze-TJu" id="5zY-RO-de0"/>
                 <outlet property="bounceButtonBackground" destination="43e-Lo-CK2" id="WDS-3W-waW"/>
                 <outlet property="bounceButtonContainerView" destination="IjJ-lc-C2D" id="Zhf-gW-ldh"/>
                 <outlet property="centerButtonBottomConstraint" destination="uNk-PM-xpg" id="YdY-ie-WLL"/>
                 <outlet property="centerButtonHeightConstraint" destination="Rpd-l1-bQZ" id="g2W-bH-suw"/>
                 <outlet property="contentView" destination="Sog-WI-tIC" id="F71-2X-kxJ"/>
-                <outlet property="leftButton" destination="Hdf-Ze-TJu" id="7lF-4E-tW6"/>
+                <outlet property="leftButton" destination="xMY-Wn-pBc" id="4Wl-Aw-CFW"/>
                 <outlet property="leftButtonBackground" destination="5Zh-0Y-BIo" id="owQ-6W-kKp"/>
                 <outlet property="nextButtonBottomConstraint" destination="pI9-cO-jUd" id="CgS-39-dbH"/>
                 <outlet property="nextButtonTrailingConstraint" destination="8Uc-vA-oTY" id="UkY-4g-GRV"/>
@@ -42,10 +42,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zh-0Y-BIo" userLabel="Previous Button Container">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Zh-0Y-BIo" userLabel="Bounce Button Container">
                     <rect key="frame" x="270" y="600" width="60" height="60"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdf-Ze-TJu" userLabel="Previous Button">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdf-Ze-TJu" userLabel="Bounce Button">
                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                             <state key="normal" image="button_back"/>
                             <connections>
@@ -129,7 +129,7 @@
                         </mask>
                     </variation>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjJ-lc-C2D" userLabel="Cancel Button Container View">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IjJ-lc-C2D" userLabel="Left Button Container View">
                     <rect key="frame" x="-130" y="600" width="130" height="130"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="43e-Lo-CK2" userLabel="Background - Cancel">
@@ -145,7 +145,7 @@
                                 </mask>
                             </variation>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Button - Cancel">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMY-Wn-pBc" userLabel="Left Button">
                             <rect key="frame" x="65" y="21" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <accessibility key="accessibilityConfiguration" label="Button - Back"/>

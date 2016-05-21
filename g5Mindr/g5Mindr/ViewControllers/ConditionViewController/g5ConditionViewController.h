@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "mindrBounceNavigationViewController.h"
 
 @class g5Condition;
 
@@ -21,6 +22,8 @@
 
 @property(nonatomic, strong) g5Condition *condition;
 @property(nonatomic, strong) id<g5ConditionDelegate> delegate;
+
+@property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
 
 @property(nonatomic, strong) IBOutlet UIButton *backButton;
 @property(nonatomic, strong) IBOutlet UIImageView *backButtonBackgroundImageView;

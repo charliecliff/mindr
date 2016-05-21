@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HROBounceNavigationController.h"
+#import "mindrBounceNavigationViewController.h"
 #import "g5Reminder.h"
 
 @protocol g5ConditionListViewControllerDelegate <NSObject>
@@ -22,7 +22,7 @@
 @property(nonatomic, strong) g5Reminder *reminder;
 @property(nonatomic, strong) id<g5ConditionListViewControllerDelegate> delegate;
 
-@property(nonatomic, weak) HROBounceNavigationController *bounceNavigationController;
+@property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(g5Reminder *)reminder;

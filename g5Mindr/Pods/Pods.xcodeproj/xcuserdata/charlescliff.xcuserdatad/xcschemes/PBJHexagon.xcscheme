@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0581AE9D84E15094BA5C0F05'
+               BlueprintIdentifier = '5F8CD4D74492983AA155F48D'
                BlueprintName = 'PBJHexagon'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPBJHexagon.a'>

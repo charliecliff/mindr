@@ -20,4 +20,6 @@
 - (void)startUpdatingLocation;
 - (void)stopUpdatingLocation;
 
+- (void)getAddressForLocation:(CLLocation *)location withSuccess:(void (^)(NSString *))success withFailure:(void (^)(NSError *))failure;
+
 @end

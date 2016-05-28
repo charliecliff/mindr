@@ -21,15 +21,17 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AMWaveTransition (0.6.2)
-  - Mantle (2.0.6):
-    - Mantle/extobjc (= 2.0.6)
-  - Mantle/extobjc (2.0.6)
+  - GoogleMaps (1.13.2)
+  - Mantle (2.0.7):
+    - Mantle/extobjc (= 2.0.7)
+  - Mantle/extobjc (2.0.7)
   - Mapbox-iOS-SDK (3.0.1)
   - PBJHexagon (0.1.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - AMWaveTransition
+  - GoogleMaps
   - Mantle
   - Mapbox-iOS-SDK
   - PBJHexagon
@@ -37,7 +39,8 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AMWaveTransition: 98952310574779e4ca7e7f4d89f8b1043cdad171
-  Mantle: 299966b00759634931699f69cb6a30b9239b944d
+  GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
+  Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Mapbox-iOS-SDK: 61e79f3dd8432617bd1a66b2d7273ab5ce923ca9
   PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
 

@@ -258,7 +258,7 @@
     UILabel *label1   = (UILabel*)[self viewForRow:comparisonRow forComponent:0];
     NSString *comparisonString = label1.text;
     
-    NSComparisonResult comparison;
+    NSComparisonResult comparison = NSOrderedSame;;
     if ([comparisonString isEqualToString:@"Above"]) {
         comparison = NSOrderedAscending;
     }
@@ -279,7 +279,7 @@
     UILabel *label3   = (UILabel*)[self viewForRow:unitRow forComponent:2];
     NSString *unitString = label3.text;
     
-    g5TemperatureUnit unit;
+    g5TemperatureUnit unit = g5TemperatureFahrenheit;;
     if ([unitString isEqualToString:@"F"]) {
         unit = g5TemperatureFahrenheit;
     }

@@ -18,7 +18,7 @@
 
 @end
 
-@interface g5ConditionViewController : UIViewController
+@interface g5ConditionViewController : UIViewController <HROBounceNavigationDelegate>
 
 @property(nonatomic, strong) g5Condition *condition;
 @property(nonatomic, strong) id<g5ConditionDelegate> delegate;

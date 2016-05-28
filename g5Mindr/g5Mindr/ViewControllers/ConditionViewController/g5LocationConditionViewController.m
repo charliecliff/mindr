@@ -9,6 +9,7 @@
 #import "g5LocationConditionViewController.h"
 #import "g5LocationManager.h"
 #import "g5LocationCondition.h"
+#import "g5ConfigAndMacros.h"
 
 @import Mapbox;
 @import MapKit;
@@ -16,6 +17,7 @@
 @interface g5LocationConditionViewController () <MGLMapViewDelegate>
 
 @property(nonatomic, strong) IBOutlet MGLMapView *mapView;
+@property(nonatomic, strong) IBOutlet UIView *addressView;
 
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
 
@@ -39,8 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Location";
     [self setUpMapView];
+    [self setUpNavigationBar];
+    
     [self refreshMap];
 }
 
@@ -57,6 +60,14 @@
     [self.mapView addGestureRecognizer:gsRecog];
 }
 
+- (void)setUpNavigationBar {
+    self.navigationItem.title = @"Location";
+    self.extendedLayoutIncludesOpaqueBars = YES;
+    self.edgesForExtendedLayout = UIRectEdgeTop;
+}
+
+#pragma mark - Actions
+
 - (void)didLongPressMapView:(UIGestureRecognizer *)gesureRecognizer {
     //  1. Set the location of the Condition
     CGPoint point = [gesureRecognizer locationInView:self.mapView];
@@ -64,6 +75,12 @@
     
     ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude
                                                                                   longitude:coord.longitude];
+    
+    [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
+                                                 withSuccess:^(NSString *addressLine) {
+                                                     
+                                                 }
+                                                 withFailure:nil];
     
     //  2. Refresh the Map
     [self refreshMap];
@@ -84,7 +101,7 @@
     }
 }
 
-#pragma mark - MapBox
+#pragma mark - MGLMapViewDelegate
 
 - (MGLPolygon*)polygonCircleForCoordinate:(CLLocationCoordinate2D)coordinate withMeterRadius:(double)meterRadius
 {

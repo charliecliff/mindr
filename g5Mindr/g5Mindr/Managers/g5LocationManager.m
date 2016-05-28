@@ -8,6 +8,7 @@
 
 #import "g5LocationManager.h"
 #import "g5ReminderManager.h" //    a CIRCULAR reference!!!
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface g5LocationManager ()
 
@@ -103,10 +104,31 @@
     };
 }
 
-#pragma mark - g5LocationSource
+#pragma mark - g5Location Source
 
 - (CLLocation *)currentLocation {
     return _currentLocation;
+}
+
+#pragma mark - Places Source
+
+- (void)getAddressForLocation:(CLLocation *)location withSuccess:(void (^)(NSString *))success withFailure:(void (^)(NSError *))failure {
+    
+    [[GMSGeocoder geocoder] reverseGeocodeCoordinate:location.coordinate completionHandler:^(GMSReverseGeocodeResponse *response, NSError *error) {
+        
+        if (!error) {
+            GMSAddress *firstAddress = response.firstResult;
+            
+            if (success) {
+                success(firstAddress.thoroughfare);
+            }
+        }
+        else {
+            if (failure) {
+                failure(error);
+            }
+        }
+    }];
 }
 
 @end

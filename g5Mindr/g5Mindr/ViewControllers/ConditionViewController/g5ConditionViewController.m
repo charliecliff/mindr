@@ -36,12 +36,15 @@
     self.view.backgroundColor = background;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bounceNavigationController.delegate = self;
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [self.delegate didUpdateCondition:self.condition];
     [super viewWillDisappear:animated];
 }
-
-
 
 #pragma mark - Set Up
 
@@ -65,8 +68,10 @@
 
 #pragma mark - Actions
 
-- (IBAction)didPressBackButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)didPressPreviousButton {
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 @end

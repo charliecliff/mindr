@@ -25,7 +25,7 @@ NSString *const g5WeatherWindy              = @"weather_windy";
 NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 @interface g5WeatherMonitor () {
-    kWeatherType currentWeatherType;
+    NSString *currentWeatherType;
 }
 
 @property(nonatomic, strong) g5Weather *previousWeather;
@@ -86,7 +86,7 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     return self.currentWeather.temperature;
 }
 
-- (kWeatherType)currentWeatherType {
+- (NSString *)currentWeatherType {
     return currentWeatherType;
 }
 

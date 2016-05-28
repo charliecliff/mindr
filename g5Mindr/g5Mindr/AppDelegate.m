@@ -19,6 +19,8 @@
 #import "g5ReminderManager.h"
 #import "g5LocationManager.h"
 
+@import GoogleMaps;
+
 @interface AppDelegate ()
 
 @end
@@ -43,7 +45,10 @@
     [[g5ReminderManager sharedManager] loadReminders];
     [[g5LocationManager sharedManager] startUpdatingLocation];
     
-    //  5. Root View Controller
+    //  5. External APIs
+    [GMSServices provideAPIKey:@"AIzaSyB3OXTo9OFaMhK1MIyNqFa98W8lyPA6Pn8"];
+    
+    //  6. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
     mindrBounceNavigationViewController *bounceVC = [[mindrBounceNavigationViewController alloc] initWithRootViewController:vc withDelegate:vc withDatasource:nil];
     bounceVC.datasource = bounceVC;

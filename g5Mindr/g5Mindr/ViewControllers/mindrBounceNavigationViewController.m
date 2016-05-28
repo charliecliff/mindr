@@ -40,21 +40,11 @@
     if (self.shouldShowTrashCanOnBounceButton) {
         return DELETE_FILL_COLOR;
     }
-    return PRIMARY_FILL_COLOR;
-
+    return SECONDARY_FILL_COLOR;
 }
 
 - (UIColor *)bottomButtonFillColor {
     return PRIMARY_FILL_COLOR;
-
-}
-
-- (UIColor *)primaryFillColor {
-    return PRIMARY_FILL_COLOR;
-}
-
-- (UIColor *)secondaryFillColor {
-    return SECONDARY_FILL_COLOR;
 }
 
 - (UIColor *)strokeColor {

@@ -155,7 +155,7 @@
     return self.weatherMonitor.currentTemperature;
 }
 
-- (kWeatherType)currentWeatherType {
+- (NSString *)currentWeatherType {
     return self.weatherMonitor.currentWeatherType;
 }
 

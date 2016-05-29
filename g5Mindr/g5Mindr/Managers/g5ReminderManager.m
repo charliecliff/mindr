@@ -143,6 +143,10 @@
 
 #pragma mark - g5ConditionDataSource
 
+- (NSDate *)currentDate {
+    return [NSDate date];
+}
+
 - (NSDate *)currentTimeOfDay {
     return [NSDate date];
 }

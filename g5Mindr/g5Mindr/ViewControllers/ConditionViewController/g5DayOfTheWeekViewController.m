@@ -10,7 +10,9 @@
 #import "g5DayOfTheWeekConditionTableViewCell.h"
 #import "g5DayOfTheWeekCondition.h"
 
-@interface g5DayOfTheWeekViewController ()
+@interface g5DayOfTheWeekViewController () <UITableViewDataSource, UITabBarDelegate> {
+    NSMutableOrderedSet *dayOfTheWeekCells;
+}
 
 @property (nonatomic, strong) IBOutlet UITableView *dayOfTheWeekTableView;
 
@@ -18,31 +20,65 @@
 
 @implementation g5DayOfTheWeekViewController
 
+#pragma mark - Init
+
+- (instancetype)initWithCondition:(g5Condition *)condition {
+    self = [super initWithCondition:condition];
+    if (self != nil) {
+        if (condition == nil) {
+            self.condition = [[g5DayOfTheWeekCondition alloc] init];
+        }
+        [self setUpCells];
+    }
+    return self;
+}
+
+#pragma mark - View Life Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+#pragma mark - Set Up
+
+- (void)setUpCells {
+    dayOfTheWeekCells = [[NSMutableOrderedSet alloc] init];
+    
+    for (int i = 1; i <= 7; i++) {
+        [dayOfTheWeekCells addObject:[self dayOfTheWeekCell]];
+    }
+}
+
+- (g5DayOfTheWeekConditionTableViewCell *)dayOfTheWeekCell {
+    NSBundle *resourcesBundle = [NSBundle mainBundle];
+    NSArray *topLevelObjects = [resourcesBundle loadNibNamed:@"g5DayOfTheWeekConditionTableViewCell" owner:self options:nil];
+    g5DayOfTheWeekConditionTableViewCell *cell = [topLevelObjects objectAtIndex:0];;
+    return cell;
 }
 
 #pragma mark - UITableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return dayOfTheWeekCells.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    g5DayOfTheWeekConditionTableViewCell *cell = [self.dayOfTheWeekTableView dequeueReusableCellWithIdentifier:@"day_of_the_week_cell"];
-    if (!cell) {
-        NSBundle *resourcesBundle = [NSBundle mainBundle];
-        UINib *tableCell = [UINib nibWithNibName:@"g5DayOfTheWeekConditionTableViewCell" bundle:resourcesBundle] ;
-        [self.dayOfTheWeekTableView registerNib:tableCell forCellReuseIdentifier:@"day_of_the_week_cell"];
-        cell = [self.dayOfTheWeekTableView dequeueReusableCellWithIdentifier:@"day_of_the_week_cell"];
-    }
+    g5DayOfTheWeekConditionTableViewCell *cell = [dayOfTheWeekCells objectAtIndex:indexPath.row];
     
-//    NSString *dayOfTheWeekString = [self stringForDayOfTheWeekOrdinal:(indexPath.row+1)];
-//    cell.textLabel.text = dayOfTheWeekString;
+    NSString *dayOfTheWeekString = [self stringForDayOfTheWeekOrdinal:(indexPath.row+1)];
+    cell.dayOfTheWeekLabel.text = dayOfTheWeekString;
     
-    [cell setSelected:[((g5DayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row + 1)]];
+    BOOL shouldSelectCell = [((g5DayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row + 1)];
+    [cell setSelected:shouldSelectCell];
     
     return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [((g5DayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row + 1)];
+    [self.dayOfTheWeekTableView reloadData];
 }
 
 #pragma mark - Helper

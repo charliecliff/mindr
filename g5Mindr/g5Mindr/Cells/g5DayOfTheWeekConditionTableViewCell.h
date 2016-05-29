@@ -10,4 +10,6 @@
 
 @interface g5DayOfTheWeekConditionTableViewCell : UITableViewCell
 
+@property(nonatomic, strong) IBOutlet UILabel *dayOfTheWeekLabel;
+
 @end

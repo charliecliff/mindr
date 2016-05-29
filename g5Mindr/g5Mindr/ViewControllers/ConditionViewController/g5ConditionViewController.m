@@ -30,7 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:NO];
-    [self setUpBackButton];
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background"]];
     self.view.backgroundColor = background;
@@ -46,32 +45,24 @@
     [super viewWillDisappear:animated];
 }
 
-#pragma mark - Set Up
-
-- (void)setUpBackButton {
-    CGFloat radius = self.backButtonBackgroundImageView.frame.size.width/2;
-    CGPoint center = CGPointMake(self.backButtonBackgroundImageView.frame.size.width, self.backButtonBackgroundImageView.frame.size.height);
-    
-    CAShapeLayer *circleLayer = [CAShapeLayer layer];
-    [circleLayer setBounds:CGRectMake(0.0f, 0.0f, [self.backButtonBackgroundImageView bounds].size.width, [self.backButtonBackgroundImageView bounds].size.height)];
-    [circleLayer setPosition:CGPointMake(0,0)];
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:0 endAngle:2*M_PI clockwise:YES];
-    
-    [circleLayer setPath:[path CGPath]];
-    [circleLayer setStrokeColor:[PRIMARY_STROKE_COLOR CGColor]];
-    [circleLayer setFillColor:[SECONDARY_FILL_COLOR CGColor]];
-    [circleLayer setLineWidth:4.0f];
-    
-    [[self.backButtonBackgroundImageView layer] addSublayer:circleLayer];
-}
-
 #pragma mark - Actions
 
 - (void)didPressPreviousButton {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
         [self.navigationController popViewControllerAnimated:YES];
     }];
+}
+
+- (void)didPressCenterButton {
+    assert(false);
+}
+
+- (void)didPressNextButton {
+    assert(false);
+}
+
+- (void)didPressCancelButton {
+    assert(false);
 }
 
 @end

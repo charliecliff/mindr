@@ -54,25 +54,27 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 }
 
 - (BOOL)containsDayOfTheWeek:(NSInteger)weekday {
-    return [self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:weekday]];
+    NSNumber *dayOfTheWeekNumber = [NSNumber numberWithUnsignedInteger:weekday];
+    BOOL output = [self.daysOfTheWeek containsObject:dayOfTheWeekNumber];
+    return output;
 }
 
 - (void)generateDescriptionStringFromDaysOfTheWeek {
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.calendar   = gregorianCalendar;
-    formatter.dateFormat = G5DayOfTheWeekDateFormatter;
-    
-    self.dayOfTheWeekString = @"";
-    for (NSNumber *currentDayOfTheWeekNumber in self.daysOfTheWeek) {
-        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-        dateComponents.day = [currentDayOfTheWeekNumber unsignedIntegerValue];
-        NSDate *currentDate = [gregorianCalendar dateFromComponents:dateComponents];
-
-        NSString *currentDayOfTheWeekString = [formatter stringFromDate:currentDate];
-    }
+//    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//
+//    NSDateFormatter *formatter = [NSDateFormatter new];
+//    formatter.calendar   = gregorianCalendar;
+//    formatter.dateFormat = G5DayOfTheWeekDateFormatter;
+//    
+//    self.dayOfTheWeekString = @"";
+//    for (NSNumber *currentDayOfTheWeekNumber in self.daysOfTheWeek) {
+//        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+//        dateComponents.day = [currentDayOfTheWeekNumber unsignedIntegerValue];
+//        NSDate *currentDate = [gregorianCalendar dateFromComponents:dateComponents];
+//
+//        NSString *currentDayOfTheWeekString = [formatter stringFromDate:currentDate];
+//    }
 }
 
 #pragma mark - Over Ride
@@ -93,13 +95,13 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    NSMutableSet *setOfDaysOfTheWeek = [dictionary objectForKey:G5DaysOfTheWeek];
-    self.daysOfTheWeek = setOfDaysOfTheWeek;
+    NSArray *arrayOfDaysOfTheWeek = [dictionary objectForKey:G5DaysOfTheWeek];
+    self.daysOfTheWeek = [NSMutableSet setWithArray:arrayOfDaysOfTheWeek];
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:self.daysOfTheWeek forKey:G5DaysOfTheWeek];
+    [dictionary setObject:self.daysOfTheWeek.allObjects forKey:G5DaysOfTheWeek];
     return dictionary;
 }
 

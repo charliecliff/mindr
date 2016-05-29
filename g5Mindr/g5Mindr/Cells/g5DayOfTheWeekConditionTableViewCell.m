@@ -7,18 +7,29 @@
 //
 
 #import "g5DayOfTheWeekConditionTableViewCell.h"
+#import "g5ConfigAndMacros.h"
+
+@interface g5DayOfTheWeekConditionTableViewCell ()
+
+@property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
+@property(nonatomic, strong) IBOutlet UIImageView *checkMarkImageView;
+
+@end
 
 @implementation g5DayOfTheWeekConditionTableViewCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    
+    [self.backgroundImageView setHidden:!self.selected];
+    [self.checkMarkImageView setHidden:!self.selected];
+    
+    if (self.selected) {
+        [self.dayOfTheWeekLabel setTextColor:[UIColor whiteColor]];
+    }
+    else {
+        [self.dayOfTheWeekLabel setTextColor:SECONDARY_FILL_COLOR];
+    }
 }
 
 @end

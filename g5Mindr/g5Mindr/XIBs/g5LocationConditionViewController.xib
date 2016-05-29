@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5LocationConditionViewController">
             <connections>
+                <outlet property="addressLabel" destination="rMj-rj-AAC" id="sjJ-v1-Wp0"/>
                 <outlet property="mapView" destination="608-7Z-cwY" id="Z4z-e4-t08"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,23 +19,51 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="V09-g6-L5Q">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMj-rj-AAC">
+                    <rect key="frame" x="18" y="64" width="564" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="b6A-KM-cut"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ZE-TX-HMz">
+                    <rect key="frame" x="0.0" y="108" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="uVB-MB-Iw6"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="608-7Z-cwY" customClass="MGLMapView">
-                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <rect key="frame" x="0.0" y="109" width="600" height="491"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="rMj-rj-AAC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="0W9-H0-ktq"/>
+                <constraint firstItem="rMj-rj-AAC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="B1E-Bw-oSx"/>
                 <constraint firstItem="608-7Z-cwY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BGz-Q3-oc5"/>
+                <constraint firstAttribute="trailing" secondItem="7ZE-TX-HMz" secondAttribute="trailing" id="FCz-f1-KsI"/>
                 <constraint firstItem="V09-g6-L5Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PSX-VU-Mbf"/>
                 <constraint firstAttribute="bottom" secondItem="V09-g6-L5Q" secondAttribute="bottom" id="RQo-KK-7ya"/>
                 <constraint firstItem="V09-g6-L5Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VcZ-l2-Py9"/>
                 <constraint firstAttribute="bottom" secondItem="608-7Z-cwY" secondAttribute="bottom" id="c2D-lm-jIA"/>
-                <constraint firstItem="608-7Z-cwY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="gfe-zv-KPu"/>
+                <constraint firstItem="608-7Z-cwY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="gfe-zv-KPu"/>
+                <constraint firstItem="7ZE-TX-HMz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qrc-VT-NXt"/>
+                <constraint firstItem="7ZE-TX-HMz" firstAttribute="top" secondItem="rMj-rj-AAC" secondAttribute="bottom" id="rMd-zI-ORr"/>
                 <constraint firstAttribute="trailing" secondItem="V09-g6-L5Q" secondAttribute="trailing" id="s3k-br-w37"/>
                 <constraint firstAttribute="trailing" secondItem="608-7Z-cwY" secondAttribute="trailing" id="v9a-qB-L4k"/>
+                <constraint firstAttribute="trailing" secondItem="rMj-rj-AAC" secondAttribute="trailing" constant="18" id="x0E-rb-Cs1"/>
+                <constraint firstItem="608-7Z-cwY" firstAttribute="top" secondItem="7ZE-TX-HMz" secondAttribute="bottom" id="z1P-3U-voe"/>
             </constraints>
-            <point key="canvasLocation" x="185" y="310"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="gfe-zv-KPu"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="-21" y="306"/>
         </view>
     </objects>
     <resources>

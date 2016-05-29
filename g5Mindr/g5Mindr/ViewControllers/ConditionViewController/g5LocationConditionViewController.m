@@ -16,9 +16,9 @@
 
 @interface g5LocationConditionViewController () <MGLMapViewDelegate>
 
-@property(nonatomic, strong) IBOutlet MGLMapView *mapView;
-@property(nonatomic, strong) IBOutlet UIView *addressView;
+@property(nonatomic, strong) IBOutlet UILabel *addressLabel;
 
+@property(nonatomic, strong) IBOutlet MGLMapView *mapView;
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
 
 @end
@@ -43,8 +43,7 @@
     [super viewDidLoad];
     [self setUpMapView];
     [self setUpNavigationBar];
-    
-    [self refreshMap];
+    [self refresh];
 }
 
 #pragma mark - Setup
@@ -76,20 +75,30 @@
     ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude
                                                                                   longitude:coord.longitude];
     
+    //  2. Fetch the Address String
+    __weak g5LocationConditionViewController *weakSelf = self;
     [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
                                                  withSuccess:^(NSString *addressLine) {
-                                                     
+                                                     g5LocationConditionViewController *strongSelf = weakSelf;
+                                                     ((g5LocationCondition *)strongSelf.condition).address = addressLine;
+                                                     [strongSelf refresh];
                                                  }
                                                  withFailure:nil];
     
-    //  2. Refresh the Map
-    [self refreshMap];
+    //  3. Refresh the Map
+    [self refresh];
 }
 
 #pragma mark - Refresh
 
+- (void)refresh {
+    [self refreshMap];
+    [self refreshAddressLabel];
+}
+
 - (void)refreshMap {
     if ( ((g5LocationCondition *)self.condition).location != nil ) {
+        
         if (self.locationAnnotation) {
             [self.mapView removeAnnotation:self.locationAnnotation];
         }
@@ -99,6 +108,22 @@
         self.locationAnnotation.title = @"Leaning Tower of Pisa";
         [self.mapView addAnnotation:self.locationAnnotation];
     }
+}
+
+- (void)refreshAddressLabel {
+    if ( ((g5LocationCondition *)self.condition).location != nil ) {
+        self.addressLabel.text = ((g5LocationCondition *)self.condition).address;
+    }
+}
+
+#pragma mark - Progress HUD
+
+-(void)displayProgressHUD {
+    
+}
+
+- (void)hideProgressHUD {
+    
 }
 
 #pragma mark - MGLMapViewDelegate

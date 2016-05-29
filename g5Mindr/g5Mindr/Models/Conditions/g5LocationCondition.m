@@ -11,6 +11,7 @@
 
 #define KEY_CONDITION_LOCATION @"KEY_CONDITION_LOCATION"
 #define KEY_CONDITION_RADIUS   @"KEY_CONDITION_RADIUS"
+#define KEY_CONDITION_ADDRESS  @"KEY_CONDITION_ADDRESS"
 
 @implementation g5LocationCondition
 
@@ -31,6 +32,7 @@
         self.type       = g5LocationType;
         self.location   = nil;
         self.radius     = 100;              // 100 Meters
+        self.address    = @"";
     }
     return self;
 }
@@ -57,6 +59,11 @@
         self.location = [dictionary objectForKey:KEY_CONDITION_LOCATION];
     }
     
+    self.address = @"";
+    if ([dictionary.allKeys containsObject:KEY_CONDITION_ADDRESS]) {
+        self.address = [dictionary objectForKey:KEY_CONDITION_ADDRESS];
+    }
+    
     NSNumber *radiusNumber = [dictionary objectForKey:KEY_CONDITION_RADIUS];
     self.radius = [radiusNumber floatValue];
 }
@@ -66,6 +73,10 @@
     
     if (self.location != nil) {
         [dictionary setObject:self.location forKey:KEY_CONDITION_LOCATION];
+    }
+
+    if (self.address != nil) {
+        [dictionary setObject:self.address forKey:KEY_CONDITION_ADDRESS];
     }
     
     [dictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];

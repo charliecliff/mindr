@@ -20,7 +20,6 @@
     self = [super initWithReminder:reminder];
     if (self) {
         self.navigationItem.title = @"Edit Conditions";
-        
         [self setUpBackButton];
     }
     return self;

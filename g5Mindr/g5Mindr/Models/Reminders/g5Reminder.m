@@ -193,6 +193,7 @@ static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week
     self.locationCondition = [[g5LocationCondition alloc] initWithDictionary:locationDictionary];
     
     [self setCondition:self.timeCondition];
+    [self setCondition:self.dayOfTheWeekCondition];
     [self setCondition:self.dateCondition];
     [self setCondition:self.temperatureCondition];
     [self setCondition:self.weatherCondition];

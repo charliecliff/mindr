@@ -19,6 +19,7 @@ typedef enum {
 extern NSString *const g5NoType;
 extern NSString *const g5DateType;
 extern NSString *const g5TimeType;
+extern NSString *const g5DayOfTheWeekType;
 extern NSString *const g5WeatherType;
 extern NSString *const g5TemperatureType;
 extern NSString *const g5LocationType;
@@ -32,8 +33,8 @@ extern NSString *const g5LocationType;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-//- (NSString *)placeholderText;
 - (NSString *)conditionDescription;
+- (NSString *)conditionIconName;
 
 - (NSDictionary *)encodeToDictionary;
 

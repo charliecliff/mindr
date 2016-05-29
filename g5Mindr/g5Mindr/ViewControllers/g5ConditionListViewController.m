@@ -9,6 +9,7 @@
 #import "g5ConditionListViewController.h"
 #import "g5EmoticonSelectionViewController.h"
 #import "g5TimeConditionViewController.h"
+#import "g5DayOfTheWeekViewController.h"
 #import "g5DateConditionViewController.h"
 #import "g5TemperatureConditionViewController.h"
 #import "g5WeatherTypeConditionViewController.h"
@@ -107,6 +108,9 @@
     }
     else if ( [condition.type isEqualToString:g5TimeType] ) {
         vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
+    }
+    else if ( [condition.type isEqualToString:g5DayOfTheWeekType] ) {
+        vc = [[g5DayOfTheWeekViewController alloc] initWithCondition:condition];
     }
     else if ( [condition.type isEqualToString:g5LocationType] ) {
         vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];

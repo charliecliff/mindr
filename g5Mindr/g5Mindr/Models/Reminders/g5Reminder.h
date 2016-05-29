@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "g5Condition.h"
 #import "g5TimeCondition.h"
+#import "g5DayOfTheWeekCondition.h"
 #import "g5DateCondition.h"
 #import "g5TemperatureCondition.h"
 #import "g5WeatherTypeCondition.h"
@@ -18,8 +19,7 @@
 @protocol g5ConditionDataSource <NSObject>
 
 @required
-- (NSDate *)currentTimeOfDay;
-- (NSDate *)currentDay;
+- (NSDate *)currentDate;
 - (NSNumber *)currentTemperature;
 - (NSString *)currentWeatherType;
 - (CLLocation *)currentLocation;
@@ -42,6 +42,7 @@
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
 
 @property(nonatomic, strong) g5TimeCondition *timeCondition;
+@property(nonatomic, strong) g5DayOfTheWeekCondition *dayOfTheWeekCondition;
 @property(nonatomic, strong) g5DateCondition *dateCondition;
 @property(nonatomic, strong) g5TemperatureCondition *temperatureCondition;
 @property(nonatomic, strong) g5WeatherTypeCondition *weatherCondition;

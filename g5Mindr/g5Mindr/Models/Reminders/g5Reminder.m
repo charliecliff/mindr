@@ -31,6 +31,7 @@
 #define KEY_WEATHER_CONDITION       @"KEY_WEATHER_CONDITION"
 #define KEY_TEMPERATURE_CONDITION   @"KEY_TEMPERATURE_CONDITION"
 #define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
+static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week";
 
 @interface g5Reminder ()
 
@@ -77,13 +78,15 @@
 #pragma mark - Set Up
 
 - (void)setUpConditionsSet{
-    self.timeCondition        = [[g5TimeCondition alloc] init];
-    self.dateCondition        = [[g5DateCondition alloc] init];
-    self.temperatureCondition = [[g5TemperatureCondition alloc] init];
-    self.weatherCondition     = [[g5WeatherTypeCondition alloc] init];
-    self.locationCondition    = [[g5LocationCondition alloc] init];
+    self.timeCondition          = [[g5TimeCondition alloc] init];
+    self.dayOfTheWeekCondition  = [[g5DayOfTheWeekCondition alloc] init];
+    self.dateCondition          = [[g5DateCondition alloc] init];
+    self.temperatureCondition   = [[g5TemperatureCondition alloc] init];
+    self.weatherCondition       = [[g5WeatherTypeCondition alloc] init];
+    self.locationCondition      = [[g5LocationCondition alloc] init];
     
     [self setCondition:self.timeCondition];
+    [self setCondition:self.dayOfTheWeekCondition];
     [self setCondition:self.dateCondition];
     [self setCondition:self.temperatureCondition];
     [self setCondition:self.weatherCondition];
@@ -100,13 +103,14 @@
 #pragma mark - Getters
 
 - (BOOL)hasActiveConditions {
-    BOOL hasTimeCondition        = [self.timeCondition isActive];
-    BOOL hasDateCondition        = [self.dateCondition isActive];
-    BOOL hasTemperatureCondition = [self.temperatureCondition isActive];
-    BOOL hasWeatherCondition     = [self.weatherCondition isActive];
-    BOOL hasLocationCondition    = [self.locationCondition isActive];
+    BOOL hasTimeCondition           = [self.timeCondition isActive];
+    BOOL hasDayOfTheWeekCondition   = [self.dayOfTheWeekCondition isActive];
+    BOOL hasDateCondition           = [self.dateCondition isActive];
+    BOOL hasTemperatureCondition    = [self.temperatureCondition isActive];
+    BOOL hasWeatherCondition        = [self.weatherCondition isActive];
+    BOOL hasLocationCondition       = [self.locationCondition isActive];
     
-    return (hasTimeCondition || hasDateCondition || hasWeatherCondition || hasTemperatureCondition || hasLocationCondition);
+    return (hasTimeCondition || hasDayOfTheWeekCondition || hasDateCondition || hasWeatherCondition || hasTemperatureCondition || hasLocationCondition);
 }
 
 - (BOOL)hasEmoticon {
@@ -114,13 +118,14 @@
 }
 
 - (BOOL)haveConditionsBeenMeet {
-    BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentTimeOfDay]];
-    BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDay]];
+    BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentDate]];
+    BOOL dayOfTheWeekIsValid     = [self.dayOfTheWeekCondition isValidDate:[self.datasource currentDate]];
+    BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDate]];
     BOOL temperatureIsValid      = [self.temperatureCondition isValidTemperature:[self.datasource currentTemperature]];
     BOOL weatherConditionIsValid = [self.weatherCondition isValidWeatherType:[self.datasource currentWeatherType]];
     BOOL locationIsValid         = [self.locationCondition isValidLocation:[self.datasource currentLocation]];
     
-    return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid);
+    return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid && dayOfTheWeekIsValid);
 }
 
 - (NSString *)conditionDescription {
@@ -172,6 +177,9 @@
     NSDictionary *timeDictionary = [dictionary objectForKey:KEY_TIME_CONDITION];
     self.timeCondition = [[g5TimeCondition alloc] initWithDictionary:timeDictionary];
 
+    NSDictionary *dayOfTheWeekDictionary = [dictionary objectForKey:G5DayOfTheWeekCondition];
+    self.dayOfTheWeekCondition = [[g5DayOfTheWeekCondition alloc] initWithDictionary:dayOfTheWeekDictionary];
+    
     NSDictionary *dateDictionary = [dictionary objectForKey:KEY_DATE_CONDITION];
     self.dateCondition = [[g5DateCondition alloc] initWithDictionary:dateDictionary];
     
@@ -206,6 +214,9 @@
 
     NSDictionary *timeDictionary = [self.timeCondition encodeToDictionary];
     [dictionary setObject:timeDictionary forKey:KEY_TIME_CONDITION];
+
+    NSDictionary *dayOfTheWeekDictionary = [self.dayOfTheWeekCondition encodeToDictionary];
+    [dictionary setObject:dayOfTheWeekDictionary forKey:G5DayOfTheWeekCondition];
     
     NSDictionary *dateDictionary = [self.dateCondition encodeToDictionary];
     [dictionary setObject:dateDictionary forKey:KEY_DATE_CONDITION];

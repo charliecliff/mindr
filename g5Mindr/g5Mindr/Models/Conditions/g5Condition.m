@@ -13,12 +13,13 @@
 #define KEY_IS_ACTIVE       @"KEY_IS_ACTIVE"
 #define KEY_IS_LOCKED       @"KEY_IS_LOCKED"
 
-NSString *const g5NoType          = @"none";
-NSString *const g5DateType        = @"date";
-NSString *const g5TimeType        = @"time";
-NSString *const g5WeatherType     = @"weather";
-NSString *const g5TemperatureType = @"temp";
-NSString *const g5LocationType    = @"location";
+NSString *const g5NoType            = @"none";
+NSString *const g5DateType          = @"date";
+NSString *const g5TimeType          = @"time";
+NSString *const g5DayOfTheWeekType  = @"day_of_the_week";
+NSString *const g5WeatherType       = @"weather";
+NSString *const g5TemperatureType   = @"temp";
+NSString *const g5LocationType      = @"location";
 
 @implementation g5Condition
 
@@ -67,6 +68,10 @@ NSString *const g5LocationType    = @"location";
 }
 
 - (NSString *)conditionDescription {
+    assert(false);
+}
+
+- (NSString *)conditionIconName {
     assert(false);
 }
 

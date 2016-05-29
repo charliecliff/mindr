@@ -27,6 +27,11 @@
 		DA297EE41CA231F9001D6148 /* g5EmoticonSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE31CA231F9001D6148 /* g5EmoticonSelectionViewController.xib */; };
 		DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */; };
 		DA297EED1CA23ED0001D6148 /* g5EmoticonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE91CA23ED0001D6148 /* g5EmoticonCell.xib */; };
+		DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */; };
+		DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */; };
+		DA2EA6DF1CFB569F004338CA /* g5DayOfTheWeekCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6DE1CFB569F004338CA /* g5DayOfTheWeekCondition.m */; };
+		DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6E11CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m */; };
+		DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */; };
 		DA30CEEB1C9DD38900FD4438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CEEA1C9DD38900FD4438 /* main.m */; };
 		DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CEED1C9DD38900FD4438 /* AppDelegate.m */; };
 		DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA30CEF51C9DD38900FD4438 /* Assets.xcassets */; };
@@ -120,6 +125,14 @@
 		DA297EE71CA23ED0001D6148 /* g5EmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonCell.h; sourceTree = "<group>"; };
 		DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonCell.m; sourceTree = "<group>"; };
 		DA297EE91CA23ED0001D6148 /* g5EmoticonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5EmoticonCell.xib; sourceTree = "<group>"; };
+		DA2EA6D81CFB5424004338CA /* g5DayOfTheWeekViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DayOfTheWeekViewController.h; sourceTree = "<group>"; };
+		DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DayOfTheWeekViewController.m; sourceTree = "<group>"; };
+		DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5DayOfTheWeekViewController.xib; sourceTree = "<group>"; };
+		DA2EA6DD1CFB569F004338CA /* g5DayOfTheWeekCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DayOfTheWeekCondition.h; sourceTree = "<group>"; };
+		DA2EA6DE1CFB569F004338CA /* g5DayOfTheWeekCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DayOfTheWeekCondition.m; sourceTree = "<group>"; };
+		DA2EA6E01CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DayOfTheWeekConditionTableViewCell.h; sourceTree = "<group>"; };
+		DA2EA6E11CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DayOfTheWeekConditionTableViewCell.m; sourceTree = "<group>"; };
+		DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5DayOfTheWeekConditionTableViewCell.xib; sourceTree = "<group>"; };
 		DA30CEE61C9DD38900FD4438 /* g5Mindr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = g5Mindr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA30CEEA1C9DD38900FD4438 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA30CEEC1C9DD38900FD4438 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -396,6 +409,8 @@
 				DAE9CAC71CA4A41700849427 /* g5DateCondition.m */,
 				DAE9CAC91CA4A42700849427 /* g5TimeCondition.h */,
 				DAE9CACA1CA4A42700849427 /* g5TimeCondition.m */,
+				DA2EA6DD1CFB569F004338CA /* g5DayOfTheWeekCondition.h */,
+				DA2EA6DE1CFB569F004338CA /* g5DayOfTheWeekCondition.m */,
 			);
 			path = Conditions;
 			sourceTree = "<group>";
@@ -421,6 +436,9 @@
 		DA30CF5E1C9E3A9B00FD4438 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DA2EA6E01CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.h */,
+				DA2EA6E11CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m */,
+				DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */,
 				DA0C4B381CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.h */,
 				DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */,
 				DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */,
@@ -534,6 +552,9 @@
 				DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */,
 				DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */,
 				DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */,
+				DA2EA6D81CFB5424004338CA /* g5DayOfTheWeekViewController.h */,
+				DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */,
+				DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */,
 			);
 			path = ConditionViewController;
 			sourceTree = "<group>";
@@ -682,6 +703,7 @@
 				DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */,
 				DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */,
 				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
+				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
 				DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */,
 				DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */,
 				DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */,
@@ -705,6 +727,7 @@
 				DABED09B1CA39E27004100AF /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DA0FE3E21CBDC30F00B64632 /* g5CalendarHeaderView.xib in Resources */,
 				DA508E051CCF0B4100C96AED /* onSwitchKnob@2x.png in Resources */,
+				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +794,7 @@
 				DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */,
 				DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */,
 				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,
+				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* g5Reminder.m in Sources */,
 				DAFD65221CD5414700E92729 /* g5ReminderListViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
@@ -796,6 +820,7 @@
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */,
+				DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */,
 				DA30CF4B1C9E28F300FD4438 /* g5LocationManager.m in Sources */,
 				DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
@@ -805,6 +830,7 @@
 				DAC8BF171CCC5E7A004CA7D6 /* g5ConditionMonitor.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* g5Condition.m in Sources */,
 				DAE9CAD21CA4A4BF00849427 /* g5OpenWeatherClient.m in Sources */,
+				DA2EA6DF1CFB569F004338CA /* g5DayOfTheWeekCondition.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* g5DateCondition.m in Sources */,
 				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
 			);

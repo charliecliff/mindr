@@ -17,8 +17,9 @@
 @interface g5LocationConditionViewController () <MGLMapViewDelegate>
 
 @property(nonatomic, strong) IBOutlet UILabel *addressLabel;
-
 @property(nonatomic, strong) IBOutlet MGLMapView *mapView;
+@property(nonatomic, strong) IBOutlet UIView *mapOverlayView;
+
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
 
 @end
@@ -194,6 +195,15 @@
     }
     
     return annotationImage;
+}
+
+- (void)mapView:(nonnull MGLMapView *)mapView didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation {
+    self.mapView.userInteractionEnabled = NO;
+    NSLog(@"TAP TAP TAP");
+}
+
+- (void)mapView:(nonnull MGLMapView *)mapView didDeselectAnnotation:(nonnull id<MGLAnnotation>)annotation {
+    NSLog(@"didDeselectAnnotation");
 }
 
 @end

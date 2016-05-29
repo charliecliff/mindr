@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5LocationConditionViewController">
             <connections>
                 <outlet property="addressLabel" destination="rMj-rj-AAC" id="sjJ-v1-Wp0"/>
+                <outlet property="mapOverlayView" destination="PL7-Gf-OQ2" id="E9L-hF-frX"/>
                 <outlet property="mapView" destination="608-7Z-cwY" id="Z4z-e4-t08"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,7 +29,7 @@
                     <color key="textColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ZE-TX-HMz">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ZE-TX-HMz" userLabel="Separator">
                     <rect key="frame" x="0.0" y="108" width="600" height="1"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -39,20 +40,28 @@
                     <rect key="frame" x="0.0" y="109" width="600" height="491"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PL7-Gf-OQ2">
+                    <rect key="frame" x="0.0" y="109" width="600" height="491"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="rMj-rj-AAC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="0W9-H0-ktq"/>
                 <constraint firstItem="rMj-rj-AAC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="B1E-Bw-oSx"/>
                 <constraint firstItem="608-7Z-cwY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BGz-Q3-oc5"/>
+                <constraint firstItem="PL7-Gf-OQ2" firstAttribute="centerY" secondItem="608-7Z-cwY" secondAttribute="centerY" id="F7T-kX-6EE"/>
                 <constraint firstAttribute="trailing" secondItem="7ZE-TX-HMz" secondAttribute="trailing" id="FCz-f1-KsI"/>
+                <constraint firstItem="PL7-Gf-OQ2" firstAttribute="centerX" secondItem="608-7Z-cwY" secondAttribute="centerX" id="LQ6-D5-ztw"/>
                 <constraint firstItem="V09-g6-L5Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PSX-VU-Mbf"/>
                 <constraint firstAttribute="bottom" secondItem="V09-g6-L5Q" secondAttribute="bottom" id="RQo-KK-7ya"/>
                 <constraint firstItem="V09-g6-L5Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VcZ-l2-Py9"/>
                 <constraint firstAttribute="bottom" secondItem="608-7Z-cwY" secondAttribute="bottom" id="c2D-lm-jIA"/>
                 <constraint firstItem="608-7Z-cwY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="gfe-zv-KPu"/>
+                <constraint firstItem="PL7-Gf-OQ2" firstAttribute="width" secondItem="608-7Z-cwY" secondAttribute="width" id="piF-aA-ylZ"/>
                 <constraint firstItem="7ZE-TX-HMz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="qrc-VT-NXt"/>
                 <constraint firstItem="7ZE-TX-HMz" firstAttribute="top" secondItem="rMj-rj-AAC" secondAttribute="bottom" id="rMd-zI-ORr"/>
+                <constraint firstItem="PL7-Gf-OQ2" firstAttribute="height" secondItem="608-7Z-cwY" secondAttribute="height" id="rig-vV-asA"/>
                 <constraint firstAttribute="trailing" secondItem="V09-g6-L5Q" secondAttribute="trailing" id="s3k-br-w37"/>
                 <constraint firstAttribute="trailing" secondItem="608-7Z-cwY" secondAttribute="trailing" id="v9a-qB-L4k"/>
                 <constraint firstAttribute="trailing" secondItem="rMj-rj-AAC" secondAttribute="trailing" constant="18" id="x0E-rb-Cs1"/>

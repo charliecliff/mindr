@@ -9,6 +9,7 @@
 #import "g5DayOfTheWeekViewController.h"
 #import "g5DayOfTheWeekConditionTableViewCell.h"
 #import "g5DayOfTheWeekCondition.h"
+#import "g5ConfigAndMacros.h"
 
 @interface g5DayOfTheWeekViewController () <UITableViewDataSource, UITabBarDelegate> {
     NSMutableOrderedSet *dayOfTheWeekCells;
@@ -37,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = CONDITION_VIEW_CONTROLLER_NAVIGATION_TITLE_FOR_DAY_OF_THE_WEEK;
 }
 
 #pragma mark - Set Up

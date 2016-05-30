@@ -48,11 +48,11 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)reload {
+//- (void)reload {
 //    NSString *dateString = [self.dateFormatter stringFromDate:self.date];
 //    [self.currentTimeLabel setText:dateString];
 //    [self.picker configureForDate:self.date];
-}
+//}
 
 #pragma mark - Set Up
 

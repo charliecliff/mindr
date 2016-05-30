@@ -26,7 +26,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRm-z8-6CL">
-                        <rect key="frame" x="12" y="10" width="264" height="24"/>
+                        <rect key="frame" x="20" y="10" width="256" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="nPX-c1-ybP"/>
                         </constraints>
@@ -36,6 +36,7 @@
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JBT-h3-kLh">
                         <rect key="frame" x="288" y="10" width="24" height="24"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="24" id="6if-va-9xT"/>
                             <constraint firstAttribute="height" constant="24" id="Dbv-Fr-F2t"/>
@@ -50,7 +51,7 @@
                     <constraint firstItem="1aZ-gR-3gf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DL7-Ul-x8q"/>
                     <constraint firstAttribute="trailing" secondItem="oPL-R7-mfI" secondAttribute="trailing" id="DWu-Cz-hi7"/>
                     <constraint firstItem="JBT-h3-kLh" firstAttribute="leading" secondItem="hRm-z8-6CL" secondAttribute="trailing" constant="12" id="TN4-3k-ZvO"/>
-                    <constraint firstItem="hRm-z8-6CL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="cia-jn-73f"/>
+                    <constraint firstItem="hRm-z8-6CL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="cia-jn-73f"/>
                     <constraint firstItem="JBT-h3-kLh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="f8e-z6-p9g"/>
                     <constraint firstItem="1aZ-gR-3gf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="twi-mn-c01"/>
                     <constraint firstAttribute="bottom" secondItem="1aZ-gR-3gf" secondAttribute="bottom" id="xzf-I1-RDy"/>

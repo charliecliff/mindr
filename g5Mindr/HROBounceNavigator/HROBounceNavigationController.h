@@ -16,6 +16,12 @@
 - (void)didPressNextButton;
 - (void)didPressCancelButton;
 
+@optional
+- (void)didPressRightButton;
+- (void)didPressLeftButton;
+- (void)didPressBounceButton;
+- (void)didPressBottomButton;
+
 @end
 
 @protocol HROBounceNavigationDatasource <NSObject>

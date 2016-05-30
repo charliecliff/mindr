@@ -76,7 +76,6 @@
         
         [self.cells addObject:cell];
     }
-    
 }
 
 #pragma mark - Resets

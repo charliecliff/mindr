@@ -189,18 +189,30 @@
 
 - (IBAction)didPressCreateNewReminderButton:(id)sender {
     [self.delegate didPressCenterButton];
+    if ([self.delegate respondsToSelector:@selector(didPressBottomButton)]) {
+        [self.delegate didPressBottomButton];
+    }
 }
 
 - (IBAction)didPressPreviousButton:(id)sender {
     [self.delegate didPressPreviousButton];
+    if ([self.delegate respondsToSelector:@selector(didPressLeftButton)]) {
+        [self.delegate didPressLeftButton];
+    }
 }
 
 - (IBAction)didPressNextButton:(id)sender {
     [self.delegate didPressNextButton];
+    if ([self.delegate respondsToSelector:@selector(didPressRightButton)]) {
+        [self.delegate didPressRightButton];
+    }
 }
 
 - (IBAction)didPressCancelButton:(id)sender {
     [self.delegate didPressCancelButton];
+    if ([self.delegate respondsToSelector:@selector(didPressBounceButton)]) {
+        [self.delegate didPressBounceButton];
+    }
 }
 
 #pragma mark - Button Animations

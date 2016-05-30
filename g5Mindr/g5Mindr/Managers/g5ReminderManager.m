@@ -88,6 +88,13 @@
 - (void)addReminder:(g5Reminder *)reminder {
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
+    [self saveReminders];
+}
+
+- (void)removeReminder:(g5Reminder *)reminder {
+    [self.reminderIDs removeObject:reminder.uid];
+    [self.reminders removeObjectForKey:reminder.uid];
+    [self saveReminders];
 }
 
 - (g5Reminder *)reminderForIndex:(NSInteger)index {

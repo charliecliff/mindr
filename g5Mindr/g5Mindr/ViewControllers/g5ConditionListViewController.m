@@ -19,6 +19,8 @@
 #import "g5ConfigAndMacros.h"
 #import "AMWaveViewController.h"
 
+static NSInteger const NumberOfTrailingConditionCells = 2;
+
 @interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
     NSMutableArray *cells;
 }
@@ -96,6 +98,14 @@
         
         [cells addObject:cell];
     }
+    
+    for (int i = 0; i < NumberOfTrailingConditionCells; i++) {
+        UITableViewCell *cell   = [[UITableViewCell alloc] init];
+        cell.backgroundColor    = [UIColor clearColor];
+        cell.selectionStyle     = UITableViewCellSelectionStyleNone;
+        [cells addObject:cell];
+    }
+
 }
 
 #pragma mark - g5ConditionViewController Factory
@@ -146,14 +156,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger selectedRow = indexPath.row;
-    g5Condition *selectedCondition = [self.reminder getConditionAtIndex:selectedRow];
-    if (selectedCondition.isActive) {
-        [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
-            [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
-        }];
-        g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
-        [self.navigationController pushViewController:vc animated:YES];
-        [self.delegate didSelectConditionCell];
+    
+    if (selectedRow < cells.count - NumberOfTrailingConditionCells) {
+        g5Condition *selectedCondition = [self.reminder getConditionAtIndex:selectedRow];
+        if (selectedCondition.isActive) {
+            [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
+                [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
+            }];
+            g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
+            [self.navigationController pushViewController:vc animated:YES];
+            [self.delegate didSelectConditionCell];
+        }
     }
 }
 

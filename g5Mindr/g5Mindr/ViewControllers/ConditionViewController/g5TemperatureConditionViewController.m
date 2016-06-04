@@ -9,7 +9,7 @@
 #import "g5TemperatureConditionViewController.h"
 #import "g5TemperaturePicker.h"
 #import "g5TemperatureCondition.h"
-
+#import "HROTemperatureComponents.h"
 
 @interface g5TemperatureConditionViewController () <g5TemperaturePickerDatasource, g5TemperaturePickerDelegate>
 
@@ -41,6 +41,16 @@
     self.picker.g5PickerDelegate   = self;
     self.picker.g5PickerDatasource = self;
 
+    self.degreeView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
+    self.degreeView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+
+    self.unitView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
+    self.unitView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+
+    self.prepositionView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
+    self.prepositionView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.prepositionView.textAlignment     = NSTextAlignmentLeft;
+    
     [self reload];
 }
 
@@ -57,6 +67,21 @@
     [self.picker configureForTemperature:((g5TemperatureCondition *)self.condition).temperature
                            forComparison:((g5TemperatureCondition *)self.condition).temperatureComparisonType
                                  forUnit:((g5TemperatureCondition *)self.condition).temperatureunit];
+}
+
+#pragma mark -  HROPickerDataSource
+
+- (NSOrderedSet *)componentsForPickerView:(HROPickerTableView *)pickerTable {
+    if ([pickerTable isEqual:self.degreeView]) {
+        return [HROTemperatureComponents degrees];
+    }
+    else if ([pickerTable isEqual:self.unitView]) {
+        return [HROTemperatureComponents degreeUnits];
+    }
+    else if ([pickerTable isEqual:self.prepositionView]) {
+        return [HROTemperatureComponents prepostions];
+    }
+    return nil;
 }
 
 #pragma mark - g5TemperaturePickerDatasource

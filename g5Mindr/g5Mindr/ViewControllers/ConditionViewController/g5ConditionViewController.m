@@ -9,10 +9,6 @@
 #import "g5ConditionViewController.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ConditionViewController ()
-
-@end
-
 @implementation g5ConditionViewController
 
 #pragma mark - Init

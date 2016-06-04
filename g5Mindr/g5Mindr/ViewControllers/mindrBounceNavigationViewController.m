@@ -12,10 +12,6 @@
 
 #import "AMWaveTransition.h"
 
-@interface mindrBounceNavigationViewController ()
-
-@end
-
 @implementation mindrBounceNavigationViewController
 
 #pragma mark - Setters
@@ -29,7 +25,6 @@
 
 - (UIColor *)rightButtonFillColor {
     return PRIMARY_FILL_COLOR;
-
 }
 
 - (UIColor *)leftButtonFillColor {

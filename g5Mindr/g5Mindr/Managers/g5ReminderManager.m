@@ -9,14 +9,18 @@
 #import "g5ReminderManager.h"
 #import "g5Reminder.h"
 
-#import "g5LocationManager.h"
+//#import "g5LocationClient.h"
+
+//#import "g5LocationManager.h"
 #import "g5PersistenceManager.h"
 
-#import "g5ConditionMonitor.h"
-#import "g5WeatherMonitor.h"
+//#import "g5ConditionMonitor.h"
 
-#import "g5WeatherClient.h"
-#import "g5OpenWeatherClient.h"
+#import "g5WeatherMonitor.h"
+#import "g5LocationMonitor.h"
+
+//#import "g5WeatherClient.h"
+//#import "g5OpenWeatherClient.h"
 
 #import <UIKit/UIKit.h>
 
@@ -29,11 +33,19 @@
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 
-@property(nonatomic, strong) g5WeatherMonitor *weatherMonitor;
-@property(nonatomic, strong) g5LocationManager *locationManager;
 
-@property(nonatomic, strong) g5LocationManager *locationSource;
-@property(nonatomic, strong) g5OpenWeatherClient *weatherClient;
+@property(nonatomic, strong) g5WeatherMonitor *weatherMonitor;
+
+
+//@property(nonatomic, strong) g5LocationManager *locationManager;
+
+//@property(nonatomic, strong) g5LocationManager *locationSource;
+//@property(nonatomic, strong) g5OpenWeatherClient *weatherClient;
+
+//@property (nonatomic, strong) id<g5WeatherClient> weatherClient;
+//@property (nonatomic, strong) id<g5LocationClient> locationClient;
+
+
 
 @end
 
@@ -73,8 +85,8 @@
 
 
 - (void)setUpLocationMonitor {
-    self.locationManager = [[g5WeatherMonitor alloc] initWithDelegate:self];
-    [self.conditionMonitors addObject:self.weatherMonitor];
+//    self.locationManager = [[g5WeatherMonitor alloc] initWithDelegate:self];
+//    [self.conditionMonitors addObject:self.weatherMonitor];
 }
 
 #pragma mark - Getters
@@ -151,14 +163,6 @@
 #pragma mark - g5ConditionDataSource
 
 - (NSDate *)currentDate {
-    return [NSDate date];
-}
-
-- (NSDate *)currentTimeOfDay {
-    return [NSDate date];
-}
-
-- (NSDate *)currentDay {
     return [NSDate date];
 }
 

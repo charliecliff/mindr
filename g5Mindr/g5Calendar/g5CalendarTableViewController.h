@@ -68,7 +68,6 @@
  *
  */
 - (instancetype)initWithSelectedDates:(NSArray *)dates;
-
 - (instancetype)init NS_UNAVAILABLE;
 
 @end

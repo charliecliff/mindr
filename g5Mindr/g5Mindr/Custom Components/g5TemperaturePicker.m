@@ -8,15 +8,17 @@
 
 #import "g5TemperaturePicker.h"
 
-#define kRowsInPicker 10000
+#define kRowsInPicker 104
 
-#define STARTING_ROW_FOR_DEGREE_COMPONENT 416
+#define STARTING_ROW_FOR_DEGREE_COMPONENT 61
 #define STARTING_ROW_FOR_COMPARISON_COMPONENT 480
 #define STARTING_ROW_FOR_UNIT_COMPONENT 480
 
 #define WIDTH_FOR_DEGREE_COMPONENT 80
 
-@interface g5TemperaturePicker ()
+@interface g5TemperaturePicker () {
+    CGFloat fuckOff;
+}
 
 @property(nonatomic, strong) UILabel *colonLabel;
 
@@ -40,6 +42,9 @@
     self.dataSource = self;
     
     [self selectRow:STARTING_ROW_FOR_DEGREE_COMPONENT inComponent:1 animated:NO];
+    
+    
+    fuckOff = 0;
 }
 
 #pragma mark - View Life-Cycle
@@ -221,11 +226,30 @@
 #pragma mark - UIPickerViewDelegate
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    
+    if (component == 1) {
+        //    CGRect theApparentRect = [view convertRect: theCell.bounds toView:pickerView];
+        NSLog(@"Row %ld", (long)row);
+        //    NSLog(@"Component %ld", (long)component);
+        NSLog(@"Selected Row %ld", (long)[self selectedRowInComponent:1]);
+        NSLog(@"Normalized Row %ld", (long)([self selectedRowInComponent:1] - row) + 2);
+        
+        NSLog(@"%ld", (long)[self viewForRow:row forComponent:component].frame.origin.y);
+    }
+    if (fuckOff != [self selectedRowInComponent:1]) {
+        fuckOff = [self selectedRowInComponent:1];
+//        [self reloadAllComponents];
+    }
+
+//    UIView [self viewForRow:row forComponent:component];
+    
+    CGFloat normalizedRow = [self selectedRowInComponent:1] - row;
+    
     UILabel *lblDate = [[UILabel alloc] init];
     [lblDate setFont:[UIFont systemFontOfSize:25.0]];
     
     [lblDate setTextColor:[self.g5PickerDatasource textColor]];
-    [lblDate setBackgroundColor:[UIColor clearColor]];
+    [lblDate setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:50*normalizedRow alpha:1]];
     
     NSInteger offsetRow = row;
     if (component == 0)      // Prepositions

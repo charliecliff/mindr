@@ -128,4 +128,69 @@
     return [[NSOrderedSet alloc] initWithObjects:@"Above",@"Exactly",@"Below",nil];
 }
 
+#pragma mark - Utilities
+
++ (g5TemperatureUnit)temperatureunitFromString:(NSString *)stringForTemperatureUnit {
+    if ([stringForTemperatureUnit isEqualToString:@"C"]) {
+        return g5TemperatureCelsius;
+    }
+    if ([stringForTemperatureUnit isEqualToString:@"F"]) {
+        return g5TemperatureFahrenheit;
+    }
+    return -1;
+}
+
++ (NSComparisonResult)comparisonResultFromString:(NSString *)stringForPreposition {
+    if ([stringForPreposition isEqualToString:@"Above"]) {
+        return NSOrderedAscending;
+    }
+    if ([stringForPreposition isEqualToString:@"Exactly"]) {
+        return NSOrderedSame;
+    }
+    if ([stringForPreposition isEqualToString:@"Below"]) {
+        return NSOrderedDescending;
+    }
+    return NSOrderedSame;
+}
+
++ (NSNumber *)temperatureFromString:(NSString *)temperatureString {
+    NSString *newString = [temperatureString substringToIndex:[temperatureString length]-1];
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumber *myNumber = [f numberFromString:newString];
+    return myNumber;
+}
+
++ (NSInteger)indexForTemperatureUnit:(g5TemperatureUnit)unit {
+    if (unit == g5TemperatureCelsius) {
+        return 0;
+    }
+    else if (unit == g5TemperatureFahrenheit) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+}
+
++ (NSInteger)indexForComparisonResult:(NSComparisonResult)comparison {
+    if (comparison == NSOrderedAscending) {
+        NSInteger index = [[HROTemperatureComponents prepostions] indexOfObject:@"Above"];
+        return index;
+    }
+    else if (comparison == NSOrderedDescending  ) {
+        NSInteger index = [[HROTemperatureComponents prepostions] indexOfObject:@"Below"];
+        return index;
+    }
+    else {
+        return 1;
+    }
+}
+
++ (NSInteger)indexForTemperature:(NSNumber *)temperature {
+    NSString *temperatureString = [NSString stringWithFormat:@"%@\u00b0", temperature];
+    NSInteger index = [[HROTemperatureComponents degrees] indexOfObject:temperatureString];
+    return index;
+}
+
 @end

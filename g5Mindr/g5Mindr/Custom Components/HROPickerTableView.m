@@ -18,6 +18,8 @@
     
     const CGFloat *selectColorComponents;
     const CGFloat *normalColorComponents;
+    
+    NSInteger selectedRow;
 }
 
 @end
@@ -35,8 +37,9 @@
         self.shouldInterpolateColors    = NO;
         self.selectedTextColor          = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
         self.normalTextColor            = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
+        self.textAlignment              = NSTextAlignmentCenter;
         
-        [self centerTableView:self];
+        selectedRow = 0;
     }
     return self;
 }
@@ -50,8 +53,6 @@
     self.selectedTextColor          = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     self.normalTextColor            = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
     self.textAlignment              = NSTextAlignmentCenter;
-    
-    [self centerTableView:self];
 }
 
 #pragma mark - Setters
@@ -66,6 +67,14 @@
     _normalTextColor = normalTextColor;
     if (self.selectedTextColor)
         [self calculateColorDelta];
+}
+
+#pragma mark - Public Scrolling Methods
+
+- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *offsetIndexPath = [NSIndexPath indexPathForRow:indexPath.row + BUFFER + 1 inSection:indexPath.section];
+    [self scrollToRowAtIndexPath:offsetIndexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    [self centerTableView:self];
 }
 
 #pragma mark - Helpers
@@ -90,7 +99,8 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.pickerDatasource componentsForPickerView:self].count + 2*(BUFFER + 1);
+    NSInteger count = [self.pickerDatasource componentsForPickerView:self].count + 2*(BUFFER + 1);
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -104,9 +114,13 @@
     }
     
     NSString *text = [[self.pickerDatasource componentsForPickerView:self] objectAtIndex:(indexPath.row - (BUFFER + 1)) ];
+    cell.textLabel.text          = text;
     cell.textLabel.textAlignment = self.textAlignment;
-    cell.textLabel.text = text;
-    cell.textLabel.textColor = self.normalTextColor;
+    cell.textLabel.textColor     = self.normalTextColor;
+    
+    if (indexPath.row == selectedRow) {
+        cell.textLabel.textColor     = self.selectedTextColor;
+    }
     
     return cell;
 }
@@ -114,7 +128,6 @@
 #pragma mark - ScrollViewDelegate
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    // if decelerating, let scrollViewDidEndDecelerating: handle it
     if (decelerate == NO) {
         if ([scrollView isKindOfClass:[UITableView class]])
             [self centerTableView:((UITableView *)scrollView)];
@@ -141,10 +154,10 @@
                 if ( (bandTop < currentCellTop) && (currentCellTop < bandBottom) ) {
                     weight = 1 - ABS(bandBottom - currentCellTop) / (((UITableView *)scrollView).frame.size.height / 4);   // Fucking Dumb...
                 }
-                else if ( (bandTop < currentCellBottom) && (currentCellBottom < bandBottom) ) {
+                if ( (bandTop < currentCellBottom) && (currentCellBottom < bandBottom) ) {
                     weight = 1 - ABS(bandTop - currentCellBottom) / (((UITableView *)scrollView).frame.size.height / 4);   // Fucking Dumb...
                 }
-                else if ( (bandTop == currentCellTop) && (bandBottom == currentCellBottom) ) {
+                if ( ABS(bandTop - currentCellTop) < 1 && ABS(bandBottom - currentCellBottom) < 1 ) {
                     weight = 0;
                 }
             }
@@ -180,6 +193,8 @@
     }
     
     [tableView scrollToRowAtIndexPath:pathForCenterCell atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    selectedRow = pathForCenterCell.row;
+    [self.pickerDelegate pickerView:self didSelectItemAtRow:pathForCenterCell.row - (BUFFER + 1)];
 }
 
 @end

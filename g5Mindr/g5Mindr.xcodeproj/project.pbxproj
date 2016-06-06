@@ -19,7 +19,6 @@
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
 		DA0FE3E21CBDC30F00B64632 /* g5CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */; };
 		DA0FE3E51CBDC32400B64632 /* g5CalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */; };
-		DA1EC0C41CD434E400605573 /* g5TemperaturePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C31CD434E400605573 /* g5TemperaturePicker.m */; };
 		DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */; };
 		DA1EC0D21CD461D700605573 /* g5ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1EC0CE1CD461D700605573 /* g5ReminderViewController.xib */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
@@ -115,8 +114,6 @@
 		DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5CalendarHeaderView.xib; sourceTree = "<group>"; };
 		DA0FE3E31CBDC32400B64632 /* g5CalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarHeaderView.h; sourceTree = "<group>"; };
 		DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarHeaderView.m; sourceTree = "<group>"; };
-		DA1EC0C21CD434E400605573 /* g5TemperaturePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TemperaturePicker.h; sourceTree = "<group>"; };
-		DA1EC0C31CD434E400605573 /* g5TemperaturePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperaturePicker.m; sourceTree = "<group>"; };
 		DA1EC0C51CD461BF00605573 /* g5ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderViewController.h; sourceTree = "<group>"; };
 		DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderViewController.m; sourceTree = "<group>"; };
 		DA1EC0CE1CD461D700605573 /* g5ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderViewController.xib; sourceTree = "<group>"; };
@@ -614,8 +611,6 @@
 				DA2DB9781D037D5C0096D7BA /* HROPickerTableView.m */,
 				DA2DB9711D01D2510096D7BA /* HROTemperatureComponents.h */,
 				DA2DB9721D01D2510096D7BA /* HROTemperatureComponents.m */,
-				DA1EC0C21CD434E400605573 /* g5TemperaturePicker.h */,
-				DA1EC0C31CD434E400605573 /* g5TemperaturePicker.m */,
 				DAE9CB0A1CA7283A00849427 /* g5TimePicker.h */,
 				DAE9CB0B1CA7283A00849427 /* g5TimePicker.m */,
 			);
@@ -844,7 +839,6 @@
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,
 				DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */,
 				DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */,
-				DA1EC0C41CD434E400605573 /* g5TemperaturePicker.m in Sources */,
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */,

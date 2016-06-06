@@ -20,12 +20,12 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-hC-yje">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-gN-8Yu" userLabel="Picker">
-                    <rect key="frame" x="0.0" y="64" width="600" height="1"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-gN-8Yu">
+                    <rect key="frame" x="0.0" y="64" width="600" height="0.0"/>
                     <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="JZ8-ub-32L"/>
-                        <constraint firstAttribute="height" constant="1" id="hsj-XT-SNS"/>
+                        <constraint firstAttribute="height" id="hsj-XT-SNS"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="8" id="meZ-oj-bBk"/>
                     </constraints>
                     <variation key="default">
@@ -36,14 +36,14 @@
                     </variation>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zll-jG-79o">
-                    <rect key="frame" x="0.0" y="315" width="600" height="1"/>
+                    <rect key="frame" x="0.0" y="314" width="600" height="1"/>
                     <color key="backgroundColor" red="0.22352941179999999" green="0.33725490200000002" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="RPZ-k4-1Z8"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Az-xb-0d1" userLabel="Picker">
-                    <rect key="frame" x="0.0" y="65" width="600" height="250"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="250"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6cL-62-exK" customClass="HROPickerTableView">
                             <rect key="frame" x="260" y="0.0" width="80" height="250"/>

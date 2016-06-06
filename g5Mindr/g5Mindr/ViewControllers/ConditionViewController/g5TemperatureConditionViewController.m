@@ -7,16 +7,8 @@
 //
 
 #import "g5TemperatureConditionViewController.h"
-#import "g5TemperaturePicker.h"
 #import "g5TemperatureCondition.h"
 #import "HROTemperatureComponents.h"
-
-@interface g5TemperatureConditionViewController () <g5TemperaturePickerDatasource, g5TemperaturePickerDelegate>
-
-@property(nonatomic, strong) IBOutlet UILabel *currentTemperatureLabel;
-@property(nonatomic, strong) IBOutlet g5TemperaturePicker *picker;
-
-@end
 
 @implementation g5TemperatureConditionViewController
 
@@ -38,9 +30,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"Temperature";
 
-    self.picker.g5PickerDelegate   = self;
-    self.picker.g5PickerDatasource = self;
-
     self.degreeView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.degreeView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
 
@@ -55,18 +44,17 @@
 }
 
 - (void)reload {
-    NSString *temperatureLabelString;
-    if (((g5TemperatureCondition *)self.condition).temperatureunit == g5TemperatureFahrenheit) {
-        temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %@",((g5TemperatureCondition *)self.condition).temperature, @"F"];
-    }
-    else if (((g5TemperatureCondition *)self.condition).temperatureunit == g5TemperatureCelsius) {
-        temperatureLabelString = [NSString stringWithFormat:@"%@\u00b0 %@",((g5TemperatureCondition *)self.condition).temperature, @"C"];
-    }
+    NSComparisonResult comparisonType  = ((g5TemperatureCondition *)self.condition).temperatureComparisonType;
+    g5TemperatureUnit temperatureUnit  = ((g5TemperatureCondition *)self.condition).temperatureunit;
+    NSNumber *temperature               = ((g5TemperatureCondition *)self.condition).temperature;
     
-    [self.currentTemperatureLabel setText:temperatureLabelString];
-    [self.picker configureForTemperature:((g5TemperatureCondition *)self.condition).temperature
-                           forComparison:((g5TemperatureCondition *)self.condition).temperatureComparisonType
-                                 forUnit:((g5TemperatureCondition *)self.condition).temperatureunit];
+    NSInteger indexForComparisonType    = [HROTemperatureComponents indexForComparisonResult:comparisonType];
+    NSInteger indexForTemperatureUnit   = [HROTemperatureComponents indexForTemperatureUnit:temperatureUnit];
+    NSInteger indexForTemperature       = [HROTemperatureComponents indexForTemperature:temperature];
+    
+    [self.prepositionView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForComparisonType inSection:0]];
+    [self.unitView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForTemperatureUnit inSection:0]];
+    [self.degreeView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForTemperature inSection:0]];
 }
 
 #pragma mark -  HROPickerDataSource
@@ -84,25 +72,24 @@
     return nil;
 }
 
-#pragma mark - g5TemperaturePickerDatasource
+#pragma mark -  HROPickerDelegate
 
-- (UIColor *)textColor {
-    return [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-}
-
-- (UIFont *)textFont {
-    return [UIFont systemFontOfSize:25.0];
-}
-
-#pragma mark - g5TemperaturePickerDelegate
-
-- (void)didSelectTemperature:(NSInteger)temperature withComparionResult:(NSComparisonResult)comparison withUnit:(g5TemperatureUnit)unit {
-    
-    ((g5TemperatureCondition *)self.condition).temperature = [NSNumber numberWithInteger:temperature];
-    ((g5TemperatureCondition *)self.condition).temperatureComparisonType = comparison;
-    ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
-    
-    [self reload];
+- (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row {
+    if ([pickerTable isEqual:self.degreeView]) {
+        NSString *selection = [[HROTemperatureComponents degrees] objectAtIndex:row];
+        NSNumber *newTemperature = [HROTemperatureComponents temperatureFromString:selection];
+        ((g5TemperatureCondition *)self.condition).temperature = newTemperature;
+    }
+    else if ([pickerTable isEqual:self.unitView]) {
+        NSString *selection = [[HROTemperatureComponents degreeUnits] objectAtIndex:row];
+        g5TemperatureUnit unit = [HROTemperatureComponents temperatureunitFromString:selection];
+        ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
+    }
+    else if ([pickerTable isEqual:self.prepositionView]) {
+        NSString *selection = [[HROTemperatureComponents prepostions] objectAtIndex:row];
+        NSComparisonResult selectedComparison = [HROTemperatureComponents comparisonResultFromString:selection];
+        ((g5TemperatureCondition *)self.condition).temperatureComparisonType = selectedComparison;
+    }
 }
 
 @end

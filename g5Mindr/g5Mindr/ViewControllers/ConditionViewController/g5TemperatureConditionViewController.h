@@ -9,7 +9,7 @@
 #import "g5ConditionViewController.h"
 #import "HROPickerTableView.h"
 
-@interface g5TemperatureConditionViewController : g5ConditionViewController <HROPickerDataSource>
+@interface g5TemperatureConditionViewController : g5ConditionViewController <HROPickerDataSource, HROPickerDelegate>
 
 @property(nonatomic, strong) IBOutlet HROPickerTableView *degreeView;
 @property(nonatomic, strong) IBOutlet HROPickerTableView *unitView;

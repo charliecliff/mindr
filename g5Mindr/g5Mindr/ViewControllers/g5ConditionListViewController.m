@@ -41,10 +41,11 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         self.navigationItem.title = @"Choose Conditions";
         self.navigationItem.hidesBackButton = YES;
         
-        self.tableView.bounces          = NO;
+        self.tableView.bounces          = YES;
         self.tableView.backgroundColor  = [UIColor clearColor];
         self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
         self.tableView.backgroundView   = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+        self.tableView.showsVerticalScrollIndicator = NO;
         
         [self setUpCells];
     }

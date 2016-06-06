@@ -20,6 +20,7 @@
 @protocol HROPickerDelegate <NSObject>
 
 @required
+- (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row;
 
 @end
 
@@ -54,5 +55,10 @@
  *
  */
 @property (nonatomic) NSTextAlignment textAlignment;
+
+/**
+ *
+ */
+- (void)scrollToRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

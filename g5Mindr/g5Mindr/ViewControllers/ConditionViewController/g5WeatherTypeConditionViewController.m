@@ -38,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Weather";
+    self.navigationItem.hidesBackButton = YES;
 
     self.weatherTypes = [NSArray arrayWithObjects:g5WeatherSunny, g5WeatherPartlyCloudy, g5WeatherMostlyCloudy, g5WeatherLightRain, g5WeatherHeavyRain, g5WeatherSeverThunderstorm, g5WeatherFoggy, g5WeatherWindy, g5WeatherSnowy, nil];    
 }

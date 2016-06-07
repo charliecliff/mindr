@@ -14,6 +14,10 @@
 
 @implementation mindrBounceNavigationViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 #pragma mark - Setters
 
 - (void)setShouldShowTrashCanOnBounceButton:(BOOL)shouldShowTrashCanOnBounceButton {

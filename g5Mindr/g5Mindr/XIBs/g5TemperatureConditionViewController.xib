@@ -140,9 +140,9 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="w8s-cJ-KZf"/>
                     <exclude reference="1BM-Gm-TFO"/>
                     <exclude reference="WYe-gF-9Ug"/>
-                    <exclude reference="w8s-cJ-KZf"/>
                 </mask>
             </variation>
         </view>

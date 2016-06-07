@@ -91,12 +91,13 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     
-    UIView *navBorder = [[UIView alloc] initWithFrame:CGRectMake(0,self.navigationController.navigationBar.frame.size.height-2,self.navigationController.navigationBar.frame.size.width, 2)];
-    [navBorder setOpaque:YES];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     if ([self.datasource respondsToSelector:@selector(textColor)]) {
-        [navBorder setBackgroundColor:[self.datasource textColor]];
+        self.navigationController.navigationBar.tintColor = [self.datasource textColor];
     }
+    
+    UIView *navBorder = [[UIView alloc] initWithFrame:CGRectMake(0,self.navigationController.navigationBar.frame.size.height-2,self.navigationController.navigationBar.frame.size.width, 2)];
+    [navBorder setOpaque:YES];
     [navBorder setBackgroundColor:[UIColor whiteColor]];
     if ([self.datasource respondsToSelector:@selector(borderColor)]) {
         [navBorder setBackgroundColor:[self.datasource borderColor]];
@@ -105,7 +106,6 @@
     
     [self.contentView addSubview:self.navigationController.view];
 }
-
 
 #pragma mark - Reload
 

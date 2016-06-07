@@ -39,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = CONDITION_VIEW_CONTROLLER_NAVIGATION_TITLE_FOR_DAY_OF_THE_WEEK;
+    self.navigationItem.hidesBackButton = YES;
+
 }
 
 #pragma mark - Set Up

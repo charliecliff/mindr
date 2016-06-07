@@ -62,6 +62,7 @@
 
 - (void)setUpNavigationBar {
     self.navigationItem.title = @"Location";
+    self.navigationItem.hidesBackButton = YES;
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeTop;
 }

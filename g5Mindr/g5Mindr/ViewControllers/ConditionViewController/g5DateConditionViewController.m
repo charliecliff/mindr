@@ -38,6 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"Dates";
+    self.navigationItem.hidesBackButton = YES;
 
     [self setUpCalendarView];
 }

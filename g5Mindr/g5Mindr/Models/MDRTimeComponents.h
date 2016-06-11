@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "g5TimeCondition.h"
 
-@interface MNDRTimeComponents : NSObject
+@interface MDRTimeComponents : NSObject
 
 + (NSOrderedSet *)hours;
 + (NSOrderedSet *)minutes;

@@ -9,7 +9,7 @@
 #import "g5TimeConditionViewController.h"
 #import "g5TimeCondition.h"
 #import "HROPickerTableView.h"
-#import "MNDRTimeComponents.h"
+#import "MDRTimeComponents.h"
 
 @interface g5TimeConditionViewController ()  <HROPickerDataSource, HROPickerDelegate>
 
@@ -57,9 +57,9 @@
     NSInteger minute            = ((g5TimeCondition *)self.condition).minute;
     MDRTimeMeridian meridian    = ((g5TimeCondition *)self.condition).meridian;
     
-    NSInteger indexForHour      = [MNDRTimeComponents indexForHour:hour];
-    NSInteger indexForMinute    = [MNDRTimeComponents indexForMinute:minute];
-    NSInteger indexForMeridian  = [MNDRTimeComponents indexForMeridian:meridian];
+    NSInteger indexForHour      = [MDRTimeComponents indexForHour:hour];
+    NSInteger indexForMinute    = [MDRTimeComponents indexForMinute:minute];
+    NSInteger indexForMeridian  = [MDRTimeComponents indexForMeridian:meridian];
     
     [self.hourPicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForHour inSection:0]];
     [self.minutePicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForMinute inSection:0]];
@@ -70,13 +70,13 @@
 
 - (NSOrderedSet *)componentsForPickerView:(HROPickerTableView *)pickerTable {
     if ([pickerTable isEqual:self.hourPicker]) {
-        return [MNDRTimeComponents hours];
+        return [MDRTimeComponents hours];
     }
     else if ([pickerTable isEqual:self.minutePicker]) {
-        return [MNDRTimeComponents minutes];
+        return [MDRTimeComponents minutes];
     }
     else if ([pickerTable isEqual:self.meridianPicker]) {
-        return [MNDRTimeComponents meridians];
+        return [MDRTimeComponents meridians];
     }
     return nil;
 }
@@ -85,18 +85,18 @@
 
 - (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row {
     if ([pickerTable isEqual:self.hourPicker]) {
-        NSString *hourSelection = [[MNDRTimeComponents hours] objectAtIndex:row];
-        NSInteger hour = [MNDRTimeComponents hourFromHourString:hourSelection];
+        NSString *hourSelection = [[MDRTimeComponents hours] objectAtIndex:row];
+        NSInteger hour = [MDRTimeComponents hourFromHourString:hourSelection];
         ((g5TimeCondition *)self.condition).hour = hour;
     }
     else if ([pickerTable isEqual:self.minutePicker]) {
-        NSString *selection = [[MNDRTimeComponents minutes] objectAtIndex:row];
-        NSInteger minute = [MNDRTimeComponents minuteFromString:selection];
+        NSString *selection = [[MDRTimeComponents minutes] objectAtIndex:row];
+        NSInteger minute = [MDRTimeComponents minuteFromString:selection];
         ((g5TimeCondition *)self.condition).minute = minute;
     }
     else if ([pickerTable isEqual:self.meridianPicker]) {
-        NSString *meridianSelection = [[MNDRTimeComponents meridians] objectAtIndex:row];
-        MDRTimeMeridian meridian = [MNDRTimeComponents meridianFromMeridianString:meridianSelection];
+        NSString *meridianSelection = [[MDRTimeComponents meridians] objectAtIndex:row];
+        MDRTimeMeridian meridian = [MDRTimeComponents meridianFromMeridianString:meridianSelection];
         ((g5TimeCondition *)self.condition).meridian = meridian;
     }
 }

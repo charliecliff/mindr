@@ -12,6 +12,10 @@
 
 #define KEY_CONDITION_TIME_OF_DAY_IN_SECONDS @"KEY_CONDITION_TIME_OF_DAY_IN_SECONDS"
 
+static NSString *const MDRTimeComponentHour     = @"hour";
+static NSString *const MDRTimeComponentMinute   = @"minute";
+static NSString *const MDRTimeComponentMeridian = @"meridian";
+
 @interface g5TimeCondition ()
 
 @property(nonatomic, readwrite) NSInteger dateComponentForHour;
@@ -93,12 +97,20 @@
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
+    self.hour = [[dictionary objectForKey:MDRTimeComponentHour] integerValue];
+    self.minute = [[dictionary objectForKey:MDRTimeComponentMinute] integerValue];
+    self.meridian = [[dictionary objectForKey:MDRTimeComponentMeridian] intValue];
+    
     NSNumber *timeOfDayAsNumber = [dictionary objectForKey:KEY_CONDITION_TIME_OF_DAY_IN_SECONDS];
     self.timeOfDayInSeconds = [timeOfDayAsNumber intValue];
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+
+    [dictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
+    [dictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
+    [dictionary setObject:[NSNumber numberWithInt:self.meridian] forKey:MDRTimeComponentMeridian];
     
     NSNumber *timeOfDayAsNumber = [NSNumber numberWithInt:self.timeOfDayInSeconds];
     [dictionary setObject:timeOfDayAsNumber forKey:KEY_CONDITION_TIME_OF_DAY_IN_SECONDS];

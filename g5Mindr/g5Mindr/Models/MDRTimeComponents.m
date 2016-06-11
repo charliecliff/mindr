@@ -6,9 +6,9 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "MNDRTimeComponents.h"
+#import "MDRTimeComponents.h"
 
-@implementation MNDRTimeComponents
+@implementation MDRTimeComponents
 
 + (NSOrderedSet *)hours {
     return [[NSOrderedSet alloc] initWithObjects:

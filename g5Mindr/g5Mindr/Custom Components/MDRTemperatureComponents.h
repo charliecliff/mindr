@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "g5TemperatureCondition.h"
 
-@interface HROTemperatureComponents : NSObject
+@interface MDRTemperatureComponents : NSObject
 
 + (NSOrderedSet *)degrees;
 + (NSOrderedSet *)degreeUnits;

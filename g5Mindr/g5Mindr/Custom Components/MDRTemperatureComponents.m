@@ -6,9 +6,9 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "HROTemperatureComponents.h"
+#import "MDRTemperatureComponents.h"
 
-@implementation HROTemperatureComponents
+@implementation MDRTemperatureComponents
 
 + (NSOrderedSet *)degrees {
     return [[NSOrderedSet alloc] initWithObjects:
@@ -192,11 +192,11 @@
 
 + (NSInteger)indexForComparisonResult:(NSComparisonResult)comparison {
     if (comparison == NSOrderedAscending) {
-        NSInteger index = [[HROTemperatureComponents prepostions] indexOfObject:@"Above"];
+        NSInteger index = [[MDRTemperatureComponents prepostions] indexOfObject:@"Above"];
         return index;
     }
     else if (comparison == NSOrderedDescending  ) {
-        NSInteger index = [[HROTemperatureComponents prepostions] indexOfObject:@"Below"];
+        NSInteger index = [[MDRTemperatureComponents prepostions] indexOfObject:@"Below"];
         return index;
     }
     else {
@@ -206,7 +206,7 @@
 
 + (NSInteger)indexForTemperature:(NSNumber *)temperature {
     NSString *temperatureString = [NSString stringWithFormat:@"%@\u00b0", temperature];
-    NSInteger index = [[HROTemperatureComponents degrees] indexOfObject:temperatureString];
+    NSInteger index = [[MDRTemperatureComponents degrees] indexOfObject:temperatureString];
     return index;
 }
 

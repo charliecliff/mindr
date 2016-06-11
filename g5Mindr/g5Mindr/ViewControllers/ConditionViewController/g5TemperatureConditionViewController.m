@@ -8,7 +8,7 @@
 
 #import "g5TemperatureConditionViewController.h"
 #import "g5TemperatureCondition.h"
-#import "HROTemperatureComponents.h"
+#import "MDRTemperatureComponents.h"
 
 @implementation g5TemperatureConditionViewController
 
@@ -49,9 +49,9 @@
     g5TemperatureUnit temperatureUnit  = ((g5TemperatureCondition *)self.condition).temperatureunit;
     NSNumber *temperature               = ((g5TemperatureCondition *)self.condition).temperature;
     
-    NSInteger indexForComparisonType    = [HROTemperatureComponents indexForComparisonResult:comparisonType];
-    NSInteger indexForTemperatureUnit   = [HROTemperatureComponents indexForTemperatureUnit:temperatureUnit];
-    NSInteger indexForTemperature       = [HROTemperatureComponents indexForTemperature:temperature];
+    NSInteger indexForComparisonType    = [MDRTemperatureComponents indexForComparisonResult:comparisonType];
+    NSInteger indexForTemperatureUnit   = [MDRTemperatureComponents indexForTemperatureUnit:temperatureUnit];
+    NSInteger indexForTemperature       = [MDRTemperatureComponents indexForTemperature:temperature];
     
     [self.prepositionView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForComparisonType inSection:0]];
     [self.unitView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForTemperatureUnit inSection:0]];
@@ -62,13 +62,13 @@
 
 - (NSOrderedSet *)componentsForPickerView:(HROPickerTableView *)pickerTable {
     if ([pickerTable isEqual:self.degreeView]) {
-        return [HROTemperatureComponents degrees];
+        return [MDRTemperatureComponents degrees];
     }
     else if ([pickerTable isEqual:self.unitView]) {
-        return [HROTemperatureComponents degreeUnits];
+        return [MDRTemperatureComponents degreeUnits];
     }
     else if ([pickerTable isEqual:self.prepositionView]) {
-        return [HROTemperatureComponents prepostions];
+        return [MDRTemperatureComponents prepostions];
     }
     return nil;
 }
@@ -77,18 +77,18 @@
 
 - (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row {
     if ([pickerTable isEqual:self.degreeView]) {
-        NSString *selection = [[HROTemperatureComponents degrees] objectAtIndex:row];
-        NSNumber *newTemperature = [HROTemperatureComponents temperatureFromString:selection];
+        NSString *selection = [[MDRTemperatureComponents degrees] objectAtIndex:row];
+        NSNumber *newTemperature = [MDRTemperatureComponents temperatureFromString:selection];
         ((g5TemperatureCondition *)self.condition).temperature = newTemperature;
     }
     else if ([pickerTable isEqual:self.unitView]) {
-        NSString *selection = [[HROTemperatureComponents degreeUnits] objectAtIndex:row];
-        g5TemperatureUnit unit = [HROTemperatureComponents temperatureunitFromString:selection];
+        NSString *selection = [[MDRTemperatureComponents degreeUnits] objectAtIndex:row];
+        g5TemperatureUnit unit = [MDRTemperatureComponents temperatureunitFromString:selection];
         ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
     }
     else if ([pickerTable isEqual:self.prepositionView]) {
-        NSString *selection = [[HROTemperatureComponents prepostions] objectAtIndex:row];
-        NSComparisonResult selectedComparison = [HROTemperatureComponents comparisonResultFromString:selection];
+        NSString *selection = [[MDRTemperatureComponents prepostions] objectAtIndex:row];
+        NSComparisonResult selectedComparison = [MDRTemperatureComponents comparisonResultFromString:selection];
         ((g5TemperatureCondition *)self.condition).temperatureComparisonType = selectedComparison;
     }
 }

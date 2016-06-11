@@ -14,6 +14,9 @@
 
 @interface g5TimeCondition ()
 
+@property(nonatomic, readwrite) NSInteger dateComponentForHour;
+@property(nonatomic, readwrite) NSInteger dateComponentForMinute;
+
 @property(nonatomic, readwrite) NSTimeInterval timeOfDayInSeconds;
 
 @end
@@ -35,6 +38,10 @@
     if (self != nil) {
         self.type               = g5TimeType;
         self.timeOfDayInSeconds = NOON;
+        
+        self.hour   = 12;
+        self.minute = 0;
+        
     }
     return self;
 }

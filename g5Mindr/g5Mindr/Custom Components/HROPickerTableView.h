@@ -26,6 +26,9 @@
 
 @interface HROPickerTableView : UITableView
 
+/**
+ *
+ */
 @property(nonatomic, strong) IBOutlet id<HROPickerDataSource> pickerDatasource;
 @property(nonatomic, strong) IBOutlet id<HROPickerDelegate> pickerDelegate;
 
@@ -55,6 +58,11 @@
  *
  */
 @property (nonatomic) NSTextAlignment textAlignment;
+
+/**
+ *
+ */
+@property (nonatomic, readonly) NSInteger selectedIndex;
 
 /**
  *

@@ -17,9 +17,6 @@
 @property(nonatomic, strong) IBOutlet HROPickerTableView *minutePicker;
 @property(nonatomic, strong) IBOutlet HROPickerTableView *meridianPicker;
 
-@property(nonatomic, strong) NSDate *date;
-@property(nonatomic, strong) NSDateFormatter *dateFormatter;
-
 @end
 
 @implementation g5TimeConditionViewController
@@ -32,7 +29,6 @@
         if (condition == nil) {
             self.condition = [[g5TimeCondition alloc] init];
         }
-        self.date = [[self todayAtMidnight] dateByAddingTimeInterval:((g5TimeCondition *)self.condition).timeOfDayInSeconds];
     }
     return self;
 }
@@ -53,26 +49,21 @@
     self.meridianPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.meridianPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
     
-    [self setUpDateFromatter];        
+    [self reload];
 }
 
-#pragma mark - Set Up
-
-- (void)setUpDateFromatter {
-    self.dateFormatter = [[NSDateFormatter alloc] init];
-    [self.dateFormatter setDateFormat:@"hh:mm a"];
-    [self.dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-}
-
-#pragma mark - Helpers
-
-- (NSDate *)todayAtMidnight {
-    NSDate *const date = NSDate.date;
-    NSCalendar *const calendar = NSCalendar.currentCalendar;
-    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
-    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
-    NSDate *const normalizedDate = [calendar dateFromComponents:components];
-    return normalizedDate;
+- (void)reload {
+    NSInteger hour              = ((g5TimeCondition *)self.condition).hour;
+    NSInteger minute            = ((g5TimeCondition *)self.condition).minute;
+    MDRTimeMeridian meridian    = ((g5TimeCondition *)self.condition).meridian;
+    
+    NSInteger indexForHour      = [MNDRTimeComponents indexForHour:hour];
+    NSInteger indexForMinute    = [MNDRTimeComponents indexForMinute:minute];
+    NSInteger indexForMeridian  = [MNDRTimeComponents indexForMeridian:meridian];
+    
+    [self.hourPicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForHour inSection:0]];
+    [self.minutePicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForMinute inSection:0]];
+    [self.meridianPicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForMeridian inSection:0]];
 }
 
 #pragma mark -  HROPickerDataSource
@@ -94,19 +85,19 @@
 
 - (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row {
     if ([pickerTable isEqual:self.hourPicker]) {
-//        NSString *selection = [[HROTemperatureComponents degrees] objectAtIndex:row];
-//        NSNumber *newTemperature = [HROTemperatureComponents temperatureFromString:selection];
-//        ((g5TemperatureCondition *)self.condition).temperature = newTemperature;
+        NSString *hourSelection = [[MNDRTimeComponents hours] objectAtIndex:row];
+        NSInteger hour = [MNDRTimeComponents hourFromHourString:hourSelection];
+        ((g5TimeCondition *)self.condition).hour = hour;
     }
     else if ([pickerTable isEqual:self.minutePicker]) {
-//        NSString *selection = [[HROTemperatureComponents degreeUnits] objectAtIndex:row];
-//        g5TemperatureUnit unit = [HROTemperatureComponents temperatureunitFromString:selection];
-//        ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
+        NSString *selection = [[MNDRTimeComponents minutes] objectAtIndex:row];
+        NSInteger minute = [MNDRTimeComponents minuteFromString:selection];
+        ((g5TimeCondition *)self.condition).minute = minute;
     }
     else if ([pickerTable isEqual:self.meridianPicker]) {
-//        NSString *selection = [[HROTemperatureComponents prepostions] objectAtIndex:row];
-//        NSComparisonResult selectedComparison = [HROTemperatureComponents comparisonResultFromString:selection];
-//        ((g5TemperatureCondition *)self.condition).temperatureComparisonType = selectedComparison;
+        NSString *meridianSelection = [[MNDRTimeComponents meridians] objectAtIndex:row];
+        MDRTimeMeridian meridian = [MNDRTimeComponents meridianFromMeridianString:meridianSelection];
+        ((g5TimeCondition *)self.condition).meridian = meridian;
     }
 }
 

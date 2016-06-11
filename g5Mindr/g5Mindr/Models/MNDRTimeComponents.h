@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "g5TimeCondition.h"
 
 @interface MNDRTimeComponents : NSObject
 
@@ -14,12 +15,12 @@
 + (NSOrderedSet *)minutes;
 + (NSOrderedSet *)meridians;
 
-//+ (g5TemperatureUnit)temperatureunitFromString:(NSString *)stringForTemperatureUnit;
-//+ (NSComparisonResult)comparisonResultFromString:(NSString *)stringForPreposition;
-//+ (NSNumber *)temperatureFromString:(NSString *)temperatureString;
-//
-//+ (NSInteger)indexForTemperatureUnit:(g5TemperatureUnit)unit;
-//+ (NSInteger)indexForComparisonResult:(NSComparisonResult)comparison;
-//+ (NSInteger)indexForTemperature:(NSNumber *)temperature;
++ (NSInteger)hourFromHourString:(NSString *)stringForHour;
++ (NSInteger)minuteFromString:(NSString *)stringForMinute;
++ (MDRTimeMeridian)meridianFromMeridianString:(NSString *)stringForMeridian;
+
++ (NSInteger)indexForHour:(NSInteger)hour;
++ (NSInteger)indexForMinute:(NSInteger)minute;
++ (NSInteger)indexForMeridian:(MDRTimeMeridian)meridian;
 
 @end

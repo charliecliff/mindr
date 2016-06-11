@@ -55,6 +55,12 @@
     self.textAlignment              = NSTextAlignmentCenter;
 }
 
+#pragma mark - Getters
+
+- (NSInteger)selectedIndex {
+    return selectedRow;
+}
+
 #pragma mark - Setters
 
 -(void)setSelectedTextColor:(UIColor *)selectedTextColor {

@@ -96,4 +96,42 @@
     return [[NSOrderedSet alloc] initWithObjects:@"AM",@"PM",nil];
 }
 
+#pragma mark - Utilities
+
++ (NSInteger)hourFromHourString:(NSString *)stringForHour {
+    return [stringForHour integerValue];
+}
+
++ (NSInteger)minuteFromString:(NSString *)stringForMinute {
+    return [stringForMinute integerValue];
+}
+
++ (MDRTimeMeridian)meridianFromMeridianString:(NSString *)stringForMeridian {
+    if ( [stringForMeridian isEqualToString:@"AM"] ) {
+        return MDRTimeAM;
+    }
+    else if ( [stringForMeridian isEqualToString:@"PM"] ) {
+        return MDRTimePM;
+    }
+    assert(false);
+}
+
++ (NSInteger)indexForHour:(NSInteger)hour {
+    return hour - 1;
+}
+
++ (NSInteger)indexForMinute:(NSInteger)minute {
+    return minute;
+}
+
++ (NSInteger)indexForMeridian:(MDRTimeMeridian)meridian {
+    if (meridian == MDRTimeAM) {
+        return 0;
+    }
+    if (meridian == MDRTimePM) {
+        return 1;
+    }
+    assert(false);
+}
+
 @end

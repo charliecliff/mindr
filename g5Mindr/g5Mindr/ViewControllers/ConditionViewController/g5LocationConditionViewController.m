@@ -31,7 +31,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
 @property(nonatomic, strong) MGLPointAnnotation *grippyAnnotation;
-@property(nonatomic, strong) MGLShape *radiusPolygon;
+@property(nonatomic, strong) MGLPolyline *radiusPoly;;
 
 @property(nonatomic, strong) CLLocation *grippyLocation;
 
@@ -146,16 +146,8 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
     ((g5LocationCondition *)self.condition).radius = distance;
     
-    //  3. The Address
-    __weak g5LocationConditionViewController *weakSelf = self;
-    [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
-                                                 withSuccess:^(NSString *addressLine) {
-                                                     g5LocationConditionViewController *strongSelf = weakSelf;
-                                                     ((g5LocationCondition *)strongSelf.condition).address = addressLine;
-                                                     [strongSelf refresh];
-                                                 }
-                                                 withFailure:nil];
-    //  4. Refresh
+    //  3. Refresh
+    [self updateLocationAddress];
     [self refresh];
 }
 
@@ -166,6 +158,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
     ((g5LocationCondition *)self.condition).radius = distance;
     
+    [self updateLocationAddress];
     [self refresh];
 }
 
@@ -177,6 +170,17 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     ((g5LocationCondition *)self.condition).radius = distance;
     
     [self refresh];
+}
+
+- (void)updateLocationAddress {
+    __weak g5LocationConditionViewController *weakSelf = self;
+    [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
+                                                 withSuccess:^(NSString *addressLine) {
+                                                     g5LocationConditionViewController *strongSelf = weakSelf;
+                                                     ((g5LocationCondition *)strongSelf.condition).address = addressLine;
+                                                     [strongSelf refresh];
+                                                 }
+                                                 withFailure:nil];
 }
 
 #pragma mark - Refresh
@@ -208,12 +212,12 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     }
     
     if ( ((g5LocationCondition *)self.condition).radius != 0 ) {
-        if (self.radiusPolygon) {
-            [self.mapView removeAnnotation:self.radiusPolygon];
+        if (self.radiusPoly) {
+            [self.mapView removeAnnotation:self.radiusPoly];
         }
-        self.radiusPolygon = [self polygonCircleForCoordinate:((g5LocationCondition *)self.condition).location.coordinate
+        self.radiusPoly = [self polygonCircleForCoordinate:((g5LocationCondition *)self.condition).location.coordinate
                                               withMeterRadius:((g5LocationCondition *)self.condition).radius];
-        [self.mapView addAnnotation:self.radiusPolygon];
+        [self.mapView addAnnotation:self.radiusPoly];
     }
 }
 
@@ -223,22 +227,11 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     }
 }
 
-#pragma mark - Progress HUD
+#pragma mark - Polyine Construction
 
--(void)displayProgressHUD {
-    
-}
-
-- (void)hideProgressHUD {
-    
-}
-
-#pragma mark - MGLMapViewDelegate
-
-- (MGLPolygon*)polygonCircleForCoordinate:(CLLocationCoordinate2D)coordinate withMeterRadius:(double)meterRadius
-{
-    NSUInteger degreesBetweenPoints = 8; //45 sides
-    NSUInteger numberOfPoints = floor(360 / degreesBetweenPoints);
+- (MGLPolyline*)polygonCircleForCoordinate:(CLLocationCoordinate2D)coordinate withMeterRadius:(double)meterRadius {
+    NSUInteger degreesBetweenPoints = 4; //45 sides
+    NSUInteger numberOfPoints = floor(360 / degreesBetweenPoints) + 1;
     double distRadians = meterRadius / 6371000.0; // earth radius in meters
     double centerLatRadians = coordinate.latitude * M_PI / 180;
     double centerLonRadians = coordinate.longitude * M_PI / 180;
@@ -254,31 +247,18 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
         CLLocationCoordinate2D point = CLLocationCoordinate2DMake(pointLat, pointLon);
         coordinates[index] = point;
     }
-    MGLPolygon *polygon = [MGLPolygon polygonWithCoordinates:coordinates count:numberOfPoints];
+    MGLPolyline *polygon = [MGLPolyline polylineWithCoordinates:coordinates count:numberOfPoints];
     return polygon;
 }
 
-- (CGFloat)mapView:(MGLMapView *)mapView alphaForShapeAnnotation:(MGLShape *)annotation
-{
-    // Set the alpha for shape annotations to 0.5 (half opacity)
-    return 0.5f;
-}
+#pragma mark - MGLMapViewDelegate
 
-- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation
-{
-    // Set the stroke color for shape annotations
+- (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation {
     return [UIColor whiteColor];
 }
 
-- (UIColor *)mapView:(MGLMapView *)mapView fillColorForPolygonAnnotation:(MGLPolygon *)annotation
-{
-    // Mapbox cyan fill color
-    return [UIColor colorWithRed:59.0f/255.0f green:178.0f/255.0f blue:208.0f/255.0f alpha:1.0f];
-}
+- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
 
-- (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
-{
-    // Try to reuse the existing ‘pisa’ annotation image, if it exists
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:annotation.title];
     
     if ( ! annotationImage) {
@@ -290,7 +270,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
             image = [UIImage imageNamed:@"date_on"];
         }
         else {
-            image = [UIImage imageNamed:@"date_off"];
+            assert(false);
         }
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
         annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:annotation.title];

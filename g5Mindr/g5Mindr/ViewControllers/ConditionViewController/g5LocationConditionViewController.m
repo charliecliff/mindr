@@ -263,10 +263,10 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     if ( ! annotationImage) {
         UIImage *image;
         if ([annotation.title isEqualToString:MDRLocationAnnotationTitle]) {
-            image = [UIImage imageNamed:@"location_on"];
+            image = [UIImage imageNamed:@"location_annotation"];
         }
         else if ([annotation.title isEqualToString:MDRGrippyAnnotationTitle]) {
-            image = [UIImage imageNamed:@"date_on"];
+            image = [UIImage imageNamed:@"grippy_annotation"];
         }
         else {
             assert(false);

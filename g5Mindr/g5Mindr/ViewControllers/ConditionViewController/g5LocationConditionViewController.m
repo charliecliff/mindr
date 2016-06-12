@@ -59,7 +59,8 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     [super viewDidLoad];
     [self setUpMapView];
     [self setUpNavigationBar];
-    [self refresh];
+    [self refreshMap];
+    [self updateLocationAddress];
 }
 
 #pragma mark - Setup
@@ -109,6 +110,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
         CGPoint pointOfLocationAnnotation = [self.mapView convertCoordinate:self.locationAnnotation.coordinate toPointToView:self.mapView];
         distance = hypotf(pointOfLocationAnnotation.x - pointSelectedOnTheMapView.x, pointOfLocationAnnotation.y - pointSelectedOnTheMapView.y);
         if (distance < 30) {
+            return;
             shouldDragLocationImage = YES;
             return;
         }
@@ -148,7 +150,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     
     //  3. Refresh
     [self updateLocationAddress];
-    [self refresh];
+    [self refreshMap];
 }
 
 - (void)updateLocationAnnotationToPointInMapView:(CGPoint)pointInMapView {
@@ -159,7 +161,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     ((g5LocationCondition *)self.condition).radius = distance;
     
     [self updateLocationAddress];
-    [self refresh];
+    [self refreshMap];
 }
 
 - (void)updateGrippyAnnotationToPointInMapView:(CGPoint)pointInMapView {
@@ -169,7 +171,8 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
     ((g5LocationCondition *)self.condition).radius = distance;
     
-    [self refresh];
+    [self refreshAddressLabel];
+    [self refreshMap];
 }
 
 - (void)updateLocationAddress {
@@ -178,17 +181,11 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
                                                  withSuccess:^(NSString *addressLine) {
                                                      g5LocationConditionViewController *strongSelf = weakSelf;
                                                      ((g5LocationCondition *)strongSelf.condition).address = addressLine;
-                                                     [strongSelf refresh];
+                                                     [strongSelf refreshAddressLabel];
                                                  }
                                                  withFailure:nil];
 }
-
 #pragma mark - Refresh
-
-- (void)refresh {
-    [self refreshMap];
-    [self refreshAddressLabel];
-}
 
 - (void)refreshMap {
     if ( ((g5LocationCondition *)self.condition).location != nil ) {
@@ -223,7 +220,9 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 - (void)refreshAddressLabel {
     if ( ((g5LocationCondition *)self.condition).location != nil ) {
-        self.addressLabel.text = ((g5LocationCondition *)self.condition).address;
+        CLLocationDistance distanceInMiles = ((g5LocationCondition *)self.condition).radius * 0.000621371;
+        NSString *addressString = ((g5LocationCondition *)self.condition).address;
+        self.addressLabel.text = [NSString stringWithFormat:@"%0.1f from %@", distanceInMiles, addressString];
     }
 }
 

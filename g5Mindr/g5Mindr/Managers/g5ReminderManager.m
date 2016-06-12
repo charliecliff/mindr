@@ -122,15 +122,15 @@
 
 - (void)updateReminders {
     
-    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
-        [currentConditionMonitor updateMonitoredCondition];
-    }
-    
-    for (g5Reminder *currentReminder in self.reminders.allValues) {
-        if ([currentReminder haveConditionsBeenMeet]) {
-            [self postPushNotificationForReminder:currentReminder];
-        }
-    }
+//    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
+//        [currentConditionMonitor updateMonitoredCondition];
+//    }
+//    
+//    for (g5Reminder *currentReminder in self.reminders.allValues) {
+//        if ([currentReminder haveConditionsBeenMeet]) {
+//            [self postPushNotificationForReminder:currentReminder];
+//        }
+//    }
 }
 
 #pragma mark - Post Push Notifications

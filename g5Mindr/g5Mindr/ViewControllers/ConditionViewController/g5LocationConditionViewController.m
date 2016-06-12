@@ -222,7 +222,16 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     if ( ((g5LocationCondition *)self.condition).location != nil ) {
         CLLocationDistance distanceInMiles = ((g5LocationCondition *)self.condition).radius * 0.000621371;
         NSString *addressString = ((g5LocationCondition *)self.condition).address;
-        self.addressLabel.text = [NSString stringWithFormat:@"%0.1f from %@", distanceInMiles, addressString];
+        
+        NSString *string = [NSString stringWithFormat:@"%0.1f m from %@", distanceInMiles, addressString];
+        NSMutableAttributedString *labelString = [[NSMutableAttributedString alloc] initWithString:string];
+
+        NSRange range = [string rangeOfString:@"from"];
+
+        [labelString addAttribute:NSForegroundColorAttributeName
+                      value:[UIColor redColor]
+                      range:range];
+        self.addressLabel.attributedText = labelString;
     }
 }
 

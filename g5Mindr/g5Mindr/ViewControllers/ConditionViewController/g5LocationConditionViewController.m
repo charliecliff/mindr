@@ -11,16 +11,31 @@
 #import "g5LocationCondition.h"
 #import "g5ConfigAndMacros.h"
 
+#import "UIGestureRecognizer+Cancel.h"
+
 @import Mapbox;
 @import MapKit;
 
-@interface g5LocationConditionViewController () <MGLMapViewDelegate>
+static NSString *const MDRLocationTitle = @"LOCATION";
+static NSString *const MDRLocationAnnotationTitle   = @"location";
+static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
+
+@interface g5LocationConditionViewController () <MGLMapViewDelegate> {
+    BOOL shouldDragLocationImage;
+    BOOL shouldDragGrippyImage;
+}
 
 @property(nonatomic, strong) IBOutlet UILabel *addressLabel;
 @property(nonatomic, strong) IBOutlet MGLMapView *mapView;
 @property(nonatomic, strong) IBOutlet UIView *mapOverlayView;
 
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
+@property(nonatomic, strong) MGLPointAnnotation *grippyAnnotation;
+@property(nonatomic, strong) MGLShape *radiusPolygon;
+
+@property(nonatomic, strong) CLLocation *grippyLocation;
+
+@property(nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 
 @end
 
@@ -55,13 +70,16 @@
     self.mapView.centerCoordinate = [g5LocationManager sharedManager].currentLocation.coordinate;
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
-        
-    UILongPressGestureRecognizer *gsRecog = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressMapView:)];
-    [self.mapView addGestureRecognizer:gsRecog];
+    
+    shouldDragLocationImage = NO;
+    shouldDragGrippyImage = NO;
+    
+    self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressMapView:)];
+    [self.mapView addGestureRecognizer:self.longPressGesture];
 }
 
 - (void)setUpNavigationBar {
-    self.navigationItem.title = @"Location";
+    self.navigationItem.title = MDRLocationTitle;
     self.navigationItem.hidesBackButton = YES;
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeTop;
@@ -69,15 +87,66 @@
 
 #pragma mark - Actions
 
-- (void)didLongPressMapView:(UIGestureRecognizer *)gesureRecognizer {
-    //  1. Set the location of the Condition
-    CGPoint point = [gesureRecognizer locationInView:self.mapView];
-    CLLocationCoordinate2D coord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+- (void)didLongPressMapView:(UIGestureRecognizer *)gesture {
+    CGPoint pointSelectedOnTheMapView = [gesture locationInView:self.mapView];
+
+    if(gesture.state == UIGestureRecognizerStateBegan) {
+        
+        if (self.locationAnnotation == nil) {
+            [self addAnnotationAtPointInMapView:pointSelectedOnTheMapView];
+            return;
+        }
+        
+        CGFloat distance;
+
+        CGPoint pointOfGrippyAnnotation = [self.mapView convertCoordinate:self.grippyAnnotation.coordinate toPointToView:self.mapView];
+        distance = hypotf(pointOfGrippyAnnotation.x - pointSelectedOnTheMapView.x, pointOfGrippyAnnotation.y - pointSelectedOnTheMapView.y);
+        if (distance < 30) {
+            shouldDragGrippyImage = YES;
+            return;
+        }
+        
+        CGPoint pointOfLocationAnnotation = [self.mapView convertCoordinate:self.locationAnnotation.coordinate toPointToView:self.mapView];
+        distance = hypotf(pointOfLocationAnnotation.x - pointSelectedOnTheMapView.x, pointOfLocationAnnotation.y - pointSelectedOnTheMapView.y);
+        if (distance < 30) {
+            shouldDragLocationImage = YES;
+            return;
+        }
+        
+        [self addAnnotationAtPointInMapView:pointSelectedOnTheMapView];
+        [gesture cancel];
+    }
+    else if(gesture.state == UIGestureRecognizerStateChanged) {
+        
+        if (shouldDragGrippyImage) {
+            [self updateGrippyAnnotationToPointInMapView:pointSelectedOnTheMapView];
+        }
+        if (shouldDragLocationImage) {
+            [self updateLocationAnnotationToPointInMapView:pointSelectedOnTheMapView];
+        }
+    }
+    else if(gesture.state == UIGestureRecognizerStateEnded) {
+        shouldDragGrippyImage = NO;
+        shouldDragLocationImage = NO;
+    }
+}
+
+#pragma mark - Dragging
+
+- (void)addAnnotationAtPointInMapView:(CGPoint)pointInMapView {
+    //  1. Point for the Location
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
+    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude
-                                                                                  longitude:coord.longitude];
+    //  2. Point for the Grippy
+    CGPoint pontForGrippy = CGPointMake(pointInMapView.x, pointInMapView.y + 100);
+    CLLocationCoordinate2D coordinateForGrippy = [self.mapView convertPoint:pontForGrippy toCoordinateFromView:self.mapView];
+    self.grippyLocation = [[CLLocation alloc] initWithLatitude:coordinateForGrippy.latitude longitude:coordinateForGrippy.longitude];
     
-    //  2. Fetch the Address String
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
+    ((g5LocationCondition *)self.condition).radius = distance;
+    
+    //  3. The Address
     __weak g5LocationConditionViewController *weakSelf = self;
     [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
                                                  withSuccess:^(NSString *addressLine) {
@@ -86,8 +155,27 @@
                                                      [strongSelf refresh];
                                                  }
                                                  withFailure:nil];
+    //  4. Refresh
+    [self refresh];
+}
+
+- (void)updateLocationAnnotationToPointInMapView:(CGPoint)pointInMapView {
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
+    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    //  3. Refresh the Map
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
+    ((g5LocationCondition *)self.condition).radius = distance;
+    
+    [self refresh];
+}
+
+- (void)updateGrippyAnnotationToPointInMapView:(CGPoint)pointInMapView {
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
+    self.grippyLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
+    ((g5LocationCondition *)self.condition).radius = distance;
+    
     [self refresh];
 }
 
@@ -100,15 +188,32 @@
 
 - (void)refreshMap {
     if ( ((g5LocationCondition *)self.condition).location != nil ) {
-        
         if (self.locationAnnotation) {
             [self.mapView removeAnnotation:self.locationAnnotation];
         }
-        
         self.locationAnnotation = [[MGLPointAnnotation alloc] init];
         self.locationAnnotation.coordinate = ((g5LocationCondition *)self.condition).location.coordinate;
-        self.locationAnnotation.title = @"Leaning Tower of Pisa";
+        self.locationAnnotation.title = MDRLocationAnnotationTitle;
         [self.mapView addAnnotation:self.locationAnnotation];
+    }
+    
+    if ( self.grippyLocation != nil ) {
+        if (self.grippyAnnotation) {
+            [self.mapView removeAnnotation:self.grippyAnnotation];
+        }
+        self.grippyAnnotation = [[MGLPointAnnotation alloc] init];
+        self.grippyAnnotation.coordinate = self.grippyLocation.coordinate;
+        self.grippyAnnotation.title = MDRGrippyAnnotationTitle;
+        [self.mapView addAnnotation:self.grippyAnnotation];
+    }
+    
+    if ( ((g5LocationCondition *)self.condition).radius != 0 ) {
+        if (self.radiusPolygon) {
+            [self.mapView removeAnnotation:self.radiusPolygon];
+        }
+        self.radiusPolygon = [self polygonCircleForCoordinate:((g5LocationCondition *)self.condition).location.coordinate
+                                              withMeterRadius:((g5LocationCondition *)self.condition).radius];
+        [self.mapView addAnnotation:self.radiusPolygon];
     }
 }
 
@@ -174,37 +279,24 @@
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation
 {
     // Try to reuse the existing ‘pisa’ annotation image, if it exists
-    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:@"pisa"];
+    MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:annotation.title];
     
-    // If the ‘pisa’ annotation image hasn‘t been set yet, initialize it here
-    if ( ! annotationImage)
-    {
-        // Leaning Tower of Pisa by Stefan Spieler from the Noun Project
-        UIImage *image = [UIImage imageNamed:@"location_on"];
-        
-        // The anchor point of an annotation is currently always the center. To
-        // shift the anchor point to the bottom of the annotation, the image
-        // asset includes transparent bottom padding equal to the original image
-        // height.
-        //
-        // To make this padding non-interactive, we create another image object
-        // with a custom alignment rect that excludes the padding.
+    if ( ! annotationImage) {
+        UIImage *image;
+        if ([annotation.title isEqualToString:MDRLocationAnnotationTitle]) {
+            image = [UIImage imageNamed:@"location_on"];
+        }
+        else if ([annotation.title isEqualToString:MDRGrippyAnnotationTitle]) {
+            image = [UIImage imageNamed:@"date_on"];
+        }
+        else {
+            image = [UIImage imageNamed:@"date_off"];
+        }
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
-        
-        // Initialize the ‘pisa’ annotation image with the UIImage we just loaded
-        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:@"pisa"];
+        annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:annotation.title];
     }
     
     return annotationImage;
-}
-
-- (void)mapView:(nonnull MGLMapView *)mapView didSelectAnnotation:(nonnull id<MGLAnnotation>)annotation {
-    self.mapView.userInteractionEnabled = NO;
-    NSLog(@"TAP TAP TAP");
-}
-
-- (void)mapView:(nonnull MGLMapView *)mapView didDeselectAnnotation:(nonnull id<MGLAnnotation>)annotation {
-    NSLog(@"didDeselectAnnotation");
 }
 
 @end

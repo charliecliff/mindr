@@ -78,8 +78,6 @@
     self.currentLocation = location;
     
     [[g5ReminderManager sharedManager] updateReminders];
-    
-    NSLog(@"Location Update: %@", [NSDate date]);
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

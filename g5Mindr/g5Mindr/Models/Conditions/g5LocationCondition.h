@@ -12,6 +12,7 @@
 @interface g5LocationCondition : g5Condition
 
 @property(nonatomic) CLLocationDistance radius;
+
 @property(nonatomic, strong) CLLocation *location;
 @property(nonatomic, strong) NSString *address;
 

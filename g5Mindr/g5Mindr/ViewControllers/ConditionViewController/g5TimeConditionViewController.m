@@ -11,6 +11,8 @@
 #import "HROPickerTableView.h"
 #import "MDRTimeComponents.h"
 
+static NSString *const MDRTimeTitle = @"TIME";
+
 @interface g5TimeConditionViewController ()  <HROPickerDataSource, HROPickerDelegate>
 
 @property(nonatomic, strong) IBOutlet HROPickerTableView *hourPicker;
@@ -37,7 +39,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Time";
+    self.navigationItem.title = MDRTimeTitle;
     self.navigationItem.hidesBackButton = YES;
     
     self.hourPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];

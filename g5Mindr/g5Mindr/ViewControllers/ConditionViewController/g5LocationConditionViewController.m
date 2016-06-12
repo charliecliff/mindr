@@ -225,11 +225,14 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
         
         NSString *string = [NSString stringWithFormat:@"%0.1f m from %@", distanceInMiles, addressString];
         NSMutableAttributedString *labelString = [[NSMutableAttributedString alloc] initWithString:string];
-
+        [labelString addAttribute:NSForegroundColorAttributeName
+                            value:self.normalTextColor
+                            range:NSMakeRange(0, labelString.length-1)];
+        
         NSRange range = [string rangeOfString:@"from"];
 
         [labelString addAttribute:NSForegroundColorAttributeName
-                      value:[UIColor redColor]
+                      value:self.highlightedColor
                       range:range];
         self.addressLabel.attributedText = labelString;
     }
@@ -262,7 +265,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 #pragma mark - MGLMapViewDelegate
 
 - (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation {
-    return [UIColor whiteColor];
+    return self.regionBorderColor;
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {

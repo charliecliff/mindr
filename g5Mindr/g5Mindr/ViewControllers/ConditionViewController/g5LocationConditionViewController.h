@@ -10,4 +10,19 @@
 
 @interface g5LocationConditionViewController : g5ConditionViewController
 
+/**
+ *
+ */
+@property (nonatomic, strong) UIColor *regionBorderColor;
+
+/**
+ *
+ */
+@property (nonatomic, strong) UIColor *normalTextColor;
+
+/**
+ *
+ */
+@property (nonatomic, strong) UIColor *highlightedColor;
+
 @end

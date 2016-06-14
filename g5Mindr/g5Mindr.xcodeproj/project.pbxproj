@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BD028C634A303CB3F1DA96B6 /* libPods-g5Mindr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F68F2BBC91E335A39C3983EB /* libPods-g5Mindr.a */; };
+		DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */; };
+		DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */; };
+		DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */; };
 		DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */; };
 		DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA0C4B3B1CC447550030F927 /* Settings.bundle */; };
 		DA0C4B3E1CC4639C0030F927 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B3D1CC4639C0030F927 /* CouchbaseLite.framework */; };
@@ -101,6 +104,9 @@
 
 /* Begin PBXFileReference section */
 		57845ADFAFF3BCE4C7DBB7EB /* Pods-g5Mindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.debug.xcconfig"; sourceTree = "<group>"; };
+		DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Bold.ttf"; sourceTree = "<group>"; };
+		DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Medium.ttf"; sourceTree = "<group>"; };
+		DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Semibold.ttf"; sourceTree = "<group>"; };
 		DA0C4B381CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionTableViewCell.h; sourceTree = "<group>"; };
 		DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA0C4B3B1CC447550030F927 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
@@ -598,6 +604,9 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */,
+				DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */,
+				DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */,
 				DAB092411CDD839F00F1157B /* emoticons.plist */,
 				DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */,
 			);
@@ -741,12 +750,15 @@
 				DA297EED1CA23ED0001D6148 /* g5EmoticonCell.xib in Resources */,
 				DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */,
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
+				DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DA1EC0D21CD461D700605573 /* g5ReminderViewController.xib in Resources */,
 				DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */,
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */,
 				DAB092421CDD839F00F1157B /* emoticons.plist in Resources */,
+				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
+				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAE9CAE51CA4AF9F00849427 /* g5DateConditionViewController.xib in Resources */,
 				DA297EE41CA231F9001D6148 /* g5EmoticonSelectionViewController.xib in Resources */,
 				DABED09B1CA39E27004100AF /* g5WeatherTypeConditionViewController.xib in Resources */,

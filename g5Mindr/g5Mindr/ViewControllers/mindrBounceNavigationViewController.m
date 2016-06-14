@@ -14,6 +14,18 @@
 
 @implementation mindrBounceNavigationViewController
 
+#pragma mark - View Life Cycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UIFont *titleFont = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: titleFont}];
+}
+
+#pragma mark -
+
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }

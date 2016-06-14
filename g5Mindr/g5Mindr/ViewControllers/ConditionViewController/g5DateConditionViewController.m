@@ -64,9 +64,10 @@
     self.calendarVC.selectedTextColor       = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.calendarVC.normalBackgroundColor   = [UIColor clearColor];
     self.calendarVC.selectedBackgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-    self.calendarVC.calendarFont            = [UIFont systemFontOfSize:20];
     self.calendarVC.calendar                = [NSCalendar currentCalendar];
     self.calendarVC.firstDate               = [NSDate date];
+    self.calendarVC.calendarFont            = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:17.0f];
+
 
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     offsetComponents.year = 3;

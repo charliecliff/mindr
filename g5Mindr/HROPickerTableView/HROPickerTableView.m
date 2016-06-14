@@ -113,6 +113,7 @@
     UITableViewCell *cell   = [[UITableViewCell alloc] init];
     cell.selectionStyle     = UITableViewCellSelectionStyleNone;
     cell.backgroundColor    = [UIColor clearColor];
+    cell.textLabel.font     = self.font;
     
     NSInteger count = [self.pickerDatasource componentsForPickerView:self].count;
     if (indexPath.row < (BUFFER + 1) || indexPath.row > (count + BUFFER) ) {

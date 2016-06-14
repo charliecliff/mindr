@@ -35,14 +35,17 @@ static NSString *const MDRTemperatureTitle = @"TEMPERATURE";
 
     self.degreeView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.degreeView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.degreeView.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
 
     self.unitView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.unitView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.unitView.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
 
     self.prepositionView.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.prepositionView.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
     self.prepositionView.textAlignment     = NSTextAlignmentLeft;
-    
+    self.prepositionView.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+
     [self reload];
 }
 

@@ -44,13 +44,16 @@ static NSString *const MDRTimeTitle = @"TIME";
     
     self.hourPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.hourPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    
+    self.hourPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+
     self.minutePicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.minutePicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    
+    self.minutePicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+
     self.meridianPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
     self.meridianPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    
+    self.meridianPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+
     [self reload];
 }
 

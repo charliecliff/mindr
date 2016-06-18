@@ -40,9 +40,9 @@
 
 #pragma mark - Validation
 
-- (BOOL)isValidTemperature:(NSNumber *)temperature {
-    if ( ([self.temperature integerValue]< ([temperature integerValue]+ 1))  &&
-         ([self.temperature integerValue]> ([temperature integerValue] - 1))) {
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    if ( ([self.temperature integerValue]< ([context.currentTemperature integerValue]+ 1))  &&
+        ([self.temperature integerValue]> ([context.currentTemperature integerValue] - 1))) {
         return YES;
     }
     return NO;

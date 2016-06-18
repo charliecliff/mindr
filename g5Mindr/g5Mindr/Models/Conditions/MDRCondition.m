@@ -74,7 +74,7 @@ NSString *const g5LocationType      = @"location";
     assert(false);
 }
 
-- (BOOL)isValidWithContext:(MDRReminderContext *)conext {
+- (BOOL)validateWithContext:(MDRReminderContext *)conext {
     assert(false);
 }
 

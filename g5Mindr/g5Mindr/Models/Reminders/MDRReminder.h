@@ -81,7 +81,7 @@
 - (void)setCondition:(MDRCondition *)condition;
 
 /**
- 
+    Validation of Conditions are done by passing in a Reminder Context.
  */
 - (BOOL)validateWithContext:(MDRReminderContext *)conext;
 

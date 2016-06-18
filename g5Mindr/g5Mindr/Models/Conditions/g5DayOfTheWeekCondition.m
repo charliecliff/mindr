@@ -85,10 +85,14 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
 #pragma mark - Validation
 
-- (BOOL)isValidDate:(NSDate *)date {
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitWeekday fromDate:date];
-    NSUInteger weekday = components.weekday;
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    NSDate* contextDate = context.currentDate;
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *componentsOfContextDate = [calendar components:NSCalendarUnitWeekday
+                                                            fromDate:contextDate];
+    
+    NSUInteger weekday = componentsOfContextDate.weekday;
     return [self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:weekday] ];
 }
 

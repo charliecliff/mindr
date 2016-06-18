@@ -18,6 +18,4 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)isValidLocation:(CLLocation *)location;
-
 @end

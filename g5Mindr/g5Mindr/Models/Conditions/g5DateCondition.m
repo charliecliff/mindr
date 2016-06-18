@@ -41,8 +41,26 @@
     return @"DATE";
 }
 
-- (BOOL)isValidDate:(NSDate *)date {
-    return YES;
+#pragma mark - Validation
+
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    NSDate* contextDate = context.currentDate;
+    NSDate* dateToValidate = [self.dates firstObject];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *componentsOfContextDate = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
+                                                            fromDate:contextDate];
+    NSDateComponents *componentsOfDateToValidate = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
+                                                               fromDate:dateToValidate];
+    
+    BOOL yearsMatch = (componentsOfContextDate.year == componentsOfDateToValidate.year);
+    BOOL monthsMatch = (componentsOfContextDate.month == componentsOfDateToValidate.month);
+    BOOL daysMatch = (componentsOfContextDate.day == componentsOfDateToValidate.day);
+    
+    if (daysMatch && monthsMatch && yearsMatch) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Persistence
@@ -55,7 +73,7 @@
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[epochTimeInSecondsNumber intValue]];
         [tmpMutableArray addObject:date];
     }
-    self.dates = [NSArray arrayWithArray:tmpMutableArray];
+    self.dates = [NSMutableArray arrayWithArray:tmpMutableArray];
 }
 
 - (NSDictionary *)encodeToDictionary {

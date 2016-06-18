@@ -43,14 +43,10 @@
     return @"LOCATION";
 }
 
-- (BOOL)isValidWithContext:(MDRReminderContext *)conext {
-    assert(false);
-}
-
 #pragma mark - Validation
 
-- (BOOL)isValidLocation:(CLLocation *)location {
-    CLLocationDistance distanceToCurrentLocation = [location distanceFromLocation:self.location];
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    CLLocationDistance distanceToCurrentLocation = [context.currentLocation distanceFromLocation:self.location];
     return !(distanceToCurrentLocation > self.radius);
 }
 

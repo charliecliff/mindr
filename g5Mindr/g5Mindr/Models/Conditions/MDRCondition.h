@@ -32,16 +32,18 @@ extern NSString *const g5LocationType;
 @property(nonatomic, strong) NSString *uid;
 @property(nonatomic, strong) NSString *type;
 
+/**
+    Initialization and Persistence
+ */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)encodeToDictionary;
 
 - (NSString *)conditionDescription;
 - (NSString *)conditionIconName;
 
 /**
- Validation of Conditions are done by passing in a Reminder Context.
+    Validation of Conditions are done by passing in a Reminder Context.
  */
 - (BOOL)validateWithContext:(MDRReminderContext *)conext;
-
-- (NSDictionary *)encodeToDictionary;
 
 @end

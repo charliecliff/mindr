@@ -48,9 +48,11 @@
 
 #pragma mark - Validation
 
-- (BOOL)isValidWeatherType:(NSString *)weatherType {
-    return [self.weatherTypes containsObject:weatherType];
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    return [self.weatherTypes containsObject:context.currentWeatherType];
 }
+
+#pragma mark - Weather Type Management
 
 - (BOOL)containsWeatherType:(NSString *)weatherType {
     return [self.weatherTypes containsObject:weatherType];

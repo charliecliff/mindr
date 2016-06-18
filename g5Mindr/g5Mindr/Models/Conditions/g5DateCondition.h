@@ -10,10 +10,8 @@
 
 @interface g5DateCondition : MDRCondition
 
-@property(nonatomic, strong) NSArray *dates;
+@property(nonatomic, strong) NSMutableArray *dates;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
-- (BOOL)isValidDate:(NSDate *)date;
 
 @end

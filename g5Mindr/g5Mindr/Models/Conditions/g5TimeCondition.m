@@ -40,12 +40,11 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.type               = g5TimeType;
-        self.timeOfDayInSeconds = NOON;
-        
-        self.hour   = 12;
+        self.type = g5TimeType;
+        self.hour = 12;
         self.minute = 0;
-        
+
+        self.timeOfDayInSeconds = NOON; // TODO: Pull this
     }
     return self;
 }
@@ -54,6 +53,24 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 - (NSString *)conditionDescription {
     return @"TIME";
+}
+
+#pragma mark - Validation
+
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    NSDate* contextDate = context.currentDate;
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *componentsOfContextDate = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute)
+                                                            fromDate:contextDate];
+    
+    BOOL hoursMatch = (componentsOfContextDate.hour == self.hour);
+    BOOL minutesMatch = (componentsOfContextDate.minute == self.minute);
+    
+    if (hoursMatch && minutesMatch) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Setters
@@ -65,33 +82,6 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     NSInteger minute = [components minute];
     
     self.timeOfDayInSeconds = minute * 60 + hour * 60 * 60;
-}
-
-#pragma mark - Validation
-
-- (BOOL)isValidDate:(NSDate *)date {
-    return self.isActive && NO;
-
-//    NSCalendar *const calendar = NSCalendar.currentCalendar;
-//    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
-//    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
-//    NSDate *const normalizedDate = [calendar dateFromComponents:components];
-//    
-//    NSDate *dateWithTimeOfDayAdded = [normalizedDate dateByAddingTimeInterval:self.timeOfDayInSeconds];
-//    
-//    
-//    
-}
-
-#pragma mark - Helpers
-
-- (NSDate *)todayAtMidnight {
-    NSDate *const date = NSDate.date;
-    NSCalendar *const calendar = NSCalendar.currentCalendar;
-    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);
-    NSDateComponents *const components = [calendar components:preservedComponents fromDate:date];
-    NSDate *const normalizedDate = [calendar dateFromComponents:components];
-    return normalizedDate;
 }
 
 #pragma mark - Persistence

@@ -23,6 +23,4 @@ typedef enum {
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)isValidTemperature:(NSNumber *)temperature;
-
 @end

@@ -50,7 +50,7 @@
 - (MDRReminder *)reminderForID:(NSString *)reminderID;
 
 // Updating the Conditions
-- (void)updateReminders;
+- (void)validateReminderConditions;
 
 // Persistence
 - (void)saveReminders;

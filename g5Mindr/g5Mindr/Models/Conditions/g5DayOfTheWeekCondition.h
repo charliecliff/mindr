@@ -19,6 +19,4 @@
 - (void)removeDayOfTheWeek:(NSInteger)weekday;
 - (BOOL)containsDayOfTheWeek:(NSInteger)weekday;
 
-- (BOOL)isValidDate:(NSDate *)date;
-
 @end

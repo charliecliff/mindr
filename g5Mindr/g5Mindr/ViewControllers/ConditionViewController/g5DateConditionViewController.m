@@ -44,7 +44,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    NSArray *dates = [self.calendarVC.selectedDates allObjects];
+    NSMutableArray *dates = [NSMutableArray arrayWithArray:[self.calendarVC.selectedDates allObjects]];
     ((g5DateCondition *)self.condition).dates = dates;
     [super viewWillDisappear:animated];
 }

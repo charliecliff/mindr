@@ -63,7 +63,7 @@
 }
 
 - (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [[g5ReminderManager sharedManager] updateReminders];
+    [[g5ReminderManager sharedManager] validateReminderConditions];
     
     if (completionHandler) {
         completionHandler(UIBackgroundFetchResultNewData);

@@ -77,7 +77,7 @@
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
     
-    [[g5ReminderManager sharedManager] updateReminders];
+    [[g5ReminderManager sharedManager] validateReminderConditions];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {

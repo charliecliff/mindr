@@ -10,5 +10,6 @@ target 'g5Mindr' do
     pod 'Mantle'
     pod 'PBJHexagon'
     pod 'AMWaveTransition'
-    
+    pod 'ReactiveCocoa'
+
 end

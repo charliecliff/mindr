@@ -13,7 +13,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithCondition:(g5Condition *)condition {
+- (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super init];
     if (self != nil) {
         self.condition = condition;

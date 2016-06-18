@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "OnSwitchView.h"
 
-@class g5Reminder;
+@class MDRReminder;
 
 @protocol g5ReminderButtonCellDelegate <NSObject>
 
@@ -24,6 +24,6 @@
 
 @property(nonatomic, strong) id<g5ReminderButtonCellDelegate> delegate;
 
-- (void)configWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate;
+- (void)configWithReminder:(MDRReminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate;
 
 @end

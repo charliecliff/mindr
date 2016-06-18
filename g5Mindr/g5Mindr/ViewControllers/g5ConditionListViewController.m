@@ -19,6 +19,8 @@
 #import "g5ConfigAndMacros.h"
 #import "AMWaveViewController.h"
 
+#import "MDRCondition.h"
+
 static NSInteger const NumberOfTrailingConditionCells = 2;
 
 @interface g5ConditionListViewController () <g5ConditionDelegate, g5ConditionCellDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate> {
@@ -31,7 +33,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 #pragma mark - Init
 
-- (instancetype)initWithReminder:(g5Reminder *)reminder {
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
     self = [super init];
     if (self) {
         self.reminder = reminder;
@@ -79,7 +81,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)setUpCells {
     cells = [[NSMutableArray alloc] init];
     
-    for (NSNumber *currentConditionUID in self.reminder.conditionIDs) {
+    for (NSString *currentConditionUID in self.reminder.conditionIDs) {
         NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ConditionTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ConditionTableViewCell"];
         if (!cell) {
@@ -89,7 +91,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         }
         cell.delegate = self;
         
-        g5Condition *currentCondition = [self.reminder getConditionForID:currentConditionUID];
+        MDRCondition *currentCondition = [self.reminder conditionForID:currentConditionUID];
+        
         if (currentCondition.isActive) {
             [cell configureForActiveCondition:currentCondition];
         }
@@ -111,7 +114,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 #pragma mark - g5ConditionViewController Factory
 
-- (g5ConditionViewController *)viewControllerForCondition:(g5Condition *)condition {
+- (g5ConditionViewController *)viewControllerForCondition:(MDRCondition *)condition {
     g5ConditionViewController *vc;
     
     if ( [condition.type isEqualToString:g5DateType] ) {
@@ -162,7 +165,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     NSInteger selectedRow = indexPath.row;
     
     if (selectedRow < cells.count - NumberOfTrailingConditionCells) {
-        g5Condition *selectedCondition = [self.reminder getConditionAtIndex:selectedRow];
+        NSString *currentConditionID = [self.reminder.conditionIDs objectAtIndex:selectedRow];
+        MDRCondition *selectedCondition = [self.reminder conditionForID:currentConditionID];
+        
         if (selectedCondition.isActive) {
             [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
                 [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
@@ -180,7 +185,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 #pragma mark - g5ConditionCell Delegate
 
-- (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active {
+- (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
     [self.reminder setCondition:condition];
     [self reload];
@@ -188,7 +193,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 #pragma mark - g5ConditionViewController Delegate
 
-- (void)didUpdateCondition:(g5Condition *)condition {
+- (void)didUpdateCondition:(MDRCondition *)condition {
     [self.reminder setCondition:condition];
 }
 

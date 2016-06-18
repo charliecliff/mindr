@@ -14,10 +14,10 @@
 #import "mindrBounceNavigationViewController.h"
 #import "g5ReminderListViewController.h"
 
-#import "g5WeatherMonitor.h"
+#import "MDRWeatherMonitor.h"
 
 #import "g5ReminderManager.h"
-#import "g5LocationManager.h"
+#import "MDRLocationMonitor.h"
 
 @import GoogleMaps;
 
@@ -43,7 +43,7 @@
     
     //  4. Managers
     [[g5ReminderManager sharedManager] loadReminders];
-    [[g5LocationManager sharedManager] startUpdatingLocation];
+    [[MDRLocationMonitor sharedManager] startUpdatingLocation];
     
     //  5. External APIs
     [GMSServices provideAPIKey:@"AIzaSyB3OXTo9OFaMhK1MIyNqFa98W8lyPA6Pn8"];

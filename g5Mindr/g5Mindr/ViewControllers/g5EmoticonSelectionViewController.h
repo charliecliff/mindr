@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "HROBounceNavigationController.h"
 
-@class g5Reminder;
+@class MDRReminder;
 
 @interface g5EmoticonSelectionViewController : UIViewController <HROBounceNavigationDelegate>
 
-@property(nonatomic, strong) g5Reminder *reminder;
+@property(nonatomic, strong) MDRReminder *reminder;
 
 @property(nonatomic, weak) HROBounceNavigationController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithReminder:(g5Reminder *)reminder;
+- (instancetype)initWithReminder:(MDRReminder *)reminder;
 
 @end

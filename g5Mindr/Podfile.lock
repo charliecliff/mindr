@@ -27,6 +27,13 @@ PODS:
   - Mantle/extobjc (2.0.7)
   - Mapbox-iOS-SDK (3.0.1)
   - PBJHexagon (0.1.1)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
@@ -35,6 +42,7 @@ DEPENDENCIES:
   - Mantle
   - Mapbox-iOS-SDK
   - PBJHexagon
+  - ReactiveCocoa
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
@@ -43,5 +51,6 @@ SPEC CHECKSUMS:
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Mapbox-iOS-SDK: 61e79f3dd8432617bd1a66b2d7273ab5ce923ca9
   PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
 COCOAPODS: 0.39.0

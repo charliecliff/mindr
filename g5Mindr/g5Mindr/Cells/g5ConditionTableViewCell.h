@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class g5Condition;
+@class MDRCondition;
 
 @protocol g5ConditionCellDelegate <NSObject>
 
 @required
-- (void)g5Condition:(g5Condition *)condition didSetActive:(BOOL)active;
+- (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active;
 
 @end
 
@@ -21,7 +21,7 @@
 
 @property(nonatomic, strong) id<g5ConditionCellDelegate> delegate;
 
-- (void)configureForActiveCondition:(g5Condition *)condition;
-- (void)configureForInActiveCondition:(g5Condition *)condition;
+- (void)configureForActiveCondition:(MDRCondition *)condition;
+- (void)configureForInActiveCondition:(MDRCondition *)condition;
 
 @end

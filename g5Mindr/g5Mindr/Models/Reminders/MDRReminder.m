@@ -6,15 +6,16 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 #import "g5DateCondition.h"
 #import "g5TimeCondition.h"
+#import "g5DayOfTheWeekCondition.h"
 #import "g5LocationCondition.h"
 #import "g5WeatherTypeCondition.h"
 #import "g5TemperatureCondition.h"
 
-#import "g5WeatherMonitor.h"
-#import "g5LocationManager.h"
+#import "MDRWeatherMonitor.h"
+#import "MDRLocationMonitor.h"
 
 #define KEY_ID                          @"KEY_ID"
 #define KEY_SHORT_EXPLANATION           @"KEY_SHORT_EXPLANATION"
@@ -33,14 +34,39 @@
 #define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
 static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week";
 
-@interface g5Reminder ()
+
+
+static NSString *const kMDRDayOfTheWeekCondition = @"day_of_the_week";
+static NSString *const kMDRDateCondition         = @"date";
+static NSString *const kMDRTimeOfDayCondition    = @"time_of_fay";
+static NSString *const kMDRLocationCondition     = @"location";
+static NSString *const kMDRWeatherCondition      = @"location";
+static NSString *const kMDRTemperatureCondition  = @"location";
+
+
+
+@interface MDRReminder ()
 
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *conditionIDs;
-@property(nonatomic, strong, readwrite) NSMutableDictionary *conditions;
+
+/**
+ The Conditions Dictionary
+ */
+@property(nonatomic, strong) NSMutableDictionary *conditions;
+
+/**
+ The Conditions
+ */
+@property(nonatomic, strong) g5TimeCondition *timeCondition;
+@property(nonatomic, strong) g5DayOfTheWeekCondition *dayOfTheWeekCondition;
+@property(nonatomic, strong) g5DateCondition *dateCondition;
+@property(nonatomic, strong) g5TemperatureCondition *temperatureCondition;
+@property(nonatomic, strong) g5WeatherTypeCondition *weatherCondition;
+@property(nonatomic, strong) g5LocationCondition *locationCondition;
 
 @end
 
-@implementation g5Reminder
+@implementation MDRReminder
 
 #pragma mark - Init
 
@@ -55,7 +81,6 @@ static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week
         self.isActive = YES;
         self.shortExplanation = nil;
         self.emoticonUnicodeCharacter = nil;
-        self.pushNotificationHasSound = NO;
         self.pushNotificationSoundFileName = @"default";
         self.isIconOnlyNotification = NO;
         
@@ -77,7 +102,7 @@ static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week
 
 #pragma mark - Set Up
 
-- (void)setUpConditionsSet{
+- (void)setUpConditionsSet {
     self.timeCondition          = [[g5TimeCondition alloc] init];
     self.dayOfTheWeekCondition  = [[g5DayOfTheWeekCondition alloc] init];
     self.dateCondition          = [[g5DateCondition alloc] init];
@@ -102,63 +127,44 @@ static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week
 
 #pragma mark - Getters
 
+- (MDRCondition *)conditionForID:(NSString *)coniditionID {
+    return [self.conditions objectForKey:coniditionID];
+}
+
+#pragma mark - Setters
+
+- (void)setCondition:(MDRCondition *)condition {
+    [self.conditions setObject:condition forKey:condition.uid];
+    [self.conditionIDs addObject:condition.uid];
+}
+
+#pragma mark - Booleans
+
 - (BOOL)hasActiveConditions {
-    BOOL hasTimeCondition           = [self.timeCondition isActive];
-    BOOL hasDayOfTheWeekCondition   = [self.dayOfTheWeekCondition isActive];
-    BOOL hasDateCondition           = [self.dateCondition isActive];
-    BOOL hasTemperatureCondition    = [self.temperatureCondition isActive];
-    BOOL hasWeatherCondition        = [self.weatherCondition isActive];
-    BOOL hasLocationCondition       = [self.locationCondition isActive];
-    
-    return (hasTimeCondition || hasDayOfTheWeekCondition || hasDateCondition || hasWeatherCondition || hasTemperatureCondition || hasLocationCondition);
+    BOOL hasActiveConditions = YES;
+    for (MDRCondition *currentCondition in self.conditions.allValues) {
+        if (!currentCondition.isActive) {
+            hasActiveConditions = NO;
+        }
+    }
+    return hasActiveConditions;
 }
 
 - (BOOL)hasEmoticon {
     return !(self.emoticonUnicodeCharacter == nil);
 }
 
-- (BOOL)haveConditionsBeenMeet {
-    BOOL timeIsValid             = [self.timeCondition isValidDate:[self.datasource currentDate]];
-    BOOL dayOfTheWeekIsValid     = [self.dayOfTheWeekCondition isValidDate:[self.datasource currentDate]];
-    BOOL dateIsValid             = [self.dateCondition isValidDate:[self.datasource currentDate]];
-    BOOL temperatureIsValid      = [self.temperatureCondition isValidTemperature:[self.datasource currentTemperature]];
-    BOOL weatherConditionIsValid = [self.weatherCondition isValidWeatherType:[self.datasource currentWeatherType]];
-    BOOL locationIsValid         = [self.locationCondition isValidLocation:[self.datasource currentLocation]];
-    
-    return (timeIsValid && dateIsValid && temperatureIsValid && weatherConditionIsValid && locationIsValid && dayOfTheWeekIsValid);
-}
+#pragma mark - Validate
 
-- (NSString *)conditionDescription {
-    NSString *outputString = @"";
-    for (NSString *currentConditionKey in self.conditionIDs) {
-        g5Condition *currentCondition = [self.conditions objectForKey:currentConditionKey];
-        if ( currentCondition.isActive ) {
-            if ( [outputString isEqualToString:@""] ) {
-                outputString = [NSString stringWithFormat:@"%@", currentCondition.conditionDescription];
-            }
-            else {
-                outputString = [NSString stringWithFormat:@"%@, %@", outputString, currentCondition.conditionDescription];
-            }
+- (BOOL)validateWithContext:(MDRReminderContext *)context {
+    BOOL allActiveConditionsAreValid = [self hasActiveConditions];
+    for (MDRCondition *currentCondition in self.conditions.allValues) {
+        if (currentCondition.isActive) {
+            if ( ![currentCondition validateWithContext:context] )
+                allActiveConditionsAreValid = NO;
         }
     }
-    return outputString;
-}
-- (g5Condition *)getConditionAtIndex:(NSUInteger)index {
-    NSNumber *conditionUID = [self.conditionIDs objectAtIndex:index];
-    g5Condition *selectedCondition = [self.conditions objectForKey:conditionUID];
-    return selectedCondition;
-}
-
-- (g5Condition *)getConditionForID:(NSNumber *)conditionID {
-    g5Condition *selectedCondition = [self.conditions objectForKey:conditionID];
-    return selectedCondition;
-}
-
-#pragma mark - Setters
-
-- (void)setCondition:(g5Condition *)condition {
-    [self.conditions setObject:condition forKey:condition.uid];
-    [self.conditionIDs addObject:condition.uid];
+    return allActiveConditionsAreValid;
 }
 
 #pragma mark - Persistence
@@ -169,7 +175,6 @@ static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week
     self.shortExplanation = [dictionary objectForKey:KEY_SHORT_EXPLANATION];
     self.emoticonUnicodeCharacter = [dictionary objectForKey:KEY_EMOTICON_UNICODE_CHARACTER];
     
-    self.pushNotificationHasSound = [[dictionary objectForKey:KEY_NOTIFICATION_HAS_SOUND] boolValue];
     self.pushNotificationSoundFileName = [dictionary objectForKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
     
     self.isIconOnlyNotification = [[dictionary objectForKey:KEY_IS_ICON_ONLY_NOTIFICATION] boolValue];

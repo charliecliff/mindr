@@ -70,7 +70,7 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 #pragma mark - Validation
 
 - (BOOL)isValidDate:(NSDate *)date {
-    return NO;
+    return self.isActive && NO;
 
 //    NSCalendar *const calendar = NSCalendar.currentCalendar;
 //    NSCalendarUnit const preservedComponents = (NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay);

@@ -8,10 +8,9 @@
 
 #define NOTIFICATION_NEW_TEMPERATURE @"NOTIFICATION_NEW_TEMPERATURE"
 
-#import "g5ConditionMonitor.h"
 #import "g5Weather.h"
 #import "g5WeatherClient.h"
-#import "g5LocationManager.h"
+#import "MDRLocationMonitor.h"
 
 extern NSString *const g5WeatherSunny;
 extern NSString *const g5WeatherPartlyCloudy;
@@ -23,11 +22,13 @@ extern NSString *const g5WeatherFoggy;
 extern NSString *const g5WeatherWindy;
 extern NSString *const g5WeatherSnowy;
 
-@interface g5WeatherMonitor : g5ConditionMonitor
+@interface MDRWeatherMonitor : NSObject
 
 @property(nonatomic, strong, readonly) g5Weather *currentWeather;
 
-- (NSNumber *)currentTemperature;
-- (NSString *)currentWeatherType;
+@property(nonatomic, strong, readonly) NSNumber *currentTemperature;
+@property(nonatomic, strong, readonly) NSString *currentWeatherType;
+
++ (MDRWeatherMonitor *)sharedMonitor;
 
 @end

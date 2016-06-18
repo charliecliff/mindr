@@ -7,7 +7,7 @@
 //
 
 #import "g5ReminderDetailButtonTableViewCell.h"
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 
 @interface g5ReminderDetailButtonTableViewCell ()
 
@@ -19,7 +19,7 @@
 
 #pragma mark - Config
 
-- (void)configWithReminder:(g5Reminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate {
+- (void)configWithReminder:(MDRReminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate {
     self.delegate = delegate;
     self.switchShouldBeOn = reminder.isIconOnlyNotification;
     if (!self.switchShouldBeOn) {

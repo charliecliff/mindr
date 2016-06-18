@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSNumber *humidity;
-@property (nonatomic, strong) NSNumber *temperature;
 @property (nonatomic, strong) NSNumber *tempHigh;
 @property (nonatomic, strong) NSNumber *tempLow;
 @property (nonatomic, strong) NSDate *sunrise;
@@ -20,5 +19,8 @@
 @property (nonatomic, strong) NSNumber *condition;
 @property (nonatomic, strong) NSNumber *windBearing;
 @property (nonatomic, strong) NSNumber *windSpeed;
+
+@property (nonatomic, strong) NSNumber *temperature;
+@property (nonatomic, strong) NSString *type;
 
 @end

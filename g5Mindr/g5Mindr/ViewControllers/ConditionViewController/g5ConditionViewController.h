@@ -9,23 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "mindrBounceNavigationViewController.h"
 
-@class g5Condition;
+@class MDRCondition;
 
 @protocol g5ConditionDelegate <NSObject>
 
 @required
-- (void)didUpdateCondition:(g5Condition *)condition;
+- (void)didUpdateCondition:(MDRCondition *)condition;
 
 @end
 
 @interface g5ConditionViewController : UIViewController <HROBounceNavigationDelegate>
 
-@property(nonatomic, strong) g5Condition *condition;
+@property(nonatomic, strong) MDRCondition *condition;
 @property(nonatomic, strong) id<g5ConditionDelegate> delegate;
 
 @property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithCondition:(g5Condition *)condition;
+- (instancetype)initWithCondition:(MDRCondition *)condition;
 
 @end

@@ -7,14 +7,14 @@
 //
 
 #import "g5ConditionTableViewCell.h"
-#import "g5Condition.h"
+#import "MDRCondition.h"
 #import "g5ConfigAndMacros.h"
 
 #import "OnSwitchView.h"
 
 @interface g5ConditionTableViewCell ()
 
-@property(nonatomic, strong) g5Condition *condition;
+@property(nonatomic, strong) MDRCondition *condition;
 
 @property(nonatomic, strong) IBOutlet UIImageView *conditionIconImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
@@ -28,13 +28,13 @@
 
 #pragma mark - Configuration
 
-- (void)configureForActiveCondition:(g5Condition *)condition {
+- (void)configureForActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
     [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     [self reload];
 }
 
-- (void)configureForInActiveCondition:(g5Condition *)condition {
+- (void)configureForInActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
     [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     [self reload];
@@ -58,13 +58,13 @@
 
 #pragma mark - Images
 
-- (UIImage *)activeImageForCondition:(g5Condition *)condition {
+- (UIImage *)activeImageForCondition:(MDRCondition *)condition {
     NSString *activeImageName = [NSString stringWithFormat:@"%@_on", condition.type];
     UIImage *activeImage = [UIImage imageNamed:activeImageName];
     return activeImage;
 }
 
-- (UIImage *)inActiveImageForCondition:(g5Condition *)condition {
+- (UIImage *)inActiveImageForCondition:(MDRCondition *)condition {
     NSString *activeImageName = [NSString stringWithFormat:@"%@_off",condition.type];
     UIImage *activeImage = [UIImage imageNamed:activeImageName];
     return activeImage;

@@ -11,7 +11,7 @@
 #import "g5CreateReminderConditionListViewController.h"
 #import "g5ReminderTableViewCell.h"
 #import "g5ReminderManager.h"
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
 //  Third-Party
@@ -71,7 +71,7 @@
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         }
         
-        g5Reminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+        MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
         [cell configureWithReminder:currentReminder];
         
         [self.cells addObject:cell];
@@ -87,7 +87,7 @@
 
 #pragma mark - Segues
 
-- (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+- (void)segueToConditionViewControllerWithReminder:(MDRReminder *)reminder {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
 
     g5CreateReminderConditionListViewController *conditionListVC = [[g5CreateReminderConditionListViewController alloc] initWithReminder:reminder];
@@ -95,7 +95,7 @@
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
 }
 
-- (void)segueToReminderViewControllerWithReminder:(g5Reminder *)reminder {
+- (void)segueToReminderViewControllerWithReminder:(MDRReminder *)reminder {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
     g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
@@ -106,7 +106,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    g5Reminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
+    MDRReminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
     [self segueToReminderViewControllerWithReminder:selectedReminder];
 }
 
@@ -133,7 +133,7 @@
 - (void)didPressCenterButton {
     [self.bounceNavigationController setRightButtonEnabled:NO];
     
-    g5Reminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
+    MDRReminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     [self segueToConditionViewControllerWithReminder:newReminder];
 }
 

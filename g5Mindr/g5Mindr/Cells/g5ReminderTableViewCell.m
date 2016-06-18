@@ -21,7 +21,7 @@
 @property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
 @property(nonatomic, strong) IBOutlet UIButton *onSwitchButton;
 
-@property(nonatomic, strong, readwrite) g5Reminder *reminder;
+@property(nonatomic, strong, readwrite) MDRReminder *reminder;
 
 @end
 
@@ -30,7 +30,7 @@
 #pragma mark - Configure
 
 
-- (void)configureWithReminder:(g5Reminder *)reminder {
+- (void)configureWithReminder:(MDRReminder *)reminder {
     self.reminder = reminder;
     [self.explanationLabel setText:self.reminder.shortExplanation];
     [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];

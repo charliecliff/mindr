@@ -43,6 +43,10 @@
     return @"LOCATION";
 }
 
+- (BOOL)isValidWithContext:(MDRReminderContext *)conext {
+    assert(false);
+}
+
 #pragma mark - Validation
 
 - (BOOL)isValidLocation:(CLLocation *)location {

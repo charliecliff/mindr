@@ -6,9 +6,9 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 
-@interface g5DateCondition : g5Condition
+@interface g5DateCondition : MDRCondition
 
 @property(nonatomic, strong) NSArray *dates;
 

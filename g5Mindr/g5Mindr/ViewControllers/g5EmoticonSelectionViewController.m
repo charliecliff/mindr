@@ -9,7 +9,7 @@
 #import "g5EmoticonSelectionViewController.h"
 #import "g5ReminderExplanationViewController.h"
 #import "g5EmoticonCell.h"
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 #import <PBJHexagonFlowLayout.h>
 
@@ -25,7 +25,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithReminder:(g5Reminder *)reminder {
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
     self = [super init];
     if (self != nil) {
         self.reminder = reminder;

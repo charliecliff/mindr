@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 RideScout. All rights reserved.
 //
 
-#import "g5LocationManager.h"
+#import "MDRLocationMonitor.h"
 #import "g5ReminderManager.h" //    a CIRCULAR reference!!!
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface g5LocationManager ()
+@interface MDRLocationMonitor ()
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSTimer *locationServicesEnabledMonitoringTimer;
@@ -18,12 +18,12 @@
 
 @end
 
-@implementation g5LocationManager
+@implementation MDRLocationMonitor
 
 #pragma mark - Singleton
 
-+ (g5LocationManager *)sharedManager {
-    static g5LocationManager *_sharedLocationManager = nil;
++ (MDRLocationMonitor *)sharedManager {
+    static MDRLocationMonitor *_sharedLocationManager = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedLocationManager = [[self alloc] init];
@@ -33,7 +33,7 @@
 
 #pragma mark - Init
 
-- (g5LocationManager *)init {
+- (MDRLocationMonitor *)init {
     self = [super init];
     if ( self != nil) {
         [self configureLocationManager];

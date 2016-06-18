@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class g5Reminder;
+@class MDRReminder;
 @class HROBounceNavigationController;
 
 @interface g5ReminderExplanationViewController : UIViewController
 
-@property(nonatomic, strong) g5Reminder *reminder;
+@property(nonatomic, strong) MDRReminder *reminder;
 
 @property(nonatomic, weak) HROBounceNavigationController *bounceNavigationController;
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithReminder:(g5Reminder *)reminder;
+- (instancetype)initWithReminder:(MDRReminder *)reminder;
 
 @end

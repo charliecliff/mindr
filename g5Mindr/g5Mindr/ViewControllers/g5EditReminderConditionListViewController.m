@@ -16,7 +16,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithReminder:(g5Reminder *)reminder {
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
     self = [super initWithReminder:reminder];
     if (self) {
         self.navigationItem.title = @"Edit Conditions";

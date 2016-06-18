@@ -6,10 +6,10 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 #import "g5Weather.h"
 
-@interface g5WeatherTypeCondition : g5Condition
+@interface g5WeatherTypeCondition : MDRCondition
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

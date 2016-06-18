@@ -6,16 +6,16 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 
 typedef enum {
     g5TemperatureFahrenheit = 0,
     g5TemperatureCelsius
 } g5TemperatureUnit;
 
-@class g5WeatherMonitor;
+@class MDRWeatherMonitor;
 
-@interface g5TemperatureCondition : g5Condition
+@interface g5TemperatureCondition : MDRCondition
 
 @property(nonatomic) g5TemperatureUnit temperatureunit;
 @property(nonatomic) NSComparisonResult temperatureComparisonType;

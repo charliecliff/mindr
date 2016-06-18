@@ -6,9 +6,9 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 
-@interface g5DayOfTheWeekCondition : g5Condition
+@interface g5DayOfTheWeekCondition : MDRCondition
 
 @property(nonatomic, strong, readonly) NSString *dayOfTheWeekString;
 @property(nonatomic, strong, readonly) NSMutableSet *daysOfTheWeek;

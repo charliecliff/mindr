@@ -6,46 +6,23 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderManager.h"
-#import "g5Reminder.h"
-
-//#import "g5LocationClient.h"
-
-//#import "g5LocationManager.h"
-#import "g5PersistenceManager.h"
-
-//#import "g5ConditionMonitor.h"
-
-#import "g5WeatherMonitor.h"
-#import "g5LocationMonitor.h"
-
-//#import "g5WeatherClient.h"
-//#import "g5OpenWeatherClient.h"
-
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "g5ReminderManager.h"
+#import "MDRReminder.h"
+#import "MDRReminderContext.h"
+#import "MDRWeatherMonitor.h"
+#import "MDRLocationMonitor.h"
+
+#import "g5PersistenceManager.h"
 
 #define REMINDERS @"REMINDERS"
 
-@interface g5ReminderManager () <g5ConditionMonitorDelegate, g5ConditionDataSource>
+@interface g5ReminderManager ()
 
-@property(nonatomic, strong) NSMutableArray *conditionMonitors;
-
+@property(nonatomic, strong, readwrite) MDRReminderContext *reminderContext;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
-
-
-@property(nonatomic, strong) g5WeatherMonitor *weatherMonitor;
-
-
-//@property(nonatomic, strong) g5LocationManager *locationManager;
-
-//@property(nonatomic, strong) g5LocationManager *locationSource;
-//@property(nonatomic, strong) g5OpenWeatherClient *weatherClient;
-
-//@property (nonatomic, strong) id<g5WeatherClient> weatherClient;
-//@property (nonatomic, strong) id<g5LocationClient> locationClient;
-
-
 
 @end
 
@@ -67,75 +44,81 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
-//        self.unlockedConditionIDs = [[NSOrderedSet alloc] init];
-        self.reminderIDs          = [[NSMutableOrderedSet alloc] init];
-        self.reminders            = [[NSMutableDictionary alloc] init];
+        self.reminderContext = [[MDRReminderContext alloc] init];
+        self.reminderIDs = [[NSMutableOrderedSet alloc] init];
+        self.reminders = [[NSMutableDictionary alloc] init];
         
-        self.conditionMonitors    = [[NSMutableArray alloc] init];
+        [self bindToWeatherMonitor];
+        [self bindToLocationMonitor];
     }
     return self;
 }
 
 #pragma mark - Set Up
 
-- (void)setUpWeatherMonitor {
-    self.weatherMonitor = [[g5WeatherMonitor alloc] initWithDelegate:self];
-    [self.conditionMonitors addObject:self.weatherMonitor];
+- (void)bindToWeatherMonitor {
+    self.weatherMonitor = [MDRWeatherMonitor sharedMonitor];
+    
+    RACSignal *signalToUpdateCurrentWeather = RACObserve(self.weatherMonitor, currentWeather);
+    __block __typeof(self)blockSelf = self;
+    [signalToUpdateCurrentWeather subscribeNext:^(g5Weather *weather) {
+        blockSelf.reminderContext.currentTemperature = weather.temperature;
+        blockSelf.reminderContext.currentWeatherType = weather.type;
+        [blockSelf validateReminderConditions];
+    }];
 }
 
+- (void)bindToLocationMonitor {
+    self.locationMonitor = [MDRLocationMonitor sharedManager];
 
-- (void)setUpLocationMonitor {
-//    self.locationManager = [[g5WeatherMonitor alloc] initWithDelegate:self];
-//    [self.conditionMonitors addObject:self.weatherMonitor];
+    RACSignal *signalToUpdateCurrentLocation = RACObserve(self.locationMonitor, currentLocation);
+    __block __typeof(self)blockSelf = self;
+    [signalToUpdateCurrentLocation subscribeNext:^(CLLocation *location) {
+        blockSelf.reminderContext.currentLocation = location;
+        [blockSelf validateReminderConditions];
+    }];
 }
 
 #pragma mark - Getters
 
-- (g5Reminder *)newReminder {
-    g5Reminder *newReminder = [[g5Reminder alloc] init];
-    newReminder.datasource = self;
+- (MDRReminder *)newReminder {
+    MDRReminder *newReminder = [[MDRReminder alloc] init];
     return newReminder;
 }
 
-- (void)addReminder:(g5Reminder *)reminder {
+- (void)addReminder:(MDRReminder *)reminder {
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
     [self saveReminders];
 }
 
-- (void)removeReminder:(g5Reminder *)reminder {
+- (void)removeReminder:(MDRReminder *)reminder {
     [self.reminderIDs removeObject:reminder.uid];
     [self.reminders removeObjectForKey:reminder.uid];
     [self saveReminders];
 }
 
-- (g5Reminder *)reminderForIndex:(NSInteger)index {
+- (MDRReminder *)reminderForIndex:(NSInteger)index {
     NSString *reminderID = [self.reminderIDs objectAtIndex:index];
     return [self reminderForID:reminderID];
 }
 
-- (g5Reminder *)reminderForID:(NSString *)reminderID {
+- (MDRReminder *)reminderForID:(NSString *)reminderID {
     return [self.reminders objectForKey:reminderID];
 }
 
-#pragma mark - Update
+#pragma mark - Validations
 
-- (void)updateReminders {
-    
-//    for (g5ConditionMonitor *currentConditionMonitor in self.conditionMonitors) {
-//        [currentConditionMonitor updateMonitoredCondition];
-//    }
-//    
-//    for (g5Reminder *currentReminder in self.reminders.allValues) {
-//        if ([currentReminder haveConditionsBeenMeet]) {
-//            [self postPushNotificationForReminder:currentReminder];
-//        }
-//    }
+- (void)validateReminderConditions {
+    for (MDRReminder *reminder in self.reminders) {
+        if ( [reminder validateWithContext:self.reminderContext] )
+            [self postPushNotificationForReminder:reminder];
+    }
 }
 
 #pragma mark - Post Push Notifications
 
-- (void)postPushNotificationForReminder:(g5Reminder *)reminder {
+- (void)postPushNotificationForReminder:(MDRReminder *)reminder {
     UILocalNotification* localNotification = [[UILocalNotification alloc] init];
     localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:2];
     localNotification.alertBody = reminder.shortExplanation;
@@ -146,45 +129,13 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
-#pragma mark - g5ConditionMonitorDelegate
-
-- (void)didUpdateCondition:(g5ConditionMonitor *)conditionMonitor {
-    [self validateReminderConditions];
-}
-
-- (void)validateReminderConditions {
-//    for (g5Reminder *reminder in self.reminders) {
-//        if ( [reminder haveConditionsBeenMeet] ) {
-//            [self postPushNotificationForReminder:reminder];
-//        }
-//    }
-}
-
-#pragma mark - g5ConditionDataSource
-
-- (NSDate *)currentDate {
-    return [NSDate date];
-}
-
-- (NSNumber *)currentTemperature {
-    return self.weatherMonitor.currentTemperature;
-}
-
-- (NSString *)currentWeatherType {
-    return self.weatherMonitor.currentWeatherType;
-}
-
-- (CLLocation *)currentLocation {
-    return nil;
-}
-
 #pragma mark - Persistence
 
 - (void)saveReminders {
     
     NSMutableArray *arrayOfReminderDictionaries = [[NSMutableArray alloc] init];
     for (NSString *currentReminderID in self.reminderIDs) {
-        g5Reminder *currentReminder = [self.reminders objectForKey:currentReminderID];
+        MDRReminder *currentReminder = [self.reminders objectForKey:currentReminderID];
         NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
         [arrayOfReminderDictionaries addObject:currentReminderDictionary];
     }
@@ -202,7 +153,7 @@
     NSArray *arrayOfReminderDictionaries = [dictionaryToLoad objectForKey:@"reminders"];
     
     for (NSDictionary *currentReminderDictionary in arrayOfReminderDictionaries) {
-        g5Reminder *currentReminder = [[g5Reminder alloc] initWithDictionary:currentReminderDictionary];
+        MDRReminder *currentReminder = [[MDRReminder alloc] initWithDictionary:currentReminderDictionary];
         [self.reminders setObject:currentReminder forKey:currentReminder.uid];
         [self.reminderIDs addObject:currentReminder.uid];
     }

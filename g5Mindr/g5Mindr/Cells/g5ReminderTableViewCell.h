@@ -7,22 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 
-@class g5Reminder;
+@class MDRReminder;
 
 @protocol g5ReminderCellDelegate <NSObject>
 
 @required
-- (void)g5Reminder:(g5Reminder *)condition didSetActive:(BOOL)active;
+- (void)g5Reminder:(MDRReminder *)condition didSetActive:(BOOL)active;
 
 @end
 
 @interface g5ReminderTableViewCell : UITableViewCell
 
-@property(nonatomic, strong, readonly) g5Reminder *reminder;
+@property(nonatomic, strong, readonly) MDRReminder *reminder;
 @property(nonatomic, strong) id<g5ReminderCellDelegate> delegate;
 
-- (void)configureWithReminder:(g5Reminder *)reminder;
+- (void)configureWithReminder:(MDRReminder *)reminder;
 
 @end

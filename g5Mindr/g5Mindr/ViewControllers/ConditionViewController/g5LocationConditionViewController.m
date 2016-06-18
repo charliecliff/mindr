@@ -7,7 +7,7 @@
 //
 
 #import "g5LocationConditionViewController.h"
-#import "g5LocationManager.h"
+#import "MDRLocationMonitor.h"
 #import "g5LocationCondition.h"
 #import "g5ConfigAndMacros.h"
 
@@ -43,7 +43,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 #pragma mark - Init
 
-- (instancetype)initWithCondition:(g5Condition *)condition {
+- (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (self.condition == nil) {
@@ -68,7 +68,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 - (void)setUpMapView {
     self.mapView.showsUserLocation = NO;
     self.mapView.zoomLevel = 12;
-    self.mapView.centerCoordinate = [g5LocationManager sharedManager].currentLocation.coordinate;
+    self.mapView.centerCoordinate = [MDRLocationMonitor sharedManager].currentLocation.coordinate;
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
     
@@ -177,7 +177,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 - (void)updateLocationAddress {
     __weak g5LocationConditionViewController *weakSelf = self;
-    [[g5LocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
+    [[MDRLocationMonitor sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
                                                  withSuccess:^(NSString *addressLine) {
                                                      g5LocationConditionViewController *strongSelf = weakSelf;
                                                      ((g5LocationCondition *)strongSelf.condition).address = addressLine;

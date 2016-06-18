@@ -6,10 +6,10 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface g5LocationCondition : g5Condition
+@interface g5LocationCondition : MDRCondition
 
 @property(nonatomic) CLLocationDistance radius;
 

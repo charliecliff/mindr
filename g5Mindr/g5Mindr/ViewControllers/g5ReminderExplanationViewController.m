@@ -9,7 +9,7 @@
 #import "g5ReminderExplanationViewController.h"
 #import "HROBounceNavigationController.h"
 #import "g5ReminderManager.h"
-#import "g5Reminder.h"
+#import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderExplanationViewController () <HROBounceNavigationDelegate, UITextFieldDelegate> {
@@ -33,7 +33,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithReminder:(g5Reminder *)reminder {
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
     self = [super init];
     if (self != nil) {
         self.reminder = reminder;

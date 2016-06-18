@@ -6,14 +6,14 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 
 typedef enum {
     MDRTimeAM = 0,
     MDRTimePM,
 } MDRTimeMeridian;
 
-@interface g5TimeCondition : g5Condition
+@interface g5TimeCondition : MDRCondition
 
 @property(nonatomic) NSInteger hour;
 @property(nonatomic) NSInteger minute;
@@ -22,11 +22,7 @@ typedef enum {
 @property(nonatomic, readonly) NSInteger dateComponentForHour;
 @property(nonatomic, readonly) NSInteger dateComponentForMinute;
 
-@property(nonatomic, readonly) NSTimeInterval timeOfDayInSeconds;
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
-- (void)setDate:(NSDate *)date;
 
 - (BOOL)isValidDate:(NSDate *)date;
 

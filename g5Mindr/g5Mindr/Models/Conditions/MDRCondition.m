@@ -6,7 +6,7 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5Condition.h"
+#import "MDRCondition.h"
 
 #define KEY_CONDITION_TYPE  @"KEY_CONDITION_TYPE"
 #define KEY_CONDITION_ID    @"KEY_CONDITION_ID"
@@ -21,7 +21,7 @@ NSString *const g5WeatherType       = @"weather";
 NSString *const g5TemperatureType   = @"temp";
 NSString *const g5LocationType      = @"location";
 
-@implementation g5Condition
+@implementation MDRCondition
 
 #pragma mark - Init
 
@@ -35,7 +35,6 @@ NSString *const g5LocationType      = @"location";
     }
     return self;
 }
-
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
@@ -72,6 +71,10 @@ NSString *const g5LocationType      = @"location";
 }
 
 - (NSString *)conditionIconName {
+    assert(false);
+}
+
+- (BOOL)isValidWithContext:(MDRReminderContext *)conext {
     assert(false);
 }
 

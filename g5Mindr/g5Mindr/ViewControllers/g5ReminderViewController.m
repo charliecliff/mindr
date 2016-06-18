@@ -15,7 +15,7 @@
 
 @interface g5ReminderViewController () <g5ReminderButtonCellDelegate>
 
-@property(nonatomic, strong, readwrite) g5Reminder *reminder;
+@property(nonatomic, strong, readwrite) MDRReminder *reminder;
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
 
 @property(nonatomic, strong) IBOutlet UIButton *deleteButton;
@@ -38,7 +38,7 @@
 
 #pragma mark - Init
 
-- (instancetype)initWithReminder:(g5Reminder *)reminder {
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
     self = [super init];
     if (self != nil) {
         self.reminder = reminder;
@@ -100,7 +100,7 @@
     
     g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
     cell2.titleLabel.text = @"Conditions";
-    cell2.explanationLabel.text = self.reminder.conditionDescription;
+    cell2.explanationLabel.text = self.reminder.shortExplanation;
     [self.cells addObject:cell2];
 
     g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
@@ -140,7 +140,7 @@
 
 #pragma mark - Segues
 
-- (void)segueToConditionViewControllerWithReminder:(g5Reminder *)reminder {
+- (void)segueToConditionViewControllerWithReminder:(MDRReminder *)reminder {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
     g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];

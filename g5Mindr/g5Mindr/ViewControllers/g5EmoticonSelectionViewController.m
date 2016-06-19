@@ -42,6 +42,15 @@
     self.navigationItem.title = @"Choose an Emoticon";
     self.navigationItem.hidesBackButton = YES;
     
+    UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    progressLabel.text = @"2/3";
+    progressLabel.textColor = [UIColor colorWithRed:138.0/255.0 green:183.0/255.0 blue:230.0/255.0 alpha:1];
+    progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    [barView addSubview:progressLabel];
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
+    self.navigationItem.leftBarButtonItem = barBtn;
+    
     [self setUpHexagonFlowLayout];
     [self setUpEmoticonImageNames];
     
@@ -182,9 +191,6 @@
 }
 
 - (void)didPressPreviousButton {
-//    [self.bounceNavigationController hidePreviousButtonWithCompletion:^{
-//        [self.bounceNavigationController displayCornerButtonsOntoScreenWithCompletion:nil];
-//    }];
     [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
@@ -195,9 +201,6 @@
 }
 
 - (void)didPressCancelButton {
-//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-//    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

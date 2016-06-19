@@ -35,6 +35,29 @@
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {
+    if (self.isActive) {
+        NSString *resultString = @"When it's";
+        if (self.temperatureComparisonType == NSOrderedAscending) {
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"above"];
+        }
+        else if (self.temperatureComparisonType == NSOrderedDescending) {
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"below"];
+        }
+        else if (self.temperatureComparisonType == NSOrderedSame) {
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"exactly"];
+        }
+        
+        resultString = [NSString stringWithFormat:@"%@ %@\u00b0", resultString, self.temperature];
+        
+        if (self.temperatureunit == g5TemperatureFahrenheit) {
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"F"];
+        }
+        else if (self.temperatureunit == g5TemperatureCelsius) {
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"C"];
+        }
+        
+        return resultString;
+    }
     return @"TEMPERATURE";
 }
 

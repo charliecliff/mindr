@@ -30,7 +30,7 @@
     self = [super init];
     if (self != nil) {
         self.type  = g5DateType;
-        self.dates = nil;
+        self.dates = [NSMutableArray arrayWithObjects:[NSDate date], nil];
     }
     return self;
 }
@@ -38,6 +38,15 @@
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {
+    if (self.isActive) {
+        NSDate *nextAvailableDate = [self.dates firstObject];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateStyle =  NSDateFormatterLongStyle;
+        NSString *dateString = [formatter stringFromDate:nextAvailableDate];
+        
+        return [NSString stringWithFormat:@"On %@", dateString];
+    }
     return @"DATE";
 }
 

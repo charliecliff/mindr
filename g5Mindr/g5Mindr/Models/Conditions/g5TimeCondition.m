@@ -52,6 +52,21 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {
+    if (self.isActive) {
+        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+        dateComponents.hour = self.hour;
+        dateComponents.minute = self.minute;
+        
+        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.timeStyle =  NSDateFormatterShortStyle;
+        
+        NSString *dateString = [formatter stringFromDate:timeOfDayDate];
+        
+        return [NSString stringWithFormat:@"At %@", dateString];
+    }
     return @"TIME";
 }
 

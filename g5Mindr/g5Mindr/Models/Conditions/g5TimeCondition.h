@@ -24,6 +24,4 @@ typedef enum {
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (BOOL)isValidDate:(NSDate *)date;
-
 @end

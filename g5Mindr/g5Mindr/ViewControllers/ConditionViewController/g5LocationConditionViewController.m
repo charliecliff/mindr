@@ -68,7 +68,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 - (void)setUpMapView {
     self.mapView.showsUserLocation = NO;
     self.mapView.zoomLevel = 12;
-    self.mapView.centerCoordinate = [MDRLocationMonitor sharedManager].currentLocation.coordinate;
+    self.mapView.centerCoordinate = ((g5LocationCondition *)self.condition).location.coordinate;
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
     

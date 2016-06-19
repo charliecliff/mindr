@@ -27,7 +27,6 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         [self parseDictionary:dictionary];
-        [self generateDescriptionStringFromDaysOfTheWeek];
     }
     return self;
 }
@@ -36,7 +35,7 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
     self = [super init];
     if (self != nil) {
         self.type = g5DayOfTheWeekType;
-        self.daysOfTheWeek = [[NSMutableSet alloc] init];
+        self.daysOfTheWeek = [[NSMutableSet alloc] initWithObjects:[NSNumber numberWithDouble:1], nil];
     }
     return self;
 }
@@ -45,12 +44,10 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
 - (void)setDayOfTheWeek:(NSInteger)weekday {
     [self.daysOfTheWeek addObject:[NSNumber numberWithUnsignedInteger:weekday]];
-    [self generateDescriptionStringFromDaysOfTheWeek];
 }
 
 - (void)removeDayOfTheWeek:(NSInteger)weekday {
     [self.daysOfTheWeek removeObject:[NSNumber numberWithUnsignedInteger:weekday]];
-    [self generateDescriptionStringFromDaysOfTheWeek];
 }
 
 - (BOOL)containsDayOfTheWeek:(NSInteger)weekday {
@@ -59,27 +56,26 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
     return output;
 }
 
-- (void)generateDescriptionStringFromDaysOfTheWeek {
-    
-//    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-//
-//    NSDateFormatter *formatter = [NSDateFormatter new];
-//    formatter.calendar   = gregorianCalendar;
-//    formatter.dateFormat = G5DayOfTheWeekDateFormatter;
-//    
-//    self.dayOfTheWeekString = @"";
-//    for (NSNumber *currentDayOfTheWeekNumber in self.daysOfTheWeek) {
-//        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-//        dateComponents.day = [currentDayOfTheWeekNumber unsignedIntegerValue];
-//        NSDate *currentDate = [gregorianCalendar dateFromComponents:dateComponents];
-//
-//        NSString *currentDayOfTheWeekString = [formatter stringFromDate:currentDate];
-//    }
-}
-
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {
+    if (self.isActive) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEEE"];
+        
+        NSString *resultString = @"On a";
+        for (NSNumber *dayOfTheWeekNumber in self.daysOfTheWeek) {
+            NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+            dateComponents.weekday = [dayOfTheWeekNumber integerValue];
+            
+            NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+            NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
+            
+            NSString *dateString = [formatter stringFromDate:timeOfDayDate];
+            resultString = [NSString stringWithFormat:@"%@ %@", resultString, dateString];
+        }
+        return resultString;
+    }
     return CONDITION_TITLE_FOR_DAY_OF_THE_WEEK;
 }
 

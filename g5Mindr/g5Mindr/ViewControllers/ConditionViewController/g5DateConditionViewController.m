@@ -45,15 +45,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     NSMutableArray *dates = [NSMutableArray arrayWithArray:[self.calendarVC.selectedDates allObjects]];
-    ((g5DateCondition *)self.condition).dates = dates;
+    NSArray *sortedArrayOfDates = [dates sortedArrayUsingComparator: ^(NSDate *d1, NSDate *d2) {
+        return [d1 compare:d2];
+    }];
+    ((g5DateCondition *)self.condition).dates = [NSMutableArray arrayWithArray:sortedArrayOfDates];
     [super viewWillDisappear:animated];
 }
-
-//- (void)reload {
-//    NSString *dateString = [self.dateFormatter stringFromDate:self.date];
-//    [self.currentTimeLabel setText:dateString];
-//    [self.picker configureForDate:self.date];
-//}
 
 #pragma mark - Set Up
 

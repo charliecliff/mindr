@@ -64,6 +64,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self setUpCells];
 }
 
 - (void)reload {

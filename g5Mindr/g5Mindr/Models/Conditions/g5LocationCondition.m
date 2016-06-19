@@ -7,6 +7,7 @@
 //
 
 #import "g5LocationCondition.h"
+#import "MDRLocationMonitor.h"
 #import <CoreLocation/CoreLocation.h>
 
 #define KEY_CONDITION_LOCATION @"KEY_CONDITION_LOCATION"
@@ -25,14 +26,21 @@
     return self;
 }
 
-
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
         self.type       = g5LocationType;
-        self.location   = nil;
+        self.location   = [MDRLocationMonitor sharedManager].currentLocation;
         self.radius     = 100;              // 100 Meters
         self.address    = @"";
+        
+        __weak g5LocationCondition *weakSelf = self;
+        [[MDRLocationMonitor sharedManager] getAddressForLocation:self.location
+                                                      withSuccess:^(NSString *addressLine) {
+                                                          g5LocationCondition *strongSelf = weakSelf;
+                                                          strongSelf.address = addressLine;
+                                                      }
+                                                      withFailure:nil];
     }
     return self;
 }
@@ -40,6 +48,11 @@
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {
+    if (self.isActive) {
+        NSString *resultString = [NSString stringWithFormat:@"At %@", self.address];
+
+        return resultString;
+    }
     return @"LOCATION";
 }
 

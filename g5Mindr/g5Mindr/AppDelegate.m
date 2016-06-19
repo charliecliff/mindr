@@ -38,15 +38,15 @@
         application.applicationIconBadgeNumber = 0;
     }
     
+    //  5. External APIs
+    [GMSServices provideAPIKey:@"AIzaSyB3OXTo9OFaMhK1MIyNqFa98W8lyPA6Pn8"];
+    
     //  3. Background fetching
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     //  4. Managers
     [[g5ReminderManager sharedManager] loadReminders];
     [[MDRLocationMonitor sharedManager] startUpdatingLocation];
-    
-    //  5. External APIs
-    [GMSServices provideAPIKey:@"AIzaSyB3OXTo9OFaMhK1MIyNqFa98W8lyPA6Pn8"];
     
     //  6. Root View Controller
     g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];

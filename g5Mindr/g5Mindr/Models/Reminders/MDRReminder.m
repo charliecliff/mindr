@@ -32,18 +32,13 @@
 #define KEY_WEATHER_CONDITION       @"KEY_WEATHER_CONDITION"
 #define KEY_TEMPERATURE_CONDITION   @"KEY_TEMPERATURE_CONDITION"
 #define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
-static NSString *const G5DayOfTheWeekCondition = @"condition_for_day_of_the_week";
-
-
 
 static NSString *const kMDRDayOfTheWeekCondition = @"day_of_the_week";
 static NSString *const kMDRDateCondition         = @"date";
 static NSString *const kMDRTimeOfDayCondition    = @"time_of_fay";
 static NSString *const kMDRLocationCondition     = @"location";
-static NSString *const kMDRWeatherCondition      = @"location";
-static NSString *const kMDRTemperatureCondition  = @"location";
-
-
+static NSString *const kMDRWeatherCondition      = @"weather";
+static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 @interface MDRReminder ()
 
@@ -141,10 +136,10 @@ static NSString *const kMDRTemperatureCondition  = @"location";
 #pragma mark - Booleans
 
 - (BOOL)hasActiveConditions {
-    BOOL hasActiveConditions = YES;
+    BOOL hasActiveConditions = NO;
     for (MDRCondition *currentCondition in self.conditions.allValues) {
-        if (!currentCondition.isActive) {
-            hasActiveConditions = NO;
+        if (currentCondition.isActive) {
+            hasActiveConditions = YES;
         }
     }
     return hasActiveConditions;
@@ -157,6 +152,7 @@ static NSString *const kMDRTemperatureCondition  = @"location";
 #pragma mark - Validate
 
 - (BOOL)validateWithContext:(MDRReminderContext *)context {
+
     BOOL allActiveConditionsAreValid = [self hasActiveConditions];
     for (MDRCondition *currentCondition in self.conditions.allValues) {
         if (currentCondition.isActive) {
@@ -182,7 +178,7 @@ static NSString *const kMDRTemperatureCondition  = @"location";
     NSDictionary *timeDictionary = [dictionary objectForKey:KEY_TIME_CONDITION];
     self.timeCondition = [[g5TimeCondition alloc] initWithDictionary:timeDictionary];
 
-    NSDictionary *dayOfTheWeekDictionary = [dictionary objectForKey:G5DayOfTheWeekCondition];
+    NSDictionary *dayOfTheWeekDictionary = [dictionary objectForKey:kMDRDayOfTheWeekCondition];
     self.dayOfTheWeekCondition = [[g5DayOfTheWeekCondition alloc] initWithDictionary:dayOfTheWeekDictionary];
     
     NSDictionary *dateDictionary = [dictionary objectForKey:KEY_DATE_CONDITION];
@@ -222,7 +218,7 @@ static NSString *const kMDRTemperatureCondition  = @"location";
     [dictionary setObject:timeDictionary forKey:KEY_TIME_CONDITION];
 
     NSDictionary *dayOfTheWeekDictionary = [self.dayOfTheWeekCondition encodeToDictionary];
-    [dictionary setObject:dayOfTheWeekDictionary forKey:G5DayOfTheWeekCondition];
+    [dictionary setObject:dayOfTheWeekDictionary forKey:kMDRDayOfTheWeekCondition];
     
     NSDictionary *dateDictionary = [self.dateCondition encodeToDictionary];
     [dictionary setObject:dateDictionary forKey:KEY_DATE_CONDITION];

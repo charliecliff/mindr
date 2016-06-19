@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class MDRReminder;
-@class MDRReminderContext;
-@class MDRWeatherMonitor;
-@class MDRLocationMonitor;
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "MDRReminder.h"
+#import "MDRReminderContext.h"
+#import "MDRWeatherMonitor.h"
+#import "MDRLocationMonitor.h"
+#import "g5PersistenceManager.h"
 
 @interface g5ReminderManager : NSObject
 

@@ -14,6 +14,11 @@
 #define KEY_CONDITION_RADIUS   @"KEY_CONDITION_RADIUS"
 #define KEY_CONDITION_ADDRESS  @"KEY_CONDITION_ADDRESS"
 
+static NSString *const kMDRLocationLongitude = @"longitude";
+static NSString *const kMDRLocationLatitude = @"latitude";
+static NSString *const kMDRLocationAddress = @"address";
+static NSString *const kMDRLocationRadius = @"radius";
+
 @implementation g5LocationCondition
 
 #pragma mark - Init
@@ -33,14 +38,6 @@
         self.location   = [MDRLocationMonitor sharedManager].currentLocation;
         self.radius     = 100;              // 100 Meters
         self.address    = @"";
-        
-        __weak g5LocationCondition *weakSelf = self;
-        [[MDRLocationMonitor sharedManager] getAddressForLocation:self.location
-                                                      withSuccess:^(NSString *addressLine) {
-                                                          g5LocationCondition *strongSelf = weakSelf;
-                                                          strongSelf.address = addressLine;
-                                                      }
-                                                      withFailure:nil];
     }
     return self;
 }
@@ -69,7 +66,9 @@
     
     self.location = nil;
     if ([dictionary.allKeys containsObject:KEY_CONDITION_LOCATION]) {
-        self.location = [dictionary objectForKey:KEY_CONDITION_LOCATION];
+        CLLocationDegrees latitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLatitude]).floatValue;
+        CLLocationDegrees longitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLongitude]).floatValue;
+        self.location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     }
     
     self.address = @"";
@@ -85,7 +84,8 @@
     NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     
     if (self.location != nil) {
-        [dictionary setObject:self.location forKey:KEY_CONDITION_LOCATION];
+        [dictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.latitude] forKey:kMDRLocationLatitude];
+        [dictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.longitude] forKey:kMDRLocationLongitude];
     }
 
     if (self.address != nil) {

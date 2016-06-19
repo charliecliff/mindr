@@ -6,15 +6,7 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import "g5ReminderManager.h"
-#import "MDRReminder.h"
-#import "MDRReminderContext.h"
-#import "MDRWeatherMonitor.h"
-#import "MDRLocationMonitor.h"
-
-#import "g5PersistenceManager.h"
 
 #define REMINDERS @"REMINDERS"
 
@@ -70,7 +62,7 @@
 
 - (void)bindToLocationMonitor {
     self.locationMonitor = [MDRLocationMonitor sharedManager];
-
+    
     RACSignal *signalToUpdateCurrentLocation = RACObserve(self.locationMonitor, currentLocation);
     __block __typeof(self)blockSelf = self;
     [signalToUpdateCurrentLocation subscribeNext:^(CLLocation *location) {
@@ -110,9 +102,12 @@
 #pragma mark - Validations
 
 - (void)validateReminderConditions {
-    for (MDRReminder *reminder in self.reminders) {
-        if ( [reminder validateWithContext:self.reminderContext] )
-            [self postPushNotificationForReminder:reminder];
+    for (MDRReminder *reminder in self.reminders.allValues) {
+        
+        [reminder validateWithContext:self.reminderContext];
+        
+//        if ( [reminder validateWithContext:self.reminderContext] )
+//            [self postPushNotificationForReminder:reminder];
     }
 }
 

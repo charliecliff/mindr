@@ -83,6 +83,6 @@
 /**
     Validation of Conditions are done by passing in a Reminder Context.
  */
-- (BOOL)validateWithContext:(MDRReminderContext *)conext;
+- (BOOL)validateWithContext:(MDRReminderContext *)context;
 
 @end

@@ -36,6 +36,7 @@
 - (MDRLocationMonitor *)init {
     self = [super init];
     if ( self != nil) {
+        self.currentLocation = nil;
         [self configureLocationManager];
     }
     return self;

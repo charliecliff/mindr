@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mcq-Nq-pFF">
@@ -52,7 +52,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U8B-4d-JaB" userLabel="Inner Ring">
-                        <rect key="frame" x="25.5" y="18" width="44" height="44"/>
+                        <rect key="frame" x="25" y="18" width="44" height="44"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="JWJ-34-Uc9"/>
@@ -65,7 +65,7 @@
                             <constraint firstAttribute="height" constant="20" id="bnv-pf-9Yq"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Medium" family="ProximaNovaSoftW03-Medium" pointSize="15"/>
-                        <color key="textColor" red="0.22352941179999999" green="0.33333333329999998" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.54117647058823526" green="0.71764705882352942" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAu-Pl-I9w" userLabel="Emoticon Label">

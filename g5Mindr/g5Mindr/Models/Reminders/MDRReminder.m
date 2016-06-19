@@ -33,6 +33,7 @@
 #define KEY_TEMPERATURE_CONDITION   @"KEY_TEMPERATURE_CONDITION"
 #define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
 
+static NSString *const kMDRReminderTitle         = @"title";
 static NSString *const kMDRDayOfTheWeekCondition = @"day_of_the_week";
 static NSString *const kMDRDateCondition         = @"date";
 static NSString *const kMDRTimeOfDayCondition    = @"time_of_fay";
@@ -122,6 +123,23 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 #pragma mark - Getters
 
+- (NSString *)shortExplanation {
+    NSString *resultString = @"";
+    
+    BOOL isFirstCondition = YES;
+    for (MDRCondition *currentCondition in self.conditions.allValues) {
+        if (currentCondition.isActive) {
+            if (isFirstCondition) {
+                resultString = [NSString stringWithFormat:@"%@%@", resultString, [currentCondition conditionDescription]];
+                isFirstCondition = NO;
+            }
+            else
+                resultString = [NSString stringWithFormat:@"%@, %@", resultString, [currentCondition conditionDescription]];
+        }
+    }
+    return resultString;
+}
+
 - (MDRCondition *)conditionForID:(NSString *)coniditionID {
     return [self.conditions objectForKey:coniditionID];
 }
@@ -167,12 +185,11 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
     self.uid = [dictionary objectForKey:KEY_ID];
+    self.title = [dictionary objectForKey:kMDRReminderTitle];
     self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
-    self.shortExplanation = [dictionary objectForKey:KEY_SHORT_EXPLANATION];
     self.emoticonUnicodeCharacter = [dictionary objectForKey:KEY_EMOTICON_UNICODE_CHARACTER];
     
     self.pushNotificationSoundFileName = [dictionary objectForKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
-    
     self.isIconOnlyNotification = [[dictionary objectForKey:KEY_IS_ICON_ONLY_NOTIFICATION] boolValue];
 
     NSDictionary *timeDictionary = [dictionary objectForKey:KEY_TIME_CONDITION];
@@ -205,8 +222,8 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     
     [dictionary setObject:self.uid forKey:KEY_ID];
+    [dictionary setObject:self.title forKey:kMDRReminderTitle];
     [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:KEY_IS_ACTIVE];
-    [dictionary setObject:self.shortExplanation forKey:KEY_SHORT_EXPLANATION];
     [dictionary setObject:self.emoticonUnicodeCharacter forKey:KEY_EMOTICON_UNICODE_CHARACTER];
     
     [dictionary setObject:[NSNumber numberWithBool:self.pushNotificationHasSound] forKey:KEY_NOTIFICATION_HAS_SOUND];

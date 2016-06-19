@@ -102,12 +102,9 @@
 #pragma mark - Validations
 
 - (void)validateReminderConditions {
-    for (MDRReminder *reminder in self.reminders.allValues) {
-        
-        [reminder validateWithContext:self.reminderContext];
-        
-//        if ( [reminder validateWithContext:self.reminderContext] )
-//            [self postPushNotificationForReminder:reminder];
+    for (MDRReminder *reminder in self.reminders.allValues) {        
+        if ( [reminder validateWithContext:self.reminderContext] )
+            [self postPushNotificationForReminder:reminder];
     }
 }
 

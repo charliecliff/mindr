@@ -37,23 +37,36 @@
 @property(nonatomic, strong) MDRWeatherMonitor *weatherMonitor;
 @property(nonatomic, strong) MDRLocationMonitor *locationMonitor;
 
-
-
+/**
+ 
+ */
 + (g5ReminderManager *)sharedManager;
 
+/**
+ 
+ */
 - (MDRReminder *)newReminder;
 
+/**
+ 
+ */
 - (void)addReminder:(MDRReminder *)reminder;
 - (void)removeReminder:(MDRReminder *)reminder;
 
-// Getters
+/**
+    Getters
+ */
 - (MDRReminder *)reminderForIndex:(NSInteger)index;
 - (MDRReminder *)reminderForID:(NSString *)reminderID;
 
-// Updating the Conditions
+/**
+    Updating the Conditions
+ */
 - (void)validateReminderConditions;
 
-// Persistence
+/**
+    Persistence
+ */
 - (void)saveReminders;
 - (void)loadReminders;
 

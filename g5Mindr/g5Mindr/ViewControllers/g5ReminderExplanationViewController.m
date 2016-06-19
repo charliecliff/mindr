@@ -127,19 +127,12 @@
 }
 
 - (void)didPressNextButton {
-//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-//    }];
-    
+    self.reminder.title = self.textField.text;
     [[g5ReminderManager sharedManager] addReminder:self.reminder];
-    
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didPressCancelButton {
-//    [self.bounceNavigationController hideCornerButtonsWithCompletion:^{
-//        [self.bounceNavigationController displayCenterButtonOntoScreenWithCompletion:nil];
-//    }];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -171,7 +164,7 @@
                          [self setTextFieldActive:NO];
                      }];
     
-    self.reminder.shortExplanation = self.textField.text;
+    self.reminder.title = self.textField.text;
 }
 
 @end

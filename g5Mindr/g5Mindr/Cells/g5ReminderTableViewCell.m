@@ -32,6 +32,7 @@
 
 - (void)configureWithReminder:(MDRReminder *)reminder {
     self.reminder = reminder;
+    [self.titleLabel setText:self.reminder.title];
     [self.explanationLabel setText:self.reminder.shortExplanation];
     [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];
     

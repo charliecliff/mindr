@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "mindrBounceNavigationViewController.h"
 
-@interface g5ReminderListViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, HROBounceNavigationDatasource, HROBounceNavigationDelegate>
+@interface MDRReminderListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
 @property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
 

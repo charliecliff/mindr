@@ -96,9 +96,10 @@
 		DAF4125E1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */; };
 		DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */; };
 		DAF727AD1D1ED36400A3193E /* MDRReminderClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF727AC1D1ED36400A3193E /* MDRReminderClient.m */; };
+		DAF727B21D1EEA7E00A3193E /* MDRReminderList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAF727B11D1EEA7E00A3193E /* MDRReminderList.storyboard */; };
 		DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */; };
 		DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */; };
-		DAFD65221CD5414700E92729 /* g5ReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* g5ReminderListViewController.m */; };
+		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
 		DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -246,11 +247,12 @@
 		DAF727AB1D1ED36400A3193E /* MDRReminderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderClient.h; sourceTree = "<group>"; };
 		DAF727AC1D1ED36400A3193E /* MDRReminderClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderClient.m; sourceTree = "<group>"; };
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
+		DAF727B11D1EEA7E00A3193E /* MDRReminderList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderList.storyboard; sourceTree = "<group>"; };
 		DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailSectionTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailSectionTableViewCell.m; sourceTree = "<group>"; };
 		DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailSectionTableViewCell.xib; sourceTree = "<group>"; };
-		DAFD65201CD5414700E92729 /* g5ReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderListViewController.h; sourceTree = "<group>"; };
-		DAFD65211CD5414700E92729 /* g5ReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderListViewController.m; sourceTree = "<group>"; };
+		DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderListViewController.h; sourceTree = "<group>"; };
+		DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderListViewController.m; sourceTree = "<group>"; };
 		DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mindrBounceNavigationViewController.h; sourceTree = "<group>"; };
 		DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mindrBounceNavigationViewController.m; sourceTree = "<group>"; };
 		DF012F8FE2553B4858C780AC /* Pods-g5Mindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.release.xcconfig"; sourceTree = "<group>"; };
@@ -390,10 +392,10 @@
 				DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */,
 				DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */,
 				DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */,
-				DAFD65201CD5414700E92729 /* g5ReminderListViewController.h */,
-				DAFD65211CD5414700E92729 /* g5ReminderListViewController.m */,
 				DA1EC0C51CD461BF00605573 /* g5ReminderViewController.h */,
 				DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */,
+				DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */,
+				DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -408,6 +410,7 @@
 				DABED0971CA39E27004100AF /* g5TemperatureConditionViewController.xib */,
 				DABED0981CA39E27004100AF /* g5WeatherTypeConditionViewController.xib */,
 				DA297EE31CA231F9001D6148 /* g5EmoticonSelectionViewController.xib */,
+				DAF727B11D1EEA7E00A3193E /* MDRReminderList.storyboard */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */,
+				DAF727B21D1EEA7E00A3193E /* MDRReminderList.storyboard in Resources */,
 				DAC8BF1F1CCC6CF0004CA7D6 /* g5ReminderExplanationViewController.xib in Resources */,
 				DA508E021CCF0B4100C96AED /* offSwitchKnob.png in Resources */,
 				DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */,
@@ -845,7 +849,7 @@
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
 				DAF727AD1D1ED36400A3193E /* MDRReminderClient.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */,
-				DAFD65221CD5414700E92729 /* g5ReminderListViewController.m in Sources */,
+				DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
 				DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */,
 				DAE9CACB1CA4A42700849427 /* g5TimeCondition.m in Sources */,

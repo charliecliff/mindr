@@ -6,7 +6,7 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderListViewController.h"
+#import "MDRReminderListViewController.h"
 #import "g5ReminderViewController.h"
 #import "g5CreateReminderConditionListViewController.h"
 #import "g5ReminderTableViewCell.h"
@@ -19,13 +19,16 @@
 #import "AMWaveTransition.h"
 #import "IBCellFlipSegue.h"
 
-@interface g5ReminderListViewController () <UINavigationControllerDelegate>
+@interface MDRReminderListViewController () <UINavigationControllerDelegate>
 
 @property(nonatomic, strong) NSMutableArray *cells;
 
+@property(nonatomic, strong) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) IBOutlet UIView *containerView;
+
 @end
 
-@implementation g5ReminderListViewController
+@implementation MDRReminderListViewController
 
 #pragma mark - View Life-Cycle
 

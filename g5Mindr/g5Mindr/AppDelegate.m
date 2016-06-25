@@ -12,7 +12,7 @@
 #import "g5EmoticonSelectionViewController.h"
 
 #import "mindrBounceNavigationViewController.h"
-#import "g5ReminderListViewController.h"
+#import "MDRReminderListViewController.h"
 
 #import "MDRWeatherMonitor.h"
 
@@ -49,7 +49,8 @@
     [[MDRLocationMonitor sharedManager] startUpdatingLocation];
     
     //  6. Root View Controller
-    g5ReminderListViewController *vc = [[g5ReminderListViewController alloc] init];
+    UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderList" bundle:nil];
+    MDRReminderListViewController *vc = [sbReminderList instantiateInitialViewController];
     mindrBounceNavigationViewController *bounceVC = [[mindrBounceNavigationViewController alloc] initWithRootViewController:vc withDelegate:vc withDatasource:nil];
     bounceVC.datasource = bounceVC;
     

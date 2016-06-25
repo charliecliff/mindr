@@ -7,6 +7,8 @@
     <customFonts key="customFonts">
         <mutableArray key="Proxima Nova Soft W03 Bold.ttf">
             <string>ProximaNovaSoftW03-Bold</string>
+            <string>ProximaNovaSoftW03-Bold</string>
+            <string>ProximaNovaSoftW03-Bold</string>
         </mutableArray>
         <mutableArray key="Proxima Nova Soft W03 Medium.ttf">
             <string>ProximaNovaSoftW03-Medium</string>
@@ -25,7 +27,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WwP-Qo-or8" customClass="g5Re">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WwP-Qo-or8" customClass="g5Re">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -179,7 +181,7 @@
                                     <outlet property="delegate" destination="hfW-NC-UkJ" id="MOo-h1-xVF"/>
                                 </connections>
                             </tableView>
-                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAl-m1-EBp">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAl-m1-EBp">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -216,7 +218,65 @@
                     <view key="view" contentMode="scaleToFill" id="aHd-Rk-taN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-3i-chS">
+                                <rect key="frame" x="71" y="215" width="233" height="174"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxl-ZX-Qcq">
+                                        <rect key="frame" x="0.0" y="158" width="233" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="233" id="Myp-uB-sSM"/>
+                                            <constraint firstAttribute="height" constant="16" id="uU2-1B-Phd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Bold" family="ProximaNovaSoftW03-Bold" pointSize="16"/>
+                                        <color key="textColor" red="0.16078431372549018" green="0.80000000000000004" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-K3-AWz" userLabel="Logo View">
+                                        <rect key="frame" x="66" y="0.0" width="101" height="101"/>
+                                        <color key="backgroundColor" red="0.54117647059999996" green="0.71764705880000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="101" id="Y6K-J0-wSF"/>
+                                            <constraint firstAttribute="height" constant="101" id="o5w-aJ-Vkk"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reminders yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ss-vb-bPq">
+                                        <rect key="frame" x="39" y="129" width="156" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="156" id="A1x-X1-HrJ"/>
+                                            <constraint firstAttribute="height" constant="20" id="bwJ-h8-iRO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Bold" family="ProximaNovaSoftW03-Bold" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="3u1-I3-hgj"/>
+                                    <constraint firstItem="7Ss-vb-bPq" firstAttribute="top" secondItem="W0K-K3-AWz" secondAttribute="bottom" constant="28" id="4uo-nb-LiE"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="6gO-bx-bpK"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="DZL-AH-e8l"/>
+                                    <constraint firstItem="7Ss-vb-bPq" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="UkT-Ca-i8l"/>
+                                    <constraint firstAttribute="height" constant="174" id="Va1-Hl-8v4"/>
+                                    <constraint firstAttribute="width" constant="233" id="ckO-pI-uVr"/>
+                                    <constraint firstItem="dxl-ZX-Qcq" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="o7o-2g-Tqh"/>
+                                    <constraint firstItem="W0K-K3-AWz" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="wOw-Eo-wqN"/>
+                                    <constraint firstItem="W0K-K3-AWz" firstAttribute="top" secondItem="IUh-3i-chS" secondAttribute="top" id="yPq-kT-HWV"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6gO-bx-bpK"/>
+                                        <exclude reference="DZL-AH-e8l"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IUh-3i-chS" firstAttribute="centerX" secondItem="aHd-Rk-taN" secondAttribute="centerX" id="TNw-BK-mcJ"/>
+                            <constraint firstItem="IUh-3i-chS" firstAttribute="centerY" secondItem="aHd-Rk-taN" secondAttribute="centerY" constant="-32" id="qrF-kt-ftB"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6d-G5-Mu1" userLabel="First Responder" sceneMemberID="firstResponder"/>

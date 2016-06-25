@@ -26,6 +26,8 @@
 @property(nonatomic, strong) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) IBOutlet UIView *containerView;
 
+@property(nonatomic, strong) UIButton *editButton;
+
 @end
 
 @implementation MDRReminderListViewController
@@ -45,6 +47,9 @@
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    
+    [self setEmptyInventoryHidden:([g5ReminderManager sharedManager].reminders.count > 0)];
+    
     [self refresh];
 }
 
@@ -78,13 +83,28 @@
 
 - (void)setUpEditButton {
     UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    
     UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     progressLabel.text = REMINDERS_VC_RIGHT_BAR_BUTTON_COPY;
     progressLabel.textColor = GOLD_COLOR;
     progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-    [barView addSubview:progressLabel];
+    
+    self.editButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    [self.editButton setTitle:REMINDERS_VC_RIGHT_BAR_BUTTON_COPY forState:UIControlStateNormal];
+    [self.editButton setTitleColor:GOLD_COLOR forState:UIControlStateNormal];
+    self.editButton.titleLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    
+    [barView addSubview:self.editButton];
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
     self.navigationItem.rightBarButtonItem = barBtn;
+}
+
+#pragma mark - Setters
+
+- (void)setEmptyInventoryHidden:(BOOL)hidden {
+    [self.tableView setHidden:!hidden];
+    [self.editButton setHidden:!hidden];
+    [self.containerView setHidden:hidden];
 }
 
 #pragma mark - Resets

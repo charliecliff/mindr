@@ -51,7 +51,7 @@
 - (void)configureLocationManager {
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.distanceFilter = kCLDistanceFilterNone;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
     _locationManager.delegate = self;
         
     if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined && [self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
@@ -75,6 +75,7 @@
 #pragma mark - CLLocationManager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    NSLog(@"didUpdateLocations: %@", [NSDate date]);
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
     

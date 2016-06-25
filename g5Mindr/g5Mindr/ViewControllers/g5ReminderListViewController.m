@@ -13,6 +13,7 @@
 #import "g5ReminderManager.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
+#import "MDRMessageAndCopy.h"
 
 //  Third-Party
 #import "AMWaveTransition.h"
@@ -31,9 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = @"Something";
+    self.navigationItem.title = REMINDERS_VC_TITLE;
     
     [self setUpTableView];
+    [self setUpEditButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,7 +55,7 @@
 - (void)setUpTableView {
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellEditingStyleNone;
-    self.tableView.rowHeight = 80;
+    self.tableView.rowHeight = REMINDERS_VC_ROW_HEIGHT;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 }
@@ -76,6 +78,17 @@
         
         [self.cells addObject:cell];
     }
+}
+
+- (void)setUpEditButton {
+    UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    progressLabel.text = REMINDERS_VC_RIGHT_BAR_BUTTON_COPY;
+    progressLabel.textColor = GOLD_COLOR;
+    progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    [barView addSubview:progressLabel];
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
+    self.navigationItem.rightBarButtonItem = barBtn;
 }
 
 #pragma mark - Resets

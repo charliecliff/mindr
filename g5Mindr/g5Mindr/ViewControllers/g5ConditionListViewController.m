@@ -67,7 +67,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     [self setUpCells];
 }
 
-- (void)reload {
+- (void)reloadConditionTable {
+    [self setUpCells];
+    
     if ([self.reminder hasActiveConditions]) {
         [self.bounceNavigationController setRightButtonEnabled:YES];
     }
@@ -93,6 +95,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         cell.delegate = self;
         
         MDRCondition *currentCondition = [self.reminder conditionForID:currentConditionUID];
+        
         
         if (currentCondition.isActive) {
             [cell configureForActiveCondition:currentCondition];
@@ -169,6 +172,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         NSString *currentConditionID = [self.reminder.conditionIDs objectAtIndex:selectedRow];
         MDRCondition *selectedCondition = [self.reminder conditionForID:currentConditionID];
         
+
+        
         if (selectedCondition.isActive) {
             [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
                 [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
@@ -176,6 +181,12 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
             g5ConditionViewController *vc = [self viewControllerForCondition:selectedCondition];
             [self.navigationController pushViewController:vc animated:YES];
             [self.delegate didSelectConditionCell];
+        }
+        else {
+            g5ConditionTableViewCell *cell = [cells objectAtIndex:indexPath.row];
+            [cell toggleSwitch:!selectedCondition.isActive withCompletionBlock:^(BOOL finished) {
+                [self g5Condition:selectedCondition didSetActive:YES];
+            }];
         }
     }
 }
@@ -189,7 +200,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
     [self.reminder setCondition:condition];
-    [self reload];
+    [self reloadConditionTable];
 }
 
 #pragma mark - g5ConditionViewController Delegate

@@ -55,7 +55,7 @@
 }
 
 - (UIColor *)bottomButtonFillColor {
-    return PRIMARY_FILL_COLOR;
+    return SECONDARY_FILL_COLOR;
 }
 
 - (UIColor *)strokeColor {

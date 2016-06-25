@@ -24,4 +24,6 @@
 - (void)configureForActiveCondition:(MDRCondition *)condition;
 - (void)configureForInActiveCondition:(MDRCondition *)condition;
 
+- (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(BOOL finished))completionBlock;
+
 @end

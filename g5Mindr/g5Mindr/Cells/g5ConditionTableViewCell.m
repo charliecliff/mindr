@@ -30,13 +30,13 @@
 
 - (void)configureForActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
-    [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+//    [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
     [self reload];
 }
 
 - (void)configureForInActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
-    [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+//    [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
     [self reload];
 }
 
@@ -78,13 +78,24 @@
     [self.condition setIsActive:newConditionActiveState];
 
     if (self.condition.isActive) {
-        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
     }
 
     [self reload];
+}
+
+#pragma mark - Animations
+
+- (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(BOOL finished))completionBlock {
+    if (isActive) {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
+    }
+    else {
+        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
+    }
 }
 
 @end

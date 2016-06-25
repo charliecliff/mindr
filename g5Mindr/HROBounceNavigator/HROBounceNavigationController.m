@@ -96,7 +96,7 @@
         self.navigationController.navigationBar.tintColor = [self.datasource textColor];
     }
     
-    UIView *navBorder = [[UIView alloc] initWithFrame:CGRectMake(0,self.navigationController.navigationBar.frame.size.height-2,self.navigationController.navigationBar.frame.size.width, 2)];
+    UIView *navBorder = [[UIView alloc] initWithFrame:CGRectMake(0,self.navigationController.navigationBar.frame.size.height-1,self.navigationController.navigationBar.frame.size.width, 1)];
     [navBorder setOpaque:YES];
     [navBorder setBackgroundColor:[UIColor whiteColor]];
     if ([self.datasource respondsToSelector:@selector(borderColor)]) {

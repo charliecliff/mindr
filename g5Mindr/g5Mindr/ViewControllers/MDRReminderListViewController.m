@@ -67,14 +67,7 @@
     self.cells = [[NSMutableArray alloc] init];
     
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-        NSBundle *resourcesBundle = [NSBundle mainBundle];
         g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
-        
-        if (!cell) {
-            UINib *tableCell = [UINib nibWithNibName:@"g5ReminderTableViewCell" bundle:resourcesBundle] ;
-            [self.tableView registerNib:tableCell forCellReuseIdentifier:@"g5ReminderTableViewCell"];
-            cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
-        }
         
         MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
         [cell configureWithReminder:currentReminder];

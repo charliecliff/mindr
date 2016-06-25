@@ -22,6 +22,10 @@
     UIFont *titleFont = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     [[UINavigationBar appearance] setTitleTextAttributes: @{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                             NSFontAttributeName: titleFont}];
+    
+    if (self.navigationController) {
+        self.navigationController.view.backgroundColor = [UIColor clearColor];
+    }
 }
 
 #pragma mark -

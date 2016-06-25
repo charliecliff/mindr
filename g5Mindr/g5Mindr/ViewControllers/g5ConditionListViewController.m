@@ -192,7 +192,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return REMINDERS_VC_ROW_HEIGHT;
 }
 
 #pragma mark - g5ConditionCell Delegate

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lww-xR-ykA" userLabel="Background">
@@ -46,6 +46,9 @@
                             <constraint firstAttribute="height" constant="1" id="KjG-H8-7We"/>
                         </constraints>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyM-Ah-9kS">
+                        <rect key="frame" x="228" y="17" width="64" height="48"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KUh-jM-UdH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="4x6-I5-KDf"/>
@@ -59,6 +62,7 @@
                     <constraint firstItem="JiA-9Y-aWv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aIY-kP-IOW"/>
                     <constraint firstItem="Y8g-WV-KJR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="h5d-23-K75"/>
                     <constraint firstAttribute="trailing" secondItem="KUh-jM-UdH" secondAttribute="trailing" id="iJc-QM-fRy"/>
+                    <constraint firstItem="oyM-Ah-9kS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kxp-Ko-aKL"/>
                     <constraint firstAttribute="bottom" secondItem="KUh-jM-UdH" secondAttribute="bottom" id="nuC-Sy-bfr"/>
                     <constraint firstAttribute="trailingMargin" secondItem="JiA-9Y-aWv" secondAttribute="trailing" constant="12" id="q9f-Bx-Gty"/>
                     <constraint firstItem="lww-xR-ykA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ult-HT-vgU"/>

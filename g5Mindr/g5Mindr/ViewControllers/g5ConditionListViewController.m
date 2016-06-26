@@ -17,6 +17,7 @@
 #import "g5ConditionTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
+#import "MDRMessageAndCopy.h"
 #import "AMWaveViewController.h"
 
 #import "MDRCondition.h"
@@ -38,9 +39,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     if (self) {
         self.reminder = reminder;
         
-        self.edgesForExtendedLayout     = UIRectEdgeNone;
+        self.edgesForExtendedLayout = UIRectEdgeNone;
         
-        self.navigationItem.title = @"Choose Conditions";
+        self.navigationItem.title = CONDITION_LIST_VC_TITLE;
         self.navigationItem.hidesBackButton = YES;
         
         self.tableView.bounces          = YES;
@@ -63,6 +64,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationItem.hidesBackButton = YES;
+
     self.bounceNavigationController.delegate = self;
     [self setUpCells];
 }

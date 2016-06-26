@@ -25,10 +25,10 @@
     [self.checkMarkImageView setHidden:!self.selected];
     
     if (self.selected) {
-        [self.dayOfTheWeekLabel setTextColor:[UIColor whiteColor]];
+        [self.dayOfTheWeekLabel setTextColor:GOLD_COLOR];
     }
     else {
-        [self.dayOfTheWeekLabel setTextColor:SECONDARY_FILL_COLOR];
+        [self.dayOfTheWeekLabel setTextColor:PERIWINKE_BLUE_COLOR];
     }
 }
 

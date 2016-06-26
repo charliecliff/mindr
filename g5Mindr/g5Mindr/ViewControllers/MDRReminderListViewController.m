@@ -40,7 +40,7 @@
     self.navigationItem.title = REMINDERS_VC_TITLE;
     
     [self setUpTableView];
-    [self setUpEditButton];
+//    [self setUpEditButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -103,7 +103,7 @@
 
 - (void)setEmptyInventoryHidden:(BOOL)hidden {
     [self.tableView setHidden:!hidden];
-    [self.editButton setHidden:!hidden];
+//    [self.editButton setHidden:!hidden];
     [self.containerView setHidden:hidden];
 }
 

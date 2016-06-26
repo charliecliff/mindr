@@ -10,3 +10,5 @@
 #define REMINDERS_VC_RIGHT_BAR_BUTTON_COPY @"Edit"
 
 #define CONDITION_LIST_VC_TITLE @"Choose Conditions"
+
+#define CONDITION_VC_TITLE_DAY @"DAY"

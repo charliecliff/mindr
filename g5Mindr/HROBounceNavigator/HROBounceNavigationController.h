@@ -32,6 +32,11 @@
 - (UIColor *)bounceButtonFillColor;
 - (UIColor *)bottomButtonFillColor;
 
+- (UIColor *)rightButtonDisabledFillColor;
+- (UIColor *)leftButtonDisabledFillColor;
+- (UIColor *)bounceButtonDisabledFillColor;
+- (UIColor *)bottomButtonDisabledFillColor;
+
 - (UIColor *)strokeColor;
 - (UIColor *)borderColor;
 - (UIColor *)textColor;

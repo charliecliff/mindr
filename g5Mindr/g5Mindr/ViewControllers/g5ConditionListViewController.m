@@ -74,7 +74,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     [self setUpCells];
     
     if ([self.reminder hasActiveConditions]) {
+        
         [self.bounceNavigationController setRightButtonEnabled:YES];
+    
     }
     else {
         [self.bounceNavigationController setRightButtonEnabled:NO];

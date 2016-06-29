@@ -13,6 +13,7 @@
 
 @interface g5ReminderManager ()
 
+@property(nonatomic, strong, readwrite) MDRUserContext *userContext;
 @property(nonatomic, strong, readwrite) MDRReminderContext *reminderContext;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
@@ -37,6 +38,7 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
+        self.userContext = [[MDRUserContext alloc] init];
         self.reminderIDs = [[NSMutableOrderedSet alloc] init];
         self.reminders = [[NSMutableDictionary alloc] init];
     }
@@ -69,6 +71,13 @@
 
 - (MDRReminder *)reminderForID:(NSString *)reminderID {
     return [self.reminders objectForKey:reminderID];
+}
+
+#pragma mark - Setters
+
+- (void)setPushToken:(NSString *)token {
+    self.userContext.userID = token;
+//    [self updateContext];
 }
 
 #pragma mark - API Calls

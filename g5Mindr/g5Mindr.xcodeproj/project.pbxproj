@@ -57,7 +57,6 @@
 		DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */; };
 		DA543D991D0C9F920079BBB0 /* MDRTemperatureComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D981D0C9F920079BBB0 /* MDRTemperatureComponents.m */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
-		DA543DA01D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9F1D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.m */; };
 		DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */; };
 		DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */; };
 		DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */; };
@@ -74,6 +73,7 @@
 		DABED09B1CA39E27004100AF /* g5WeatherTypeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DABED0981CA39E27004100AF /* g5WeatherTypeConditionViewController.xib */; };
 		DAC771A81D2342EF00036B44 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771A71D2342EF00036B44 /* MDRUserContext.m */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
+		DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */; };
 		DAC8BF1F1CCC6CF0004CA7D6 /* g5ReminderExplanationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC8BF1E1CCC6CF0004CA7D6 /* g5ReminderExplanationViewController.xib */; };
 		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
@@ -175,8 +175,6 @@
 		DA543D981D0C9F920079BBB0 /* MDRTemperatureComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTemperatureComponents.m; sourceTree = "<group>"; };
 		DA543D9B1D0CA1D20079BBB0 /* HROPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPickerTableView.h; sourceTree = "<group>"; };
 		DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPickerTableView.m; sourceTree = "<group>"; };
-		DA543D9E1D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Cancel.h"; sourceTree = "<group>"; };
-		DA543D9F1D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Cancel.m"; sourceTree = "<group>"; };
 		DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
 		DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
 		DA863AB71CE6CC5900568A79 /* g5CreateReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CreateReminderConditionListViewController.h; sourceTree = "<group>"; };
@@ -204,6 +202,8 @@
 		DAC771A71D2342EF00036B44 /* MDRUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserContext.m; sourceTree = "<group>"; };
 		DAC771AD1D234ADA00036B44 /* MDRLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRLocationManager.h; sourceTree = "<group>"; };
 		DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRLocationManager.m; sourceTree = "<group>"; };
+		DAC771B11D234E1C00036B44 /* UIGestureRecognizer+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Cancel.h"; sourceTree = "<group>"; };
+		DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Cancel.m"; sourceTree = "<group>"; };
 		DAC8BF1E1CCC6CF0004CA7D6 /* g5ReminderExplanationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderExplanationViewController.xib; sourceTree = "<group>"; };
 		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
@@ -309,8 +309,7 @@
 			children = (
 				DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */,
 				DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */,
-				DA543D9E1D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.h */,
-				DA543D9F1D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.m */,
+				DAC771B01D234E1C00036B44 /* Categories */,
 				DA508DF41CCF0B4100C96AED /* CoreAnimator */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
 				DA30CF091C9DD4CC00FD4438 /* Managers */,
@@ -529,6 +528,15 @@
 				DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */,
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		DAC771B01D234E1C00036B44 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DAC771B11D234E1C00036B44 /* UIGestureRecognizer+Cancel.h */,
+				DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */ = {
@@ -779,6 +787,7 @@
 				DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */,
 				DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */,
 				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,
+				DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
 				DAF727AD1D1ED36400A3193E /* MDRReminderClient.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */,
@@ -792,7 +801,6 @@
 				DAF36BAC1D06409A001DF406 /* MDRTimeComponents.m in Sources */,
 				DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */,
 				DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */,
-				DA543DA01D0CC9E00079BBB0 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA30CF401C9E239200FD4438 /* g5LocationCondition.m in Sources */,
 				DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */,
 				DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */,

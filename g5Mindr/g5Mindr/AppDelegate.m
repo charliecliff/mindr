@@ -85,15 +85,9 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    //    const void *devTokenBytes = [devToken bytes];
-    //    self.registered = YES;
-    //    [self sendProviderDeviceToken:devTokenBytes]; // custom method
-    
-    //    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
-    //    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    //    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"push_token"];
-    
-    
+    NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"push_token"];
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {

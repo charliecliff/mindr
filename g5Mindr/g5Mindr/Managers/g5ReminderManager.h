@@ -53,6 +53,11 @@
 - (MDRReminder *)reminderForID:(NSString *)reminderID;
 
 /**
+ Setters
+ */
+- (void)setPushToken:(NSString *)token;
+
+/**
     Persistence
  */
 - (void)saveReminders;

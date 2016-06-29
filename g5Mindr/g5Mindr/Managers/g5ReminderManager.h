@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import "MDRReminder.h"
-#import "MDRReminderContext.h"
-#import "MDRWeatherMonitor.h"
-#import "MDRLocationMonitor.h"
+#import "MDRUserContext.h"
+#import "MDRLocationManager.h"
 #import "g5PersistenceManager.h"
 
 @interface g5ReminderManager : NSObject
@@ -19,7 +18,7 @@
 /**
  
  */
-@property(nonatomic, strong, readonly) MDRReminderContext *reminderContext;
+@property(nonatomic, strong, readonly) MDRUserContext *userContext;
 
 /**
  
@@ -30,12 +29,6 @@
  
  */
 @property(nonatomic, strong, readonly) NSMutableDictionary *reminders;
-
-/**
- All of the Clients that push data to the Reminder Manager
- */
-@property(nonatomic, strong) MDRWeatherMonitor *weatherMonitor;
-@property(nonatomic, strong) MDRLocationMonitor *locationMonitor;
 
 /**
  
@@ -58,11 +51,6 @@
  */
 - (MDRReminder *)reminderForIndex:(NSInteger)index;
 - (MDRReminder *)reminderForID:(NSString *)reminderID;
-
-/**
-    Updating the Conditions
- */
-- (void)validateReminderConditions;
 
 /**
     Persistence

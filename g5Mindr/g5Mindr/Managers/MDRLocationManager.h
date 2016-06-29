@@ -11,11 +11,11 @@
 
 #define NOTIFICATION_LOCATION_SERVICES_ARE_NOT_AVAILABLE @"Location Services Are Not Available"
 
-@interface MDRLocationMonitor : NSObject <CLLocationManagerDelegate>
+@interface MDRLocationManager : NSObject <CLLocationManagerDelegate>
 
 @property(nonatomic, strong, readonly) CLLocation *currentLocation;
 
-+ (MDRLocationMonitor *)sharedManager;
++ (MDRLocationManager *)sharedManager;
 
 - (void)startUpdatingLocation;
 - (void)stopUpdatingLocation;

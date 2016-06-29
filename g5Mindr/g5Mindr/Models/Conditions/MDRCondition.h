@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MDRReminderContext.h"
 
 typedef enum {
     g5ConditionIDDate = 0,
@@ -40,10 +39,5 @@ extern NSString *const g5LocationType;
 
 - (NSString *)conditionDescription;
 - (NSString *)conditionIconName;
-
-/**
-    Validation of Conditions are done by passing in a Reminder Context.
- */
-- (BOOL)validateWithContext:(MDRReminderContext *)conext;
 
 @end

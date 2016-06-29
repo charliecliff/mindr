@@ -7,6 +7,7 @@
 //
 
 #import "g5ReminderManager.h"
+#import "MDRReminderClient.h"
 
 #define REMINDERS @"REMINDERS"
 
@@ -36,39 +37,10 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
-        self.reminderContext = [[MDRReminderContext alloc] init];
         self.reminderIDs = [[NSMutableOrderedSet alloc] init];
         self.reminders = [[NSMutableDictionary alloc] init];
-        
-        [self bindToWeatherMonitor];
-        [self bindToLocationMonitor];
     }
     return self;
-}
-
-#pragma mark - Set Up
-
-- (void)bindToWeatherMonitor {
-    self.weatherMonitor = [MDRWeatherMonitor sharedMonitor];
-    
-    RACSignal *signalToUpdateCurrentWeather = RACObserve(self.weatherMonitor, currentWeather);
-    __block __typeof(self)blockSelf = self;
-    [signalToUpdateCurrentWeather subscribeNext:^(g5Weather *weather) {
-        blockSelf.reminderContext.currentTemperature = weather.temperature;
-        blockSelf.reminderContext.currentWeatherType = weather.type;
-        [blockSelf validateReminderConditions];
-    }];
-}
-
-- (void)bindToLocationMonitor {
-    self.locationMonitor = [MDRLocationMonitor sharedManager];
-    
-    RACSignal *signalToUpdateCurrentLocation = RACObserve(self.locationMonitor, currentLocation);
-    __block __typeof(self)blockSelf = self;
-    [signalToUpdateCurrentLocation subscribeNext:^(CLLocation *location) {
-        blockSelf.reminderContext.currentLocation = location;
-        [blockSelf validateReminderConditions];
-    }];
 }
 
 #pragma mark - Getters
@@ -99,26 +71,22 @@
     return [self.reminders objectForKey:reminderID];
 }
 
-#pragma mark - Validations
+#pragma mark - API Calls
 
-- (void)validateReminderConditions {
-    for (MDRReminder *reminder in self.reminders.allValues) {        
-        if ( [reminder validateWithContext:self.reminderContext] )
-            [self postPushNotificationForReminder:reminder];
-    }
+- (void)updateContext {
+    [MDRReminderClient postUserContext:self.userContext withSuccess:^{
+        
+    } withFailure:^{
+        
+    }];
 }
 
-#pragma mark - Post Push Notifications
-
-- (void)postPushNotificationForReminder:(MDRReminder *)reminder {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [[NSDate date] dateByAddingTimeInterval:2];
-    localNotification.alertBody = reminder.shortExplanation;
-    localNotification.alertAction = @"Remind Me";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    localNotification.applicationIconBadgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber] + 1;
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+- (void)updateReminders {
+    [MDRReminderClient postReminders:self.reminders.allValues withUserID:self.userContext.userID withSuccess:^{
+        
+    } withFailure:^{
+        
+    }];
 }
 
 #pragma mark - Persistence

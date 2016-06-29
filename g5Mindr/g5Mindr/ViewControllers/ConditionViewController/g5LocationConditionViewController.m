@@ -7,7 +7,7 @@
 //
 
 #import "g5LocationConditionViewController.h"
-#import "MDRLocationMonitor.h"
+#import "MDRLocationManager.h"
 #import "g5LocationCondition.h"
 #import "g5ConfigAndMacros.h"
 
@@ -177,7 +177,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 - (void)updateLocationAddress {
     __weak g5LocationConditionViewController *weakSelf = self;
-    [[MDRLocationMonitor sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
+    [[MDRLocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
                                                  withSuccess:^(NSString *addressLine) {
                                                      g5LocationConditionViewController *strongSelf = weakSelf;
                                                      ((g5LocationCondition *)strongSelf.condition).address = addressLine;

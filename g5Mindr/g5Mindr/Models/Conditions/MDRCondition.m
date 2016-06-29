@@ -74,10 +74,6 @@ NSString *const g5LocationType      = @"location";
     assert(false);
 }
 
-- (BOOL)validateWithContext:(MDRReminderContext *)conext {
-    assert(false);
-}
-
 #pragma mark - Persistence
 
 - (NSDictionary *)encodeToDictionary {

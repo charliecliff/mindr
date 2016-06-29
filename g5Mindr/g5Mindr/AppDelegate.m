@@ -14,10 +14,9 @@
 #import "mindrBounceNavigationViewController.h"
 #import "MDRReminderListViewController.h"
 
-#import "MDRWeatherMonitor.h"
 
 #import "g5ReminderManager.h"
-#import "MDRLocationMonitor.h"
+#import "MDRLocationManager.h"
 
 @import GoogleMaps;
 
@@ -46,7 +45,7 @@
     
     //  4. Managers
     [[g5ReminderManager sharedManager] loadReminders];
-    [[MDRLocationMonitor sharedManager] startUpdatingLocation];
+    [[MDRLocationManager sharedManager] startUpdatingLocation];
     
     //  6. Root View Controller
     UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderList" bundle:nil];
@@ -61,14 +60,6 @@
     [self.window makeKeyAndVisible];
     
     return YES;
-}
-
-- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    [[g5ReminderManager sharedManager] validateReminderConditions];
-    
-    if (completionHandler) {
-        completionHandler(UIBackgroundFetchResultNewData);
-    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

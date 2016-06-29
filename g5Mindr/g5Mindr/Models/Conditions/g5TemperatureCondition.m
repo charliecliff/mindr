@@ -61,16 +61,6 @@
     return @"TEMPERATURE";
 }
 
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    if ( ([self.temperature integerValue]< ([context.currentTemperature integerValue]+ 1))  &&
-        ([self.temperature integerValue]> ([context.currentTemperature integerValue] - 1))) {
-        return YES;
-    }
-    return NO;
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

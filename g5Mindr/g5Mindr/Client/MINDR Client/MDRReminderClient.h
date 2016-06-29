@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class MDRUserContext;
+
 @interface MDRReminderClient : NSObject
 
 + (void)getRemindersWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
 
-+ (void)putReminders:(NSArray *)reminders withUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
++ (void)postReminders:(NSArray *)reminders withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
+
++ (void)getUserContextWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
+
++ (void)postUserContext:(MDRUserContext *)context withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
 
 @end

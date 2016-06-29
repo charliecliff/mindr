@@ -50,28 +50,6 @@
     return @"DATE";
 }
 
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    NSDate* contextDate = context.currentDate;
-    NSDate* dateToValidate = [self.dates firstObject];
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *componentsOfContextDate = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
-                                                            fromDate:contextDate];
-    NSDateComponents *componentsOfDateToValidate = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
-                                                               fromDate:dateToValidate];
-    
-    BOOL yearsMatch = (componentsOfContextDate.year == componentsOfDateToValidate.year);
-    BOOL monthsMatch = (componentsOfContextDate.month == componentsOfDateToValidate.month);
-    BOOL daysMatch = (componentsOfContextDate.day == componentsOfDateToValidate.day);
-    
-    if (daysMatch && monthsMatch && yearsMatch) {
-        return YES;
-    }
-    return NO;
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

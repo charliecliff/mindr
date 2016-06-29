@@ -79,19 +79,6 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
     return CONDITION_TITLE_FOR_DAY_OF_THE_WEEK;
 }
 
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    NSDate* contextDate = context.currentDate;
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *componentsOfContextDate = [calendar components:NSCalendarUnitWeekday
-                                                            fromDate:contextDate];
-    
-    NSUInteger weekday = componentsOfContextDate.weekday;
-    return [self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:weekday] ];
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

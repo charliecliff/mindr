@@ -7,7 +7,6 @@
 //
 
 #import "g5ConditionViewController.h"
-#import "MDRWeatherMonitor.h"
 
 @interface g5WeatherTypeConditionViewController : g5ConditionViewController
 

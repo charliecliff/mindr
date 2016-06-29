@@ -7,7 +7,7 @@
 //
 
 #import "g5LocationCondition.h"
-#import "MDRLocationMonitor.h"
+#import "MDRLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
 
 #define KEY_CONDITION_LOCATION @"KEY_CONDITION_LOCATION"
@@ -35,7 +35,7 @@ static NSString *const kMDRLocationRadius = @"radius";
     self = [super init];
     if (self != nil) {
         self.type       = g5LocationType;
-        self.location   = [MDRLocationMonitor sharedManager].currentLocation;
+        self.location   = [MDRLocationManager sharedManager].currentLocation;
         self.radius     = 100;              // 100 Meters
         self.address    = @"";
     }
@@ -51,13 +51,6 @@ static NSString *const kMDRLocationRadius = @"radius";
         return resultString;
     }
     return @"LOCATION";
-}
-
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    CLLocationDistance distanceToCurrentLocation = [context.currentLocation distanceFromLocation:self.location];
-    return !(distanceToCurrentLocation > self.radius);
 }
 
 #pragma mark - Persistence

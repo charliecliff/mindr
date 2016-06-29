@@ -14,8 +14,7 @@
 #import "g5WeatherTypeCondition.h"
 #import "g5TemperatureCondition.h"
 
-#import "MDRWeatherMonitor.h"
-#import "MDRLocationMonitor.h"
+#import "MDRLocationManager.h"
 
 #define KEY_ID                          @"KEY_ID"
 #define KEY_SHORT_EXPLANATION           @"KEY_SHORT_EXPLANATION"
@@ -165,20 +164,6 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 - (BOOL)hasEmoticon {
     return !(self.emoticonUnicodeCharacter == nil);
-}
-
-#pragma mark - Validate
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-
-    BOOL allActiveConditionsAreValid = [self hasActiveConditions];
-    for (MDRCondition *currentCondition in self.conditions.allValues) {
-        if (currentCondition.isActive) {
-            if ( ![currentCondition validateWithContext:context] )
-                allActiveConditionsAreValid = NO;
-        }
-    }
-    return allActiveConditionsAreValid;
 }
 
 #pragma mark - Persistence

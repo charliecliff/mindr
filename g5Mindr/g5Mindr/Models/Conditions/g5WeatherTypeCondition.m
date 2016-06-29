@@ -7,9 +7,18 @@
 //
 
 #import "g5WeatherTypeCondition.h"
-#import "MDRWeatherMonitor.h"
 
 #define KEY_CONDITION_WEATHER_TYPES @"KEY_CONDITION_WEATHER_TYPES"
+
+NSString *const g5WeatherSunny              = @"weather_mostlysunny";
+NSString *const g5WeatherPartlyCloudy       = @"weather_partlycloudy";
+NSString *const g5WeatherMostlyCloudy       = @"weather_mostlycloudy";
+NSString *const g5WeatherLightRain          = @"weather_rainy";
+NSString *const g5WeatherHeavyRain          = @"weather_reallyrainy";
+NSString *const g5WeatherSeverThunderstorm  = @"weather_thunderstorms";
+NSString *const g5WeatherFoggy              = @"weather_foggy";
+NSString *const g5WeatherWindy              = @"weather_windy";
+NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 @interface g5WeatherTypeCondition ()
 
@@ -53,12 +62,6 @@
         return resultString;
     }
     return @"WEATHER";
-}
-
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    return [self.weatherTypes containsObject:context.currentWeatherType];
 }
 
 #pragma mark - Weather Type Management

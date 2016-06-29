@@ -70,24 +70,6 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     return @"TIME";
 }
 
-#pragma mark - Validation
-
-- (BOOL)validateWithContext:(MDRReminderContext *)context {
-    NSDate* contextDate = context.currentDate;
-    
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *componentsOfContextDate = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute)
-                                                            fromDate:contextDate];
-    
-    BOOL hoursMatch = (componentsOfContextDate.hour == self.hour);
-    BOOL minutesMatch = (componentsOfContextDate.minute == self.minute);
-    
-    if (hoursMatch && minutesMatch) {
-        return YES;
-    }
-    return NO;
-}
-
 #pragma mark - Setters
 
 - (void)setDate:(NSDate *)date {

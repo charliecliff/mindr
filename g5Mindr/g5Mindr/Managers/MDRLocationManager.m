@@ -6,11 +6,10 @@
 //  Copyright (c) 2015 RideScout. All rights reserved.
 //
 
-#import "MDRLocationMonitor.h"
-#import "g5ReminderManager.h" //    a CIRCULAR reference!!!
+#import "MDRLocationManager.h"
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface MDRLocationMonitor ()
+@interface MDRLocationManager ()
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSTimer *locationServicesEnabledMonitoringTimer;
@@ -18,12 +17,12 @@
 
 @end
 
-@implementation MDRLocationMonitor
+@implementation MDRLocationManager
 
 #pragma mark - Singleton
 
-+ (MDRLocationMonitor *)sharedManager {
-    static MDRLocationMonitor *_sharedLocationManager = nil;
++ (MDRLocationManager *)sharedManager {
+    static MDRLocationManager *_sharedLocationManager = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _sharedLocationManager = [[self alloc] init];
@@ -33,7 +32,7 @@
 
 #pragma mark - Init
 
-- (MDRLocationMonitor *)init {
+- (MDRLocationManager *)init {
     self = [super init];
     if ( self != nil) {
         self.currentLocation = nil;
@@ -78,8 +77,6 @@
     NSLog(@"didUpdateLocations: %@", [NSDate date]);
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
-    
-    [[g5ReminderManager sharedManager] validateReminderConditions];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -102,12 +99,6 @@
     if ( ![CLLocationManager locationServicesEnabled] ) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LOCATION_SERVICES_ARE_NOT_AVAILABLE object:nil];
     };
-}
-
-#pragma mark - g5Location Source
-
-- (CLLocation *)currentLocation {
-    return _currentLocation;
 }
 
 #pragma mark - Places Source

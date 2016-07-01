@@ -12,6 +12,9 @@
 static NSString *const G5DayOfTheWeekDateFormatter = @"EEEE";
 static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
+static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
+static NSString *const MDRDaysOfTheWeekString = @"days_of_the_week_string";
+
 @interface g5DayOfTheWeekCondition ()
 
 @property(nonatomic, strong, readwrite) NSString *dayOfTheWeekString;
@@ -21,23 +24,12 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
 @implementation g5DayOfTheWeekCondition
 
-#pragma mark - Init
+#pragma mark - Mantle Parsing
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self = [super initWithDictionary:dictionary];
-    if (self != nil) {
-        [self parseDictionary:dictionary];
-    }
-    return self;
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self != nil) {
-        self.type = g5DayOfTheWeekType;
-        self.daysOfTheWeek = [[NSMutableSet alloc] initWithObjects:[NSNumber numberWithDouble:1], nil];
-    }
-    return self;
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
+    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"dayOfTheWeekString":MDRDaysOfTheWeekString,
+                                                                          @"daysOfTheWeek":MDRDaysOfTheWeek}];
 }
 
 #pragma mark - Setters
@@ -77,19 +69,6 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
         return resultString;
     }
     return CONDITION_TITLE_FOR_DAY_OF_THE_WEEK;
-}
-
-#pragma mark - Persistence
-
-- (void)parseDictionary:(NSDictionary *)dictionary {
-    NSArray *arrayOfDaysOfTheWeek = [dictionary objectForKey:G5DaysOfTheWeek];
-    self.daysOfTheWeek = [NSMutableSet setWithArray:arrayOfDaysOfTheWeek];
-}
-
-- (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:self.daysOfTheWeek.allObjects forKey:G5DaysOfTheWeek];
-    return dictionary;
 }
 
 @end

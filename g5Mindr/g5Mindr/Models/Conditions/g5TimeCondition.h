@@ -22,6 +22,4 @@ typedef enum {
 @property(nonatomic, readonly) NSInteger dateComponentForHour;
 @property(nonatomic, readonly) NSInteger dateComponentForMinute;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

@@ -33,7 +33,7 @@
 - (void)configureWithReminder:(MDRReminder *)reminder {
     self.reminder = reminder;
     [self.titleLabel setText:self.reminder.title];
-    [self.explanationLabel setText:self.reminder.shortExplanation];
+    [self.explanationLabel setText:self.reminder.explanation];
     [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];
     
     [self configureOuterRingWithColor:[UIColor whiteColor]];

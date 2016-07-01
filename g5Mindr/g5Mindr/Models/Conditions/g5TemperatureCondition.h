@@ -21,6 +21,4 @@ typedef enum {
 @property(nonatomic) NSComparisonResult temperatureComparisonType;
 @property(nonatomic, strong) NSNumber *temperature;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

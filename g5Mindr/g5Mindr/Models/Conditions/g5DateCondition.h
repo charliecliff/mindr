@@ -12,6 +12,4 @@
 
 @property(nonatomic, strong) NSMutableArray *dates;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
-
 @end

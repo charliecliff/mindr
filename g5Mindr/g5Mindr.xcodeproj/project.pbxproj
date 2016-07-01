@@ -19,7 +19,6 @@
 		DA0C4B441CC463ED0030F927 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B431CC463ED0030F927 /* SystemConfiguration.framework */; };
 		DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */; };
 		DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B471CC4640C0030F927 /* libz.tbd */; };
-		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
 		DA0FE3E21CBDC30F00B64632 /* g5CalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */; };
 		DA0FE3E51CBDC32400B64632 /* g5CalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */; };
 		DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */; };
@@ -115,8 +114,6 @@
 		DA0C4B431CC463ED0030F927 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		DA0C4B471CC4640C0030F927 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5PersistenceManager.h; sourceTree = "<group>"; };
-		DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5PersistenceManager.m; sourceTree = "<group>"; };
 		DA0FE3E11CBDC30F00B64632 /* g5CalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5CalendarHeaderView.xib; sourceTree = "<group>"; };
 		DA0FE3E31CBDC32400B64632 /* g5CalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarHeaderView.h; sourceTree = "<group>"; };
 		DA0FE3E41CBDC32400B64632 /* g5CalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarHeaderView.m; sourceTree = "<group>"; };
@@ -389,8 +386,6 @@
 			children = (
 				DAC771AD1D234ADA00036B44 /* MDRLocationManager.h */,
 				DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */,
-				DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */,
-				DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */,
 				DA30CF291C9DF96A00FD4438 /* g5ReminderManager.h */,
 				DA30CF2A1C9DF96A00FD4438 /* g5ReminderManager.m */,
 			);
@@ -813,7 +808,6 @@
 				DA30CF371C9E05B100FD4438 /* MDRCondition.m in Sources */,
 				DA2EA6DF1CFB569F004338CA /* g5DayOfTheWeekCondition.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* g5DateCondition.m in Sources */,
-				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

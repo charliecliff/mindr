@@ -32,6 +32,17 @@ static NSString *const MDRDaysOfTheWeekString = @"days_of_the_week_string";
                                                                           @"daysOfTheWeek":MDRDaysOfTheWeek}];
 }
 
+#pragma mark - Init
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type = g5DayOfTheWeekType;
+        self.daysOfTheWeek = [[NSMutableSet alloc] initWithObjects:[NSNumber numberWithDouble:1], nil];
+    }
+    return self;
+}
+
 #pragma mark - Setters
 
 - (void)setDayOfTheWeek:(NSInteger)weekday {

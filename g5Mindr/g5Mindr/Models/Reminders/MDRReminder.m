@@ -63,6 +63,27 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
              @"timeCondition":kMDRTimeCondition};
 }
 
+#pragma mark - Init
+
+- (instancetype)init {
+    self= [super init];
+    if (self != nil) {
+        self.conditionIDs = [[NSMutableOrderedSet alloc] init];
+        self.conditions   = [[NSMutableDictionary alloc] init];
+
+        [self generateUID];
+
+        self.isActive = YES;
+        self.explanation = nil;
+        self.emoticonUnicodeCharacter = nil;
+        self.notificationSound = @"default";
+        self.isIconOnlyNotification = NO;
+
+        [self setUpConditionsSet];
+    }
+    return self;
+}
+
 #pragma mark - Set Up
 
 - (void)setUpConditionsSet {

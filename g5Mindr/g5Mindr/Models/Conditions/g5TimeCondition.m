@@ -32,6 +32,18 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
                                                                           @"meridian":MDRTimeComponentMeridian}];
 }
 
+#pragma mark - Init
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type = g5TimeType;
+        self.hour = 12;
+        self.minute = 0;
+    }
+    return self;
+}
+
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {

@@ -25,6 +25,18 @@ static NSString *const kMDRTemperatureUnit           = @"unit";
                                                                           @"temperature":kMDRTemperature}];
 }
 
+#pragma mark - Init
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type        = g5TemperatureType;
+        self.temperature = [NSNumber numberWithFloat:67.0];
+        self.temperatureComparisonType = NSOrderedSame;
+    }
+    return self;
+}
+
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {

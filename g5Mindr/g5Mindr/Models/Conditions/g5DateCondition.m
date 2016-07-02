@@ -8,15 +8,31 @@
 
 #import "g5DateCondition.h"
 
-static NSString *const kMDRDates = @"dates";
+#define KEY_CONDITION_DATES @"KEY_CONDITION_DATES"
+
+@interface g5DateCondition ()
+
+@end
 
 @implementation g5DateCondition
 
-#pragma mark - Mantle Parsing
+#pragma mark - Init
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
-    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"dates":kMDRDates}];
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type  = g5DateType;
+        self.dates = [NSMutableArray arrayWithObjects:[NSDate date], nil];
+    }
+    return self;
 }
 
 #pragma mark - Over Ride
@@ -32,6 +48,32 @@ static NSString *const kMDRDates = @"dates";
         return [NSString stringWithFormat:@"On %@", dateString];
     }
     return @"DATE";
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    NSArray *arrayOfDateEpochs = [dictionary objectForKey:KEY_CONDITION_DATES];
+    
+    NSMutableArray *tmpMutableArray = [[NSMutableArray alloc] init];
+    for (NSNumber *epochTimeInSecondsNumber in arrayOfDateEpochs) {
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[epochTimeInSecondsNumber intValue]];
+        [tmpMutableArray addObject:date];
+    }
+    self.dates = [NSMutableArray arrayWithArray:tmpMutableArray];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    
+    NSMutableArray *arrayOfDateEpochs = [[NSMutableArray alloc] init];
+    for (NSDate *currentDate in self.dates) {
+        NSTimeInterval epochTimeInSeconds = [currentDate timeIntervalSince1970];
+        [arrayOfDateEpochs addObject:[NSNumber numberWithInt:epochTimeInSeconds]];
+    }
+    
+    [dictionary setObject:arrayOfDateEpochs forKey:KEY_CONDITION_DATES];
+    return dictionary;
 }
 
 @end

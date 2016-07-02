@@ -6,11 +6,11 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 @class CLLocation;
 
-@interface MDRUserContext : MTLModel <MTLJSONSerializing>
+@interface MDRUserContext : NSObject
 
 @property(nonatomic, strong) NSString *userID;
 @property(nonatomic, strong) CLLocation *currentLocation;

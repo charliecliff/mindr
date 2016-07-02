@@ -10,8 +10,6 @@
 
 #define KEY_CONDITION_WEATHER_TYPES @"KEY_CONDITION_WEATHER_TYPES"
 
-static NSString *const kMDRWeatherTypes = @"weather_types";
-
 NSString *const g5WeatherSunny              = @"weather_mostlysunny";
 NSString *const g5WeatherPartlyCloudy       = @"weather_partlycloudy";
 NSString *const g5WeatherMostlyCloudy       = @"weather_mostlycloudy";
@@ -30,11 +28,26 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 @implementation g5WeatherTypeCondition
 
-#pragma mark - Mantle Parsing
+#pragma mark - Init
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
-    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"weatherTypes":kMDRWeatherTypes}];
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        self.type        = g5WeatherType;
+        self.weatherTypes= [[NSMutableSet alloc] init];
+        
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type        = g5WeatherType;
+        self.weatherTypes= [[NSMutableSet alloc] initWithObjects:g5WeatherSunny, nil];
+    }
+    return self;
 }
 
 #pragma mark - Over Ride
@@ -63,6 +76,19 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 - (void)addWeatherType:(NSString *)weatherType {
     [self.weatherTypes addObject:weatherType];
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    NSArray *arrayOfWeatherTypes = [dictionary objectForKey:KEY_CONDITION_WEATHER_TYPES];
+    self.weatherTypes = [NSMutableSet setWithArray:arrayOfWeatherTypes];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    [dictionary setObject:self.weatherTypes.allObjects forKey:KEY_CONDITION_WEATHER_TYPES];
+    return dictionary;
 }
 
 #pragma mark - Class Helpers

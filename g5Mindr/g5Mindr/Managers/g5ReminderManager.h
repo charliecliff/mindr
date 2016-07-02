@@ -55,7 +55,7 @@
 /**
  Setters
  */
-- (void)setUserID:(NSString *)userID;
+- (void)setPushToken:(NSString *)token;
 
 /**
     Persistence

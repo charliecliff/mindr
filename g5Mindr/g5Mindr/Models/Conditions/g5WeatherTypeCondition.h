@@ -20,6 +20,8 @@ extern NSString *const g5WeatherSnowy;
 
 @interface g5WeatherTypeCondition : MDRCondition
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
 - (BOOL)containsWeatherType:(NSString *)weatherType;
 - (void)removeWeatherType:(NSString *)weatherType;
 - (void)addWeatherType:(NSString *)weatherType;

@@ -11,12 +11,8 @@
 
 #define REMINDERS @"REMINDERS"
 
-
-static NSString *const MDRPushToken = @"push_token";
-
 @interface g5ReminderManager ()
 
-@property(nonatomic, strong, readwrite) NSString *userID;
 @property(nonatomic, strong, readwrite) MDRUserContext *userContext;
 @property(nonatomic, strong, readwrite) MDRReminderContext *reminderContext;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
@@ -41,9 +37,8 @@ static NSString *const MDRPushToken = @"push_token";
 
 - (g5ReminderManager *)init {
     self = [super init];
-    if (self != nil) {        
-        [self loadUserContext];
-        
+    if (self != nil) {
+        self.userContext = [[MDRUserContext alloc] init];
         self.reminderIDs = [[NSMutableOrderedSet alloc] init];
         self.reminders = [[NSMutableDictionary alloc] init];
     }
@@ -80,9 +75,9 @@ static NSString *const MDRPushToken = @"push_token";
 
 #pragma mark - Setters
 
-- (void)setUserID:(NSString *)userID {
-    self.userContext.userID = userID;
-    [self saveUserContext];
+- (void)setPushToken:(NSString *)token {
+    self.userContext.userID = token;
+//    [self updateContext];
 }
 
 #pragma mark - API Calls
@@ -105,39 +100,31 @@ static NSString *const MDRPushToken = @"push_token";
 
 #pragma mark - Persistence
 
-- (void)saveUserContext {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-    [NSKeyedArchiver archiveRootObject:self.userContext toFile:filePath];
-}
-
-- (void)loadUserContext {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"appData"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        self.userContext = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    }
-}
-
 - (void)saveReminders {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"reminders"];
-    [NSKeyedArchiver archiveRootObject:self.reminders toFile:filePath];
+    
+    NSMutableArray *arrayOfReminderDictionaries = [[NSMutableArray alloc] init];
+    for (NSString *currentReminderID in self.reminderIDs) {
+        MDRReminder *currentReminder = [self.reminders objectForKey:currentReminderID];
+        NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
+        [arrayOfReminderDictionaries addObject:currentReminderDictionary];
+    }
+    
+    NSDictionary *dictionaryToPersist = @{@"reminders":arrayOfReminderDictionaries};
+    [[g5PersistenceManager sharedManager] saveDictionary:dictionaryToPersist withID:REMINDERS];
 }
 
 - (void)loadReminders {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"reminders"];
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
-        NSData *data = [NSData dataWithContentsOfFile:filePath];
-        self.reminders = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    self.reminderIDs = [[NSMutableOrderedSet alloc] init];
+    self.reminders   = [[NSMutableDictionary alloc] init];
+    
+    NSDictionary *dictionaryToLoad = [[g5PersistenceManager sharedManager] loadDictionaryWithID:REMINDERS];
+    NSArray *arrayOfReminderDictionaries = [dictionaryToLoad objectForKey:@"reminders"];
+    
+    for (NSDictionary *currentReminderDictionary in arrayOfReminderDictionaries) {
+        MDRReminder *currentReminder = [[MDRReminder alloc] initWithDictionary:currentReminderDictionary];
+        [self.reminders setObject:currentReminder forKey:currentReminder.uid];
+        [self.reminderIDs addObject:currentReminder.uid];
     }
 }
 

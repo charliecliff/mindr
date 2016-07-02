@@ -6,7 +6,7 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
 
 typedef enum {
     g5ConditionIDDate = 0,
@@ -24,27 +24,18 @@ extern NSString *const g5WeatherType;
 extern NSString *const g5TemperatureType;
 extern NSString *const g5LocationType;
 
-@interface MDRCondition : MTLModel <MTLJSONSerializing>
+@interface MDRCondition : NSObject
 
-/**
- 
- */
 @property(nonatomic) BOOL isActive;
-
-/**
- 
- */
 @property(nonatomic) BOOL isLocked;
-
-/**
- 
- */
 @property(nonatomic, strong) NSString *uid;
+@property(nonatomic, strong) NSString *type;
 
 /**
- 
+    Initialization and Persistence
  */
-@property(nonatomic, strong) NSString *type;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)encodeToDictionary;
 
 - (NSString *)conditionDescription;
 - (NSString *)conditionIconName;

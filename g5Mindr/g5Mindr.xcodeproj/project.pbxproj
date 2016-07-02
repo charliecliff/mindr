@@ -94,7 +94,7 @@
 		DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */; };
 		DAF4125E1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */; };
 		DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */; };
-		DAF5C1AA1D272558000D3DEC /* MDRReminderClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1A91D272558000D3DEC /* MDRReminderClient.m */; };
+		DAF727AD1D1ED36400A3193E /* MDRReminderClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF727AC1D1ED36400A3193E /* MDRReminderClient.m */; };
 		DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */; };
 		DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */; };
 		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
@@ -235,8 +235,8 @@
 		DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionTableViewCell.xib; sourceTree = "<group>"; };
 		DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderTableViewCell.xib; sourceTree = "<group>"; };
 		DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5WeatherTypeConditionTableViewCell.xib; sourceTree = "<group>"; };
-		DAF5C1A81D272558000D3DEC /* MDRReminderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderClient.h; sourceTree = "<group>"; };
-		DAF5C1A91D272558000D3DEC /* MDRReminderClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderClient.m; sourceTree = "<group>"; };
+		DAF727AB1D1ED36400A3193E /* MDRReminderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderClient.h; sourceTree = "<group>"; };
+		DAF727AC1D1ED36400A3193E /* MDRReminderClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderClient.m; sourceTree = "<group>"; };
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
 		DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailSectionTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailSectionTableViewCell.m; sourceTree = "<group>"; };
@@ -492,8 +492,7 @@
 		DA8F6CAB1CA0B1E100DEF16B /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				DAF5C1A81D272558000D3DEC /* MDRReminderClient.h */,
-				DAF5C1A91D272558000D3DEC /* MDRReminderClient.m */,
+				DAF727AA1D1ED31E00A3193E /* MINDR Client */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -578,6 +577,15 @@
 				DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */,
 			);
 			path = HROBounceNavigator;
+			sourceTree = "<group>";
+		};
+		DAF727AA1D1ED31E00A3193E /* MINDR Client */ = {
+			isa = PBXGroup;
+			children = (
+				DAF727AB1D1ED36400A3193E /* MDRReminderClient.h */,
+				DAF727AC1D1ED36400A3193E /* MDRReminderClient.m */,
+			);
+			path = "MINDR Client";
 			sourceTree = "<group>";
 		};
 		DE203C273EE8525155F6095F /* Frameworks */ = {
@@ -777,6 +785,7 @@
 				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,
 				DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
+				DAF727AD1D1ED36400A3193E /* MDRReminderClient.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */,
 				DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
@@ -799,7 +808,6 @@
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,
 				DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */,
 				DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */,
-				DAF5C1AA1D272558000D3DEC /* MDRReminderClient.m in Sources */,
 				DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */,
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */,

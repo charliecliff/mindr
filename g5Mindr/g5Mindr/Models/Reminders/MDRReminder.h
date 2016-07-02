@@ -6,12 +6,13 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import <Mantle/Mantle.h>
+#import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class MDRReminderContext;
 @class MDRCondition;
 
-@interface MDRReminder : MTLModel <MTLJSONSerializing>
+@interface MDRReminder : NSObject
 
 /**
  
@@ -46,21 +47,28 @@
 /**
  
  */
-@property(nonatomic, strong) NSString *explanation;
+@property(nonatomic, strong) NSString *shortExplanation;
 
 /**
  
  */
 @property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
 
-/**
- 
- */
-@property(nonatomic, strong) NSString *notificationSound;
+
 
 
 @property(nonatomic) BOOL isIconOnlyNotification;
+@property(nonatomic, strong) NSString *pushNotificationSoundFileName;
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
+
+
+
+
+/**
+    Initialization and Persistence
+ */
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)encodeToDictionary;
 
 /**
  

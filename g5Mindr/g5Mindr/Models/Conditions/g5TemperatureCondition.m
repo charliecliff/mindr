@@ -10,19 +10,26 @@
 
 #define KEY_CONDITION_TEMPERATURE @"KEY_CONDITION_TEMPERATURE"
 
-static NSString *const kMDRTemperature               = @"temperature";
-static NSString *const kMDRTemperatureComparisonType = @"comparison_type";
-static NSString *const kMDRTemperatureUnit           = @"unit";
-
 @implementation g5TemperatureCondition
 
-#pragma mark - Mantle Parsing
+#pragma mark - Init
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
-    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"temperatureunit":kMDRTemperatureUnit,
-                                                                          @"temperatureComparisonType":kMDRTemperatureComparisonType,
-                                                                          @"temperature":kMDRTemperature}];
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super initWithDictionary:dictionary];
+    if (self != nil) {
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.type        = g5TemperatureType;
+        self.temperature = [NSNumber numberWithFloat:67.0];
+        self.temperatureComparisonType = NSOrderedSame;
+    }
+    return self;
 }
 
 #pragma mark - Over Ride
@@ -52,6 +59,18 @@ static NSString *const kMDRTemperatureUnit           = @"unit";
         return resultString;
     }
     return @"TEMPERATURE";
+}
+
+#pragma mark - Persistence
+
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    self.temperature = [dictionary objectForKey:KEY_CONDITION_TEMPERATURE];
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    [dictionary setObject:self.temperature forKey:KEY_CONDITION_TEMPERATURE];
+    return dictionary;
 }
 
 @end

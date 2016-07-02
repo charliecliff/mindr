@@ -60,7 +60,7 @@
     [super viewDidLoad];
     
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
-    self.explanationLabel.text = self.reminder.explanation;
+    self.explanationLabel.text = self.reminder.shortExplanation;
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
     self.tableViewHeightConstraint.constant = 44 * 3;
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
@@ -100,12 +100,12 @@
     
     g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
     cell2.titleLabel.text = @"Conditions";
-    cell2.explanationLabel.text = self.reminder.explanation;
+    cell2.explanationLabel.text = self.reminder.shortExplanation;
     [self.cells addObject:cell2];
 
     g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
     cell3.titleLabel.text = @"Sound";
-    cell3.explanationLabel.text = self.reminder.notificationSound;
+    cell3.explanationLabel.text = self.reminder.pushNotificationSoundFileName;
 //    [self.cells addObject:cell3];
 
     g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];

@@ -42,8 +42,8 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
  The Conditions
  */
 @property(nonatomic, strong) g5TimeCondition *timeCondition;
-@property(nonatomic, strong) g5DateCondition *dateCondition;
 @property(nonatomic, strong) g5DayOfTheWeekCondition *dayOfTheWeekCondition;
+@property(nonatomic, strong) g5DateCondition *dateCondition;
 @property(nonatomic, strong) g5TemperatureCondition *temperatureCondition;
 @property(nonatomic, strong) g5WeatherTypeCondition *weatherCondition;
 @property(nonatomic, strong) g5LocationCondition *locationCondition;
@@ -57,39 +57,10 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{@"uid": kMDRReminderUID,
              @"title": kMDRReminderTitle,
+             @"explanation": kMDRReminderExplanation,
              @"emoticonUnicodeCharacter": kMDRReminderEmoticonUnicodeCharacter,
              @"notificationSound": kMDRReminderNotificationSound,
-//              Conditions
-             @"timeCondition":kMDRTimeCondition,
-             @"dateCondition":kMDRDateCondition,
-             @"dayOfTheWeekCondition":kMDRDayOfTheWeekCondition,
-             @"temperatureCondition":kMDRTemperatureCondition,
-             @"weatherCondition":kMDRWeatherCondition,
-             @"locationCondition":kMDRLocationCondition};
-}
-
-+ (NSValueTransformer *)timeConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5TimeCondition class]];
-}
-
-+ (NSValueTransformer *)dateConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5DateCondition class]];
-}
-
-+ (NSValueTransformer *)dayOfTheWeekConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5DayOfTheWeekCondition class]];
-}
-
-+ (NSValueTransformer *)temperatureConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5TemperatureCondition class]];
-}
-
-+ (NSValueTransformer *)weatherConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5WeatherTypeCondition class]];
-}
-
-+ (NSValueTransformer *)locationConditionJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[g5LocationCondition class]];
+             @"timeCondition":kMDRTimeCondition};
 }
 
 #pragma mark - Init

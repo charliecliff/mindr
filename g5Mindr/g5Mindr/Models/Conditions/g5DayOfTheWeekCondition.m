@@ -26,10 +26,11 @@ static NSString *const MDRDaysOfTheWeekString = @"days_of_the_week_string";
 
 #pragma mark - Mantle Parsing
 
-//+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-//    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
-//    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"daysOfTheWeek":MDRDaysOfTheWeek}];
-//}
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
+    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"dayOfTheWeekString":MDRDaysOfTheWeekString,
+                                                                          @"daysOfTheWeek":MDRDaysOfTheWeek}];
+}
 
 #pragma mark - Init
 

@@ -52,12 +52,10 @@ static const NSString *reminderArrayKey = @"reminders";
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
 
     [manager POST:escapedString parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Success");
         if (success) {
             success();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure");
         if (failure) {
             failure();
         }

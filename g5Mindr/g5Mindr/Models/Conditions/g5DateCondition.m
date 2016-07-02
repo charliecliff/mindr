@@ -19,32 +19,6 @@ static NSString *const kMDRDates = @"dates";
     return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"dates":kMDRDates}];
 }
 
-+ (NSValueTransformer *)datesJSONTransformer {
-    return [MTLValueTransformer transformerUsingForwardBlock:^(NSArray *dateStrings, BOOL *success, NSError **error){
-        NSMutableArray *tmp = [[NSMutableArray alloc] init];
-        for (NSString *currentDateString in dateStrings) {
-            NSDate *date = [self.dateFormatter dateFromString:currentDateString];
-            [tmp addObject:date];
-        }
-        return tmp;
-    } reverseBlock:^(NSArray *dates, BOOL *success, NSError **error) {
-        NSMutableArray *tmp = [[NSMutableArray alloc] init];
-        for (NSDate *currentDate in dates) {
-            NSString *string = [self.dateFormatter stringFromDate:currentDate];
-            [tmp addObject:string];
-        }
-        return tmp;
-    }];
-}
-
-+ (NSDateFormatter *)dateFormatter {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    dateFormatter.dateFormat = @"yyyy-MM-dd";
-    
-    return dateFormatter;
-}
-
 #pragma mark - Init
 
 - (instancetype)init {

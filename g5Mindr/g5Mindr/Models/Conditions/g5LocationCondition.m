@@ -22,7 +22,8 @@ static NSString *const kMDRLocationRadius   = @"radius";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
     return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"radius":kMDRLocationRadius,
-                                                                          @"address":kMDRLocationAddress}];
+                                                                          @"address":kMDRLocationAddress,
+                                                                          @"location":kMDRLocationLocation}];
 }
 
 #pragma mark - Init

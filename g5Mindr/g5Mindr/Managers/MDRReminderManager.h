@@ -12,7 +12,7 @@
 #import "MDRUserContext.h"
 #import "MDRLocationManager.h"
 
-@interface g5ReminderManager : NSObject
+@interface MDRReminderManager : NSObject
 
 /**
  
@@ -32,7 +32,7 @@
 /**
  
  */
-+ (g5ReminderManager *)sharedManager;
++ (MDRReminderManager *)sharedManager;
 
 /**
  

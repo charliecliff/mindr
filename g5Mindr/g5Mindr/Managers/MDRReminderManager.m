@@ -7,7 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
-#import "g5ReminderManager.h"
+#import "MDRReminderManager.h"
 #import "MDRReminderClient.h"
 
 #define REMINDERS @"REMINDERS"
@@ -15,7 +15,7 @@
 
 static NSString *const MDRPushToken = @"push_token";
 
-@interface g5ReminderManager ()
+@interface MDRReminderManager ()
 
 @property(nonatomic, strong, readwrite) NSString *userID;
 @property(nonatomic, strong, readwrite) MDRUserContext *userContext;
@@ -25,12 +25,12 @@ static NSString *const MDRPushToken = @"push_token";
 
 @end
 
-@implementation g5ReminderManager
+@implementation MDRReminderManager
 
 #pragma mark - Singleton
 
-+ (g5ReminderManager *)sharedManager {
-    static g5ReminderManager *_manager = nil;
++ (MDRReminderManager *)sharedManager {
+    static MDRReminderManager *_manager = nil;
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         _manager = [[self alloc] init];
@@ -40,7 +40,7 @@ static NSString *const MDRPushToken = @"push_token";
 
 #pragma mark - Init
 
-- (g5ReminderManager *)init {
+- (MDRReminderManager *)init {
     self = [super init];
     if (self != nil) {        
         [self loadUserContext];

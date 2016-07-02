@@ -24,6 +24,9 @@ extern NSString *const g5WeatherType;
 extern NSString *const g5TemperatureType;
 extern NSString *const g5LocationType;
 
+extern NSString *const kMDRConditionType;
+extern NSString *const kMDRConditionAttributes;
+
 @interface MDRCondition : NSObject
 
 @property(nonatomic) BOOL isActive;

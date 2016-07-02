@@ -99,7 +99,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         }
         cell.delegate = self;
         
-        MDRCondition *currentCondition = [self.reminder conditionForID:currentConditionUID];
+        MDRCondition *currentCondition = [self.reminder.conditions objectForKey:currentConditionUID];
         
         
         if (currentCondition.isActive) {
@@ -175,10 +175,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     
     if (selectedRow < cells.count - NumberOfTrailingConditionCells) {
         NSString *currentConditionID = [self.reminder.conditionIDs objectAtIndex:selectedRow];
-        MDRCondition *selectedCondition = [self.reminder conditionForID:currentConditionID];
-        
+        MDRCondition *selectedCondition = [self.reminder.conditions objectForKey:currentConditionID];
 
-        
         if (selectedCondition.isActive) {
             [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
                 [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];

@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreLocation/CoreLocation.h>
 
-@class MDRReminderContext;
 @class MDRCondition;
 
 @interface MDRReminder : NSObject
@@ -32,11 +30,6 @@
 /**
  
  */
-@property(nonatomic, readonly) BOOL pushNotificationHasSound;
-
-/**
- 
- */
 @property(nonatomic, strong) NSString *uid;
 
 /**
@@ -47,21 +40,22 @@
 /**
  
  */
-@property(nonatomic, strong) NSString *shortExplanation;
+@property(nonatomic, strong, readonly) NSString *explanation;
 
 /**
  
  */
 @property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
 
-
+/**
+ 
+ */
+@property(nonatomic, strong, readonly) NSMutableDictionary *conditions;
 
 
 @property(nonatomic) BOOL isIconOnlyNotification;
 @property(nonatomic, strong) NSString *pushNotificationSoundFileName;
-@property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
-
-
+@property(nonatomic, strong, readonly) NSArray *conditionIDs;
 
 
 /**
@@ -69,11 +63,6 @@
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)encodeToDictionary;
-
-/**
- 
- */
-- (MDRCondition *)conditionForID:(NSString *)coniditionID;
 
 /**
  

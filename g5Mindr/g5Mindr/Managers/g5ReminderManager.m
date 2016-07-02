@@ -14,7 +14,6 @@
 @interface g5ReminderManager ()
 
 @property(nonatomic, strong, readwrite) MDRUserContext *userContext;
-@property(nonatomic, strong, readwrite) MDRReminderContext *reminderContext;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 
@@ -41,6 +40,12 @@
         self.userContext = [[MDRUserContext alloc] init];
         self.reminderIDs = [[NSMutableOrderedSet alloc] init];
         self.reminders = [[NSMutableDictionary alloc] init];
+        
+        
+        MDRReminder *dump  = [self newReminder];
+        NSDictionary *duck = [dump encodeToDictionary];
+        
+        NSLog(@"uck");
     }
     return self;
 }

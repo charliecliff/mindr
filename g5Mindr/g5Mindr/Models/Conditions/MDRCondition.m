@@ -8,11 +8,6 @@
 
 #import "MDRCondition.h"
 
-#define KEY_CONDITION_TYPE  @"KEY_CONDITION_TYPE"
-#define KEY_CONDITION_ID    @"KEY_CONDITION_ID"
-#define KEY_IS_ACTIVE       @"KEY_IS_ACTIVE"
-#define KEY_IS_LOCKED       @"KEY_IS_LOCKED"
-
 NSString *const g5NoType            = @"none";
 NSString *const g5DateType          = @"date";
 NSString *const g5TimeType          = @"time";
@@ -20,6 +15,13 @@ NSString *const g5DayOfTheWeekType  = @"day_of_the_week";
 NSString *const g5WeatherType       = @"weather";
 NSString *const g5TemperatureType   = @"temp";
 NSString *const g5LocationType      = @"location";
+
+NSString *const kMDRConditionType   = @"type";
+NSString *const kMDRConditionAttributes = @"attributes";
+
+static NSString *const kMDRConditionID      = @"id";
+static NSString *const kMDRConditionIsLocked = @"is_locked";
+static NSString *const kMDRConditionIsActive = @"is_active";
 
 @implementation MDRCondition
 
@@ -39,10 +41,10 @@ NSString *const g5LocationType      = @"location";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self != nil) {
-        self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
-        self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
-        self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
-        self.isLocked = [[dictionary objectForKey:KEY_IS_LOCKED] boolValue];
+        self.uid  = [dictionary objectForKey:kMDRConditionID];
+        self.type = [dictionary objectForKey:kMDRConditionType];
+        self.isActive = [[dictionary objectForKey:kMDRConditionIsActive] boolValue];
+        self.isLocked = [[dictionary objectForKey:kMDRConditionIsLocked] boolValue];
     }
     return self;
 }
@@ -79,10 +81,10 @@ NSString *const g5LocationType      = @"location";
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
 
-    [dictionary setObject:self.uid forKey:KEY_CONDITION_ID];
-    [dictionary setObject:self.type forKey:KEY_CONDITION_TYPE];
-    [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:KEY_IS_ACTIVE];
-    [dictionary setObject:[NSNumber numberWithBool:self.isLocked] forKey:KEY_IS_LOCKED];
+    [dictionary setObject:self.uid forKey:kMDRConditionID];
+    [dictionary setObject:self.type forKey:kMDRConditionType];
+    [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRConditionIsActive];
+    [dictionary setObject:[NSNumber numberWithBool:self.isLocked] forKey:kMDRConditionIsLocked];
 
     return dictionary;
 }

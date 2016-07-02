@@ -14,52 +14,13 @@
 #import "g5WeatherTypeCondition.h"
 #import "g5TemperatureCondition.h"
 
-#import "MDRLocationManager.h"
-
-#define KEY_ID                          @"KEY_ID"
-#define KEY_SHORT_EXPLANATION           @"KEY_SHORT_EXPLANATION"
-#define KEY_EMOTICON_UNICODE_CHARACTER  @"KEY_EMOTICON_UNICODE_CHARACTER"
-#define KEY_IS_ACTIVE                   @"KEY_IS_ACTIVE"
-
-#define KEY_NOTIFICATION_HAS_SOUND          @"KEY_NOTIFICATION_HAS_SOUND"
-#define KEY_NOTIFICATION_SOUND_FILE_NAME    @"KEY_NOTIFICATION_SOUND_FILE_NAME"
-
-#define KEY_IS_ICON_ONLY_NOTIFICATION   @"KEY_IS_ICON_ONLY_NOTIFICATION"
-
-#define KEY_TIME_CONDITION          @"KEY_TIME_CONDITION"
-#define KEY_DATE_CONDITION          @"KEY_DATE_CONDITION"
-#define KEY_WEATHER_CONDITION       @"KEY_WEATHER_CONDITION"
-#define KEY_TEMPERATURE_CONDITION   @"KEY_TEMPERATURE_CONDITION"
-#define KEY_LOCATION_CONDITION      @"KEY_LOCATION_CONDITION"
-
-static NSString *const kMDRReminderTitle         = @"title";
-static NSString *const kMDRDayOfTheWeekCondition = @"day_of_the_week";
-static NSString *const kMDRDateCondition         = @"date";
-static NSString *const kMDRTimeOfDayCondition    = @"time_of_fay";
-static NSString *const kMDRLocationCondition     = @"location";
-static NSString *const kMDRWeatherCondition      = @"weather";
-static NSString *const kMDRTemperatureCondition  = @"temperature";
-
-@interface MDRReminder ()
-
-@property(nonatomic, strong, readwrite) NSMutableOrderedSet *conditionIDs;
-
-/**
- The Conditions Dictionary
- */
-@property(nonatomic, strong) NSMutableDictionary *conditions;
-
-/**
- The Conditions
- */
-@property(nonatomic, strong) g5TimeCondition *timeCondition;
-@property(nonatomic, strong) g5DayOfTheWeekCondition *dayOfTheWeekCondition;
-@property(nonatomic, strong) g5DateCondition *dateCondition;
-@property(nonatomic, strong) g5TemperatureCondition *temperatureCondition;
-@property(nonatomic, strong) g5WeatherTypeCondition *weatherCondition;
-@property(nonatomic, strong) g5LocationCondition *locationCondition;
-
-@end
+static NSString *const kMDRReminderType                     = @"type";
+static NSString *const kMDRReminderID                       = @"id";
+static NSString *const kMDRReminderTitle                    = @"title";
+static NSString *const kMDRReminderEmoticonUnicodeCharacter = @"emoticon";
+static NSString *const kMDRReminderNotificationSound        = @"sound";
+static NSString *const kMDRReminderIsActive                 = @"active";
+static NSString *const kMDRReminderConditions               = @"conditions";
 
 @implementation MDRReminder
 
@@ -68,18 +29,24 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 - (instancetype)init {
     self= [super init];
     if (self != nil) {
-        self.conditionIDs = [[NSMutableOrderedSet alloc] init];
-        self.conditions   = [[NSMutableDictionary alloc] init];
+        CFUUIDRef uuidRef = CFUUIDCreate(NULL);
+        CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
+        CFRelease(uuidRef);
+        self.uid = (__bridge_transfer NSString *)uuidStringRef;
         
-        [self generateUID];
+        _conditionIDs = @[g5TimeType, g5DayOfTheWeekType, g5DateType, g5TemperatureType, g5WeatherType, g5LocationType];
+        _conditions = [[NSMutableDictionary alloc] init];
+
+;
+        
+        [self setUpConditions];
 
         self.isActive = YES;
-        self.shortExplanation = nil;
-        self.emoticonUnicodeCharacter = nil;
+        
+        self.title = @"default";
+        self.emoticonUnicodeCharacter = @"default";
         self.pushNotificationSoundFileName = @"default";
         self.isIconOnlyNotification = NO;
-        
-        [self setUpConditionsSet];
     }
     return self;
 }
@@ -87,9 +54,8 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self= [super init];
     if (self != nil) {
-        self.conditionIDs = [[NSMutableOrderedSet alloc] init];
-        self.conditions   = [[NSMutableDictionary alloc] init];
-        
+        _conditionIDs = @[g5TimeType, g5DayOfTheWeekType, g5DateType, g5TemperatureType, g5WeatherType, g5LocationType];
+        _conditions   = [[NSMutableDictionary alloc] init];
         [self parseDictionary:dictionary];
     }
     return self;
@@ -97,32 +63,26 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 #pragma mark - Set Up
 
-- (void)setUpConditionsSet {
-    self.timeCondition          = [[g5TimeCondition alloc] init];
-    self.dayOfTheWeekCondition  = [[g5DayOfTheWeekCondition alloc] init];
-    self.dateCondition          = [[g5DateCondition alloc] init];
-    self.temperatureCondition   = [[g5TemperatureCondition alloc] init];
-    self.weatherCondition       = [[g5WeatherTypeCondition alloc] init];
-    self.locationCondition      = [[g5LocationCondition alloc] init];
+- (void)setUpConditions {
+    g5TimeCondition *timeCondition = [[g5TimeCondition alloc] init];
+    g5DayOfTheWeekCondition *dayOfTheWeekCondition = [[g5DayOfTheWeekCondition alloc] init];
+    g5DateCondition *dateCondition = [[g5DateCondition alloc] init];
+    g5TemperatureCondition *temperatureCondition = [[g5TemperatureCondition alloc] init];
+    g5WeatherTypeCondition *weatherCondition = [[g5WeatherTypeCondition alloc] init];
+    g5LocationCondition *locationCondition = [[g5LocationCondition alloc] init];
     
-    [self setCondition:self.timeCondition];
-    [self setCondition:self.dayOfTheWeekCondition];
-    [self setCondition:self.dateCondition];
-    [self setCondition:self.temperatureCondition];
-    [self setCondition:self.weatherCondition];
-    [self setCondition:self.locationCondition];
-}
-
-- (void)generateUID {
-    CFUUIDRef uuidRef = CFUUIDCreate(NULL);
-    CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
-    CFRelease(uuidRef);
-    self.uid = (__bridge_transfer NSString *)uuidStringRef;
+    _conditions   = [[NSMutableDictionary alloc] init];
+    [_conditions setObject:timeCondition forKey:timeCondition.type];
+    [_conditions setObject:dayOfTheWeekCondition forKey:dayOfTheWeekCondition.type];
+    [_conditions setObject:dateCondition forKey:dateCondition.type];
+    [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
+    [_conditions setObject:weatherCondition forKey:weatherCondition.type];
+    [_conditions setObject:locationCondition forKey:locationCondition.type];
 }
 
 #pragma mark - Getters
 
-- (NSString *)shortExplanation {
+- (NSString *)explanation {
     NSString *resultString = @"";
     
     BOOL isFirstCondition = YES;
@@ -139,18 +99,13 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
     return resultString;
 }
 
-- (MDRCondition *)conditionForID:(NSString *)coniditionID {
-    return [self.conditions objectForKey:coniditionID];
-}
-
 #pragma mark - Setters
 
 - (void)setCondition:(MDRCondition *)condition {
-    [self.conditions setObject:condition forKey:condition.uid];
-    [self.conditionIDs addObject:condition.uid];
+    [self.conditions setObject:condition forKey:condition.type];
 }
 
-#pragma mark - Booleans
+#pragma mark - State
 
 - (BOOL)hasActiveConditions {
     BOOL hasActiveConditions = NO;
@@ -169,70 +124,56 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.uid = [dictionary objectForKey:KEY_ID];
+    self.uid = [dictionary objectForKey:kMDRReminderID];
     self.title = [dictionary objectForKey:kMDRReminderTitle];
-    self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
-    self.emoticonUnicodeCharacter = [dictionary objectForKey:KEY_EMOTICON_UNICODE_CHARACTER];
-    
-    self.pushNotificationSoundFileName = [dictionary objectForKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
-    self.isIconOnlyNotification = [[dictionary objectForKey:KEY_IS_ICON_ONLY_NOTIFICATION] boolValue];
+    self.isActive = [[dictionary objectForKey:kMDRReminderIsActive] boolValue];
+    self.emoticonUnicodeCharacter = [dictionary objectForKey:kMDRReminderEmoticonUnicodeCharacter];
+    self.pushNotificationSoundFileName = [dictionary objectForKey:kMDRReminderNotificationSound];
 
-    NSDictionary *timeDictionary = [dictionary objectForKey:KEY_TIME_CONDITION];
-    self.timeCondition = [[g5TimeCondition alloc] initWithDictionary:timeDictionary];
-
-    NSDictionary *dayOfTheWeekDictionary = [dictionary objectForKey:kMDRDayOfTheWeekCondition];
-    self.dayOfTheWeekCondition = [[g5DayOfTheWeekCondition alloc] initWithDictionary:dayOfTheWeekDictionary];
-    
-    NSDictionary *dateDictionary = [dictionary objectForKey:KEY_DATE_CONDITION];
-    self.dateCondition = [[g5DateCondition alloc] initWithDictionary:dateDictionary];
-    
-    NSDictionary *temperatureDictionary = [dictionary objectForKey:KEY_TEMPERATURE_CONDITION];
-    self.temperatureCondition = [[g5TemperatureCondition alloc] initWithDictionary:temperatureDictionary];
-    
-    NSDictionary *weatherDictionary = [dictionary objectForKey:KEY_WEATHER_CONDITION];
-    self.weatherCondition = [[g5WeatherTypeCondition alloc] initWithDictionary:weatherDictionary];
-    
-    NSDictionary *locationDictionary = [dictionary objectForKey:KEY_LOCATION_CONDITION];
-    self.locationCondition = [[g5LocationCondition alloc] initWithDictionary:locationDictionary];
-    
-    [self setCondition:self.timeCondition];
-    [self setCondition:self.dayOfTheWeekCondition];
-    [self setCondition:self.dateCondition];
-    [self setCondition:self.temperatureCondition];
-    [self setCondition:self.weatherCondition];
-    [self setCondition:self.locationCondition];
+    for (NSDictionary *currentConditionDictionary in [dictionary objectForKey:kMDRReminderConditions]) {
+        NSString *conditionType = [currentConditionDictionary objectForKey:kMDRConditionType];
+        
+        MDRCondition *currentCondition;
+        if ([conditionType isEqualToString:g5TimeType]) {
+            currentCondition = [[g5TimeCondition alloc] init];
+        }
+        else if ([conditionType isEqualToString:g5DateType]) {
+            currentCondition = [[g5DateCondition alloc] init];
+        }
+        else if ([conditionType isEqualToString:g5DayOfTheWeekType]) {
+            currentCondition = [[g5DayOfTheWeekCondition alloc] init];
+        }
+        else if ([conditionType isEqualToString:g5TemperatureType]) {
+            currentCondition = [[g5TemperatureCondition alloc] init];
+        }
+        else if ([conditionType isEqualToString:g5WeatherType]) {
+            currentCondition = [[g5WeatherTypeCondition alloc] init];
+        }
+        else if ([conditionType isEqualToString:g5LocationType]) {
+            currentCondition = [[g5LocationCondition alloc] init];
+        }
+        else {
+            assert(false);
+        }
+        [self setCondition:currentCondition];
+    }
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     
-    [dictionary setObject:self.uid forKey:KEY_ID];
+    [dictionary setObject:self.uid forKey:kMDRReminderID];
     [dictionary setObject:self.title forKey:kMDRReminderTitle];
-    [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:KEY_IS_ACTIVE];
-    [dictionary setObject:self.emoticonUnicodeCharacter forKey:KEY_EMOTICON_UNICODE_CHARACTER];
+    [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRReminderIsActive];
+    [dictionary setObject:self.emoticonUnicodeCharacter forKey:kMDRReminderEmoticonUnicodeCharacter];
+    [dictionary setObject:self.pushNotificationSoundFileName forKey:kMDRReminderNotificationSound];
     
-    [dictionary setObject:[NSNumber numberWithBool:self.pushNotificationHasSound] forKey:KEY_NOTIFICATION_HAS_SOUND];
-    [dictionary setObject:self.pushNotificationSoundFileName forKey:KEY_NOTIFICATION_SOUND_FILE_NAME];
-    
-    [dictionary setObject:[NSNumber numberWithBool:self.isIconOnlyNotification] forKey:KEY_IS_ICON_ONLY_NOTIFICATION];
-
-    NSDictionary *timeDictionary = [self.timeCondition encodeToDictionary];
-    [dictionary setObject:timeDictionary forKey:KEY_TIME_CONDITION];
-
-    NSDictionary *dayOfTheWeekDictionary = [self.dayOfTheWeekCondition encodeToDictionary];
-    [dictionary setObject:dayOfTheWeekDictionary forKey:kMDRDayOfTheWeekCondition];
-    
-    NSDictionary *dateDictionary = [self.dateCondition encodeToDictionary];
-    [dictionary setObject:dateDictionary forKey:KEY_DATE_CONDITION];
-    
-    NSDictionary *temperatureDictionary = [self.temperatureCondition encodeToDictionary];
-    [dictionary setObject:temperatureDictionary forKey:KEY_TEMPERATURE_CONDITION];
-    
-    NSDictionary *weatherDictionary = [self.weatherCondition encodeToDictionary];
-    [dictionary setObject:weatherDictionary forKey:KEY_WEATHER_CONDITION];
-    
-    NSDictionary *locationDictionary = [self.locationCondition encodeToDictionary];
-    [dictionary setObject:locationDictionary forKey:KEY_LOCATION_CONDITION];
+    NSMutableArray *conditionArray = [[NSMutableArray alloc] init];
+    for (MDRCondition *currentCondition in self.conditions.allValues) {
+        NSDictionary *currentConditionDictionary = [currentCondition encodeToDictionary];
+        [conditionArray addObject:currentConditionDictionary];
+    }
+    [dictionary setObject:conditionArray forKey:kMDRReminderConditions];
     
     return dictionary;
 }

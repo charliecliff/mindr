@@ -35,7 +35,7 @@
 		DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CEED1C9DD38900FD4438 /* AppDelegate.m */; };
 		DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA30CEF51C9DD38900FD4438 /* Assets.xcassets */; };
 		DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA30CEF71C9DD38900FD4438 /* LaunchScreen.storyboard */; };
-		DA30CF2B1C9DF96A00FD4438 /* MDRReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF2A1C9DF96A00FD4438 /* MDRReminderManager.m */; };
+		DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF2A1C9DF96A00FD4438 /* g5ReminderManager.m */; };
 		DA30CF371C9E05B100FD4438 /* MDRCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF321C9E05B100FD4438 /* MDRCondition.m */; };
 		DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF351C9E05B100FD4438 /* MDRReminder.m */; };
 		DA30CF401C9E239200FD4438 /* g5LocationCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF3F1C9E239200FD4438 /* g5LocationCondition.m */; };
@@ -141,8 +141,8 @@
 		DA30CEF51C9DD38900FD4438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA30CEF81C9DD38900FD4438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA30CEFA1C9DD38900FD4438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA30CF291C9DF96A00FD4438 /* MDRReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderManager.h; sourceTree = "<group>"; };
-		DA30CF2A1C9DF96A00FD4438 /* MDRReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderManager.m; sourceTree = "<group>"; };
+		DA30CF291C9DF96A00FD4438 /* g5ReminderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderManager.h; sourceTree = "<group>"; };
+		DA30CF2A1C9DF96A00FD4438 /* g5ReminderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderManager.m; sourceTree = "<group>"; };
 		DA30CF311C9E05B100FD4438 /* MDRCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRCondition.h; sourceTree = "<group>"; };
 		DA30CF321C9E05B100FD4438 /* MDRCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRCondition.m; sourceTree = "<group>"; };
 		DA30CF341C9E05B100FD4438 /* MDRReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminder.h; sourceTree = "<group>"; };
@@ -386,8 +386,8 @@
 			children = (
 				DAC771AD1D234ADA00036B44 /* MDRLocationManager.h */,
 				DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */,
-				DA30CF291C9DF96A00FD4438 /* MDRReminderManager.h */,
-				DA30CF2A1C9DF96A00FD4438 /* MDRReminderManager.m */,
+				DA30CF291C9DF96A00FD4438 /* g5ReminderManager.h */,
+				DA30CF2A1C9DF96A00FD4438 /* g5ReminderManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -766,7 +766,7 @@
 				DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */,
 				DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */,
 				DA30CF431C9E23AD00FD4438 /* g5WeatherTypeCondition.m in Sources */,
-				DA30CF2B1C9DF96A00FD4438 /* MDRReminderManager.m in Sources */,
+				DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */,
 				DA30CF461C9E23BE00FD4438 /* g5TemperatureCondition.m in Sources */,
 				DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */,
 				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,

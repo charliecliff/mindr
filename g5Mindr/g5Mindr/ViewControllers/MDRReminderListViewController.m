@@ -10,7 +10,7 @@
 #import "g5ReminderViewController.h"
 #import "g5CreateReminderConditionListViewController.h"
 #import "g5ReminderTableViewCell.h"
-#import "MDRReminderManager.h"
+#import "g5ReminderManager.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 #import "MDRMessageAndCopy.h"
@@ -48,7 +48,7 @@
     self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
-    [self setEmptyInventoryHidden:([MDRReminderManager sharedManager].reminders.count > 0)];
+    [self setEmptyInventoryHidden:([g5ReminderManager sharedManager].reminders.count > 0)];
     
     [self refresh];
 }
@@ -71,10 +71,10 @@
 - (void)setUpCells {
     self.cells = [[NSMutableArray alloc] init];
     
-    for (NSString *currentReminderUID in [MDRReminderManager sharedManager].reminderIDs) {
+    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
         g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
         
-        MDRReminder *currentReminder = [[MDRReminderManager sharedManager] reminderForID:currentReminderUID];
+        MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
         [cell configureWithReminder:currentReminder];
         
         [self.cells addObject:cell];
@@ -135,7 +135,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    MDRReminder *selectedReminder = [[MDRReminderManager sharedManager] reminderForIndex:indexPath.row];    
+    MDRReminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
     [self segueToReminderViewControllerWithReminder:selectedReminder];
 }
 
@@ -162,7 +162,7 @@
 - (void)didPressCenterButton {
     [self.bounceNavigationController setRightButtonEnabled:NO];
     
-    MDRReminder *newReminder = [[MDRReminderManager sharedManager] newReminder];
+    MDRReminder *newReminder = [[g5ReminderManager sharedManager] newReminder];
     [self segueToConditionViewControllerWithReminder:newReminder];
 }
 

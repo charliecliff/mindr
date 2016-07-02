@@ -10,7 +10,7 @@
 #import "g5EditReminderConditionListViewController.h"
 #import "g5ReminderDetailSectionTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
-#import "MDRReminderManager.h"
+#import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderViewController () <g5ReminderButtonCellDelegate>
@@ -187,7 +187,7 @@
 }
 
 - (void)didPressPreviousButton {
-    [[MDRReminderManager sharedManager] removeReminder:self.reminder];
+    [[g5ReminderManager sharedManager] removeReminder:self.reminder];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

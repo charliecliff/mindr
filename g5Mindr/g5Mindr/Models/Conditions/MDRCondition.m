@@ -8,6 +8,11 @@
 
 #import "MDRCondition.h"
 
+#define KEY_CONDITION_TYPE  @"KEY_CONDITION_TYPE"
+#define KEY_CONDITION_ID    @"KEY_CONDITION_ID"
+#define KEY_IS_ACTIVE       @"KEY_IS_ACTIVE"
+#define KEY_IS_LOCKED       @"KEY_IS_LOCKED"
+
 NSString *const g5NoType            = @"none";
 NSString *const g5DateType          = @"date";
 NSString *const g5TimeType          = @"time";

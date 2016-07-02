@@ -8,7 +8,7 @@
 
 #import "g5ReminderExplanationViewController.h"
 #import "HROBounceNavigationController.h"
-#import "MDRReminderManager.h"
+#import "g5ReminderManager.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
@@ -137,7 +137,7 @@
 
 - (void)didPressNextButton {
     self.reminder.title = self.textField.text;
-    [[MDRReminderManager sharedManager] addReminder:self.reminder];
+    [[g5ReminderManager sharedManager] addReminder:self.reminder];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

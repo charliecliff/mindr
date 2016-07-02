@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MDRReminderManager.h"
+#import "g5ReminderManager.h"
 
 #import "g5EmoticonSelectionViewController.h"
 
@@ -15,7 +15,7 @@
 #import "MDRReminderListViewController.h"
 
 
-#import "MDRReminderManager.h"
+#import "g5ReminderManager.h"
 #import "MDRLocationManager.h"
 
 @import GoogleMaps;
@@ -44,7 +44,7 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     //  4. Managers
-    [[MDRReminderManager sharedManager] loadReminders];
+    [[g5ReminderManager sharedManager] loadReminders];
     [[MDRLocationManager sharedManager] startUpdatingLocation];
     
     //  6. Root View Controller
@@ -63,11 +63,11 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    [[MDRReminderManager sharedManager] saveReminders];
+    [[g5ReminderManager sharedManager] saveReminders];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[MDRReminderManager sharedManager] loadReminders];
+    [[g5ReminderManager sharedManager] loadReminders];
 }
 
 #pragma mark - Push Notifications
@@ -87,8 +87,8 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (![MDRReminderManager sharedManager].userContext.userID) {
-        [[MDRReminderManager sharedManager] setUserID:token];
+    if (![g5ReminderManager sharedManager].userContext.userID) {
+        [[g5ReminderManager sharedManager] setUserID:token];
     }
 }
 

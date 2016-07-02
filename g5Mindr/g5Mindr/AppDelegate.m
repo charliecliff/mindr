@@ -87,7 +87,9 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"push_token"];
+    if (![g5ReminderManager sharedManager].userContext.userID) {
+        [[g5ReminderManager sharedManager] setUserID:token];
+    }
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {

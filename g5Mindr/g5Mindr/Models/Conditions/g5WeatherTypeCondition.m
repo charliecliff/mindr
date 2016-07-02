@@ -32,10 +32,10 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 #pragma mark - Mantle Parsing
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
-    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"weatherTypes":kMDRWeatherTypes}];
-}
+//+ (NSDictionary *)JSONKeyPathsByPropertyKey {
+//    NSDictionary *superDictionary = [super JSONKeyPathsByPropertyKey];
+//    return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"weatherTypes":kMDRWeatherTypes}];
+//}
 
 #pragma mark - Init
 

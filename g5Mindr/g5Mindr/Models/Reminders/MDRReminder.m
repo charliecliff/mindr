@@ -20,7 +20,6 @@ static NSString *const kMDRReminderExplanation              = @"explanation";
 static NSString *const kMDRReminderEmoticonUnicodeCharacter = @"emoticon_unicode_character";
 static NSString *const kMDRReminderNotificationSound        = @"notification_sound";
 
-
 static NSString *const kMDRTimeCondition         = @"time";
 static NSString *const kMDRDateCondition         = @"date";
 static NSString *const kMDRDayOfTheWeekCondition = @"day_of_the_week";
@@ -31,11 +30,10 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
 
 @interface MDRReminder ()
 
-@property(nonatomic, strong, readwrite) NSMutableOrderedSet *conditionIDs;
-
 /**
  The Conditions Dictionary
  */
+@property(nonatomic, strong, readwrite) NSMutableOrderedSet *conditionIDs;
 @property(nonatomic, strong) NSMutableDictionary *conditions;
 
 /**
@@ -59,7 +57,6 @@ static NSString *const kMDRTemperatureCondition  = @"temperature";
              @"title": kMDRReminderTitle,
              @"emoticonUnicodeCharacter": kMDRReminderEmoticonUnicodeCharacter,
              @"notificationSound": kMDRReminderNotificationSound,
-//              Conditions
              @"timeCondition":kMDRTimeCondition,
              @"dateCondition":kMDRDateCondition,
              @"dayOfTheWeekCondition":kMDRDayOfTheWeekCondition,

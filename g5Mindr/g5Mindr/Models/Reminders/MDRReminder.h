@@ -21,6 +21,11 @@
 /**
  
  */
+@property(nonatomic) BOOL isIconOnlyNotification;
+
+/**
+ 
+ */
 @property(nonatomic, readonly) BOOL hasEmoticon;
 
 /**
@@ -58,8 +63,9 @@
  */
 @property(nonatomic, strong) NSString *notificationSound;
 
-
-@property(nonatomic) BOOL isIconOnlyNotification;
+/**
+ 
+ */
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *conditionIDs;
 
 /**

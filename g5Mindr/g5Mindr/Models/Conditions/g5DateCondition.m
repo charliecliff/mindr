@@ -19,16 +19,6 @@ static NSString *const kMDRDates = @"dates";
     return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"dates":kMDRDates}];
 }
 
-#pragma mark - Init
-
-- (instancetype)init {
-    self = [super init];
-    if (self != nil) {
-        self.type  = g5DateType;
-        self.dates = [NSMutableArray arrayWithObjects:[NSDate date], nil];
-    }
-    return self;
-}
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {

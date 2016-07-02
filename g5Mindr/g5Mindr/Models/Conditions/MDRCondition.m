@@ -29,6 +29,7 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 
 @implementation MDRCondition
 
+
 #pragma mark - Mantle Parsing
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -38,18 +39,29 @@ static NSString *const kMDRConditionIsActive = @"is_active";
              @"isLocked": kMDRConditionIsLocked};
 }
 
-#pragma mark - Init
-
-- (instancetype)init {
-    self = [super init];
-    if (self != nil) {
-        self.type = g5NoType;
-        self.isActive = NO;
-        self.isLocked = NO;
-        [self generateUID];
-    }
-    return self;
-}
+//#pragma mark - Init
+//
+//- (instancetype)init {
+//    self = [super init];
+//    if (self != nil) {
+//        self.type = g5NoType;
+//        self.isActive = NO;
+//        self.isLocked = NO;
+//        [self generateUID];
+//    }
+//    return self;
+//}
+//
+//- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+//    self = [self init];
+//    if (self != nil) {
+//        self.uid  = [dictionary objectForKey:KEY_CONDITION_ID];
+//        self.type = [dictionary objectForKey:KEY_CONDITION_TYPE];
+//        self.isActive = [[dictionary objectForKey:KEY_IS_ACTIVE] boolValue];
+//        self.isLocked = [[dictionary objectForKey:KEY_IS_LOCKED] boolValue];
+//    }
+//    return self;
+//}
 
 #pragma mark - Setup
 

@@ -11,6 +11,7 @@
 #import "MDRReminder.h"
 #import "MDRUserContext.h"
 #import "MDRLocationManager.h"
+#import "g5PersistenceManager.h"
 
 @interface g5ReminderManager : NSObject
 

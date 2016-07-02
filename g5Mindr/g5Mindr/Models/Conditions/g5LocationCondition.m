@@ -26,19 +26,6 @@ static NSString *const kMDRLocationRadius   = @"radius";
                                                                           @"location":kMDRLocationLocation}];
 }
 
-#pragma mark - Init
-
-- (instancetype)init {
-    self = [super init];
-    if (self != nil) {
-        self.type       = g5LocationType;
-//        self.location   = [MDRLocationManager sharedManager].currentLocation;
-        self.radius     = 100;              // 100 Meters
-        self.address    = @"";
-    }
-    return self;
-}
-
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {

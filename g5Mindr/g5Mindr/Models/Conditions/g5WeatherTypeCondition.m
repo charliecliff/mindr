@@ -37,17 +37,6 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     return [superDictionary mtl_dictionaryByAddingEntriesFromDictionary:@{@"weatherTypes":kMDRWeatherTypes}];
 }
 
-#pragma mark - Init
-
-- (instancetype)init {
-    self = [super init];
-    if (self != nil) {
-        self.type        = g5WeatherType;
-        self.weatherTypes= [[NSMutableSet alloc] initWithObjects:g5WeatherSunny, nil];
-    }
-    return self;
-}
-
 #pragma mark - Over Ride
 
 - (NSString *)conditionDescription {

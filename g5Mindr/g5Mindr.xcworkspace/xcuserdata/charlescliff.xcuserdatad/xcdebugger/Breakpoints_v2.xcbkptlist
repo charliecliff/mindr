@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489119119.198982"
+            timestampString = "489111888.907144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "+postReminders:withUserID:withSuccess:withFailure:"
             landmarkType = "5">
             <Locations>
@@ -26,12 +26,12 @@
                   moduleName = "g5Mindr"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "489120936.200377"
+                  timestampString = "489115501.832108"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "498">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "780">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,11 +41,11 @@
                   moduleName = "g5Mindr"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "489120936.200619"
+                  timestampString = "489115501.832248"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
                   offsetFromSymbolStart = "14">
                </Location>
             </Locations>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489119119.198982"
+            timestampString = "489111873.540381"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "+postReminders:withUserID:withSuccess:withFailure:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489119119.198982"
+            timestampString = "489111882.337983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "+postReminders:withUserID:withSuccess:withFailure:"
             landmarkType = "5">
          </BreakpointContent>

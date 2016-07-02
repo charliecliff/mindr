@@ -48,8 +48,20 @@ static NSString *const MDRPushToken = @"push_token";
             self.userContext = [[MDRUserContext alloc] init];
         }
         
-        self.reminderIDs = [[NSMutableOrderedSet alloc] init];
-        self.reminders = [[NSMutableDictionary alloc] init];
+        [self loadReminders];
+        if (self.reminders == nil) {
+            self.reminderIDs = [[NSMutableOrderedSet alloc] init];
+            self.reminders = [[NSMutableDictionary alloc] init];
+        }
+        
+        [MDRReminderClient getRemindersWithUserID:self.userContext.userID withSuccess:^(NSDictionary *dictionary) {
+            
+        } withFailure:^{
+            
+        }];
+        
+        [self updateReminders];
+
     }
     return self;
 }
@@ -106,11 +118,11 @@ static NSString *const MDRPushToken = @"push_token";
 - (void)updateReminders {
     NSError *error;
     NSArray *remindersJSON = [MTLJSONAdapter JSONArrayFromModels:self.reminders.allValues error:&error];
-//    [MDRReminderClient postReminders:remindersJSON withUserID:self.userContext.userID withSuccess:^{
-//        
-//    } withFailure:^{
-//        
-//    }];
+    [MDRReminderClient postReminders:remindersJSON withUserID:self.userContext.userID withSuccess:^{
+        
+    } withFailure:^{
+        
+    }];
 }
 
 #pragma mark - Persistence

@@ -6,6 +6,7 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
+#import <Mantle/Mantle.h>
 #import "g5ReminderManager.h"
 #import "MDRReminderClient.h"
 
@@ -58,6 +59,11 @@ static NSString *const MDRPushToken = @"push_token";
 }
 
 - (void)addReminder:(MDRReminder *)reminder {
+    
+    NSError *error;
+    NSDictionary *reminderJSON = [MTLJSONAdapter JSONDictionaryFromModel:reminder error:&error];
+    
+     
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
     [self saveReminders];

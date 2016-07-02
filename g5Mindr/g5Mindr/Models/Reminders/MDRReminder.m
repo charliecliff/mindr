@@ -36,9 +36,6 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         
         _conditionIDs = @[g5TimeType, g5DayOfTheWeekType, g5DateType, g5TemperatureType, g5WeatherType, g5LocationType];
         _conditions = [[NSMutableDictionary alloc] init];
-
-;
-        
         [self setUpConditions];
 
         self.isActive = YES;
@@ -46,7 +43,6 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         self.title = @"default";
         self.emoticonUnicodeCharacter = @"default";
         self.pushNotificationSoundFileName = @"default";
-        self.isIconOnlyNotification = NO;
     }
     return self;
 }
@@ -99,12 +95,6 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     return resultString;
 }
 
-#pragma mark - Setters
-
-- (void)setCondition:(MDRCondition *)condition {
-    [self.conditions setObject:condition forKey:condition.type];
-}
-
 #pragma mark - State
 
 - (BOOL)hasActiveConditions {
@@ -155,7 +145,7 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         else {
             assert(false);
         }
-        [self setCondition:currentCondition];
+        [self.conditions setObject:currentCondition forKey:currentCondition.type];
     }
 }
 

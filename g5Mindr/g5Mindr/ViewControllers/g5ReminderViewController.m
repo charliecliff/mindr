@@ -151,7 +151,7 @@
 #pragma mark - g5ReminderButtonCellDelegate
 
 - (void)didPressSwitchButton {
-    self.reminder.isIconOnlyNotification = !self.reminder.isIconOnlyNotification;
+//    self.reminder.isIconOnlyNotification = !self.reminder.isIconOnlyNotification;
 }
 
 #pragma mark - UITableViewDelegate

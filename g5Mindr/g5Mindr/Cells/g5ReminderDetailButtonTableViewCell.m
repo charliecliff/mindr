@@ -21,7 +21,7 @@
 
 - (void)configWithReminder:(MDRReminder *)reminder withDelegate:(id<g5ReminderButtonCellDelegate>)delegate {
     self.delegate = delegate;
-    self.switchShouldBeOn = reminder.isIconOnlyNotification;
+//    self.switchShouldBeOn = reminder.isIconOnlyNotification;
     if (!self.switchShouldBeOn) {
         [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00 andRemoveOnCompletion:NO completion:NULL];
     }

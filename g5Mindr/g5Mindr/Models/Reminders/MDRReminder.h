@@ -40,6 +40,11 @@
 /**
  
  */
+@property(nonatomic, strong) NSString *pushNotificationSoundFileName;
+
+/**
+ 
+ */
 @property(nonatomic, strong, readonly) NSString *explanation;
 
 /**
@@ -50,23 +55,13 @@
 /**
  
  */
-@property(nonatomic, strong, readonly) NSMutableDictionary *conditions;
-
-
-@property(nonatomic) BOOL isIconOnlyNotification;
-@property(nonatomic, strong) NSString *pushNotificationSoundFileName;
+@property(nonatomic, strong) NSMutableDictionary *conditions;
 @property(nonatomic, strong, readonly) NSArray *conditionIDs;
-
 
 /**
     Initialization and Persistence
  */
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)encodeToDictionary;
-
-/**
- 
- */
-- (void)setCondition:(MDRCondition *)condition;
 
 @end

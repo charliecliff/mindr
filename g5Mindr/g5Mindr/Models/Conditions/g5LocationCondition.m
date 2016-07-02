@@ -26,7 +26,7 @@ static NSString *const kMDRLocationRadius = @"radius";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        [self parseDictionary:dictionary[kMDRConditionAttributes]];
     }
     return self;
 }
@@ -56,7 +56,7 @@ static NSString *const kMDRLocationRadius = @"radius";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    
+
     self.location = nil;
     if ([dictionary.allKeys containsObject:KEY_CONDITION_LOCATION]) {
         CLLocationDegrees latitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLatitude]).floatValue;
@@ -74,19 +74,23 @@ static NSString *const kMDRLocationRadius = @"radius";
 }
 
 - (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
     if (self.location != nil) {
-        [dictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.latitude] forKey:kMDRLocationLatitude];
-        [dictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.longitude] forKey:kMDRLocationLongitude];
+        [attributeDictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.latitude] forKey:kMDRLocationLatitude];
+        [attributeDictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.longitude] forKey:kMDRLocationLongitude];
     }
 
     if (self.address != nil) {
-        [dictionary setObject:self.address forKey:KEY_CONDITION_ADDRESS];
+        [attributeDictionary setObject:self.address forKey:KEY_CONDITION_ADDRESS];
     }
     
-    [dictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];
-    return dictionary;
+    [attributeDictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];
+    
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    
+    return superDictionary;
 }
 
 @end

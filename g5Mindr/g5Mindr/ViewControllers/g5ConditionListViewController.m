@@ -202,14 +202,14 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 - (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active {
     condition.isActive = active;
-    [self.reminder setCondition:condition];
+    [self.reminder.conditions setObject:condition forKey:condition.type];
     [self reloadConditionTable];
 }
 
 #pragma mark - g5ConditionViewController Delegate
 
 - (void)didUpdateCondition:(MDRCondition *)condition {
-    [self.reminder setCondition:condition];
+    [self.reminder.conditions setObject:condition forKey:condition.type];
 }
 
 #pragma mark - g5BounceNavigationDelegate

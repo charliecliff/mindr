@@ -11,12 +11,12 @@
 NSString *const g5NoType            = @"none";
 NSString *const g5DateType          = @"date";
 NSString *const g5TimeType          = @"time";
-NSString *const g5DayOfTheWeekType  = @"day_of_the_week";
+NSString *const g5DayOfTheWeekType  = @"day_of_week";
 NSString *const g5WeatherType       = @"weather";
-NSString *const g5TemperatureType   = @"temp";
+NSString *const g5TemperatureType   = @"temperature";
 NSString *const g5LocationType      = @"location";
 
-NSString *const kMDRConditionType   = @"type";
+NSString *const kMDRConditionType = @"type";
 NSString *const kMDRConditionAttributes = @"attributes";
 
 static NSString *const kMDRConditionID      = @"id";

@@ -7,12 +7,12 @@
 //
 
 #import "MDRReminder.h"
-#import "g5DateCondition.h"
-#import "g5TimeCondition.h"
-#import "g5DayOfTheWeekCondition.h"
-#import "g5LocationCondition.h"
-#import "g5WeatherTypeCondition.h"
-#import "g5TemperatureCondition.h"
+#import "MDRDateCondition.h"
+#import "MDRTimeCondition.h"
+#import "MDRDayOfTheWeekCondition.h"
+#import "MDRLocationCondition.h"
+#import "MDRWeatherTypeCondition.h"
+#import "MDRTemperatureCondition.h"
 
 static NSString *const kMDRReminderType                     = @"type";
 static NSString *const kMDRReminderID                       = @"id";
@@ -60,12 +60,12 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 #pragma mark - Set Up
 
 - (void)setUpConditions {
-    g5TimeCondition *timeCondition = [[g5TimeCondition alloc] init];
-    g5DayOfTheWeekCondition *dayOfTheWeekCondition = [[g5DayOfTheWeekCondition alloc] init];
-    g5DateCondition *dateCondition = [[g5DateCondition alloc] init];
-    g5TemperatureCondition *temperatureCondition = [[g5TemperatureCondition alloc] init];
-    g5WeatherTypeCondition *weatherCondition = [[g5WeatherTypeCondition alloc] init];
-    g5LocationCondition *locationCondition = [[g5LocationCondition alloc] init];
+    MDRTimeCondition *timeCondition = [[MDRTimeCondition alloc] init];
+    MDRDayOfTheWeekCondition *dayOfTheWeekCondition = [[MDRDayOfTheWeekCondition alloc] init];
+    MDRDateCondition *dateCondition = [[MDRDateCondition alloc] init];
+    MDRTemperatureCondition *temperatureCondition = [[MDRTemperatureCondition alloc] init];
+    MDRWeatherTypeCondition *weatherCondition = [[MDRWeatherTypeCondition alloc] init];
+    MDRLocationCondition *locationCondition = [[MDRLocationCondition alloc] init];
     
     _conditions   = [[NSMutableDictionary alloc] init];
     [_conditions setObject:timeCondition forKey:timeCondition.type];
@@ -125,22 +125,22 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         
         MDRCondition *currentCondition;
         if ([conditionType isEqualToString:g5TimeType]) {
-            currentCondition = [[g5TimeCondition alloc] init];
+            currentCondition = [[MDRTimeCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5DateType]) {
-            currentCondition = [[g5DateCondition alloc] init];
+            currentCondition = [[MDRDateCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5DayOfTheWeekType]) {
-            currentCondition = [[g5DayOfTheWeekCondition alloc] init];
+            currentCondition = [[MDRDayOfTheWeekCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5TemperatureType]) {
-            currentCondition = [[g5TemperatureCondition alloc] init];
+            currentCondition = [[MDRTemperatureCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5WeatherType]) {
-            currentCondition = [[g5WeatherTypeCondition alloc] init];
+            currentCondition = [[MDRWeatherTypeCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5LocationType]) {
-            currentCondition = [[g5LocationCondition alloc] init];
+            currentCondition = [[MDRLocationCondition alloc] init];
         }
         else {
             assert(false);

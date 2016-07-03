@@ -13,7 +13,7 @@ typedef enum {
     MDRTimePM,
 } MDRTimeMeridian;
 
-@interface g5TimeCondition : MDRCondition
+@interface MDRTimeCondition : MDRCondition
 
 @property(nonatomic) NSInteger hour;
 @property(nonatomic) NSInteger minute;

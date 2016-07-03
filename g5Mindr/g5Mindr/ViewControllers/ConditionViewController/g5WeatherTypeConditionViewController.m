@@ -8,7 +8,7 @@
 
 #import "g5WeatherTypeConditionViewController.h"
 #import "g5WeatherTypeConditionTableViewCell.h"
-#import "g5WeatherTypeCondition.h"
+#import "MDRWeatherTypeCondition.h"
 
 @interface g5WeatherTypeConditionViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -27,7 +27,7 @@
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (condition == nil) {
-            self.condition = [[g5WeatherTypeCondition alloc] init];
+            self.condition = [[MDRWeatherTypeCondition alloc] init];
         }
     }
     return self;
@@ -62,7 +62,7 @@
         NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
         cell.weatherConditionType = weatherTypeForRow;
         
-        [cell setSelected:[((g5WeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow]];
+        [cell setSelected:[((MDRWeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow]];
 
         return cell;
     }
@@ -77,11 +77,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
-    if ( [((g5WeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow] ) {
-        [((g5WeatherTypeCondition *)self.condition) removeWeatherType:weatherTypeForRow];
+    if ( [((MDRWeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow] ) {
+        [((MDRWeatherTypeCondition *)self.condition) removeWeatherType:weatherTypeForRow];
     }
     else {
-        [((g5WeatherTypeCondition *)self.condition) addWeatherType:weatherTypeForRow];
+        [((MDRWeatherTypeCondition *)self.condition) addWeatherType:weatherTypeForRow];
     }
     [self.weatherTypeTableView reloadData];
 }

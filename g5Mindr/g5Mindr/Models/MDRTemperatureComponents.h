@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "g5TemperatureCondition.h"
+#import "MDRTemperatureCondition.h"
 
 @interface MDRTemperatureComponents : NSObject
 

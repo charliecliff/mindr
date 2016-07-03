@@ -17,7 +17,8 @@ static const NSString *reminderArrayKey = @"reminders";
 @implementation MDRReminderClient
 
 + (void)getRemindersWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure {
-    NSString *requestString = [NSString stringWithFormat:@"%@", REMINDER_API_GATEWAY];
+    //    NSString *requestString = [NSString stringWithFormat:@"%@", REMINDER_API_GATEWAY];
+    NSString *requestString = @"http://ec2-54-149-60-145.us-west-2.compute.amazonaws.com:8000/reminder";
     NSString *escapedString = [requestString stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     
     NSMutableDictionary *paramaters = [[NSMutableDictionary alloc] init];
@@ -39,23 +40,25 @@ static const NSString *reminderArrayKey = @"reminders";
     }];
 }
 
-+ (void)postReminders:(NSArray *)reminders withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure {
-    NSString *requestString = [NSString stringWithFormat:@"%@", REMINDER_API_GATEWAY];
++ (void)postReminder:(NSDictionary *)reminderDict withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure {
+//    NSString *requestString = [NSString stringWithFormat:@"%@", REMINDER_API_GATEWAY];
+    NSString *requestString = @"http://ec2-54-149-60-145.us-west-2.compute.amazonaws.com:8000/reminder";
     NSString *escapedString = [requestString stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
 
-    NSMutableDictionary *paramaters = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *paramaters = [[NSMutableDictionary alloc] initWithDictionary:reminderDict];
     [paramaters setObject:userID forKey:userIDKey];
-    [paramaters setObject:reminders forKey:reminderArrayKey];
-    
+    [paramaters setObject:@"description" forKey:@"Reminders dont have decriptions you jackass!"];
+
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer  = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
-
     [manager POST:escapedString parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success");
         if (success) {
             success();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure");
         if (failure) {
             failure();
         }

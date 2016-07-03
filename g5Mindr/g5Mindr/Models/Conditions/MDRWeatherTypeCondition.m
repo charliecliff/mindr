@@ -6,9 +6,9 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5WeatherTypeCondition.h"
+#import "MDRWeatherTypeCondition.h"
 
-#define KEY_CONDITION_WEATHER_TYPES @"KEY_CONDITION_WEATHER_TYPES"
+static NSString *const kMDRConditionWeatherTypes = @"weather_types";
 
 NSString *const g5WeatherSunny              = @"weather_mostlysunny";
 NSString *const g5WeatherPartlyCloudy       = @"weather_partlycloudy";
@@ -20,13 +20,13 @@ NSString *const g5WeatherFoggy              = @"weather_foggy";
 NSString *const g5WeatherWindy              = @"weather_windy";
 NSString *const g5WeatherSnowy              = @"weather_snowy";
 
-@interface g5WeatherTypeCondition ()
+@interface MDRWeatherTypeCondition ()
 
 @property(nonatomic, strong) NSMutableSet *weatherTypes;
 
 @end
 
-@implementation g5WeatherTypeCondition
+@implementation MDRWeatherTypeCondition
 
 #pragma mark - Init
 
@@ -35,8 +35,7 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     if (self != nil) {
         self.type        = g5WeatherType;
         self.weatherTypes= [[NSMutableSet alloc] init];
-        
-        [self parseDictionary:dictionary];
+        [self parseDictionary:dictionary[kMDRConditionAttributes]];
     }
     return self;
 }
@@ -56,7 +55,7 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     if (self.isActive) {
         NSString *resultString = @"When it's";
         for (NSString *currentWeatherType in self.weatherTypes) {
-            NSString *weatherString = [g5WeatherTypeCondition descriptionFromWeatherType:currentWeatherType];
+            NSString *weatherString = [MDRWeatherTypeCondition descriptionFromWeatherType:currentWeatherType];
             resultString = [NSString stringWithFormat:@"%@ %@", resultString, weatherString];
         }
         return resultString;
@@ -81,14 +80,18 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    NSArray *arrayOfWeatherTypes = [dictionary objectForKey:KEY_CONDITION_WEATHER_TYPES];
+    NSArray *arrayOfWeatherTypes = [dictionary objectForKey:kMDRConditionWeatherTypes];
     self.weatherTypes = [NSMutableSet setWithArray:arrayOfWeatherTypes];
 }
 
 - (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:self.weatherTypes.allObjects forKey:KEY_CONDITION_WEATHER_TYPES];
-    return dictionary;
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+    [attributeDictionary setObject:self.weatherTypes.allObjects forKey:kMDRConditionWeatherTypes];
+    
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    return superDictionary;
 }
 
 #pragma mark - Class Helpers

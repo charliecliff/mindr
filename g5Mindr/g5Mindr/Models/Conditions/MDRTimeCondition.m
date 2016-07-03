@@ -6,17 +6,15 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5TimeCondition.h"
+#import "MDRTimeCondition.h"
 
 #define NOON 43200
-
-#define KEY_CONDITION_TIME_OF_DAY_IN_SECONDS @"KEY_CONDITION_TIME_OF_DAY_IN_SECONDS"
 
 static NSString *const MDRTimeComponentHour     = @"hour";
 static NSString *const MDRTimeComponentMinute   = @"minute";
 static NSString *const MDRTimeComponentMeridian = @"meridian";
 
-@interface g5TimeCondition ()
+@interface MDRTimeCondition ()
 
 @property(nonatomic, readwrite) NSInteger dateComponentForHour;
 @property(nonatomic, readwrite) NSInteger dateComponentForMinute;
@@ -25,14 +23,14 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 @end
 
-@implementation g5TimeCondition
+@implementation MDRTimeCondition
 
 #pragma mark - Init
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        [self parseDictionary:dictionary[kMDRConditionAttributes]];
     }
     return self;
 }
@@ -87,22 +85,18 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     self.hour = [[dictionary objectForKey:MDRTimeComponentHour] integerValue];
     self.minute = [[dictionary objectForKey:MDRTimeComponentMinute] integerValue];
     self.meridian = [[dictionary objectForKey:MDRTimeComponentMeridian] intValue];
-    
-    NSNumber *timeOfDayAsNumber = [dictionary objectForKey:KEY_CONDITION_TIME_OF_DAY_IN_SECONDS];
-    self.timeOfDayInSeconds = [timeOfDayAsNumber intValue];
 }
 
 - (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
 
-    [dictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
-    [dictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
-    [dictionary setObject:[NSNumber numberWithInt:self.meridian] forKey:MDRTimeComponentMeridian];
+    [attributeDictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
+    [attributeDictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
+    [attributeDictionary setObject:[NSNumber numberWithInt:self.meridian] forKey:MDRTimeComponentMeridian];
     
-    NSNumber *timeOfDayAsNumber = [NSNumber numberWithInt:self.timeOfDayInSeconds];
-    [dictionary setObject:timeOfDayAsNumber forKey:KEY_CONDITION_TIME_OF_DAY_IN_SECONDS];
-    
-    return dictionary;
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    return superDictionary;
 }
 
 @end

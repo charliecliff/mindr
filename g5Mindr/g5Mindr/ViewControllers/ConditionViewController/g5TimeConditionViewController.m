@@ -7,7 +7,7 @@
 //
 
 #import "g5TimeConditionViewController.h"
-#import "g5TimeCondition.h"
+#import "MDRTimeCondition.h"
 #import "HROPickerTableView.h"
 #import "MDRTimeComponents.h"
 
@@ -29,7 +29,7 @@ static NSString *const MDRTimeTitle = @"TIME";
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (condition == nil) {
-            self.condition = [[g5TimeCondition alloc] init];
+            self.condition = [[MDRTimeCondition alloc] init];
         }
     }
     return self;
@@ -58,9 +58,9 @@ static NSString *const MDRTimeTitle = @"TIME";
 }
 
 - (void)reload {
-    NSInteger hour              = ((g5TimeCondition *)self.condition).hour;
-    NSInteger minute            = ((g5TimeCondition *)self.condition).minute;
-    MDRTimeMeridian meridian    = ((g5TimeCondition *)self.condition).meridian;
+    NSInteger hour              = ((MDRTimeCondition *)self.condition).hour;
+    NSInteger minute            = ((MDRTimeCondition *)self.condition).minute;
+    MDRTimeMeridian meridian    = ((MDRTimeCondition *)self.condition).meridian;
     
     NSInteger indexForHour      = [MDRTimeComponents indexForHour:hour];
     NSInteger indexForMinute    = [MDRTimeComponents indexForMinute:minute];
@@ -92,17 +92,17 @@ static NSString *const MDRTimeTitle = @"TIME";
     if ([pickerTable isEqual:self.hourPicker]) {
         NSString *hourSelection = [[MDRTimeComponents hours] objectAtIndex:row];
         NSInteger hour = [MDRTimeComponents hourFromHourString:hourSelection];
-        ((g5TimeCondition *)self.condition).hour = hour;
+        ((MDRTimeCondition *)self.condition).hour = hour;
     }
     else if ([pickerTable isEqual:self.minutePicker]) {
         NSString *selection = [[MDRTimeComponents minutes] objectAtIndex:row];
         NSInteger minute = [MDRTimeComponents minuteFromString:selection];
-        ((g5TimeCondition *)self.condition).minute = minute;
+        ((MDRTimeCondition *)self.condition).minute = minute;
     }
     else if ([pickerTable isEqual:self.meridianPicker]) {
         NSString *meridianSelection = [[MDRTimeComponents meridians] objectAtIndex:row];
         MDRTimeMeridian meridian = [MDRTimeComponents meridianFromMeridianString:meridianSelection];
-        ((g5TimeCondition *)self.condition).meridian = meridian;
+        ((MDRTimeCondition *)self.condition).meridian = meridian;
     }
 }
 

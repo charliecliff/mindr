@@ -6,18 +6,18 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5TemperatureCondition.h"
+#import "MDRTemperatureCondition.h"
 
-#define KEY_CONDITION_TEMPERATURE @"KEY_CONDITION_TEMPERATURE"
+static NSString *const kMDRConditionTemperature = @"temperature";
 
-@implementation g5TemperatureCondition
+@implementation MDRTemperatureCondition
 
 #pragma mark - Init
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        [self parseDictionary:dictionary[kMDRConditionAttributes]];
     }
     return self;
 }
@@ -64,13 +64,17 @@
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.temperature = [dictionary objectForKey:KEY_CONDITION_TEMPERATURE];
+    self.temperature = [dictionary objectForKey:kMDRConditionTemperature];
 }
 
 - (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    [dictionary setObject:self.temperature forKey:KEY_CONDITION_TEMPERATURE];
-    return dictionary;
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+    [attributeDictionary setObject:self.temperature forKey:kMDRConditionTemperature];
+    
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    return superDictionary;
 }
 
 @end

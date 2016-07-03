@@ -8,7 +8,7 @@
 
 #import "g5DateConditionViewController.h"
 #import "g5CalendarTableViewController.h"
-#import "g5DateCondition.h"
+#import "MDRDateCondition.h"
 
 @interface g5DateConditionViewController ()
 
@@ -27,7 +27,7 @@
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (self.condition == nil) {
-            self.condition = [[g5DateCondition alloc] init];
+            self.condition = [[MDRDateCondition alloc] init];
         }
     }
     return self;
@@ -48,14 +48,14 @@
     NSArray *sortedArrayOfDates = [dates sortedArrayUsingComparator: ^(NSDate *d1, NSDate *d2) {
         return [d1 compare:d2];
     }];
-    ((g5DateCondition *)self.condition).dates = [NSMutableArray arrayWithArray:sortedArrayOfDates];
+    ((MDRDateCondition *)self.condition).dates = [NSMutableArray arrayWithArray:sortedArrayOfDates];
     [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up
 
 - (void)setUpCalendarView {
-    self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:((g5DateCondition *)self.condition).dates];
+    self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:((MDRDateCondition *)self.condition).dates];
     self.calendarVC.gridColor               = [UIColor colorWithRed:57.0/255.0 green:85.0/255.0 blue:115.0/255.0 alpha:1];
     self.calendarVC.normalTextColor         = [UIColor whiteColor];;
     self.calendarVC.selectedTextColor       = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];

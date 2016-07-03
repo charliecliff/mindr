@@ -8,7 +8,7 @@
 
 #import "MDRCondition.h"
 
-@interface g5DateCondition : MDRCondition
+@interface MDRDateCondition : MDRCondition
 
 @property(nonatomic, strong) NSMutableArray *dates;
 

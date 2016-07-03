@@ -9,7 +9,7 @@
 #import "MDRCondition.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface g5LocationCondition : MDRCondition
+@interface MDRLocationCondition : MDRCondition
 
 @property(nonatomic) CLLocationDistance radius;
 

@@ -6,22 +6,22 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5DateCondition.h"
+#import "MDRDateCondition.h"
 
-#define KEY_CONDITION_DATES @"KEY_CONDITION_DATES"
+static NSString *const kMDRConditionDates = @"dates";
 
-@interface g5DateCondition ()
+@interface MDRDateCondition ()
 
 @end
 
-@implementation g5DateCondition
+@implementation MDRDateCondition
 
 #pragma mark - Init
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
-        [self parseDictionary:dictionary];
+        [self parseDictionary:dictionary[kMDRConditionAttributes]];
     }
     return self;
 }
@@ -53,7 +53,7 @@
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    NSArray *arrayOfDateEpochs = [dictionary objectForKey:KEY_CONDITION_DATES];
+    NSArray *arrayOfDateEpochs = [dictionary objectForKey:kMDRConditionDates];
     
     NSMutableArray *tmpMutableArray = [[NSMutableArray alloc] init];
     for (NSNumber *epochTimeInSecondsNumber in arrayOfDateEpochs) {
@@ -64,7 +64,8 @@
 }
 
 - (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
     
     NSMutableArray *arrayOfDateEpochs = [[NSMutableArray alloc] init];
     for (NSDate *currentDate in self.dates) {
@@ -72,8 +73,10 @@
         [arrayOfDateEpochs addObject:[NSNumber numberWithInt:epochTimeInSeconds]];
     }
     
-    [dictionary setObject:arrayOfDateEpochs forKey:KEY_CONDITION_DATES];
-    return dictionary;
+    [attributeDictionary setObject:arrayOfDateEpochs forKey:kMDRConditionDates];
+    
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    return superDictionary;
 }
 
 @end

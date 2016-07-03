@@ -15,19 +15,8 @@
 
 @interface g5ReminderManager : NSObject
 
-/**
- 
- */
-@property(nonatomic, strong, readonly) MDRUserContext *userContext;
-
-/**
- 
- */
+@property(nonatomic, strong) NSString *userID;
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *reminderIDs;
-
-/**
- 
- */
 @property(nonatomic, strong, readonly) NSMutableDictionary *reminders;
 
 /**
@@ -55,7 +44,7 @@
 /**
  Setters
  */
-- (void)setPushToken:(NSString *)token;
+- (void)setUserID:(NSString *)userID;
 
 /**
     Persistence

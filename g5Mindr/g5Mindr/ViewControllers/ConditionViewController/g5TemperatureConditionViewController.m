@@ -7,7 +7,7 @@
 //
 
 #import "g5TemperatureConditionViewController.h"
-#import "g5TemperatureCondition.h"
+#import "MDRTemperatureCondition.h"
 #import "MDRTemperatureComponents.h"
 
 static NSString *const MDRTemperatureTitle = @"TEMPERATURE";
@@ -20,7 +20,7 @@ static NSString *const MDRTemperatureTitle = @"TEMPERATURE";
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (condition == nil) {
-            self.condition = [[g5TemperatureCondition alloc] init];
+            self.condition = [[MDRTemperatureCondition alloc] init];
         }
     }
     return self;
@@ -50,9 +50,9 @@ static NSString *const MDRTemperatureTitle = @"TEMPERATURE";
 }
 
 - (void)reload {
-    NSComparisonResult comparisonType  = ((g5TemperatureCondition *)self.condition).temperatureComparisonType;
-    g5TemperatureUnit temperatureUnit  = ((g5TemperatureCondition *)self.condition).temperatureunit;
-    NSNumber *temperature               = ((g5TemperatureCondition *)self.condition).temperature;
+    NSComparisonResult comparisonType  = ((MDRTemperatureCondition *)self.condition).temperatureComparisonType;
+    g5TemperatureUnit temperatureUnit  = ((MDRTemperatureCondition *)self.condition).temperatureunit;
+    NSNumber *temperature               = ((MDRTemperatureCondition *)self.condition).temperature;
     
     NSInteger indexForComparisonType    = [MDRTemperatureComponents indexForComparisonResult:comparisonType];
     NSInteger indexForTemperatureUnit   = [MDRTemperatureComponents indexForTemperatureUnit:temperatureUnit];
@@ -84,17 +84,17 @@ static NSString *const MDRTemperatureTitle = @"TEMPERATURE";
     if ([pickerTable isEqual:self.degreeView]) {
         NSString *selection = [[MDRTemperatureComponents degrees] objectAtIndex:row];
         NSNumber *newTemperature = [MDRTemperatureComponents temperatureFromString:selection];
-        ((g5TemperatureCondition *)self.condition).temperature = newTemperature;
+        ((MDRTemperatureCondition *)self.condition).temperature = newTemperature;
     }
     else if ([pickerTable isEqual:self.unitView]) {
         NSString *selection = [[MDRTemperatureComponents degreeUnits] objectAtIndex:row];
         g5TemperatureUnit unit = [MDRTemperatureComponents temperatureunitFromString:selection];
-        ((g5TemperatureCondition *)self.condition).temperatureunit = unit;
+        ((MDRTemperatureCondition *)self.condition).temperatureunit = unit;
     }
     else if ([pickerTable isEqual:self.prepositionView]) {
         NSString *selection = [[MDRTemperatureComponents prepostions] objectAtIndex:row];
         NSComparisonResult selectedComparison = [MDRTemperatureComponents comparisonResultFromString:selection];
-        ((g5TemperatureCondition *)self.condition).temperatureComparisonType = selectedComparison;
+        ((MDRTemperatureCondition *)self.condition).temperatureComparisonType = selectedComparison;
     }
 }
 

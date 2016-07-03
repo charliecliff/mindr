@@ -8,7 +8,7 @@
 
 #import "g5LocationConditionViewController.h"
 #import "MDRLocationManager.h"
-#import "g5LocationCondition.h"
+#import "MDRLocationCondition.h"
 #import "g5ConfigAndMacros.h"
 
 #import "UIGestureRecognizer+Cancel.h"
@@ -47,7 +47,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (self.condition == nil) {
-            self.condition = [[g5LocationCondition alloc] init];
+            self.condition = [[MDRLocationCondition alloc] init];
         }
     }
     return self;
@@ -68,7 +68,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 - (void)setUpMapView {
     self.mapView.showsUserLocation = NO;
     self.mapView.zoomLevel = 12;
-    self.mapView.centerCoordinate = ((g5LocationCondition *)self.condition).location.coordinate;
+    self.mapView.centerCoordinate = ((MDRLocationCondition *)self.condition).location.coordinate;
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
     
@@ -138,15 +138,15 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 - (void)addAnnotationAtPointInMapView:(CGPoint)pointInMapView {
     //  1. Point for the Location
     CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
-    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
     //  2. Point for the Grippy
     CGPoint pontForGrippy = CGPointMake(pointInMapView.x, pointInMapView.y + 100);
     CLLocationCoordinate2D coordinateForGrippy = [self.mapView convertPoint:pontForGrippy toCoordinateFromView:self.mapView];
     self.grippyLocation = [[CLLocation alloc] initWithLatitude:coordinateForGrippy.latitude longitude:coordinateForGrippy.longitude];
     
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
-    ((g5LocationCondition *)self.condition).radius = distance;
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
+    ((MDRLocationCondition *)self.condition).radius = distance;
     
     //  3. Refresh
     [self updateLocationAddress];
@@ -155,10 +155,10 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 - (void)updateLocationAnnotationToPointInMapView:(CGPoint)pointInMapView {
     CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
-    ((g5LocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
-    ((g5LocationCondition *)self.condition).radius = distance;
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
+    ((MDRLocationCondition *)self.condition).radius = distance;
     
     [self updateLocationAddress];
     [self refreshMap];
@@ -168,8 +168,8 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
     self.grippyLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((g5LocationCondition *)self.condition).location];
-    ((g5LocationCondition *)self.condition).radius = distance;
+    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
+    ((MDRLocationCondition *)self.condition).radius = distance;
     
     [self refreshAddressLabel];
     [self refreshMap];
@@ -177,10 +177,10 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 - (void)updateLocationAddress {
     __weak g5LocationConditionViewController *weakSelf = self;
-    [[MDRLocationManager sharedManager] getAddressForLocation:((g5LocationCondition *)self.condition).location
+    [[MDRLocationManager sharedManager] getAddressForLocation:((MDRLocationCondition *)self.condition).location
                                                  withSuccess:^(NSString *addressLine) {
                                                      g5LocationConditionViewController *strongSelf = weakSelf;
-                                                     ((g5LocationCondition *)strongSelf.condition).address = addressLine;
+                                                     ((MDRLocationCondition *)strongSelf.condition).address = addressLine;
                                                      [strongSelf refreshAddressLabel];
                                                  }
                                                  withFailure:nil];
@@ -188,12 +188,12 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 #pragma mark - Refresh
 
 - (void)refreshMap {
-    if ( ((g5LocationCondition *)self.condition).location != nil ) {
+    if ( ((MDRLocationCondition *)self.condition).location != nil ) {
         if (self.locationAnnotation) {
             [self.mapView removeAnnotation:self.locationAnnotation];
         }
         self.locationAnnotation = [[MGLPointAnnotation alloc] init];
-        self.locationAnnotation.coordinate = ((g5LocationCondition *)self.condition).location.coordinate;
+        self.locationAnnotation.coordinate = ((MDRLocationCondition *)self.condition).location.coordinate;
         self.locationAnnotation.title = MDRLocationAnnotationTitle;
         [self.mapView addAnnotation:self.locationAnnotation];
     }
@@ -208,20 +208,20 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
         [self.mapView addAnnotation:self.grippyAnnotation];
     }
     
-    if ( ((g5LocationCondition *)self.condition).radius != 0 ) {
+    if ( ((MDRLocationCondition *)self.condition).radius != 0 ) {
         if (self.radiusPoly) {
             [self.mapView removeAnnotation:self.radiusPoly];
         }
-        self.radiusPoly = [self polygonCircleForCoordinate:((g5LocationCondition *)self.condition).location.coordinate
-                                              withMeterRadius:((g5LocationCondition *)self.condition).radius];
+        self.radiusPoly = [self polygonCircleForCoordinate:((MDRLocationCondition *)self.condition).location.coordinate
+                                              withMeterRadius:((MDRLocationCondition *)self.condition).radius];
         [self.mapView addAnnotation:self.radiusPoly];
     }
 }
 
 - (void)refreshAddressLabel {
-    if ( ((g5LocationCondition *)self.condition).location != nil ) {
-        CLLocationDistance distanceInMiles = ((g5LocationCondition *)self.condition).radius * 0.000621371;
-        NSString *addressString = ((g5LocationCondition *)self.condition).address;
+    if ( ((MDRLocationCondition *)self.condition).location != nil ) {
+        CLLocationDistance distanceInMiles = ((MDRLocationCondition *)self.condition).radius * 0.000621371;
+        NSString *addressString = ((MDRLocationCondition *)self.condition).address;
         
         NSString *string = [NSString stringWithFormat:@"%0.1f m from %@", distanceInMiles, addressString];
         NSMutableAttributedString *labelString = [[NSMutableAttributedString alloc] initWithString:string];

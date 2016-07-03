@@ -14,7 +14,7 @@
 
 + (void)getRemindersWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
 
-+ (void)postReminders:(NSArray *)reminders withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
++ (void)postReminder:(NSDictionary *)reminderDict withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
 
 + (void)getUserContextWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
 

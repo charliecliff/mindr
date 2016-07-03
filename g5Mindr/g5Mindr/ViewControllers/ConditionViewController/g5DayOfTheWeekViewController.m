@@ -8,7 +8,7 @@
 
 #import "g5DayOfTheWeekViewController.h"
 #import "g5DayOfTheWeekConditionTableViewCell.h"
-#import "g5DayOfTheWeekCondition.h"
+#import "MDRDayOfTheWeekCondition.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5DayOfTheWeekViewController () <UITableViewDataSource, UITabBarDelegate> {
@@ -27,7 +27,7 @@
     self = [super initWithCondition:condition];
     if (self != nil) {
         if (condition == nil) {
-            self.condition = [[g5DayOfTheWeekCondition alloc] init];
+            self.condition = [[MDRDayOfTheWeekCondition alloc] init];
         }
         [self setUpCells];
     }
@@ -72,7 +72,7 @@
     NSString *dayOfTheWeekString = [self stringForDayOfTheWeekOrdinal:(indexPath.row+1)];
     cell.dayOfTheWeekLabel.text = dayOfTheWeekString;
     
-    BOOL shouldSelectCell = [((g5DayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row + 1)];
+    BOOL shouldSelectCell = [((MDRDayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row + 1)];
     [cell setSelected:shouldSelectCell];
     
     return cell;
@@ -81,7 +81,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [((g5DayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row + 1)];
+    [((MDRDayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row + 1)];
     [self.dayOfTheWeekTableView reloadData];
 }
 

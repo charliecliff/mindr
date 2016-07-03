@@ -6,20 +6,16 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5LocationCondition.h"
+#import "MDRLocationCondition.h"
 #import "MDRLocationManager.h"
 #import <CoreLocation/CoreLocation.h>
-
-#define KEY_CONDITION_LOCATION @"KEY_CONDITION_LOCATION"
-#define KEY_CONDITION_RADIUS   @"KEY_CONDITION_RADIUS"
-#define KEY_CONDITION_ADDRESS  @"KEY_CONDITION_ADDRESS"
 
 static NSString *const kMDRLocationLongitude = @"longitude";
 static NSString *const kMDRLocationLatitude = @"latitude";
 static NSString *const kMDRLocationAddress = @"address";
 static NSString *const kMDRLocationRadius = @"radius";
 
-@implementation g5LocationCondition
+@implementation MDRLocationCondition
 
 #pragma mark - Init
 
@@ -58,19 +54,17 @@ static NSString *const kMDRLocationRadius = @"radius";
 - (void)parseDictionary:(NSDictionary *)dictionary {
 
     self.location = nil;
-    if ([dictionary.allKeys containsObject:KEY_CONDITION_LOCATION]) {
-        CLLocationDegrees latitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLatitude]).floatValue;
-        CLLocationDegrees longitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLongitude]).floatValue;
-        self.location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-    }
-    
-    self.address = @"";
-    if ([dictionary.allKeys containsObject:KEY_CONDITION_ADDRESS]) {
-        self.address = [dictionary objectForKey:KEY_CONDITION_ADDRESS];
-    }
-    
-    NSNumber *radiusNumber = [dictionary objectForKey:KEY_CONDITION_RADIUS];
+    CLLocationDegrees latitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLatitude]).floatValue;
+    CLLocationDegrees longitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLongitude]).floatValue;
+    self.location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+   
+    NSNumber *radiusNumber = [dictionary objectForKey:kMDRLocationRadius];
     self.radius = [radiusNumber floatValue];
+
+    self.address = @"";
+    if ([dictionary.allKeys containsObject:kMDRLocationAddress]) {
+        self.address = [dictionary objectForKey:kMDRLocationAddress];
+    }
 }
 
 - (NSDictionary *)encodeToDictionary {
@@ -83,13 +77,12 @@ static NSString *const kMDRLocationRadius = @"radius";
     }
 
     if (self.address != nil) {
-        [attributeDictionary setObject:self.address forKey:KEY_CONDITION_ADDRESS];
+        [attributeDictionary setObject:self.address forKey:kMDRLocationAddress];
     }
     
-    [attributeDictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:KEY_CONDITION_RADIUS];
+    [attributeDictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:kMDRLocationRadius];
     
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
-    
     return superDictionary;
 }
 

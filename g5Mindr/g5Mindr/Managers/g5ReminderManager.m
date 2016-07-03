@@ -37,15 +37,11 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
+        self.userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
+        
         self.userContext = [[MDRUserContext alloc] init];
         self.reminderIDs = [[NSMutableOrderedSet alloc] init];
         self.reminders = [[NSMutableDictionary alloc] init];
-        
-        
-        MDRReminder *dump  = [self newReminder];
-        NSDictionary *duck = [dump encodeToDictionary];
-        
-        NSLog(@"uck");
     }
     return self;
 }
@@ -61,6 +57,13 @@
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
     [self saveReminders];
+    NSDictionary *currentReminderDictionary = [reminder encodeToDictionary];
+    [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
+                        withSuccess:^{
+                            
+                        } withFailure:^{
+                            
+                        }];
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {
@@ -80,9 +83,9 @@
 
 #pragma mark - Setters
 
-- (void)setPushToken:(NSString *)token {
-    self.userContext.userID = token;
-//    [self updateContext];
+- (void)setUserID:(NSString *)userID {
+    _userID = userID;
+    [[NSUserDefaults standardUserDefaults] setObject:self.userID forKey:@"push_token"];
 }
 
 #pragma mark - API Calls
@@ -96,11 +99,16 @@
 }
 
 - (void)updateReminders {
-    [MDRReminderClient postReminders:self.reminders.allValues withUserID:self.userContext.userID withSuccess:^{
-        
-    } withFailure:^{
-        
-    }];
+    for (MDRReminder *currentReminder in self.reminders.allValues) {
+        NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
+        [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
+                            withSuccess:^{
+                                
+                            } withFailure:^{
+                                
+                            }];
+    }
+
 }
 
 #pragma mark - Persistence

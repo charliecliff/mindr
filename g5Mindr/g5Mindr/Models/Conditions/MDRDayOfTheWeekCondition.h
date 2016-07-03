@@ -8,7 +8,7 @@
 
 #import "MDRCondition.h"
 
-@interface g5DayOfTheWeekCondition : MDRCondition
+@interface MDRDayOfTheWeekCondition : MDRCondition
 
 @property(nonatomic, strong, readonly) NSString *dayOfTheWeekString;
 @property(nonatomic, strong, readonly) NSMutableSet *daysOfTheWeek;

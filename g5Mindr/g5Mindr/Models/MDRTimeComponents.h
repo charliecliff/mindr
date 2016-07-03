@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "g5TimeCondition.h"
+#import "MDRTimeCondition.h"
 
 @interface MDRTimeComponents : NSObject
 

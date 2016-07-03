@@ -15,7 +15,7 @@ typedef enum {
 
 @class MDRWeatherMonitor;
 
-@interface g5TemperatureCondition : MDRCondition
+@interface MDRTemperatureCondition : MDRCondition
 
 @property(nonatomic) g5TemperatureUnit temperatureunit;
 @property(nonatomic) NSComparisonResult temperatureComparisonType;

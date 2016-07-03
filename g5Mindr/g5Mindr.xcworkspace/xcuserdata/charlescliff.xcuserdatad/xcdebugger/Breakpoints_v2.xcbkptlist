@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Managers/g5ReminderManager.m"
-            timestampString = "489198742.512055"
+            timestampString = "489202417.068615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "-updateReminders"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-loadReminders"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489200471.642781"
+            filePath = "g5Mindr/Managers/g5ReminderManager.m"
+            timestampString = "489203462.584433"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-saveReminders"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489200471.642781"
+            filePath = "g5Mindr/ViewControllers/g5ConditionListViewController.m"
+            timestampString = "489204208.467582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-didUpdateCondition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "489200471.642781"
+            filePath = "g5Mindr/Models/Conditions/MDRTimeCondition.m"
+            timestampString = "489204342.70898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-encodeToDictionary"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

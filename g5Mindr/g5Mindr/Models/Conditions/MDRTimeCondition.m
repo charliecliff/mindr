@@ -68,17 +68,6 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     return @"TIME";
 }
 
-#pragma mark - Setters
-
-- (void)setDate:(NSDate *)date {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
-    NSInteger hour = [components hour];
-    NSInteger minute = [components minute];
-    
-    self.timeOfDayInSeconds = minute * 60 + hour * 60 * 60;
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

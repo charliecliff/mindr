@@ -125,22 +125,22 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         
         MDRCondition *currentCondition;
         if ([conditionType isEqualToString:g5TimeType]) {
-            currentCondition = [[MDRTimeCondition alloc] init];
+            currentCondition = [[MDRTimeCondition alloc] initWithDictionary:currentConditionDictionary];
         }
         else if ([conditionType isEqualToString:g5DateType]) {
             currentCondition = [[MDRDateCondition alloc] init];
         }
         else if ([conditionType isEqualToString:g5DayOfTheWeekType]) {
-            currentCondition = [[MDRDayOfTheWeekCondition alloc] init];
+            currentCondition = [[MDRDayOfTheWeekCondition alloc] initWithDictionary:currentConditionDictionary];
         }
         else if ([conditionType isEqualToString:g5TemperatureType]) {
-            currentCondition = [[MDRTemperatureCondition alloc] init];
+            currentCondition = [[MDRTemperatureCondition alloc] initWithDictionary:currentConditionDictionary];
         }
         else if ([conditionType isEqualToString:g5WeatherType]) {
-            currentCondition = [[MDRWeatherTypeCondition alloc] init];
+            currentCondition = [[MDRWeatherTypeCondition alloc] initWithDictionary:currentConditionDictionary];
         }
         else if ([conditionType isEqualToString:g5LocationType]) {
-            currentCondition = [[MDRLocationCondition alloc] init];
+            currentCondition = [[MDRLocationCondition alloc] initWithDictionary:currentConditionDictionary];
         }
         else {
             assert(false);

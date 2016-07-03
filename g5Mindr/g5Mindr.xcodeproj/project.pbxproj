@@ -66,7 +66,6 @@
 		DAB28E791CB98D24007F14A2 /* g5CalendarRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E751CB98D24007F14A2 /* g5CalendarRowTableViewCell.m */; };
 		DAB28E7B1CB98D24007F14A2 /* g5CalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */; };
 		DAB28E8F1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */; };
-		DAC771A81D2342EF00036B44 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771A71D2342EF00036B44 /* MDRUserContext.m */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
 		DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */; };
 		DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B41D235B2500036B44 /* g5DateConditionViewController.xib */; };
@@ -194,8 +193,6 @@
 		DAB28E781CB98D24007F14A2 /* g5CalendarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CalendarTableViewController.m; sourceTree = "<group>"; };
 		DAB28E891CBB3E8B007F14A2 /* g5CalendarProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CalendarProtocols.h; sourceTree = "<group>"; };
 		DAB28E8D1CBB61FD007F14A2 /* g5CalendarRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5CalendarRowTableViewCell.xib; sourceTree = "<group>"; };
-		DAC771A61D2342EF00036B44 /* MDRUserContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserContext.h; sourceTree = "<group>"; };
-		DAC771A71D2342EF00036B44 /* MDRUserContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserContext.m; sourceTree = "<group>"; };
 		DAC771AD1D234ADA00036B44 /* MDRLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRLocationManager.h; sourceTree = "<group>"; };
 		DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRLocationManager.m; sourceTree = "<group>"; };
 		DAC771B11D234E1C00036B44 /* UIGestureRecognizer+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Cancel.h"; sourceTree = "<group>"; };
@@ -343,8 +340,6 @@
 		DA30CF001C9DD3AA00FD4438 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DAC771A61D2342EF00036B44 /* MDRUserContext.h */,
-				DAC771A71D2342EF00036B44 /* MDRUserContext.m */,
 				DA543D971D0C9F920079BBB0 /* MDRTemperatureComponents.h */,
 				DA543D981D0C9F920079BBB0 /* MDRTemperatureComponents.m */,
 				DAF36BAA1D06409A001DF406 /* MDRTimeComponents.h */,
@@ -804,7 +799,6 @@
 				DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */,
 				DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */,
 				DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */,
-				DAC771A81D2342EF00036B44 /* MDRUserContext.m in Sources */,
 				DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */,
 				DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,

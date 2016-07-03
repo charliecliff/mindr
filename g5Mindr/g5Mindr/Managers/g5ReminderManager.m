@@ -8,6 +8,8 @@
 
 #import "g5ReminderManager.h"
 #import "MDRReminderClient.h"
+#import "MDRLocationManager.h"
+#import "g5PersistenceManager.h"
 
 #define REMINDERS @"REMINDERS"
 
@@ -38,10 +40,7 @@
     self = [super init];
     if (self != nil) {
         self.userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
-        
-        self.userContext = [[MDRUserContext alloc] init];
-        self.reminderIDs = [[NSMutableOrderedSet alloc] init];
-        self.reminders = [[NSMutableDictionary alloc] init];
+        [self loadReminders];
     }
     return self;
 }
@@ -57,13 +56,13 @@
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
     [self saveReminders];
-    NSDictionary *currentReminderDictionary = [reminder encodeToDictionary];
-    [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
-                        withSuccess:^{
-                            
-                        } withFailure:^{
-                            
-                        }];
+//    NSDictionary *currentReminderDictionary = [reminder encodeToDictionary];
+//    [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
+//                        withSuccess:^{
+//                            
+//                        } withFailure:^{
+//                            
+//                        }];
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {

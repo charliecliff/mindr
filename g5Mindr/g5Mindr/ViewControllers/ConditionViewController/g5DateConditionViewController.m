@@ -7,13 +7,13 @@
 //
 
 #import "g5DateConditionViewController.h"
-#import "g5CalendarTableViewController.h"
+#import "HROCalendarTableViewController.h"
 #import "MDRDateCondition.h"
 
 @interface g5DateConditionViewController ()
 
 @property(nonatomic, strong) NSArray *selectedDates;
-@property(nonatomic, strong) g5CalendarTableViewController *calendarVC;
+@property(nonatomic, strong) HROCalendarTableViewController *calendarVC;
 
 @property(nonatomic, strong) IBOutlet UIView *calendarContainerView;
 
@@ -55,7 +55,7 @@
 #pragma mark - Set Up
 
 - (void)setUpCalendarView {
-    self.calendarVC = [[g5CalendarTableViewController alloc] initWithSelectedDates:((MDRDateCondition *)self.condition).dates];
+    self.calendarVC = [[HROCalendarTableViewController alloc] initWithSelectedDates:((MDRDateCondition *)self.condition).dates];
     self.calendarVC.gridColor               = [UIColor colorWithRed:57.0/255.0 green:85.0/255.0 blue:115.0/255.0 alpha:1];
     self.calendarVC.normalTextColor         = [UIColor whiteColor];;
     self.calendarVC.selectedTextColor       = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];

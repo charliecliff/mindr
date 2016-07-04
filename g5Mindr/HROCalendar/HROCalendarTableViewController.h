@@ -1,14 +1,7 @@
-//
-//  g5CalendarTableViewController.h
-//  Pods
-//
-//  Created by Charles Cliff on 4/9/16.
-//
-//
 
 #import <UIKit/UIKit.h>
 
-@interface g5CalendarTableViewController : UITableViewController
+@interface HROCalendarTableViewController : UITableViewController
 
 /**
  *  The calendar used to generate the view.

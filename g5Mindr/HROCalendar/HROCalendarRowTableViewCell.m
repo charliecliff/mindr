@@ -1,16 +1,9 @@
-//
-//  g5CalendarRowTableViewCell.m
-//  Pods
-//
-//  Created by Charles Cliff on 4/9/16.
-//
-//
 
-#import "g5CalendarRowTableViewCell.h"
-#import "g5CalendarProtocols.h"
+#import "HROCalendarRowTableViewCell.h"
+#import "HROCalendarProtocols.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface g5CalendarRowTableViewCell () {
+@interface HROCalendarRowTableViewCell () {
     NSDate *firstDateOfTheWeek;
     
     NSDate *sunday;
@@ -49,11 +42,11 @@
 
 @end
 
-@implementation g5CalendarRowTableViewCell
+@implementation HROCalendarRowTableViewCell
 
 #pragma mark - Setters
 
-- (void)setDatasource:(id<g5CalendarRowDatasource>)datasource {
+- (void)setDatasource:(id<HROCalendarRowDatasource>)datasource {
     _datasource = datasource;
     
     if ([self.datasource respondsToSelector:@selector(gridColor)]) {

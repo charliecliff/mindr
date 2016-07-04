@@ -1,14 +1,7 @@
-//
-//  g5CalendarHeaderView.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 4/12/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
 
-#import "g5CalendarHeaderView.h"
+#import "HROCalendarHeaderView.h"
 
-@interface g5CalendarHeaderView ()
+@interface HROCalendarHeaderView ()
 
 @property (nonatomic, strong) IBOutlet UILabel *monthLabel;
 @property (nonatomic, strong) IBOutlet UILabel *yearLabel;
@@ -16,7 +9,7 @@
 
 @end
 
-@implementation g5CalendarHeaderView
+@implementation HROCalendarHeaderView
 
 #pragma mark - Configure
 
@@ -34,7 +27,7 @@
 
 #pragma mark - Setters
 
-- (void)setDatasource:(id<g5CalendarRowDatasource>)datasource {
+- (void)setDatasource:(id<HROCalendarRowDatasource>)datasource {
     _datasource = datasource;
     
     if ([self.datasource respondsToSelector:@selector(normalTextColor)]) {

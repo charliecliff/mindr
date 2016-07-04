@@ -1,14 +1,7 @@
-//
-//  g5CalendarTableViewController.m
-//  Pods
-//
-//  Created by Charles Cliff on 4/9/16.
-//
-//
 
-#import "g5CalendarTableViewController.h"
-#import "g5CalendarRowTableViewCell.h"
-#import "g5CalendarHeaderView.h"
+#import "HROCalendarTableViewController.h"
+#import "HROCalendarRowTableViewCell.h"
+#import "HROCalendarHeaderView.h"
 
 #define HEADER_HEIGHT 30;
 
@@ -17,7 +10,7 @@ static NSString *const G5CalendarHeaderCellIdentifier = @"G5CalendarHeaderCellId
 
 static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
 
-@interface g5CalendarTableViewController () <g5CalendarRowDatasource, g5CalendarRowDelegate> {
+@interface HROCalendarTableViewController () <HROCalendarRowDatasource, HROCalendarRowDelegate> {
     CGFloat cellWidth;
 }
 
@@ -28,7 +21,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 
 @end
 
-@implementation g5CalendarTableViewController
+@implementation HROCalendarTableViewController
 
 #pragma mark - Init
 
@@ -109,7 +102,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 }
 
 - (UITableViewCell *)daysOfTheWeekCell {
-    g5CalendarRowTableViewCell *cell = [self commmonInitForWeekRow];
+    HROCalendarRowTableViewCell *cell = [self commmonInitForWeekRow];
     
     [cell configureForDaysOfTheWeek];
     
@@ -117,7 +110,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 }
 
 - (UITableViewCell *)weekCellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    g5CalendarRowTableViewCell *cell = [self commmonInitForWeekRow];
+    HROCalendarRowTableViewCell *cell = [self commmonInitForWeekRow];
     
     NSDate *firstDayOfTheWeekForSection = [self firstDayOfTheWeekForIndexPath:indexPath];
     [cell configureForFirstDateOfTheWeek:firstDayOfTheWeekForSection fromCalendar:self.calendar];
@@ -125,13 +118,13 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
     return cell;
 }
 
-- (g5CalendarRowTableViewCell *)commmonInitForWeekRow {
+- (HROCalendarRowTableViewCell *)commmonInitForWeekRow {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    g5CalendarRowTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:G5CalendarWeekCellIdentifier];
+    HROCalendarRowTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:G5CalendarWeekCellIdentifier];
     if (!cell) {
-        UINib *tableCell = [UINib nibWithNibName:@"g5CalendarRowTableViewCell" bundle:bundle] ;
-        [self.tableView registerNib:tableCell forCellReuseIdentifier:@"g5CalendarRowTableViewCell"];
-        cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5CalendarRowTableViewCell"];
+        UINib *tableCell = [UINib nibWithNibName:@"HROCalendarRowTableViewCell" bundle:bundle] ;
+        [self.tableView registerNib:tableCell forCellReuseIdentifier:@"HROCalendarRowTableViewCell"];
+        cell = [self.tableView dequeueReusableCellWithIdentifier:@"HROCalendarRowTableViewCell"];
     }
     cell.datasource = self;
     cell.delegate = self;
@@ -150,9 +143,9 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSArray *viewArray = [bundle loadNibNamed:@"g5CalendarHeaderView" owner:self options:nil];
+    NSArray *viewArray = [bundle loadNibNamed:@"HROCalendarHeaderView" owner:self options:nil];
     
-    g5CalendarHeaderView *headerView = [viewArray objectAtIndex:0];
+    HROCalendarHeaderView *headerView = [viewArray objectAtIndex:0];
     headerView.datasource = self;
     
     NSDate *firstOfTheMonthForThisSection = [self firstOfMonthForSection:section];
@@ -160,7 +153,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
     return headerView;
 }
 
-#pragma mark - g5CalendarRowDelegate
+#pragma mark - HROCalendarRowDelegate
 
 - (void)didSelectDate:(NSDate *)date {
     [self.selectedDates addObject:date];
@@ -175,7 +168,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    for (g5CalendarRowTableViewCell *cell in self.tableView.visibleCells) {
+    for (HROCalendarRowTableViewCell *cell in self.tableView.visibleCells) {
         CGFloat hiddenFrameHeight = scrollView.contentOffset.y + cellWidth - cell.frame.origin.y;
         if (hiddenFrameHeight >= 0 || hiddenFrameHeight <= cell.frame.size.height) {
             [cell maskCellFromTop:hiddenFrameHeight];
@@ -183,7 +176,7 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
     }
 }
 
-#pragma mark - g5CalendarRowDatasource
+#pragma mark - HROCalendarRowDatasource
 
 - (NSMutableSet *)selectedDates {
     return _selectedDates;

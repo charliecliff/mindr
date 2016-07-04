@@ -1,12 +1,5 @@
-//
-//  g5CalendarProtocols.h
-//  g5Mindr
-//
-//  Created by Charles Cliff on 4/10/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
 
-@protocol g5CalendarRowDatasource <NSObject>
+@protocol HROCalendarRowDatasource <NSObject>
 
 @required
 - (NSMutableSet *)selectedDates;
@@ -21,7 +14,7 @@
 
 @end
 
-@protocol g5CalendarRowDelegate <NSObject>
+@protocol HROCalendarRowDelegate <NSObject>
 
 @required
 - (void)didSelectDate:(NSDate *)date;

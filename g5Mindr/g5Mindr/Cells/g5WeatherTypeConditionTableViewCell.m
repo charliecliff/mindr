@@ -14,6 +14,7 @@
 @property(nonatomic, strong) IBOutlet UILabel *weatherLabel;
 @property(nonatomic, strong) IBOutlet UIImageView *weatherImage;
 @property(nonatomic, strong) IBOutlet UIImageView *background;
+@property(nonatomic, strong) IBOutlet UIImageView *checkMarkImageView;
 
 @end
 
@@ -43,6 +44,8 @@
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     [self.background setHidden:!self.selected];
+    [self.checkMarkImageView setHidden:!self.selected];
+
 }
 
 #pragma mark - Helpers

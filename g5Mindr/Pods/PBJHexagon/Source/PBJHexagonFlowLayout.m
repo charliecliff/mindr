@@ -40,14 +40,6 @@ CG_INLINE CGFloat CGFloat_floor(CGFloat cgfloat) {
 #endif
 }
 
-CG_INLINE CGFloat_ceil(CGFloat cgfloat) {
-#if defined(__LP64__) && __LP64__
-    return ceil(cgfloat);
-#else
-    return ceil(cgfloat);
-#endif
-}
-
 @interface PBJHexagonFlowLayout ()
 {
     NSInteger _itemsPerRow;
@@ -83,32 +75,16 @@ CG_INLINE CGFloat_ceil(CGFloat cgfloat) {
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger numberOfItemsInASetOfTwoRows = ((_itemsPerRow * 2) - 1);
-    
-    NSInteger currentItem = indexPath.row;
-    NSInteger numberOfPairsOfRows = CGFloat_floor( currentItem / numberOfItemsInASetOfTwoRows );
+    NSInteger row = (NSInteger) CGFloat_nearbyint( CGFloat_floor(indexPath.row / _itemsPerRow) );
+    NSInteger col = indexPath.row % _itemsPerRow;
 
-    NSInteger currentItemWithinAPairOfRows = currentItem % numberOfItemsInASetOfTwoRows;
-
-    NSInteger numberOfCompeletedRowsWithinTheCurrentPairOfRows = CGFloat_floor( currentItemWithinAPairOfRows / _itemsPerRow );
-
-    NSInteger currentRow = 2 * numberOfPairsOfRows + numberOfCompeletedRowsWithinTheCurrentPairOfRows;
-
-    NSInteger currentColumn;
-    if (numberOfCompeletedRowsWithinTheCurrentPairOfRows == 1)
-        currentColumn = currentItemWithinAPairOfRows - _itemsPerRow;    // An Even Row: (_itemsPerRow - 1)
-    else
-        currentColumn = currentItemWithinAPairOfRows;                   // An Odd Row: (_itemsPerRow)
-
-    
-    CGFloat horiOffset = ((currentRow % 2) != 0) ? self.itemSize.width * 0.5f : 0 ;
-    CGFloat vertOffset = self.sectionInset.top;
+    CGFloat horiOffset = ((row % 2) != 0) ? 0 : self.itemSize.width * 0.5f;
+    CGFloat vertOffset = 0;
     
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     attributes.size = self.itemSize;
-    
-    attributes.center = CGPointMake( ( (currentColumn * self.itemSize.width) + (0.5f * self.itemSize.width) + horiOffset),
-                                     ( (currentRow* self.itemSize.height) + (0.5f * self.itemSize.height) + vertOffset) );
+    attributes.center = CGPointMake( ( (col * self.itemSize.width) + (0.5f * self.itemSize.width) + horiOffset),
+                                     ( ( (row * 0.75f) * self.itemSize.height) + (0.5f * self.itemSize.height) + vertOffset) );
     return attributes;
 }
 
@@ -122,21 +98,9 @@ CG_INLINE CGFloat_ceil(CGFloat cgfloat) {
     NSInteger numberOfItems = [self.collectionView numberOfItemsInSection:0];
 
     CGFloat contentWidth = self.collectionView.bounds.size.width;
+    CGFloat contentHeight = ( ((numberOfItems / _itemsPerRow) * 0.75f) * self.itemSize.height) + (0.5f + self.itemSize.height);
     
-    CGFloat numberOfRows;
-    CGFloat numberOfFullRows  = 2 * CGFloat_floor(numberOfItems / ((_itemsPerRow * 2) - 1));
-    CGFloat numberOfLeftOverItems = numberOfItems % ((_itemsPerRow * 2) - 1);
-    if (numberOfLeftOverItems > _itemsPerRow) {
-        numberOfRows = numberOfFullRows + 2;
-    }
-    else {
-        numberOfRows = numberOfFullRows + 1;
-    }
-    
-//    CGFloat contentHeight = ( (numberOfRows * 0.75f) * self.itemSize.height) + (0.5f + self.itemSize.height);
-    CGFloat contentHeight = (numberOfRows * self.itemSize.height);
-    
-    CGSize contentSize = CGSizeMake(contentWidth, contentHeight + self.sectionInset.top + self.sectionInset.bottom);
+    CGSize contentSize = CGSizeMake(contentWidth, contentHeight);
     return contentSize;
 }
 

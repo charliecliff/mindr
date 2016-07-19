@@ -1,15 +1,15 @@
-platform :ios, '7.0'
+platform :ios, '8.0'
 inhibit_all_warnings!
 
 target 'g5Mindr' do
     source 'https://github.com/CocoaPods/Specs.git'
     
-    pod 'Mapbox-iOS-SDK'
+    pod 'Mapbox-iOS-SDK', '~> 3.3.0'
     pod 'GoogleMaps'
     pod 'AFNetworking', '~> 2.6.3'
     pod 'Mantle'
     pod 'PBJHexagon'
     pod 'AMWaveTransition'
-    pod 'ReactiveCocoa'
+    pod 'ReactiveCocoa', '~> 2.5'
 
 end

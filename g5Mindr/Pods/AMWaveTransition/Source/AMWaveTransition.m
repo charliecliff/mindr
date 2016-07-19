@@ -37,15 +37,12 @@ typedef NS_ENUM(NSInteger, AMWaveTransitionViewControllers) {
 
 #define SCREEN_WIDTH ((([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortrait) || ([UIApplication sharedApplication].statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown)) ? [[UIScreen mainScreen] bounds].size.width : [[UIScreen mainScreen] bounds].size.height)
 
-//const CGFloat DURATION = 0.65;
-//const CGFloat MAX_DELAY = 0.15;
+const CGFloat DURATION = 0.65;
+const CGFloat MAX_DELAY = 0.15;
 
-const CGFloat DURATION = 0.3;
-const CGFloat MAX_DELAY = 0.3;
-
-//- (void)dealloc {
-//    [self detachInteractiveGesture];
-//}
+- (void)dealloc {
+    [self detachInteractiveGesture];
+}
 
 - (instancetype)init {
     if ((self = [super init])) {
@@ -86,7 +83,6 @@ const CGFloat MAX_DELAY = 0.3;
     _maxDelay = MAX_DELAY;
 }
 
-/*
 - (void)attachInteractiveGestureToNavigationController:(UINavigationController *)navigationController {
     self.navigationController = navigationController;
     if (self.interactiveTransitionType == AMWaveTransitionEdgePan) {
@@ -197,11 +193,9 @@ const CGFloat MAX_DELAY = 0.3;
         }];
         [self.attachmentsTo removeAllObjects];
         
-        
-        CGFloat duration = 3;
         if (gesture.state == UIGestureRecognizerStateEnded && velocity > 0) {
             // Complete the transition
-            [UIView animateWithDuration:duration animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 [fromViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
                     [self completeFromVC:view];
                 }];
@@ -218,7 +212,7 @@ const CGFloat MAX_DELAY = 0.3;
             }];
         } else {
             // Abort
-            [UIView animateWithDuration:duration animations:^{
+            [UIView animateWithDuration:0.3 animations:^{
                 [fromViews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop) {
                     [self setPresentedFrameForView:view];
                 }];
@@ -344,7 +338,7 @@ const CGFloat MAX_DELAY = 0.3;
         return 1.0;
     }
 }
-*/
+
 #pragma mark - Non interactive transition
 
 - (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
@@ -404,8 +398,8 @@ const CGFloat MAX_DELAY = 0.3;
         }];
     }
 
-    NSArray *fromViews  = [self visibleCellsForViewController:fromVC];
-    NSArray *toViews    = [self visibleCellsForViewController:toVC];
+    NSArray *fromViews = [self visibleCellsForViewController:fromVC];
+    NSArray *toViews = [self visibleCellsForViewController:toVC];
 
     __block NSArray *currentViews;
     __block NSUInteger currentVisibleViewsCount;

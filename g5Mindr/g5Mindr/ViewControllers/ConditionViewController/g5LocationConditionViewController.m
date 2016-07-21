@@ -10,32 +10,31 @@
 #import "MDRLocationManager.h"
 #import "MDRLocationCondition.h"
 #import "g5ConfigAndMacros.h"
-
 #import "UIGestureRecognizer+Cancel.h"
 
 @import Mapbox;
 @import MapKit;
 
-static NSString *const MDRLocationTitle = @"LOCATION";
+static NSString *const MDRLocationTitle             = @"LOCATION";
 static NSString *const MDRLocationAnnotationTitle   = @"location";
 static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 
 @interface g5LocationConditionViewController () <MGLMapViewDelegate> {
-    BOOL shouldDragLocationImage;
     BOOL shouldDragGrippyImage;
+    double deltaLatitude;
+    double deltaLongitude;
 }
 
-@property(nonatomic, strong) IBOutlet UILabel *addressLabel;
-@property(nonatomic, strong) IBOutlet MGLMapView *mapView;
-@property(nonatomic, strong) IBOutlet UIView *mapOverlayView;
-
+// PRIVATE
 @property(nonatomic, strong) MGLPointAnnotation *locationAnnotation;
 @property(nonatomic, strong) MGLPointAnnotation *grippyAnnotation;
 @property(nonatomic, strong) MGLPolyline *radiusPoly;;
-
-@property(nonatomic, strong) CLLocation *grippyLocation;
-
 @property(nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
+
+// OUTLETS
+@property(nonatomic, strong) IBOutlet UILabel *addressLabel;
+@property(nonatomic, strong) IBOutlet MGLMapView *mapView;
+@property(nonatomic, strong) IBOutlet UIView *mapOverlayView;
 
 @end
 
@@ -46,9 +45,8 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
 - (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super initWithCondition:condition];
     if (self != nil) {
-        if (self.condition == nil) {
+        if (self.condition == nil)
             self.condition = [[MDRLocationCondition alloc] init];
-        }
     }
     return self;
 }
@@ -72,11 +70,39 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
     self.mapView.delegate = self;
     
-    shouldDragLocationImage = NO;
     shouldDragGrippyImage = NO;
     
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressMapView:)];
     [self.mapView addGestureRecognizer:self.longPressGesture];
+    
+    [self setUpAnnotations];
+}
+
+- (void)setUpAnnotations {
+    // Location
+    self.locationAnnotation = [[MGLPointAnnotation alloc] init];
+    self.locationAnnotation.title = MDRLocationAnnotationTitle;
+    [self.mapView addAnnotation:self.locationAnnotation];
+
+    // Grippy
+    CLLocationDegrees initialLatitude  = [self coordinateFromCoord:((MDRLocationCondition *)self.condition).location.coordinate
+                                                      atDistanceKm:((MDRLocationCondition *)self.condition).radius/1000.0
+                                                  atBearingDegrees:0.0].latitude;
+    deltaLatitude  = initialLatitude - ((MDRLocationCondition *)self.condition).location.coordinate.latitude ;
+    
+    CLLocationDegrees initialLongitude = [self coordinateFromCoord:((MDRLocationCondition *)self.condition).location.coordinate
+                                                      atDistanceKm:((MDRLocationCondition *)self.condition).radius/1000.0
+                                                  atBearingDegrees:0.0].longitude;
+    deltaLongitude = initialLongitude - ((MDRLocationCondition *)self.condition).location.coordinate.longitude ;
+    
+    self.grippyAnnotation = [[MGLPointAnnotation alloc] init];
+    self.grippyAnnotation.title = MDRGrippyAnnotationTitle;
+    [self.mapView addAnnotation:self.grippyAnnotation];
+
+    // Circle
+    self.radiusPoly = [self polygonCircleForCoordinate:((MDRLocationCondition *)self.condition).location.coordinate
+                                       withMeterRadius:((MDRLocationCondition *)self.condition).radius];
+    [self.mapView addAnnotation:self.radiusPoly];
 }
 
 - (void)setUpNavigationBar {
@@ -86,92 +112,35 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     self.edgesForExtendedLayout = UIRectEdgeTop;
 }
 
-#pragma mark - Actions
+#pragma mark - Dragging
 
 - (void)didLongPressMapView:(UIGestureRecognizer *)gesture {
     CGPoint pointSelectedOnTheMapView = [gesture locationInView:self.mapView];
-
     if(gesture.state == UIGestureRecognizerStateBegan) {
-        
-        if (self.locationAnnotation == nil) {
-            [self addAnnotationAtPointInMapView:pointSelectedOnTheMapView];
-            return;
-        }
-        
-        CGFloat distance;
-
         CGPoint pointOfGrippyAnnotation = [self.mapView convertCoordinate:self.grippyAnnotation.coordinate toPointToView:self.mapView];
-        distance = hypotf(pointOfGrippyAnnotation.x - pointSelectedOnTheMapView.x, pointOfGrippyAnnotation.y - pointSelectedOnTheMapView.y);
+        CGFloat distance = hypotf(pointOfGrippyAnnotation.x - pointSelectedOnTheMapView.x, pointOfGrippyAnnotation.y - pointSelectedOnTheMapView.y);
         if (distance < 30) {
             shouldDragGrippyImage = YES;
             return;
         }
-        
-        CGPoint pointOfLocationAnnotation = [self.mapView convertCoordinate:self.locationAnnotation.coordinate toPointToView:self.mapView];
-        distance = hypotf(pointOfLocationAnnotation.x - pointSelectedOnTheMapView.x, pointOfLocationAnnotation.y - pointSelectedOnTheMapView.y);
-        if (distance < 30) {
-            return;
-            shouldDragLocationImage = YES;
-            return;
-        }
-        
-        [self addAnnotationAtPointInMapView:pointSelectedOnTheMapView];
         [gesture cancel];
     }
-    else if(gesture.state == UIGestureRecognizerStateChanged) {
-        
-        if (shouldDragGrippyImage) {
+    else if(gesture.state == UIGestureRecognizerStateChanged && shouldDragGrippyImage)
             [self updateGrippyAnnotationToPointInMapView:pointSelectedOnTheMapView];
-        }
-        if (shouldDragLocationImage) {
-            [self updateLocationAnnotationToPointInMapView:pointSelectedOnTheMapView];
-        }
-    }
-    else if(gesture.state == UIGestureRecognizerStateEnded) {
+    else if(gesture.state == UIGestureRecognizerStateEnded)
         shouldDragGrippyImage = NO;
-        shouldDragLocationImage = NO;
-    }
-}
-
-#pragma mark - Dragging
-
-- (void)addAnnotationAtPointInMapView:(CGPoint)pointInMapView {
-    //  1. Point for the Location
-    CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
-    ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-    
-    //  2. Point for the Grippy
-    CGPoint pontForGrippy = CGPointMake(pointInMapView.x, pointInMapView.y + 100);
-    CLLocationCoordinate2D coordinateForGrippy = [self.mapView convertPoint:pontForGrippy toCoordinateFromView:self.mapView];
-    self.grippyLocation = [[CLLocation alloc] initWithLatitude:coordinateForGrippy.latitude longitude:coordinateForGrippy.longitude];
-    
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
-    ((MDRLocationCondition *)self.condition).radius = distance;
-    
-    //  3. Refresh
-    [self updateLocationAddress];
-    [self refreshMap];
-}
-
-- (void)updateLocationAnnotationToPointInMapView:(CGPoint)pointInMapView {
-    CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
-    ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-    
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
-    ((MDRLocationCondition *)self.condition).radius = distance;
-    
-    [self updateLocationAddress];
-    [self refreshMap];
 }
 
 - (void)updateGrippyAnnotationToPointInMapView:(CGPoint)pointInMapView {
     CLLocationCoordinate2D coord = [self.mapView convertPoint:pointInMapView toCoordinateFromView:self.mapView];
-    self.grippyLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+    CLLocation *newGrippyLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
     
-    CLLocationDistance distance = [self.grippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
+    deltaLatitude  = coord.latitude - ((MDRLocationCondition *)self.condition).location.coordinate.latitude;
+    deltaLongitude = coord.longitude - ((MDRLocationCondition *)self.condition).location.coordinate.longitude;
+
+    CLLocationDistance distance = [newGrippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
     ((MDRLocationCondition *)self.condition).radius = distance;
     
-    [self refreshAddressLabel];
     [self refreshMap];
 }
 
@@ -185,37 +154,18 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
                                                  }
                                                  withFailure:nil];
 }
+
 #pragma mark - Refresh
 
 - (void)refreshMap {
-    if ( ((MDRLocationCondition *)self.condition).location != nil ) {
-        if (self.locationAnnotation) {
-            [self.mapView removeAnnotation:self.locationAnnotation];
-        }
-        self.locationAnnotation = [[MGLPointAnnotation alloc] init];
-        self.locationAnnotation.coordinate = ((MDRLocationCondition *)self.condition).location.coordinate;
-        self.locationAnnotation.title = MDRLocationAnnotationTitle;
-        [self.mapView addAnnotation:self.locationAnnotation];
-    }
-    
-    if ( self.grippyLocation != nil ) {
-        if (self.grippyAnnotation) {
-            [self.mapView removeAnnotation:self.grippyAnnotation];
-        }
-        self.grippyAnnotation = [[MGLPointAnnotation alloc] init];
-        self.grippyAnnotation.coordinate = self.grippyLocation.coordinate;
-        self.grippyAnnotation.title = MDRGrippyAnnotationTitle;
-        [self.mapView addAnnotation:self.grippyAnnotation];
-    }
-    
-    if ( ((MDRLocationCondition *)self.condition).radius != 0 ) {
-        if (self.radiusPoly) {
-            [self.mapView removeAnnotation:self.radiusPoly];
-        }
-        self.radiusPoly = [self polygonCircleForCoordinate:((MDRLocationCondition *)self.condition).location.coordinate
-                                              withMeterRadius:((MDRLocationCondition *)self.condition).radius];
-        [self.mapView addAnnotation:self.radiusPoly];
-    }
+    self.locationAnnotation.coordinate  = ((MDRLocationCondition *)self.condition).location.coordinate;
+    self.grippyAnnotation.coordinate    = CLLocationCoordinate2DMake(self.locationAnnotation.coordinate.latitude  + deltaLatitude,
+                                                                     self.locationAnnotation.coordinate.longitude + deltaLongitude);
+    if (self.radiusPoly)
+        [self.mapView removeAnnotation:self.radiusPoly];
+    self.radiusPoly = [self polygonCircleForCoordinate:((MDRLocationCondition *)self.condition).location.coordinate
+                                       withMeterRadius:((MDRLocationCondition *)self.condition).radius];
+    [self.mapView addAnnotation:self.radiusPoly];
 }
 
 - (void)refreshAddressLabel {
@@ -230,10 +180,7 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
                             range:NSMakeRange(0, labelString.length-1)];
         
         NSRange range = [string rangeOfString:@"from"];
-
-        [labelString addAttribute:NSForegroundColorAttributeName
-                      value:self.highlightedColor
-                      range:range];
+        [labelString addAttribute:NSForegroundColorAttributeName value:self.highlightedColor range:range];
         self.addressLabel.attributedText = labelString;
     }
 }
@@ -262,32 +209,73 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     return polygon;
 }
 
+#pragma mark - Map Math
+
+- (double)radiansFromDegrees:(double)degrees {
+    return degrees * (M_PI/180.0);
+}
+
+- (double)degreesFromRadians:(double)radians {
+    return radians * (180.0/M_PI);
+}
+
+- (CLLocationCoordinate2D)coordinateFromCoord:(CLLocationCoordinate2D)fromCoord atDistanceKm:(double)distanceKm atBearingDegrees:(double)bearingDegrees {
+    double distanceRadians = distanceKm / 6371.0;
+    //6,371 = Earth's radius in km
+    double bearingRadians = [self radiansFromDegrees:bearingDegrees];
+    double fromLatRadians = [self radiansFromDegrees:fromCoord.latitude];
+    double fromLonRadians = [self radiansFromDegrees:fromCoord.longitude];
+    
+    double toLatRadians = asin( sin(fromLatRadians) * cos(distanceRadians)
+                               + cos(fromLatRadians) * sin(distanceRadians) * cos(bearingRadians) );
+    
+    double toLonRadians = fromLonRadians + atan2(sin(bearingRadians)
+                                                 * sin(distanceRadians) * cos(fromLatRadians), cos(distanceRadians)
+                                                 - sin(fromLatRadians) * sin(toLatRadians));
+    
+    // adjust toLonRadians to be in the range -180 to +180...
+    toLonRadians = fmod((toLonRadians + 3*M_PI), (2*M_PI)) - M_PI;
+    
+    CLLocationCoordinate2D result;
+    result.latitude = [self degreesFromRadians:toLatRadians];
+    result.longitude = [self degreesFromRadians:toLonRadians];
+    return result;
+}
+
 #pragma mark - MGLMapViewDelegate
 
+- (CGFloat)mapView:(MGLMapView *)mapView lineWidthForPolylineAnnotation:(MGLPolyline *)annotation {
+    return 4;
+}
+
 - (UIColor *)mapView:(MGLMapView *)mapView strokeColorForShapeAnnotation:(MGLShape *)annotation {
-    return self.regionBorderColor;
+    return [UIColor whiteColor];
 }
 
 - (MGLAnnotationImage *)mapView:(MGLMapView *)mapView imageForAnnotation:(id <MGLAnnotation>)annotation {
-
     MGLAnnotationImage *annotationImage = [mapView dequeueReusableAnnotationImageWithIdentifier:annotation.title];
-    
-    if ( ! annotationImage) {
+    if ( !annotationImage ) {
         UIImage *image;
-        if ([annotation.title isEqualToString:MDRLocationAnnotationTitle]) {
+        if ([annotation.title isEqualToString:MDRLocationAnnotationTitle])
             image = [UIImage imageNamed:@"location_annotation"];
-        }
-        else if ([annotation.title isEqualToString:MDRGrippyAnnotationTitle]) {
+        else if ([annotation.title isEqualToString:MDRGrippyAnnotationTitle])
             image = [UIImage imageNamed:@"grippy_annotation"];
-        }
-        else {
+        else
             assert(false);
-        }
         image = [image imageWithAlignmentRectInsets:UIEdgeInsetsMake(0, 0, image.size.height/2, 0)];
         annotationImage = [MGLAnnotationImage annotationImageWithImage:image reuseIdentifier:annotation.title];
     }
-    
     return annotationImage;
+}
+
+- (void)mapViewRegionIsChanging:(nonnull MGLMapView *)mapView {
+    ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:mapView.centerCoordinate.latitude
+                                                                                   longitude:mapView.centerCoordinate.longitude ];
+    [self refreshMap];
+}
+
+- (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    [self updateLocationAddress];
 }
 
 @end

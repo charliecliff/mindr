@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD028C634A303CB3F1DA96B6 /* libPods-g5Mindr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F68F2BBC91E335A39C3983EB /* libPods-g5Mindr.a */; };
+		C5771196748F0F20DD9787E0 /* libPods-g5Mindr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C4A5EBCD1A1AB5268D5C80 /* libPods-g5Mindr.a */; };
 		DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */; };
 		DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */; };
 		DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */; };
@@ -101,7 +101,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		57845ADFAFF3BCE4C7DBB7EB /* Pods-g5Mindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.debug.xcconfig"; sourceTree = "<group>"; };
+		795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.release.xcconfig"; sourceTree = "<group>"; };
+		A8C4A5EBCD1A1AB5268D5C80 /* libPods-g5Mindr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-g5Mindr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Bold.ttf"; sourceTree = "<group>"; };
 		DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Medium.ttf"; sourceTree = "<group>"; };
 		DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Semibold.ttf"; sourceTree = "<group>"; };
@@ -242,8 +243,7 @@
 		DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderListViewController.m; sourceTree = "<group>"; };
 		DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mindrBounceNavigationViewController.h; sourceTree = "<group>"; };
 		DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mindrBounceNavigationViewController.m; sourceTree = "<group>"; };
-		DF012F8FE2553B4858C780AC /* Pods-g5Mindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.release.xcconfig"; sourceTree = "<group>"; };
-		F68F2BBC91E335A39C3983EB /* libPods-g5Mindr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-g5Mindr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +258,7 @@
 				DA0C4B421CC463E30030F927 /* Security.framework in Frameworks */,
 				DA0C4B401CC463DD0030F927 /* CFNetwork.framework in Frameworks */,
 				DA0C4B3E1CC4639C0030F927 /* CouchbaseLite.framework in Frameworks */,
-				BD028C634A303CB3F1DA96B6 /* libPods-g5Mindr.a in Frameworks */,
+				C5771196748F0F20DD9787E0 /* libPods-g5Mindr.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +290,8 @@
 				DAF412531CF0CC950092DEF8 /* HROBounceNavigator */,
 				DA30CEE81C9DD38900FD4438 /* g5Mindr */,
 				DA30CEE71C9DD38900FD4438 /* Products */,
-				EDAB08D7732F829C49492843 /* Pods */,
 				DE203C273EE8525155F6095F /* Frameworks */,
+				DBE9087DBEC3D6D9E5038C0D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -575,6 +575,15 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		DBE9087DBEC3D6D9E5038C0D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */,
+				795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DE203C273EE8525155F6095F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,18 +593,9 @@
 				DA0C4B431CC463ED0030F927 /* SystemConfiguration.framework */,
 				DA0C4B411CC463E30030F927 /* Security.framework */,
 				DA0C4B3F1CC463DD0030F927 /* CFNetwork.framework */,
-				F68F2BBC91E335A39C3983EB /* libPods-g5Mindr.a */,
+				A8C4A5EBCD1A1AB5268D5C80 /* libPods-g5Mindr.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EDAB08D7732F829C49492843 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				57845ADFAFF3BCE4C7DBB7EB /* Pods-g5Mindr.debug.xcconfig */,
-				DF012F8FE2553B4858C780AC /* Pods-g5Mindr.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,12 +605,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA30CEFD1C9DD38900FD4438 /* Build configuration list for PBXNativeTarget "g5Mindr" */;
 			buildPhases = (
-				BAA8864A0FF59F92E58B5CFF /* Check Pods Manifest.lock */,
+				F5B4472D606605E1DD1E5126 /* [CP] Check Pods Manifest.lock */,
 				DA30CEE21C9DD38900FD4438 /* Sources */,
 				DA30CEE31C9DD38900FD4438 /* Frameworks */,
 				DA30CEE41C9DD38900FD4438 /* Resources */,
-				533207E12DF771E0E0BA53D8 /* Embed Pods Frameworks */,
-				A7A251B2872B433DE74134B0 /* Copy Pods Resources */,
+				7A94D99D61BF79DD331F1064 /* [CP] Embed Pods Frameworks */,
+				25555623A2E5834D2B9A0B38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -710,29 +710,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		533207E12DF771E0E0BA53D8 /* Embed Pods Frameworks */ = {
+		25555623A2E5834D2B9A0B38 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A7A251B2872B433DE74134B0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -740,14 +725,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAA8864A0FF59F92E58B5CFF /* Check Pods Manifest.lock */ = {
+		7A94D99D61BF79DD331F1064 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5B4472D606605E1DD1E5126 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -915,7 +915,7 @@
 		};
 		DA30CEFE1C9DD38900FD4438 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57845ADFAFF3BCE4C7DBB7EB /* Pods-g5Mindr.debug.xcconfig */;
+			baseConfigurationReference = EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -935,7 +935,7 @@
 		};
 		DA30CEFF1C9DD38900FD4438 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF012F8FE2553B4858C780AC /* Pods-g5Mindr.release.xcconfig */;
+			baseConfigurationReference = 795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -32,7 +32,7 @@ static NSString *const kMDRLocationRadius = @"radius";
     if (self != nil) {
         self.type       = g5LocationType;
         self.location   = [MDRLocationManager sharedManager].currentLocation;
-        self.radius     = 100;              // 100 Meters
+        self.radius     = 500;              // 100 Meters
         self.address    = @"";
     }
     return self;

@@ -18,6 +18,7 @@
 static NSString *const MDRLocationTitle             = @"LOCATION";
 static NSString *const MDRLocationAnnotationTitle   = @"location";
 static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
+static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xahnmykdnml6k";
 
 @interface g5LocationConditionViewController () <MGLMapViewDelegate> {
     BOOL shouldDragGrippyImage;
@@ -67,7 +68,10 @@ static NSString *const MDRGrippyAnnotationTitle     = @"grippy";
     self.mapView.showsUserLocation = NO;
     self.mapView.zoomLevel = 12;
     self.mapView.centerCoordinate = ((MDRLocationCondition *)self.condition).location.coordinate;
-    self.mapView.styleURL = [NSURL URLWithString:@"mapbox://styles/charliecliff/cin55wwd9000laanm199gv2gf"];
+    
+    self.mapView.styleURL = [NSURL URLWithString:MapBoxStyle];
+    
+    
     self.mapView.delegate = self;
     
     shouldDragGrippyImage = NO;

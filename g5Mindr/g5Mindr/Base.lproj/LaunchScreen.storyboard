@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -35,10 +36,53 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIn-bT-yBE">
+                                <rect key="frame" x="120" y="255" width="175" height="227"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OTi-D8-YFu">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="174"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="4tn-3X-Xnm"/>
+                                            <constraint firstAttribute="width" secondItem="OTi-D8-YFu" secondAttribute="height" constant="1" id="fIK-XA-U4i"/>
+                                            <constraint firstAttribute="height" constant="128" id="rYF-cN-2HI"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4tn-3X-Xnm"/>
+                                                <exclude reference="rYF-cN-2HI"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="TNO-u0-2bl">
+                                        <rect key="frame" x="0.0" y="195" width="175" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="TZA-N3-8Hu"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OTi-D8-YFu" secondAttribute="trailing" id="3Uz-Cg-WW8"/>
+                                    <constraint firstItem="TNO-u0-2bl" firstAttribute="top" secondItem="OTi-D8-YFu" secondAttribute="bottom" constant="21" id="3s3-LQ-Nzk"/>
+                                    <constraint firstAttribute="height" constant="128" id="BfJ-LF-OIe"/>
+                                    <constraint firstItem="OTi-D8-YFu" firstAttribute="top" secondItem="dIn-bT-yBE" secondAttribute="top" id="CP0-QY-lGA"/>
+                                    <constraint firstAttribute="width" constant="175" id="M20-30-2Hc"/>
+                                    <constraint firstAttribute="bottom" secondItem="TNO-u0-2bl" secondAttribute="bottom" id="TGN-z6-UmN"/>
+                                    <constraint firstItem="OTi-D8-YFu" firstAttribute="leading" secondItem="dIn-bT-yBE" secondAttribute="leading" id="iNg-iK-UYI"/>
+                                    <constraint firstItem="TNO-u0-2bl" firstAttribute="leading" secondItem="dIn-bT-yBE" secondAttribute="leading" id="mLB-17-Qhf"/>
+                                    <constraint firstAttribute="trailing" secondItem="TNO-u0-2bl" secondAttribute="trailing" id="y4I-bz-Oat"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BfJ-LF-OIe"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="KoX-Fs-Yge" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="0B2-rd-PgZ"/>
+                            <constraint firstItem="dIn-bT-yBE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5Bz-2U-13R"/>
                             <constraint firstItem="KoX-Fs-Yge" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="160" id="Bt1-k3-9fQ"/>
                             <constraint firstItem="KoX-Fs-Yge" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="216" id="GTv-yF-Qqk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="KoX-Fs-Yge" secondAttribute="trailing" id="dBs-Ug-2aP"/>
@@ -48,6 +92,7 @@
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="KoX-Fs-Yge" secondAttribute="bottom" constant="236" id="ka4-Yl-QnM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="KoX-Fs-Yge" secondAttribute="bottom" id="ksL-sw-iIK"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ewK-bN-Kej" secondAttribute="bottom" constant="125" id="tH4-ye-1mX"/>
+                            <constraint firstItem="dIn-bT-yBE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="tra-8N-OAW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -67,5 +112,7 @@
     </scenes>
     <resources>
         <image name="background" width="375" height="667"/>
+        <image name="logo" width="175" height="179"/>
+        <image name="logo_text" width="175" height="32"/>
     </resources>
 </document>

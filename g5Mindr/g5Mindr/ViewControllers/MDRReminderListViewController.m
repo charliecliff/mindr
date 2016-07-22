@@ -103,8 +103,11 @@
 
 - (void)setEmptyInventoryHidden:(BOOL)hidden {
     [self.tableView setHidden:!hidden];
-//    [self.editButton setHidden:!hidden];
     [self.containerView setHidden:hidden];
+    if (hidden)
+        self.navigationItem.title = REMINDERS_VC_TITLE;
+    else
+        self.navigationItem.title = NO_REMINDERS_VC_TITLE;
 }
 
 #pragma mark - Resets

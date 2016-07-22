@@ -7,11 +7,12 @@
     <customFonts key="customFonts">
         <mutableArray key="Proxima Nova Soft W03 Bold.ttf">
             <string>ProximaNovaSoftW03-Bold</string>
-            <string>ProximaNovaSoftW03-Bold</string>
-            <string>ProximaNovaSoftW03-Bold</string>
         </mutableArray>
         <mutableArray key="Proxima Nova Soft W03 Medium.ttf">
             <string>ProximaNovaSoftW03-Medium</string>
+        </mutableArray>
+        <mutableArray key="Proxima Nova Soft W03 Semibold.ttf">
+            <string>ProximaNovaSoftW03-Semibold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -213,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="438" y="10"/>
         </scene>
-        <!--View Controller-->
+        <!--Empty View Controller-->
         <scene sceneID="zrr-el-Z5n">
             <objects>
-                <viewController id="xw8-t4-CIb" sceneMemberID="viewController">
+                <viewController id="xw8-t4-CIb" customClass="MDREmptyViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I32-9T-5O3"/>
                         <viewControllerLayoutGuide type="bottom" id="zS9-Ob-CMr"/>
@@ -226,52 +227,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-3i-chS">
-                                <rect key="frame" x="71" y="215" width="233" height="174"/>
+                                <rect key="frame" x="16" y="215" width="343" height="174"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxl-ZX-Qcq">
-                                        <rect key="frame" x="0.0" y="158" width="233" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzn-2q-WGy">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="149"/>
+                                        <attributedString key="attributedText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- George William Curtis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxl-ZX-Qcq">
+                                        <rect key="frame" x="55" y="158" width="233" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="233" id="Myp-uB-sSM"/>
                                             <constraint firstAttribute="height" constant="16" id="uU2-1B-Phd"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Bold" family="ProximaNovaSoftW03-Bold" pointSize="16"/>
-                                        <color key="textColor" red="0.16078431372549018" green="0.80000000000000004" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-K3-AWz" userLabel="Logo View">
-                                        <rect key="frame" x="66" y="0.0" width="101" height="101"/>
-                                        <color key="backgroundColor" red="0.54117647059999996" green="0.71764705880000002" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="101" id="Y6K-J0-wSF"/>
-                                            <constraint firstAttribute="height" constant="101" id="o5w-aJ-Vkk"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No reminders yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ss-vb-bPq">
-                                        <rect key="frame" x="39" y="129" width="156" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="156" id="A1x-X1-HrJ"/>
-                                            <constraint firstAttribute="height" constant="20" id="bwJ-h8-iRO"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Bold" family="ProximaNovaSoftW03-Bold" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="ProximaNovaSoftW03-Semibold" family="ProximaNovaSoftW03-Semibold" pointSize="16"/>
+                                        <color key="textColor" red="0.5490196078431373" green="0.72156862745098038" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="3u1-I3-hgj"/>
-                                    <constraint firstItem="7Ss-vb-bPq" firstAttribute="top" secondItem="W0K-K3-AWz" secondAttribute="bottom" constant="28" id="4uo-nb-LiE"/>
+                                    <constraint firstItem="dxl-ZX-Qcq" firstAttribute="top" secondItem="yzn-2q-WGy" secondAttribute="bottom" constant="9" id="4SX-aI-Euk"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="6gO-bx-bpK"/>
+                                    <constraint firstAttribute="width" constant="320" id="9fx-Zw-WkC"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="dxl-ZX-Qcq" secondAttribute="bottom" id="DZL-AH-e8l"/>
-                                    <constraint firstItem="7Ss-vb-bPq" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="UkT-Ca-i8l"/>
+                                    <constraint firstItem="yzn-2q-WGy" firstAttribute="leading" secondItem="IUh-3i-chS" secondAttribute="leading" id="I3N-ds-yx8"/>
                                     <constraint firstAttribute="height" constant="174" id="Va1-Hl-8v4"/>
+                                    <constraint firstAttribute="trailing" secondItem="yzn-2q-WGy" secondAttribute="trailing" id="Wbv-iU-XHi"/>
+                                    <constraint firstItem="yzn-2q-WGy" firstAttribute="top" secondItem="IUh-3i-chS" secondAttribute="top" id="aED-3y-xIv"/>
                                     <constraint firstAttribute="width" constant="233" id="ckO-pI-uVr"/>
                                     <constraint firstItem="dxl-ZX-Qcq" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="o7o-2g-Tqh"/>
-                                    <constraint firstItem="W0K-K3-AWz" firstAttribute="centerX" secondItem="IUh-3i-chS" secondAttribute="centerX" id="wOw-Eo-wqN"/>
-                                    <constraint firstItem="W0K-K3-AWz" firstAttribute="top" secondItem="IUh-3i-chS" secondAttribute="top" id="yPq-kT-HWV"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="9fx-Zw-WkC"/>
+                                        <exclude reference="ckO-pI-uVr"/>
                                         <exclude reference="6gO-bx-bpK"/>
                                         <exclude reference="DZL-AH-e8l"/>
                                     </mask>
@@ -280,10 +271,24 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="IUh-3i-chS" secondAttribute="trailing" id="BNa-Vu-Vo2"/>
                             <constraint firstItem="IUh-3i-chS" firstAttribute="centerX" secondItem="aHd-Rk-taN" secondAttribute="centerX" id="TNw-BK-mcJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IUh-3i-chS" secondAttribute="trailing" constant="20" id="Ude-sN-Au3"/>
+                            <constraint firstItem="IUh-3i-chS" firstAttribute="leading" secondItem="aHd-Rk-taN" secondAttribute="leadingMargin" id="aKV-Hs-Nhl"/>
+                            <constraint firstItem="IUh-3i-chS" firstAttribute="leading" secondItem="aHd-Rk-taN" secondAttribute="leadingMargin" constant="20" id="n0J-fp-9TS"/>
                             <constraint firstItem="IUh-3i-chS" firstAttribute="centerY" secondItem="aHd-Rk-taN" secondAttribute="centerY" constant="-32" id="qrF-kt-ftB"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TNw-BK-mcJ"/>
+                                <exclude reference="Ude-sN-Au3"/>
+                                <exclude reference="n0J-fp-9TS"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="fancyQuoteLabel" destination="yzn-2q-WGy" id="aCx-JM-k1X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6d-G5-Mu1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -135,7 +135,7 @@
 		DA2EA6E01CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DayOfTheWeekConditionTableViewCell.h; sourceTree = "<group>"; };
 		DA2EA6E11CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5DayOfTheWeekConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5DayOfTheWeekConditionTableViewCell.xib; sourceTree = "<group>"; };
-		DA30CEE61C9DD38900FD4438 /* BUOY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BUOY.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA30CEE61C9DD38900FD4438 /* Buoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA30CEEA1C9DD38900FD4438 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA30CEEC1C9DD38900FD4438 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA30CEED1C9DD38900FD4438 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 		DA30CEE71C9DD38900FD4438 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA30CEE61C9DD38900FD4438 /* BUOY.app */,
+				DA30CEE61C9DD38900FD4438 /* Buoy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 			);
 			name = g5Mindr;
 			productName = g5Mindr;
-			productReference = DA30CEE61C9DD38900FD4438 /* BUOY.app */;
+			productReference = DA30CEE61C9DD38900FD4438 /* Buoy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -934,7 +934,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
-				PRODUCT_NAME = BUOY;
+				PRODUCT_NAME = Buoy;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -954,7 +954,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
-				PRODUCT_NAME = BUOY;
+				PRODUCT_NAME = Buoy;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

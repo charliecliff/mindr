@@ -80,7 +80,7 @@
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
 		DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */; };
 		DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */; };
-		DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */; };
+		DAC8BF381CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2A1CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m */; };
 		DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */; };
 		DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */; };
 		DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAC71CA4A41700849427 /* MDRDateCondition.m */; };
@@ -216,8 +216,8 @@
 		DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5LocationConditionViewController.m; sourceTree = "<group>"; };
 		DAC8BF271CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TemperatureConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TemperatureConditionViewController.m; sourceTree = "<group>"; };
-		DAC8BF291CCC6D5F004CA7D6 /* g5TimeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5TimeConditionViewController.h; sourceTree = "<group>"; };
-		DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5TimeConditionViewController.m; sourceTree = "<group>"; };
+		DAC8BF291CCC6D5F004CA7D6 /* MDRTimeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTimeConditionViewController.h; sourceTree = "<group>"; };
+		DAC8BF2A1CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeConditionViewController.m; sourceTree = "<group>"; };
 		DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionViewController.m; sourceTree = "<group>"; };
 		DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons_2.plist; sourceTree = "<group>"; };
@@ -535,8 +535,8 @@
 				DA2EA6D81CFB5424004338CA /* g5DayOfTheWeekViewController.h */,
 				DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */,
 				DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */,
-				DAC8BF291CCC6D5F004CA7D6 /* g5TimeConditionViewController.h */,
-				DAC8BF2A1CCC6D5F004CA7D6 /* g5TimeConditionViewController.m */,
+				DAC8BF291CCC6D5F004CA7D6 /* MDRTimeConditionViewController.h */,
+				DAC8BF2A1CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m */,
 				DA5673DD1D42EC70008AF230 /* MDRTimeTableViewController.h */,
 				DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */,
 				DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */,
@@ -805,7 +805,7 @@
 				DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */,
 				DA83FFEA1D4191AF00D6209A /* MDREmptyViewController.m in Sources */,
 				DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */,
-				DAC8BF381CCC6D5F004CA7D6 /* g5TimeConditionViewController.m in Sources */,
+				DAC8BF381CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m in Sources */,
 				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
 				DAF5C1BE1D29E195000D3DEC /* HROCalendarHeaderView.m in Sources */,
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,

@@ -8,7 +8,7 @@
 
 #import "g5ConditionListViewController.h"
 #import "g5EmoticonSelectionViewController.h"
-#import "g5TimeConditionViewController.h"
+#import "MDRTimeConditionViewController.h"
 #import "g5DayOfTheWeekViewController.h"
 #import "g5DateConditionViewController.h"
 #import "g5TemperatureConditionViewController.h"
@@ -130,7 +130,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         vc = [[g5DateConditionViewController alloc] initWithCondition:condition];
     }
     else if ( [condition.type isEqualToString:g5TimeType] ) {
-        vc = [[g5TimeConditionViewController alloc] initWithCondition:condition];
+        vc = [[MDRTimeConditionViewController alloc] initWithCondition:condition];
     }
     else if ( [condition.type isEqualToString:g5DayOfTheWeekType] ) {
         vc = [[g5DayOfTheWeekViewController alloc] initWithCondition:condition];

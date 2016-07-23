@@ -8,6 +8,6 @@
 
 #import "g5ConditionViewController.h"
 
-@interface g5TimeConditionViewController : g5ConditionViewController
+@interface MDRTimeConditionViewController : g5ConditionViewController
 
 @end

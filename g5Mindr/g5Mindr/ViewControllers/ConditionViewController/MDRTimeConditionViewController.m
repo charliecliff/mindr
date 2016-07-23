@@ -6,14 +6,14 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5TimeConditionViewController.h"
+#import "MDRTimeConditionViewController.h"
 #import "MDRTimeTableViewController.h"
 #import "MDRTimeCondition.h"
 
 static NSString *const MDRTimeTitle = @"TIME";
 static NSString *const MDRTimeTableViewControllerSegue = @"time_condition_table_segue";
 
-@implementation g5TimeConditionViewController
+@implementation MDRTimeConditionViewController
 
 #pragma mark - Init
 

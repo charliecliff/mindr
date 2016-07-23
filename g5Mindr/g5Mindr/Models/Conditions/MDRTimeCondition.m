@@ -83,19 +83,13 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 - (NSString *)conditionDescription {
     if (self.isActive) {
-//        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-//        dateComponents.hour = self.hour;
-//        dateComponents.minute = self.minute;
-//        
-//        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-//        NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
-//        
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        formatter.timeStyle =  NSDateFormatterShortStyle;
-//        
-//        NSString *dateString = [formatter stringFromDate:timeOfDayDate];
-//        
-//        return [NSString stringWithFormat:@"At %@", dateString];
+        NSString *dateString = @"At ";
+        for (MDRTime *currentTime in self.times) {
+            dateString = [NSString stringWithFormat:@"%@ %@ and at ", dateString, currentTime.description];
+        }
+        NSRange rangeSpace = [dateString rangeOfString:@" and at " options:NSBackwardsSearch];
+        dateString = [dateString stringByReplacingCharactersInRange:rangeSpace withString:@""];
+        return dateString;;
     }
     return @"TIME";
 }

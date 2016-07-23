@@ -37,15 +37,17 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 - (NSString *)description {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.hour = self.hour;
+    if (dateComponents.hour == 12 && self.meridian == MDRTimeAM)
+        dateComponents.hour = 0;
+    if (dateComponents.hour != 12 && self.meridian == MDRTimePM)
+        dateComponents.hour = dateComponents.hour + 12;
     dateComponents.minute = self.minute;
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.timeStyle =  NSDateFormatterShortStyle;
-    NSString *dateString = [formatter stringFromDate:timeOfDayDate];
-        
-    return [NSString stringWithFormat:@"%@", dateString];
+    return [formatter stringFromDate:timeOfDayDate];
 }
 
 @end
@@ -106,8 +108,6 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
-
-    
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;
 }

@@ -46,7 +46,7 @@
 #pragma mark - UITableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.weatherTypes.count + 2;
+    return self.weatherTypes.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,6 +69,7 @@
     else {
         UITableViewCell *blankCell = [[UITableViewCell alloc] init];
         blankCell.backgroundColor = [UIColor clearColor];
+        blankCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return blankCell;
     }
 }
@@ -76,6 +77,9 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.weatherTypes.count)
+        return;
+    
     NSString *weatherTypeForRow = [self.weatherTypes objectAtIndex:indexPath.row];
     if ( [((MDRWeatherTypeCondition *)self.condition) containsWeatherType:weatherTypeForRow] ) {
         [((MDRWeatherTypeCondition *)self.condition) removeWeatherType:weatherTypeForRow];
@@ -84,6 +88,13 @@
         [((MDRWeatherTypeCondition *)self.condition) addWeatherType:weatherTypeForRow];
     }
     [self.weatherTypeTableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.weatherTypes.count) {
+        return 200;
+    }
+    return 100;
 }
 
 @end

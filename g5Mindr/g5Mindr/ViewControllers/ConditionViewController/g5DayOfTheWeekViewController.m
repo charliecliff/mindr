@@ -63,12 +63,18 @@
 #pragma mark - UITableViewDatasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return dayOfTheWeekCells.count;
+    return dayOfTheWeekCells.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    g5DayOfTheWeekConditionTableViewCell *cell = [dayOfTheWeekCells objectAtIndex:indexPath.row];
+    if (indexPath.row == dayOfTheWeekCells.count) {
+        UITableViewCell *blankCell = [[UITableViewCell alloc] init];
+        blankCell.backgroundColor = [UIColor clearColor];
+        blankCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return blankCell;
+    }
     
+    g5DayOfTheWeekConditionTableViewCell *cell = [dayOfTheWeekCells objectAtIndex:indexPath.row];
     NSString *dayOfTheWeekString = [self stringForDayOfTheWeekOrdinal:(indexPath.row+1)];
     cell.dayOfTheWeekLabel.text = dayOfTheWeekString;
     
@@ -81,8 +87,18 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == dayOfTheWeekCells.count)
+        return;
+    
     [((MDRDayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row + 1)];
     [self.dayOfTheWeekTableView reloadData];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == dayOfTheWeekCells.count) {
+        return 200;
+    }
+    return 60;
 }
 
 #pragma mark - Helper

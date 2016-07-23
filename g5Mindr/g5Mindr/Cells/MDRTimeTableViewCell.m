@@ -10,6 +10,7 @@
 #import "HROPickerTableView.h"
 #import "MDRTimeComponents.h"
 #import "MDRTimeCondition.h"
+#import "g5ConfigAndMacros.h"
 
 @interface MDRTimeTableViewCell ()  <HROPickerDataSource, HROPickerDelegate>
 
@@ -30,21 +31,27 @@
 - (void)configureForDate:(MDRTime *)time {
     self.time = time;
     
-    self.hourPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.hourPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.hourPicker.selectedTextColor = GOLD_COLOR;
+    self.hourPicker.normalTextColor   = SLATE_BLUE_COLOR;
     self.hourPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     
-    self.minutePicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.minutePicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.minutePicker.selectedTextColor = GOLD_COLOR;
+    self.minutePicker.normalTextColor   = SLATE_BLUE_COLOR;
     self.minutePicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     
-    self.meridianPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.meridianPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
+    self.meridianPicker.selectedTextColor = GOLD_COLOR;
+    self.meridianPicker.normalTextColor   = SLATE_BLUE_COLOR;
     self.meridianPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     
     [self reloadTime];
     [self reloadTitleLabels];
 }
+
+- (void)setTitleForIndexPath:(NSIndexPath *)indexPath {
+    self.titleLabel.text = [NSString stringWithFormat:@"Time %ld", (long)indexPath.row + 1];
+}
+
+#pragma mark - Reloading
 
 - (void)reloadTime {
     NSInteger hour              = self.time.hour;

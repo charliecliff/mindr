@@ -256,7 +256,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7r5-cK-pce" userLabel="Separator">
                                             <rect key="frame" x="0.0" y="49" width="600" height="1"/>
-                                            <color key="backgroundColor" red="0.54901960780000003" green="0.72156862749999995" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="Kzh-zh-cVT"/>
                                             </constraints>

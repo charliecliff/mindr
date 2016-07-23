@@ -34,6 +34,7 @@ static NSString *const MDRNewTimeConditionCell = @"add_new_time_condition_cell";
     }
     MDRTimeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MDRTimeConditionCell forIndexPath:indexPath];
     [cell configureForDate:[self.timeCondition.times objectAtIndex:indexPath.row]];
+    [cell setTitleForIndexPath:indexPath];
     return cell;
 }
 
@@ -43,6 +44,14 @@ static NSString *const MDRNewTimeConditionCell = @"add_new_time_condition_cell";
     if (indexPath.row >= self.timeCondition.times.count)
         return 50;
     return 300;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == self.timeCondition.times.count) {
+        MDRTime *newTime = [[MDRTime alloc] init];
+        [self.timeCondition.times addObject:newTime];
+        [self.tableView reloadData];
+    }
 }
 
 @end

@@ -26,7 +26,7 @@ typedef enum {
 
 @interface MDRTimeCondition : MDRCondition
 
-@property(nonatomic, strong, readonly) NSArray *times;
+@property(nonatomic, strong, readonly) NSMutableArray *times;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

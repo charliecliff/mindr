@@ -52,12 +52,7 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 @interface MDRTimeCondition ()
 
-@property(nonatomic, readwrite) NSInteger dateComponentForHour;
-@property(nonatomic, readwrite) NSInteger dateComponentForMinute;
-
-@property(nonatomic, readwrite) NSTimeInterval timeOfDayInSeconds;
-
-@property(nonatomic, strong, readwrite) NSArray *times;
+@property(nonatomic, strong, readwrite) NSMutableArray *times;
 
 @end
 

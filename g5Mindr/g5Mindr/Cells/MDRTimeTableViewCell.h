@@ -14,4 +14,6 @@
 
 - (void)configureForDate:(MDRTime *)time;
 
+- (void)setTitleForIndexPath:(NSIndexPath *)indexPath;
+
 @end

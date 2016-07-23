@@ -31,13 +31,13 @@
 - (void)configureForDate:(MDRTime *)time {
     self.time = time;
     
-    self.hourPicker.selectedTextColor = GOLD_COLOR;
-    self.hourPicker.normalTextColor   = SLATE_BLUE_COLOR;
-    self.hourPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    self.hourPicker.selectedTextColor     = GOLD_COLOR;
+    self.hourPicker.normalTextColor       = SLATE_BLUE_COLOR;
+    self.hourPicker.font                  = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     
-    self.minutePicker.selectedTextColor = GOLD_COLOR;
-    self.minutePicker.normalTextColor   = SLATE_BLUE_COLOR;
-    self.minutePicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    self.minutePicker.selectedTextColor   = GOLD_COLOR;
+    self.minutePicker.normalTextColor     = SLATE_BLUE_COLOR;
+    self.minutePicker.font                = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
     
     self.meridianPicker.selectedTextColor = GOLD_COLOR;
     self.meridianPicker.normalTextColor   = SLATE_BLUE_COLOR;

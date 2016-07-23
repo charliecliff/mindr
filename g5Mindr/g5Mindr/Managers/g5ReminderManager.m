@@ -41,6 +41,12 @@
     if (self != nil) {
         self.userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
         [self loadReminders];
+        
+        [NSTimer scheduledTimerWithTimeInterval:1.0
+                                         target:self
+                                       selector:@selector(updateContext)
+                                       userInfo:nil
+                                        repeats:YES];
     }
     return self;
 }
@@ -90,11 +96,13 @@
 #pragma mark - API Calls
 
 - (void)updateContext {
-    [MDRReminderClient postUserContext:self.userContext withSuccess:^{
-        
-    } withFailure:^{
-        
-    }];
+    if (self.userID != nil) {
+        [MDRReminderClient postConextForUserID:self.userID withSuccess:^{
+            
+        } withFailure:^{
+            
+        }];
+    }
 }
 
 - (void)updateReminders {

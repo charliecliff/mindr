@@ -18,6 +18,6 @@
 
 + (void)getUserContextWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure;
 
-+ (void)postUserContext:(MDRUserContext *)context withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
++ (void)postConextForUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure;
 
 @end

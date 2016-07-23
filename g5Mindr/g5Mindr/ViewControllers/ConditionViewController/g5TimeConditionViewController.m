@@ -7,30 +7,22 @@
 //
 
 #import "g5TimeConditionViewController.h"
+#import "MDRTimeTableViewController.h"
 #import "MDRTimeCondition.h"
-#import "HROPickerTableView.h"
-#import "MDRTimeComponents.h"
 
 static NSString *const MDRTimeTitle = @"TIME";
-
-@interface g5TimeConditionViewController ()  <HROPickerDataSource, HROPickerDelegate>
-
-@property(nonatomic, strong) IBOutlet HROPickerTableView *hourPicker;
-@property(nonatomic, strong) IBOutlet HROPickerTableView *minutePicker;
-@property(nonatomic, strong) IBOutlet HROPickerTableView *meridianPicker;
-
-@end
+static NSString *const MDRTimeTableViewControllerSegue = @"time_condition_table_segue";
 
 @implementation g5TimeConditionViewController
 
 #pragma mark - Init
 
 - (instancetype)initWithCondition:(MDRCondition *)condition {
-    self = [super initWithCondition:condition];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MDRTimeCondition" bundle:bundle];
+    self = [storyboard instantiateInitialViewController];
     if (self != nil) {
-        if (condition == nil) {
-            self.condition = [[MDRTimeCondition alloc] init];
-        }
+        if (condition == nil) self.condition = [[MDRTimeCondition alloc] init];
     }
     return self;
 }
@@ -41,68 +33,15 @@ static NSString *const MDRTimeTitle = @"TIME";
     [super viewDidLoad];
     self.navigationItem.title = MDRTimeTitle;
     self.navigationItem.hidesBackButton = YES;
-    
-    self.hourPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.hourPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    self.hourPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-
-    self.minutePicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.minutePicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    self.minutePicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-
-    self.meridianPicker.selectedTextColor = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
-    self.meridianPicker.normalTextColor   = [UIColor colorWithRed:57.0/255.0 green:86.0/255.0 blue:115.0/255.0 alpha:1];
-    self.meridianPicker.font              = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-
-    [self reload];
 }
 
-- (void)reload {
-    NSInteger hour              = ((MDRTimeCondition *)self.condition).hour;
-    NSInteger minute            = ((MDRTimeCondition *)self.condition).minute;
-    MDRTimeMeridian meridian    = ((MDRTimeCondition *)self.condition).meridian;
-    
-    NSInteger indexForHour      = [MDRTimeComponents indexForHour:hour];
-    NSInteger indexForMinute    = [MDRTimeComponents indexForMinute:minute];
-    NSInteger indexForMeridian  = [MDRTimeComponents indexForMeridian:meridian];
-    
-    [self.hourPicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForHour inSection:0]];
-    [self.minutePicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForMinute inSection:0]];
-    [self.meridianPicker scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:indexForMeridian inSection:0]];
-}
+#pragma mark - Navigation
 
-#pragma mark -  HROPickerDataSource
-
-- (NSOrderedSet *)componentsForPickerView:(HROPickerTableView *)pickerTable {
-    if ([pickerTable isEqual:self.hourPicker]) {
-        return [MDRTimeComponents hours];
-    }
-    else if ([pickerTable isEqual:self.minutePicker]) {
-        return [MDRTimeComponents minutes];
-    }
-    else if ([pickerTable isEqual:self.meridianPicker]) {
-        return [MDRTimeComponents meridians];
-    }
-    return nil;
-}
-
-#pragma mark -  HROPickerDelegate
-
-- (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row {
-    if ([pickerTable isEqual:self.hourPicker]) {
-        NSString *hourSelection = [[MDRTimeComponents hours] objectAtIndex:row];
-        NSInteger hour = [MDRTimeComponents hourFromHourString:hourSelection];
-        ((MDRTimeCondition *)self.condition).hour = hour;
-    }
-    else if ([pickerTable isEqual:self.minutePicker]) {
-        NSString *selection = [[MDRTimeComponents minutes] objectAtIndex:row];
-        NSInteger minute = [MDRTimeComponents minuteFromString:selection];
-        ((MDRTimeCondition *)self.condition).minute = minute;
-    }
-    else if ([pickerTable isEqual:self.meridianPicker]) {
-        NSString *meridianSelection = [[MDRTimeComponents meridians] objectAtIndex:row];
-        MDRTimeMeridian meridian = [MDRTimeComponents meridianFromMeridianString:meridianSelection];
-        ((MDRTimeCondition *)self.condition).meridian = meridian;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:MDRTimeTableViewControllerSegue]) {
+        MDRTimeTableViewController *timeConditionTableViewController = (MDRTimeTableViewController *)segue.destinationViewController;
+        timeConditionTableViewController.timeCondition = (MDRTimeCondition *)self.condition;
+        [timeConditionTableViewController.tableView reloadData];
     }
 }
 

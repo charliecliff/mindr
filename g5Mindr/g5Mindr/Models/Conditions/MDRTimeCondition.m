@@ -14,12 +14,50 @@ static NSString *const MDRTimeComponentHour     = @"hour";
 static NSString *const MDRTimeComponentMinute   = @"minute";
 static NSString *const MDRTimeComponentMeridian = @"meridian";
 
+@implementation MDRTime
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"hour": MDRTimeComponentHour,
+             @"minute": MDRTimeComponentMinute,
+             @"meridian": MDRTimeComponentMeridian
+             };
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self != nil) {
+        self.hour     = 12;
+        self.minute   = 0;
+        self.meridian = MDRTimePM;
+    }
+    return self;
+}
+
+- (NSString *)description {
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    dateComponents.hour = self.hour;
+    dateComponents.minute = self.minute;
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.timeStyle =  NSDateFormatterShortStyle;
+    NSString *dateString = [formatter stringFromDate:timeOfDayDate];
+        
+    return [NSString stringWithFormat:@"%@", dateString];
+}
+
+@end
+
 @interface MDRTimeCondition ()
 
 @property(nonatomic, readwrite) NSInteger dateComponentForHour;
 @property(nonatomic, readwrite) NSInteger dateComponentForMinute;
 
 @property(nonatomic, readwrite) NSTimeInterval timeOfDayInSeconds;
+
+@property(nonatomic, strong, readwrite) NSArray *times;
 
 @end
 
@@ -39,10 +77,7 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     self = [super init];
     if (self != nil) {
         self.type = g5TimeType;
-        self.hour = 12;
-        self.minute = 0;
-
-        self.timeOfDayInSeconds = NOON; // TODO: Pull this
+        self.times = [[NSMutableArray alloc] initWithObjects:[[MDRTime alloc] init], nil];
     }
     return self;
 }
@@ -51,19 +86,19 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 - (NSString *)conditionDescription {
     if (self.isActive) {
-        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-        dateComponents.hour = self.hour;
-        dateComponents.minute = self.minute;
-        
-        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-        NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
-        
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.timeStyle =  NSDateFormatterShortStyle;
-        
-        NSString *dateString = [formatter stringFromDate:timeOfDayDate];
-        
-        return [NSString stringWithFormat:@"At %@", dateString];
+//        NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+//        dateComponents.hour = self.hour;
+//        dateComponents.minute = self.minute;
+//        
+//        NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+//        NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
+//        
+//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//        formatter.timeStyle =  NSDateFormatterShortStyle;
+//        
+//        NSString *dateString = [formatter stringFromDate:timeOfDayDate];
+//        
+//        return [NSString stringWithFormat:@"At %@", dateString];
     }
     return @"TIME";
 }
@@ -71,18 +106,12 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.hour = [[dictionary objectForKey:MDRTimeComponentHour] integerValue];
-    self.minute = [[dictionary objectForKey:MDRTimeComponentMinute] integerValue];
-    self.meridian = [[dictionary objectForKey:MDRTimeComponentMeridian] intValue];
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
 
-    [attributeDictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
-    [attributeDictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
-    [attributeDictionary setObject:[NSNumber numberWithInt:self.meridian] forKey:MDRTimeComponentMeridian];
     
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;

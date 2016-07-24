@@ -70,6 +70,13 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     self.bounceNavigationController.delegate = self;
 }
 
+- (void)reloadBounceButtons {
+    if ([self.reminder hasActiveConditions])
+        [self.bounceNavigationController setRightButtonEnabled:YES];
+    else
+        [self.bounceNavigationController setRightButtonEnabled:NO];
+}
+
 - (void)reloadConditionTable {
     if ([self.reminder hasActiveConditions])
         [self.bounceNavigationController setRightButtonEnabled:YES];
@@ -95,12 +102,6 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         
         MDRCondition *currentCondition = [self.reminder.conditions objectForKey:currentConditionUID];
         [cell configureForCondition:currentCondition];
-        
-//        if (currentCondition.isActive)
-//            [cell configureForActiveCondition:currentCondition];
-//        else
-//            [cell configureForInActiveCondition:currentCondition];
-        
         [cells addObject:cell];
     }
     
@@ -179,6 +180,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         else {
             g5ConditionTableViewCell *cell = [cells objectAtIndex:indexPath.row];
             [self conditionCell:cell didSetActive:(!selectedCondition.isActive)];
+            [self reloadBounceButtons];
         }
     }
 }
@@ -192,6 +194,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)conditionCell:(g5ConditionTableViewCell *)cell didSetActive:(BOOL)active {
     cell.condition.isActive = active;
     [cell setConditionActive:cell.condition.isActive];
+    [self reloadBounceButtons];
 }
 
 #pragma mark - g5ConditionViewController Delegate

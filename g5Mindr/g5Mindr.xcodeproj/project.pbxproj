@@ -93,7 +93,6 @@
 		DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */; };
 		DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */; };
 		DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */; };
-		DAF4125E1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */; };
 		DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */; };
 		DAF5C1AD1D289011000D3DEC /* MDRReminderClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1AC1D289011000D3DEC /* MDRReminderClient.m */; };
 		DAF5C1BE1D29E195000D3DEC /* HROCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1B51D29E195000D3DEC /* HROCalendarHeaderView.m */; };
@@ -239,7 +238,6 @@
 		DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROBounceNavigationController.m; sourceTree = "<group>"; };
 		DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROBounceNavigationController.xib; sourceTree = "<group>"; };
 		DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionTableViewCell.xib; sourceTree = "<group>"; };
-		DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderTableViewCell.xib; sourceTree = "<group>"; };
 		DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5WeatherTypeConditionTableViewCell.xib; sourceTree = "<group>"; };
 		DAF5C1AB1D289011000D3DEC /* MDRReminderClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderClient.h; sourceTree = "<group>"; };
 		DAF5C1AC1D289011000D3DEC /* MDRReminderClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderClient.m; sourceTree = "<group>"; };
@@ -477,7 +475,6 @@
 				DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */,
 				DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */,
 				DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */,
-				DAF4125B1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib */,
 				DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */,
 				DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */,
 				DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */,
@@ -711,7 +708,6 @@
 				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
 				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
-				DAF4125E1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib in Resources */,
 				DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DA297EED1CA23ED0001D6148 /* g5EmoticonCell.xib in Resources */,
 				DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */,

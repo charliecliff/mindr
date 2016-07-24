@@ -12,16 +12,17 @@
 
 @interface g5ReminderTableViewCell ()
 
+// PTIVATE
+@property(nonatomic, strong, readwrite) MDRReminder *reminder;
+
+// OUTLET
 @property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
-
 @property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 @property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 @property(nonatomic, strong) IBOutlet UIButton *onSwitchButton;
-
-@property(nonatomic, strong, readwrite) MDRReminder *reminder;
 
 @end
 
@@ -39,14 +40,10 @@
     [self configureOuterRingWithColor:[UIColor whiteColor]];
     [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
     
-    if (reminder.isActive) {
+    if (reminder.isActive)
         [self.onSwitch addToggleOnAnimation];
-//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
-    }
-    else {
+    else
         [self.onSwitch addToggleOffAnimation];
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
-    }
 }
 
 - (void)configureOuterRingWithColor:(UIColor *)color {
@@ -105,14 +102,10 @@
     [self.delegate g5Reminder:self.reminder didSetActive:newReminderActiveState];
     [self.reminder setIsActive:newReminderActiveState];
 
-    if (self.reminder.isActive) {
+    if (self.reminder.isActive)
         [self.onSwitch addToggleOnAnimation];
-//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
-    }
-    else {
+    else
         [self.onSwitch addToggleOffAnimation];
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
-    }
     
     [self reload];
 }

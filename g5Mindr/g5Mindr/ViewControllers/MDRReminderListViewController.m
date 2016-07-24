@@ -39,7 +39,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = REMINDERS_VC_TITLE;
     
-    [self setUpTableView];
+//    [self setUpTableView];
 //    [self setUpEditButton];
 }
 
@@ -72,7 +72,7 @@
     self.cells = [[NSMutableArray alloc] init];
     
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-        g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"g5ReminderTableViewCell"];
+        g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"reminder_table_view_cell"];
         
         MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
         [cell configureWithReminder:currentReminder];

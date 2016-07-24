@@ -32,8 +32,8 @@ static NSString *const kMDRLocationRadius = @"radius";
     if (self != nil) {
         self.type       = g5LocationType;
         self.location   = [MDRLocationManager sharedManager].currentLocation;
-        self.radius     = 500;              // 100 Meters
-        self.address    = @"";
+        self.radius     = 500;
+        self.address    = nil;
     }
     return self;
 }
@@ -43,16 +43,32 @@ static NSString *const kMDRLocationRadius = @"radius";
 - (NSString *)conditionDescription {
     if (self.isActive) {
         NSString *resultString = [NSString stringWithFormat:@"At %@", self.address];
-
         return resultString;
     }
     return @"LOCATION";
 }
 
+#pragma mark - Setters
+
+- (void)setLocation:(CLLocation *)location {
+    _location = location;
+    if (self.address == nil) {
+        __weak MDRLocationCondition *weakSelf = self;
+        [[MDRLocationManager sharedManager] getAddressForLocation:self.location withSuccess:^(NSString *addressLine) {
+                                                          MDRLocationCondition *strongSelf = weakSelf;
+                                                          strongSelf.address = addressLine;
+        } withFailure:nil];
+    }
+}
+
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-
+    
+    self.address = @"";
+    if ([dictionary.allKeys containsObject:kMDRLocationAddress])
+        self.address = [dictionary objectForKey:kMDRLocationAddress];
+    
     self.location = nil;
     CLLocationDegrees latitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLatitude]).floatValue;
     CLLocationDegrees longitude = ((NSNumber *)[dictionary objectForKey:kMDRLocationLongitude]).floatValue;
@@ -60,11 +76,6 @@ static NSString *const kMDRLocationRadius = @"radius";
    
     NSNumber *radiusNumber = [dictionary objectForKey:kMDRLocationRadius];
     self.radius = [radiusNumber floatValue];
-
-    self.address = @"";
-    if ([dictionary.allKeys containsObject:kMDRLocationAddress]) {
-        self.address = [dictionary objectForKey:kMDRLocationAddress];
-    }
 }
 
 - (NSDictionary *)encodeToDictionary {

@@ -16,6 +16,6 @@
 @property(nonatomic, strong) CLLocation *location;
 @property(nonatomic, strong) NSString *address;
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary; // TODO: Pull this out with MAntle
 
 @end

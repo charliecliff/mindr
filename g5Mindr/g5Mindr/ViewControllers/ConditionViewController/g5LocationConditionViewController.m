@@ -59,7 +59,6 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
     [self setUpMapView];
     [self setUpNavigationBar];
     [self refreshMap];
-    [self updateLocationAddress];
 }
 
 #pragma mark - Setup
@@ -144,19 +143,9 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 
     CLLocationDistance distance = [newGrippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
     ((MDRLocationCondition *)self.condition).radius = distance;
-    
-    [self refreshMap];
-}
+    [self refreshAddressLabel];
 
-- (void)updateLocationAddress {
-    __weak g5LocationConditionViewController *weakSelf = self;
-    [[MDRLocationManager sharedManager] getAddressForLocation:((MDRLocationCondition *)self.condition).location
-                                                 withSuccess:^(NSString *addressLine) {
-                                                     g5LocationConditionViewController *strongSelf = weakSelf;
-                                                     ((MDRLocationCondition *)strongSelf.condition).address = addressLine;
-                                                     [strongSelf refreshAddressLabel];
-                                                 }
-                                                 withFailure:nil];
+    [self refreshMap];
 }
 
 #pragma mark - Refresh
@@ -279,7 +268,7 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 }
 
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    [self updateLocationAddress];
+    [self refreshAddressLabel];
 }
 
 @end

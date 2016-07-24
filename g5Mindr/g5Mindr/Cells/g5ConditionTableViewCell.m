@@ -8,15 +8,15 @@
 
 #import "g5ConditionTableViewCell.h"
 #import "MDRCondition.h"
-#import "g5ConfigAndMacros.h"
-
-//#import "OnSwitchView.h"
 #import "BuoyToggleView.h"
+#import "g5ConfigAndMacros.h"
 
 @interface g5ConditionTableViewCell ()
 
-@property(nonatomic, strong) MDRCondition *condition;
+// PROTECTED
+@property(nonatomic, strong, readwrite) MDRCondition *condition;
 
+// OUTLETS
 @property(nonatomic, strong) IBOutlet UIImageView *conditionIconImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 @property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
@@ -27,21 +27,18 @@
 
 @implementation g5ConditionTableViewCell
 
-#pragma mark - Configuration
+#pragma mark - Setters
 
-- (void)configureForActiveCondition:(MDRCondition *)condition {
-    self.condition = condition;
-    [self.onSwitch addToggleOnAnimation];
-
-//    [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
-    [self reload];
+- (void)setConditionActive:(BOOL)isActive {
+    [self toggleSwitch:isActive withCompletionBlock:^{
+        [self reload];
+    }];
 }
 
-- (void)configureForInActiveCondition:(MDRCondition *)condition {
-    self.condition = condition;
-    [self.onSwitch addToggleOnAnimation];
+#pragma mark - Configuration
 
-//    [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
+- (void)configureForCondition:(MDRCondition *)condition {
+    self.condition = condition;
     [self reload];
 }
 
@@ -79,32 +76,17 @@
 
 - (IBAction)didPressSwitchButton:(id)sender {
     BOOL newConditionActiveState = (!self.condition.isActive);
-    [self.delegate g5Condition:self.condition didSetActive:newConditionActiveState];
-    [self.condition setIsActive:newConditionActiveState];
-
-    if (self.condition.isActive) {
-        [self.onSwitch addToggleOffAnimation];
-//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
-    }
-    else {
-        [self.onSwitch addToggleOnAnimation];
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
-    }
-
-    [self reload];
+    [self.delegate conditionCell:self didSetActive:newConditionActiveState];
 }
 
 #pragma mark - Animations
 
-- (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(BOOL finished))completionBlock {
-    if (isActive) {
-        [self.onSwitch addToggleOffAnimation];
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
-    }
-    else {
+- (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(void))completionBlock {
+    if (isActive)
         [self.onSwitch addToggleOnAnimation];
-//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
-    }
+    else
+        [self.onSwitch addToggleOffAnimation];
+    if (completionBlock) completionBlock();
 }
 
 @end

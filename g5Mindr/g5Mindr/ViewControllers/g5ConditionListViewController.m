@@ -28,6 +28,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     NSMutableArray *cells;
 }
 
+@property (nonatomic, strong) NSArray *arrayOfCells;
+
 @end
 
 @implementation g5ConditionListViewController
@@ -65,22 +67,14 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.hidesBackButton = YES;
-
     self.bounceNavigationController.delegate = self;
-    [self setUpCells];
 }
 
 - (void)reloadConditionTable {
-    [self setUpCells];
-    
-    if ([self.reminder hasActiveConditions]) {
-        
+    if ([self.reminder hasActiveConditions])
         [self.bounceNavigationController setRightButtonEnabled:YES];
-    
-    }
-    else {
+    else
         [self.bounceNavigationController setRightButtonEnabled:NO];
-    }
     [self.tableView reloadData];
 }
 
@@ -100,14 +94,12 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         cell.delegate = self;
         
         MDRCondition *currentCondition = [self.reminder.conditions objectForKey:currentConditionUID];
+        [cell configureForCondition:currentCondition];
         
-        
-        if (currentCondition.isActive) {
-            [cell configureForActiveCondition:currentCondition];
-        }
-        else {
-            [cell configureForInActiveCondition:currentCondition];
-        }
+//        if (currentCondition.isActive)
+//            [cell configureForActiveCondition:currentCondition];
+//        else
+//            [cell configureForInActiveCondition:currentCondition];
         
         [cells addObject:cell];
     }
@@ -118,7 +110,6 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         cell.selectionStyle     = UITableViewCellSelectionStyleNone;
         [cells addObject:cell];
     }
-
 }
 
 #pragma mark - g5ConditionViewController Factory
@@ -187,9 +178,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         }
         else {
             g5ConditionTableViewCell *cell = [cells objectAtIndex:indexPath.row];
-            [cell toggleSwitch:!selectedCondition.isActive withCompletionBlock:^(BOOL finished) {
-                [self g5Condition:selectedCondition didSetActive:YES];
-            }];
+            [self conditionCell:cell didSetActive:(!selectedCondition.isActive)];
         }
     }
 }
@@ -200,10 +189,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 #pragma mark - g5ConditionCell Delegate
 
-- (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active {
-    condition.isActive = active;
-    [self.reminder.conditions setObject:condition forKey:condition.type];
-    [self reloadConditionTable];
+- (void)conditionCell:(g5ConditionTableViewCell *)cell didSetActive:(BOOL)active {
+    cell.condition.isActive = active;
+    [cell setConditionActive:cell.condition.isActive];
 }
 
 #pragma mark - g5ConditionViewController Delegate

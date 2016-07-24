@@ -9,21 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @class MDRCondition;
+@class g5ConditionTableViewCell;
 
 @protocol g5ConditionCellDelegate <NSObject>
-
 @required
-- (void)g5Condition:(MDRCondition *)condition didSetActive:(BOOL)active;
-
+- (void)conditionCell:(g5ConditionTableViewCell *)cell didSetActive:(BOOL)active;
 @end
 
 @interface g5ConditionTableViewCell : UITableViewCell
 
+@property(nonatomic, strong, readonly) MDRCondition *condition;
+
 @property(nonatomic, strong) id<g5ConditionCellDelegate> delegate;
 
-- (void)configureForActiveCondition:(MDRCondition *)condition;
-- (void)configureForInActiveCondition:(MDRCondition *)condition;
+- (void)configureForCondition:(MDRCondition *)condition;
 
-- (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(BOOL finished))completionBlock;
+- (void)setConditionActive:(BOOL)isActive;
 
 @end

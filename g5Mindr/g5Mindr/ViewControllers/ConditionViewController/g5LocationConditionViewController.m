@@ -11,6 +11,7 @@
 #import "MDRLocationCondition.h"
 #import "g5ConfigAndMacros.h"
 #import "UIGestureRecognizer+Cancel.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @import Mapbox;
 @import MapKit;
@@ -46,8 +47,14 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 - (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super initWithCondition:condition];
     if (self != nil) {
+        _regionBorderColor  = [UIColor whiteColor];
+        _normalTextColor    = [UIColor whiteColor];
+        _highlightedColor   = [UIColor whiteColor];
+
         if (self.condition == nil)
             self.condition = [[MDRLocationCondition alloc] init];
+        
+        [self bindToCondition];
     }
     return self;
 }
@@ -115,6 +122,37 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
     self.edgesForExtendedLayout = UIRectEdgeTop;
 }
 
+#pragma mark - Binsing
+
+- (void)bindToCondition {
+    __weak __typeof(self)weakSelf = self;
+    [RACObserve(((MDRLocationCondition *)self.condition), radius) subscribeNext:^(CLLocation *newLocation) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf refreshAddressLabel];
+    }];
+    [RACObserve(((MDRLocationCondition *)self.condition), address) subscribeNext:^(CLLocation *newLocation) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf refreshAddressLabel];
+    }];
+}
+
+#pragma mark - Setters
+
+- (void)setRegionBorderColor:(UIColor *)regionBorderColor {
+    _regionBorderColor = regionBorderColor;
+    [self refreshAddressLabel];
+}
+
+- (void)setNormalTextColor:(UIColor *)normalTextColor {
+    _normalTextColor = normalTextColor;
+    [self refreshAddressLabel];
+}
+
+- (void)setHighlightedColor:(UIColor *)highlightedColor {
+    _highlightedColor = highlightedColor;
+    [self refreshAddressLabel];
+}
+
 #pragma mark - Dragging
 
 - (void)didLongPressMapView:(UIGestureRecognizer *)gesture {
@@ -143,7 +181,6 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 
     CLLocationDistance distance = [newGrippyLocation distanceFromLocation:((MDRLocationCondition *)self.condition).location];
     ((MDRLocationCondition *)self.condition).radius = distance;
-    [self refreshAddressLabel];
 
     [self refreshMap];
 }
@@ -268,7 +305,7 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 }
 
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
-    [self refreshAddressLabel];
+    [((MDRLocationCondition *)self.condition) refreshAddress];
 }
 
 @end

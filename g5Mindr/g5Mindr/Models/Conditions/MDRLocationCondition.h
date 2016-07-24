@@ -12,10 +12,12 @@
 @interface MDRLocationCondition : MDRCondition
 
 @property(nonatomic) CLLocationDistance radius;
-
 @property(nonatomic, strong) CLLocation *location;
-@property(nonatomic, strong) NSString *address;
+
+@property(nonatomic, strong, readonly) NSString *address;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary; // TODO: Pull this out with MAntle
+
+- (void)refreshAddress;
 
 @end

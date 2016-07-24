@@ -20,7 +20,6 @@
 @property(nonatomic, strong) IBOutlet UIImageView *conditionIconImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 @property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
-@property(nonatomic, strong) IBOutlet UISwitch *conditionActivationSwitch;
 @property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 
 @end
@@ -39,14 +38,13 @@
 
 - (void)configureForCondition:(MDRCondition *)condition {
     self.condition = condition;
+    [self toggleSwitch:self.condition.isActive withCompletionBlock:nil];
     [self reload];
 }
 
 - (void)reload {
     [self.conditionExplanationLabel setText:self.condition.conditionDescription];
-    
     [self.backgroundImageView setHidden:!self.condition.isActive];
-    [self.conditionActivationSwitch setOn:self.condition.isActive];
     
     if (self.condition.isActive) {
         [self.conditionExplanationLabel setTextColor:[UIColor whiteColor]];

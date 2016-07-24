@@ -15,6 +15,13 @@ static NSString *const kMDRLocationLatitude = @"latitude";
 static NSString *const kMDRLocationAddress = @"address";
 static NSString *const kMDRLocationRadius = @"radius";
 
+@interface MDRLocationCondition ()
+
+// PROTECTED
+@property(nonatomic, strong, readwrite) NSString *address;
+
+@end
+
 @implementation MDRLocationCondition
 
 #pragma mark - Init
@@ -31,9 +38,10 @@ static NSString *const kMDRLocationRadius = @"radius";
     self = [super init];
     if (self != nil) {
         self.type       = g5LocationType;
-        self.location   = [MDRLocationManager sharedManager].currentLocation;
         self.radius     = 500;
         self.address    = nil;
+        self.location   = [MDRLocationManager sharedManager].currentLocation;
+        [self refreshAddress];
     }
     return self;
 }
@@ -48,17 +56,14 @@ static NSString *const kMDRLocationRadius = @"radius";
     return @"LOCATION";
 }
 
-#pragma mark - Setters
+#pragma mark - Public
 
-- (void)setLocation:(CLLocation *)location {
-    _location = location;
-    if (self.address == nil) {
-        __weak MDRLocationCondition *weakSelf = self;
-        [[MDRLocationManager sharedManager] getAddressForLocation:self.location withSuccess:^(NSString *addressLine) {
-                                                          MDRLocationCondition *strongSelf = weakSelf;
-                                                          strongSelf.address = addressLine;
-        } withFailure:nil];
-    }
+- (void)refreshAddress {
+    __weak MDRLocationCondition *weakSelf = self;
+    [[MDRLocationManager sharedManager] getAddressForLocation:self.location withSuccess:^(NSString *addressLine) {
+        MDRLocationCondition *strongSelf = weakSelf;
+        strongSelf.address = addressLine;
+    } withFailure:nil];
 }
 
 #pragma mark - Persistence

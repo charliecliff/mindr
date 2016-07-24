@@ -16,7 +16,7 @@
 - (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super init];
     if (self != nil) {
-        self.condition = condition;
+        _condition = condition;
     }
     return self;
 }

@@ -25,7 +25,7 @@ PODS:
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
-  - Mapbox-iOS-SDK (3.3.0)
+  - Mapbox-iOS-SDK (3.3.1)
   - PBJHexagon (0.1.1)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -40,7 +40,7 @@ DEPENDENCIES:
   - AMWaveTransition
   - GoogleMaps
   - Mantle
-  - Mapbox-iOS-SDK
+  - Mapbox-iOS-SDK (~> 3.3.0)
   - PBJHexagon
   - ReactiveCocoa (~> 2.5)
 
@@ -49,10 +49,10 @@ SPEC CHECKSUMS:
   AMWaveTransition: 98952310574779e4ca7e7f4d89f8b1043cdad171
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
-  Mapbox-iOS-SDK: 88171e67d043af5ba80f52bcbf5dd31478652c18
+  Mapbox-iOS-SDK: 55dea997ae34ff0553fbf4208e7d60dfefa24fd5
   PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-PODFILE CHECKSUM: 3252d493659f8aba841528f4a3f833a3ced9270f
+PODFILE CHECKSUM: f8dfde73143135afdf91d1b396ab7a4eaa044526
 
 COCOAPODS: 1.0.1

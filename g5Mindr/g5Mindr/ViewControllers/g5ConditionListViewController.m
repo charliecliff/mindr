@@ -51,8 +51,6 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
         self.tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
         self.tableView.backgroundView   = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
         self.tableView.showsVerticalScrollIndicator = NO;
-        
-        [self setUpCells];
     }
     return self;
 }
@@ -61,6 +59,9 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setUpCells];
+    
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:NO];
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OnSwitchView.h"
+#import "BuoyToggleView.h"
 
 @class MDRReminder;
 
@@ -20,7 +20,7 @@
 @interface g5ReminderDetailButtonTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
-@property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
+@property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 
 @property(nonatomic, strong) id<g5ReminderButtonCellDelegate> delegate;
 

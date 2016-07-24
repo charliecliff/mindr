@@ -10,7 +10,8 @@
 #import "MDRCondition.h"
 #import "g5ConfigAndMacros.h"
 
-#import "OnSwitchView.h"
+//#import "OnSwitchView.h"
+#import "BuoyToggleView.h"
 
 @interface g5ConditionTableViewCell ()
 
@@ -20,7 +21,7 @@
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
 @property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
 @property(nonatomic, strong) IBOutlet UISwitch *conditionActivationSwitch;
-@property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
+@property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 
 @end
 
@@ -30,12 +31,16 @@
 
 - (void)configureForActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
+    [self.onSwitch addToggleOnAnimation];
+
 //    [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
     [self reload];
 }
 
 - (void)configureForInActiveCondition:(MDRCondition *)condition {
     self.condition = condition;
+    [self.onSwitch addToggleOnAnimation];
+
 //    [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00001 andRemoveOnCompletion:NO completion:nil];
     [self reload];
 }
@@ -78,10 +83,12 @@
     [self.condition setIsActive:newConditionActiveState];
 
     if (self.condition.isActive) {
-        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOffAnimation];
+//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:1.00 andRemoveOnCompletion:NO completion:NULL];
     }
 
     [self reload];
@@ -91,10 +98,12 @@
 
 - (void)toggleSwitch:(BOOL)isActive withCompletionBlock:(void (^)(BOOL finished))completionBlock {
     if (isActive) {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
+        [self.onSwitch addToggleOffAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0 andRemoveOnCompletion:NO completion:completionBlock];
     }
 }
 

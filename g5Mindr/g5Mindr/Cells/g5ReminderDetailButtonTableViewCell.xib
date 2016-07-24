@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="1" id="b5s-87-yuI"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnJ-Mj-foc" userLabel="View - Custom Switch" customClass="OnSwitchView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnJ-Mj-foc" userLabel="View - Custom Switch" customClass="BuoyToggleView">
                         <rect key="frame" x="249" y="7" width="49" height="31"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>

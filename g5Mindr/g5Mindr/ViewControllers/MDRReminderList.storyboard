@@ -110,7 +110,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="I9m-65-dDb"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvm-QS-pls" userLabel="onSwitch" customClass="OnSwitchView">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvm-QS-pls" userLabel="onSwitch" customClass="BuoyToggleView">
                                                     <rect key="frame" x="301" y="34" width="49" height="31"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>

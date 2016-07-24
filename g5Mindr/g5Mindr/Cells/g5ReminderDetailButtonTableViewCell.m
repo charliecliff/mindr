@@ -23,7 +23,8 @@
     self.delegate = delegate;
 //    self.switchShouldBeOn = reminder.isIconOnlyNotification;
     if (!self.switchShouldBeOn) {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.00 andRemoveOnCompletion:NO completion:NULL];
     }
 }
 
@@ -32,10 +33,12 @@
 - (IBAction)didPressSwitchButton:(id)sender {
     self.switchShouldBeOn = !self.switchShouldBeOn;
     if (self.switchShouldBeOn) {
-        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOffAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.2 andRemoveOnCompletion:NO completion:NULL];
     }
     
     [self.delegate didPressSwitchButton];

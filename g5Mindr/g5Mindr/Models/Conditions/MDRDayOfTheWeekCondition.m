@@ -9,6 +9,8 @@
 #import "MDRDayOfTheWeekCondition.h"
 #import "g5ConfigAndMacros.h"
 
+#define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",@"Sunday", nil]
+
 static NSString *const G5DayOfTheWeekDateFormatter = @"EEEE";
 static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
@@ -62,8 +64,8 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
     if (self.isActive) {
         
         NSString *resultString = @"On a";
-        for (NSNumber *dayOfTheWeekNumber in self.daysOfTheWeek) {
-            NSString *dateString = [self stringForWeekday:dayOfTheWeekNumber];
+        for (NSNumber *currentDayOfTheWeek in self.daysOfTheWeek) {
+            NSString *dateString = [self stringForWeekday:[currentDayOfTheWeek integerValue]];
             resultString = [NSString stringWithFormat:@"%@ %@", resultString, dateString];
         }
         return resultString;
@@ -119,18 +121,8 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
 #pragma mark - Helpers
 
-- (NSString *)stringForWeekday:(NSNumber *)dayOfTheWeekNumber {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEEE"];
-    
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.weekday = [dayOfTheWeekNumber integerValue];
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
-    
-    NSString *dateString = [formatter stringFromDate:timeOfDayDate];
-    return dateString;
+- (NSString *)stringForWeekday:(NSInteger)dayOfTheWeekNumber {
+    return [DAYS_OF_THE_WEEK_ARRAY objectAtIndex:dayOfTheWeekNumber];
 }
 
 @end

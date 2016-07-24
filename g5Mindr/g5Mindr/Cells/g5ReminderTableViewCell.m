@@ -7,7 +7,7 @@
 //
 
 #import "g5ReminderTableViewCell.h"
-#import "OnSwitchView.h"
+#import "BuoyToggleView.h"
 #import "g5ConfigAndMacros.h"
 
 @interface g5ReminderTableViewCell ()
@@ -18,7 +18,7 @@
 @property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
-@property(nonatomic, strong) IBOutlet OnSwitchView *onSwitch;
+@property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 @property(nonatomic, strong) IBOutlet UIButton *onSwitchButton;
 
 @property(nonatomic, strong, readwrite) MDRReminder *reminder;
@@ -40,10 +40,12 @@
     [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
     
     if (reminder.isActive) {
-        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOffAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.000 andRemoveOnCompletion:NO completion:NULL];
     }
 }
 
@@ -104,10 +106,12 @@
     [self.reminder setIsActive:newReminderActiveState];
 
     if (self.reminder.isActive) {
-        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOnAnimation];
+//        [self.onSwitch addOFFReversedAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
     }
     else {
-        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
+        [self.onSwitch addToggleOffAnimation];
+//        [self.onSwitch addOFFAnimationWithBeginTime:0 andFillMode:kCAFillModeBoth withDuration:0.200 andRemoveOnCompletion:NO completion:NULL];
     }
     
     [self reload];

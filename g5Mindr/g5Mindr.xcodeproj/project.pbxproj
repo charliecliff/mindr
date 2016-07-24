@@ -23,6 +23,19 @@
 		DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
 		DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1EC0D81CD4625F00605573 /* QuartzCore.framework */; };
+		DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC31D445FF900FC38E5 /* toggleBGOff.png */; };
+		DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC41D445FF900FC38E5 /* toggleBGOff@2x.png */; };
+		DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC51D445FF900FC38E5 /* toggleBGOff@3x.png */; };
+		DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC61D445FF900FC38E5 /* toggleBGOn.png */; };
+		DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC71D445FF900FC38E5 /* toggleBGOn@2x.png */; };
+		DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC81D445FF900FC38E5 /* toggleBGOn@3x.png */; };
+		DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC91D445FF900FC38E5 /* toggleSwitchOff.png */; };
+		DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCA1D445FF900FC38E5 /* toggleSwitchOff@2x.png */; };
+		DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCB1D445FF900FC38E5 /* toggleSwitchOff@3x.png */; };
+		DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCC1D445FF900FC38E5 /* toggleSwitchOn.png */; };
+		DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCD1D445FF900FC38E5 /* toggleSwitchOn@2x.png */; };
+		DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */; };
+		DA216BDD1D445FF900FC38E5 /* BuoyToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA216BD01D445FF900FC38E5 /* BuoyToggleView.m */; };
 		DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */; };
 		DA297EED1CA23ED0001D6148 /* g5EmoticonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA297EE91CA23ED0001D6148 /* g5EmoticonCell.xib */; };
 		DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */; };
@@ -42,15 +55,6 @@
 		DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* MDRTemperatureCondition.m */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
-		DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */; };
-		DA508E011CCF0B4100C96AED /* offSwitchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */; };
-		DA508E021CCF0B4100C96AED /* offSwitchKnob.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */; };
-		DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */; };
-		DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */; };
-		DA508E051CCF0B4100C96AED /* onSwitchKnob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */; };
-		DA508E061CCF0B4100C96AED /* Switch.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFC1CCF0B4100C96AED /* Switch.png */; };
-		DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA508DFD1CCF0B4100C96AED /* Switch@2x.png */; };
-		DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */; };
 		DA543D991D0C9F920079BBB0 /* MDRTemperatureComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D981D0C9F920079BBB0 /* MDRTemperatureComponents.m */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
 		DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */; };
@@ -125,6 +129,20 @@
 		DA1EC0D51CD4623900605573 /* IBCellFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCellFlipSegue.h; sourceTree = "<group>"; };
 		DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBCellFlipSegue.m; sourceTree = "<group>"; };
 		DA1EC0D81CD4625F00605573 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DA216BC31D445FF900FC38E5 /* toggleBGOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggleBGOff.png; sourceTree = "<group>"; };
+		DA216BC41D445FF900FC38E5 /* toggleBGOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleBGOff@2x.png"; sourceTree = "<group>"; };
+		DA216BC51D445FF900FC38E5 /* toggleBGOff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleBGOff@3x.png"; sourceTree = "<group>"; };
+		DA216BC61D445FF900FC38E5 /* toggleBGOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggleBGOn.png; sourceTree = "<group>"; };
+		DA216BC71D445FF900FC38E5 /* toggleBGOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleBGOn@2x.png"; sourceTree = "<group>"; };
+		DA216BC81D445FF900FC38E5 /* toggleBGOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleBGOn@3x.png"; sourceTree = "<group>"; };
+		DA216BC91D445FF900FC38E5 /* toggleSwitchOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggleSwitchOff.png; sourceTree = "<group>"; };
+		DA216BCA1D445FF900FC38E5 /* toggleSwitchOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleSwitchOff@2x.png"; sourceTree = "<group>"; };
+		DA216BCB1D445FF900FC38E5 /* toggleSwitchOff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleSwitchOff@3x.png"; sourceTree = "<group>"; };
+		DA216BCC1D445FF900FC38E5 /* toggleSwitchOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggleSwitchOn.png; sourceTree = "<group>"; };
+		DA216BCD1D445FF900FC38E5 /* toggleSwitchOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleSwitchOn@2x.png"; sourceTree = "<group>"; };
+		DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleSwitchOn@3x.png"; sourceTree = "<group>"; };
+		DA216BCF1D445FF900FC38E5 /* BuoyToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyToggleView.h; sourceTree = "<group>"; };
+		DA216BD01D445FF900FC38E5 /* BuoyToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyToggleView.m; sourceTree = "<group>"; };
 		DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConfigAndMacros.h; sourceTree = "<group>"; };
 		DA297EE71CA23ED0001D6148 /* g5EmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonCell.h; sourceTree = "<group>"; };
 		DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonCell.m; sourceTree = "<group>"; };
@@ -160,16 +178,6 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
-		DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offSwitchBackground.png; sourceTree = "<group>"; };
-		DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offSwitchBackground@2x.png"; sourceTree = "<group>"; };
-		DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = offSwitchKnob.png; sourceTree = "<group>"; };
-		DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "offSwitchKnob@2x.png"; sourceTree = "<group>"; };
-		DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = onSwitchKnob.png; sourceTree = "<group>"; };
-		DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "onSwitchKnob@2x.png"; sourceTree = "<group>"; };
-		DA508DFC1CCF0B4100C96AED /* Switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Switch.png; sourceTree = "<group>"; };
-		DA508DFD1CCF0B4100C96AED /* Switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Switch@2x.png"; sourceTree = "<group>"; };
-		DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnSwitchView.h; sourceTree = "<group>"; };
-		DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnSwitchView.m; sourceTree = "<group>"; };
 		DA543D971D0C9F920079BBB0 /* MDRTemperatureComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTemperatureComponents.h; sourceTree = "<group>"; };
 		DA543D981D0C9F920079BBB0 /* MDRTemperatureComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTemperatureComponents.m; sourceTree = "<group>"; };
 		DA543D9B1D0CA1D20079BBB0 /* HROPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPickerTableView.h; sourceTree = "<group>"; };
@@ -289,6 +297,25 @@
 				DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */,
 			);
 			path = IBCellFlipSegue;
+			sourceTree = "<group>";
+		};
+		DA216BC21D445FF900FC38E5 /* buoy_toggle_images */ = {
+			isa = PBXGroup;
+			children = (
+				DA216BC31D445FF900FC38E5 /* toggleBGOff.png */,
+				DA216BC41D445FF900FC38E5 /* toggleBGOff@2x.png */,
+				DA216BC51D445FF900FC38E5 /* toggleBGOff@3x.png */,
+				DA216BC61D445FF900FC38E5 /* toggleBGOn.png */,
+				DA216BC71D445FF900FC38E5 /* toggleBGOn@2x.png */,
+				DA216BC81D445FF900FC38E5 /* toggleBGOn@3x.png */,
+				DA216BC91D445FF900FC38E5 /* toggleSwitchOff.png */,
+				DA216BCA1D445FF900FC38E5 /* toggleSwitchOff@2x.png */,
+				DA216BCB1D445FF900FC38E5 /* toggleSwitchOff@3x.png */,
+				DA216BCC1D445FF900FC38E5 /* toggleSwitchOn.png */,
+				DA216BCD1D445FF900FC38E5 /* toggleSwitchOn@2x.png */,
+				DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */,
+			);
+			path = buoy_toggle_images;
 			sourceTree = "<group>";
 		};
 		DA30CEDD1C9DD38900FD4438 = {
@@ -466,26 +493,11 @@
 		DA508DF41CCF0B4100C96AED /* CoreAnimator */ = {
 			isa = PBXGroup;
 			children = (
-				DA508DF51CCF0B4100C96AED /* images */,
-				DA508DFE1CCF0B4100C96AED /* OnSwitchView.h */,
-				DA508DFF1CCF0B4100C96AED /* OnSwitchView.m */,
+				DA216BC21D445FF900FC38E5 /* buoy_toggle_images */,
+				DA216BCF1D445FF900FC38E5 /* BuoyToggleView.h */,
+				DA216BD01D445FF900FC38E5 /* BuoyToggleView.m */,
 			);
 			path = CoreAnimator;
-			sourceTree = "<group>";
-		};
-		DA508DF51CCF0B4100C96AED /* images */ = {
-			isa = PBXGroup;
-			children = (
-				DA508DF61CCF0B4100C96AED /* offSwitchBackground.png */,
-				DA508DF71CCF0B4100C96AED /* offSwitchBackground@2x.png */,
-				DA508DF81CCF0B4100C96AED /* offSwitchKnob.png */,
-				DA508DF91CCF0B4100C96AED /* offSwitchKnob@2x.png */,
-				DA508DFA1CCF0B4100C96AED /* onSwitchKnob.png */,
-				DA508DFB1CCF0B4100C96AED /* onSwitchKnob@2x.png */,
-				DA508DFC1CCF0B4100C96AED /* Switch.png */,
-				DA508DFD1CCF0B4100C96AED /* Switch@2x.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 		DA543D9A1D0CA1D20079BBB0 /* HROPickerTableView */ = {
@@ -684,21 +696,23 @@
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */,
-				DA508E021CCF0B4100C96AED /* offSwitchKnob.png in Resources */,
-				DA508E041CCF0B4100C96AED /* onSwitchKnob.png in Resources */,
-				DA508E071CCF0B4100C96AED /* Switch@2x.png in Resources */,
+				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
 				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
+				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
+				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
+				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
 				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
+				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
+				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
 				DAC771C11D235B4500036B44 /* g5ConditionListViewController.xib in Resources */,
-				DA508E031CCF0B4100C96AED /* offSwitchKnob@2x.png in Resources */,
 				DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */,
+				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
 				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
-				DA508E001CCF0B4100C96AED /* offSwitchBackground.png in Resources */,
+				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
+				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
 				DAF4125E1CF0D7730092DEF8 /* g5ReminderTableViewCell.xib in Resources */,
 				DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */,
-				DA508E061CCF0B4100C96AED /* Switch.png in Resources */,
-				DA508E011CCF0B4100C96AED /* offSwitchBackground@2x.png in Resources */,
 				DA297EED1CA23ED0001D6148 /* g5EmoticonCell.xib in Resources */,
 				DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */,
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
@@ -710,12 +724,14 @@
 				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
+				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
+				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
 				DAB092421CDD839F00F1157B /* emoticons.plist in Resources */,
 				DAC771C31D235B4500036B44 /* g5ReminderExplanationViewController.xib in Resources */,
+				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAC771C21D235B4500036B44 /* g5EmoticonSelectionViewController.xib in Resources */,
-				DA508E051CCF0B4100C96AED /* onSwitchKnob@2x.png in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,
@@ -798,7 +814,6 @@
 				DA543D991D0C9F920079BBB0 /* MDRTemperatureComponents.m in Sources */,
 				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
 				DAF36BAC1D06409A001DF406 /* MDRTimeComponents.m in Sources */,
-				DA508E081CCF0B4100C96AED /* OnSwitchView.m in Sources */,
 				DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */,
 				DA30CF401C9E239200FD4438 /* MDRLocationCondition.m in Sources */,
 				DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */,
@@ -806,6 +821,7 @@
 				DA83FFEA1D4191AF00D6209A /* MDREmptyViewController.m in Sources */,
 				DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */,
 				DAC8BF381CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m in Sources */,
+				DA216BDD1D445FF900FC38E5 /* BuoyToggleView.m in Sources */,
 				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
 				DAF5C1BE1D29E195000D3DEC /* HROCalendarHeaderView.m in Sources */,
 				DA30CEEB1C9DD38900FD4438 /* main.m in Sources */,

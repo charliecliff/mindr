@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iF5-5Z-djt" userLabel="Background Image">
@@ -55,7 +55,7 @@
                         <color key="onTintColor" red="0.16078431369999999" green="0.80000000000000004" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </switch>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSn-1X-6ND" userLabel="View - Custom Switch" customClass="OnSwitchView">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MSn-1X-6ND" userLabel="View - Custom Switch" customClass="BuoyToggleView">
                         <rect key="frame" x="263" y="34" width="49" height="31"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>

@@ -41,6 +41,7 @@ static NSString *const kMDRLocationRadius = @"radius";
         self.radius     = 500;
         self.address    = nil;
         self.location   = [MDRLocationManager sharedManager].currentLocation;
+        [self updateDescription];
         [self refreshAddress];
     }
     return self;
@@ -56,13 +57,26 @@ static NSString *const kMDRLocationRadius = @"radius";
     return @"LOCATION";
 }
 
+- (void)updateDescription {
+    if (self.isActive && self.address && ![self.address isEqualToString:@""])
+        self.conditionDescription = [NSString stringWithFormat:@"At %@", self.address];
+    else
+        self.conditionDescription = @"LOCATION";
+}
+
 #pragma mark - Public
+
+- (void)setIsActive:(BOOL)isActive {
+    super.isActive = isActive;
+    [self updateDescription];
+}
 
 - (void)refreshAddress {
     __weak MDRLocationCondition *weakSelf = self;
     [[MDRLocationManager sharedManager] getAddressForLocation:self.location withSuccess:^(NSString *addressLine) {
         MDRLocationCondition *strongSelf = weakSelf;
         strongSelf.address = addressLine;
+        [strongSelf updateDescription];
     } withFailure:nil];
 }
 

@@ -33,6 +33,7 @@ extern NSString *const kMDRConditionAttributes;
 @property(nonatomic) BOOL isLocked;
 @property(nonatomic, strong) NSString *uid;
 @property(nonatomic, strong) NSString *type;
+@property(nonatomic, strong) NSString *conditionDescription;
 
 /**
     Initialization and Persistence
@@ -40,7 +41,9 @@ extern NSString *const kMDRConditionAttributes;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)encodeToDictionary;
 
-- (NSString *)conditionDescription;
+- (NSString *)conditionDescription __deprecated; // TODO: Pull tis into an attribute which can be REACTed to
 - (NSString *)conditionIconName;
+
+- (void)updateDescription;
 
 @end

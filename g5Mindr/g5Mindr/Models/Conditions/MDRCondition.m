@@ -76,6 +76,10 @@ static NSString *const kMDRConditionIsActive = @"is_active";
     assert(false);
 }
 
+- (void)updateDescription {
+    NSAssert(false, @"BRO! You need to implement this method in the subclass");
+}
+
 #pragma mark - Persistence
 
 - (NSDictionary *)encodeToDictionary {

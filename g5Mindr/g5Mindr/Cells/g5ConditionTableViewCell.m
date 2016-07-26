@@ -10,6 +10,7 @@
 #import "MDRCondition.h"
 #import "BuoyToggleView.h"
 #import "g5ConfigAndMacros.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface g5ConditionTableViewCell ()
 
@@ -38,12 +39,14 @@
 
 - (void)configureForCondition:(MDRCondition *)condition {
     self.condition = condition;
+    RAC(self.conditionExplanationLabel, text) = RACObserve(condition, conditionDescription);
+
     [self toggleSwitch:self.condition.isActive withCompletionBlock:nil];
     [self reload];
 }
 
 - (void)reload {
-    [self.conditionExplanationLabel setText:self.condition.conditionDescription];
+    [self.conditionExplanationLabel setText:self.condition.conditionDescription]; //TODO: Pull This out
     [self.backgroundImageView setHidden:!self.condition.isActive];
     
     if (self.condition.isActive) {

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderDetailSectionTableViewCell.h"
+#import "MDRReminderDetailTableViewCell.h"
 
-@implementation g5ReminderDetailSectionTableViewCell
+@implementation MDRReminderDetailTableViewCell
 
 @end

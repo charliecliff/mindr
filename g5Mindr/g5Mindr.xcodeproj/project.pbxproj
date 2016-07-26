@@ -101,8 +101,7 @@
 		DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */; };
 		DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
 		DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
-		DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */; };
-		DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */; };
+		DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */; };
 		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
 		DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */; };
 /* End PBXBuildFile section */
@@ -253,9 +252,8 @@
 		DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarHeaderView.xib; sourceTree = "<group>"; };
 		DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarRowTableViewCell.xib; sourceTree = "<group>"; };
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
-		DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailSectionTableViewCell.h; sourceTree = "<group>"; };
-		DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailSectionTableViewCell.m; sourceTree = "<group>"; };
-		DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailSectionTableViewCell.xib; sourceTree = "<group>"; };
+		DAFD65181CD52DAC00E92729 /* MDRReminderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderDetailTableViewCell.h; sourceTree = "<group>"; };
+		DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderDetailTableViewCell.m; sourceTree = "<group>"; };
 		DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderListViewController.h; sourceTree = "<group>"; };
 		DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderListViewController.m; sourceTree = "<group>"; };
 		DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mindrBounceNavigationViewController.h; sourceTree = "<group>"; };
@@ -477,9 +475,8 @@
 				DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */,
 				DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */,
 				DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */,
-				DAFD65181CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.h */,
-				DAFD65191CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m */,
-				DAFD651A1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib */,
+				DAFD65181CD52DAC00E92729 /* MDRReminderDetailTableViewCell.h */,
+				DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */,
 				DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */,
 				DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */,
 				DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */,
@@ -719,7 +716,6 @@
 				DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
-				DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */,
 				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
@@ -834,7 +830,7 @@
 				DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */,
 				DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
-				DAFD651B1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.m in Sources */,
+				DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */,
 				DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAF5C1BF1D29E195000D3DEC /* HROCalendarRowTableViewCell.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* MDRCondition.m in Sources */,

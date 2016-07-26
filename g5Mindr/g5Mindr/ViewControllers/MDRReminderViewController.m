@@ -8,29 +8,56 @@
 
 #import "MDRReminderViewController.h"
 #import "g5EditReminderConditionListViewController.h"
-#import "g5ReminderDetailSectionTableViewCell.h"
+#import "MDRReminderDetailTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface MDRReminderViewController () <g5ReminderButtonCellDelegate>
+static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 
+
+@implementation MDRReminderDetailTableViewController
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if ( indexPath.row == 0 ) {
+        
+    }
+    else if ( indexPath.row == 1 ) {
+        
+    }
+    else if ( indexPath.row == 2 ) {
+        
+    }
+}
+
+#pragma mark - UITableViewDataSource
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MDRReminderDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MDRReminderDetailCellIdentifier];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+
+@end
+
+@interface MDRReminderViewController ()
+
+// PROTECTED
 @property(nonatomic, strong, readwrite) MDRReminder *reminder;
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
 
-@property(nonatomic, strong) IBOutlet UIButton *deleteButton;
-@property(nonatomic, strong) IBOutlet UIView *deleteButtonBackgroundView;
-
+// OUTLETS
+@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
+@property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 @property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
-
-@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
-@property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
-
-@property(nonatomic, strong) IBOutlet UITableView *reminderDetailTableview;
-
-@property(nonatomic, strong) IBOutlet NSLayoutConstraint *tableViewHeightConstraint;
 
 @end
 
@@ -42,13 +69,9 @@
     self = [super init];
     if (self != nil) {
         self.reminder = reminder;
-        
         self.edgesForExtendedLayout = UIRectEdgeNone;
-        
         self.navigationItem.title = @"Reminder";
         self.navigationItem.hidesBackButton = YES;
-
-        [self setUpCells];
         [self setUpBackButton];
     }
     return self;
@@ -63,7 +86,6 @@
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
     self.explanationLabel.text = self.reminder.explanation;
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
-    self.tableViewHeightConstraint.constant = 44 * 3;
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
 
@@ -92,47 +114,6 @@
     self.navigationItem.leftBarButtonItem = barBtn;
 }
 
-- (void)setUpCells {
-    self.cells = [[NSMutableArray alloc] init];
-    
-    g5ReminderDetailSectionTableViewCell *cell1 = [self newBlankSectionCell];
-    cell1.titleLabel.text = @"Title";
-//    [self.cells addObject:cell1];
-    
-    g5ReminderDetailSectionTableViewCell *cell2 = [self newBlankSectionCell];
-    cell2.titleLabel.text = @"Conditions";
-    cell2.explanationLabel.text = self.reminder.explanation;
-    [self.cells addObject:cell2];
-
-    g5ReminderDetailSectionTableViewCell *cell3 = [self newBlankSectionCell];
-    cell3.titleLabel.text = @"Sound";
-    cell3.explanationLabel.text = self.reminder.pushNotificationSoundFileName;
-//    [self.cells addObject:cell3];
-
-    g5ReminderDetailButtonTableViewCell *cell4 = [self newBlankButtonCell];
-    cell4.titleLabel.text = @"Icon-only Notification";
-    [cell4 configWithReminder:self.reminder withDelegate:self];
-//    [self.cells addObject:cell4];
-}
-
-- (g5ReminderDetailSectionTableViewCell *)newBlankSectionCell {
-    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"g5ReminderDetailSectionTableViewCell" owner:self options:nil];
-    g5ReminderDetailSectionTableViewCell *cell = [nibObjects objectAtIndex:0];
-    return cell;
-}
-
-- (g5ReminderDetailButtonTableViewCell *)newBlankButtonCell {
-    NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"g5ReminderDetailButtonTableViewCell" owner:self options:nil];
-    g5ReminderDetailButtonTableViewCell *cell = [nibObjects objectAtIndex:0];
-    return cell;
-}
-
-#pragma mark - Refresh
-
-- (void)refresh {
-
-}
-
 #pragma mark - Actions
 
 - (void)pressBackButton {
@@ -147,38 +128,6 @@
     g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
-}
-
-#pragma mark - g5ReminderButtonCellDelegate
-
-- (void)didPressSwitchButton {
-//    self.reminder.isIconOnlyNotification = !self.reminder.isIconOnlyNotification;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if ( indexPath.row == 0 ) {
-        [self segueToConditionViewControllerWithReminder:self.reminder];
-    }
-    else if ( indexPath.row == 1 ) {
-        
-    }
-    else if ( indexPath.row == 2 ) {
-        
-    }
-}
-
-#pragma mark - UITableViewDataSource
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.backgroundColor = [UIColor yellowColor];
-    return [self.cells objectAtIndex:indexPath.row];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.cells.count;
 }
 
 #pragma mark - g5BounceNavigationDelegate

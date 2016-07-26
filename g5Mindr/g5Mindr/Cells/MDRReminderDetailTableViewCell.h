@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface g5ReminderDetailSectionTableViewCell : UITableViewCell
+@interface MDRReminderDetailTableViewCell : UITableViewCell
 
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;

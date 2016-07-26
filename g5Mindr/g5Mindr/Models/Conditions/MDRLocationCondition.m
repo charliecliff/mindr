@@ -66,6 +66,16 @@ static NSString *const kMDRLocationRadius = @"radius";
 
 #pragma mark - Public
 
+- (void)setAddress:(NSString *)address {
+    if (address != nil) {
+        _address = address;
+        return;
+    }
+    _address = [NSString stringWithFormat:@"(%.3f\u00b0, %.3f\u00b0)",self.location.coordinate.latitude, self.location.coordinate.longitude];
+}
+
+#pragma mark - Public
+
 - (void)setIsActive:(BOOL)isActive {
     super.isActive = isActive;
     [self updateDescription];
@@ -77,7 +87,9 @@ static NSString *const kMDRLocationRadius = @"radius";
         MDRLocationCondition *strongSelf = weakSelf;
         strongSelf.address = addressLine;
         [strongSelf updateDescription];
-    } withFailure:nil];
+    } withFailure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - Persistence

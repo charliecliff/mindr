@@ -48,6 +48,26 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseInstanceID
+
+Copyright 2016 Google Inc.
+
+## Google
+
+Copyright 2016 Google Inc.
+
+## GoogleAnalytics
+
+Copyright 2015 Google Inc.
+
+## GoogleInterchangeUtilities
+
+Copyright 2015 Google Inc.
+
 ## GoogleMaps
 
 If you use the Google Maps SDK for iOS in your application, you must
@@ -58,6 +78,14 @@ part of an "About" menu item, is recommended.
 You can get the attribution text by making a call to
 [GMSServices openSourceLicenseInfo].
 
+
+## GoogleSymbolUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleUtilities
+
+Copyright 2015 Google Inc.
 
 ## Mantle
 

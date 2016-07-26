@@ -6,6 +6,7 @@ target 'g5Mindr' do
     
     pod 'Mapbox-iOS-SDK', '~> 3.3.0'
     pod 'GoogleMaps'
+    pod 'Google/Analytics'
     pod 'AFNetworking', '~> 2.6.3'
     pod 'Mantle'
     pod 'PBJHexagon'

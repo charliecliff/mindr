@@ -21,7 +21,24 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AMWaveTransition (0.6.2)
+  - FirebaseAnalytics (3.2.1):
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleUtilities (~> 1.3)
+  - FirebaseInstanceID (1.0.7)
+  - Google/Analytics (3.0.3):
+    - Google/Core
+    - GoogleAnalytics (~> 3.12)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - GoogleAnalytics (3.14.0)
+  - GoogleInterchangeUtilities (1.2.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - GoogleMaps (1.13.2)
+  - GoogleSymbolUtilities (1.1.1)
+  - GoogleUtilities (1.3.1):
+    - GoogleSymbolUtilities (~> 1.0)
   - Mantle (2.0.7):
     - Mantle/extobjc (= 2.0.7)
   - Mantle/extobjc (2.0.7)
@@ -38,6 +55,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.6.3)
   - AMWaveTransition
+  - Google/Analytics
   - GoogleMaps
   - Mantle
   - Mapbox-iOS-SDK (~> 3.3.0)
@@ -47,12 +65,19 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AMWaveTransition: 98952310574779e4ca7e7f4d89f8b1043cdad171
+  FirebaseAnalytics: 0fd6532cb2c3d03cd5cf26ad295ccb091efd3104
+  FirebaseInstanceID: a9d923f3d0b6fbf9fac89310860357aaadc34be5
+  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  GoogleAnalytics: 9be1afdb8deeac4bb5f13ca7f7d3b9db2a1f43dc
+  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleMaps: b20a103ff307f58392e603cf142e59d7e30374c1
+  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
+  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   Mapbox-iOS-SDK: 55dea997ae34ff0553fbf4208e7d60dfefa24fd5
   PBJHexagon: 689c33964ff02f71f90d86fb181cbfdabce7886a
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-PODFILE CHECKSUM: f8dfde73143135afdf91d1b396ab7a4eaa044526
+PODFILE CHECKSUM: f7c34e4c868c645922663b5976bdd43f86c57902
 
 COCOAPODS: 1.0.1

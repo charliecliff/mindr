@@ -66,6 +66,7 @@
 		DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */; };
 		DA863AC41CE6CC5900568A79 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */; };
 		DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */; };
+		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
 		DAB092421CDD839F00F1157B /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
@@ -198,6 +199,7 @@
 		DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderExplanationViewController.h; sourceTree = "<group>"; };
 		DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderExplanationViewController.m; sourceTree = "<group>"; };
+		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DAB092411CDD839F00F1157B /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
 				DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */,
 				DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */,
 				DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */,
@@ -730,6 +733,7 @@
 				DAC771C21D235B4500036B44 /* g5EmoticonSelectionViewController.xib in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
+				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
 				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

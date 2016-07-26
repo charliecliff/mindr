@@ -18,7 +18,8 @@
 #import "g5ReminderManager.h"
 #import "MDRLocationManager.h"
 
-@import GoogleMaps;
+#import <Google/Analytics.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface AppDelegate ()
 
@@ -36,6 +37,11 @@
     
     //  External APIs
     [GMSServices provideAPIKey:@"AIzaSyB3OXTo9OFaMhK1MIyNqFa98W8lyPA6Pn8"];
+    
+    // Configure tracker from GoogleService-Info.plist.
+    NSError *configureError;
+    [[GGLContext sharedInstance] configureWithError:&configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
     
     //  Background fetching
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];

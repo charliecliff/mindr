@@ -6,14 +6,14 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderViewController.h"
+#import "MDRReminderViewController.h"
 #import "g5EditReminderConditionListViewController.h"
 #import "g5ReminderDetailSectionTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderViewController () <g5ReminderButtonCellDelegate>
+@interface MDRReminderViewController () <g5ReminderButtonCellDelegate>
 
 @property(nonatomic, strong, readwrite) MDRReminder *reminder;
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation g5ReminderViewController
+@implementation MDRReminderViewController
 
 #pragma mark - Init
 
@@ -58,7 +58,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
     self.explanationLabel.text = self.reminder.explanation;
     self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;

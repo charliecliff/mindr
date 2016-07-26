@@ -10,7 +10,7 @@
 #import "mindrBounceNavigationViewController.h"
 #import "MDRReminder.h"
 
-@interface g5ReminderViewController : UIViewController <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
+@interface MDRReminderViewController : UIViewController <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
 @property(nonatomic, strong, readonly) MDRReminder *reminder;
 

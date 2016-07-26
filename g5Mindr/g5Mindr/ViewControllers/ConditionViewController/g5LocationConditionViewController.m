@@ -23,6 +23,7 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 
 @interface g5LocationConditionViewController () <MGLMapViewDelegate> {
     BOOL shouldDragGrippyImage;
+    BOOL isDragging;
     double deltaLatitude;
     double deltaLongitude;
 }
@@ -47,6 +48,7 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 - (instancetype)initWithCondition:(MDRCondition *)condition {
     self = [super initWithCondition:condition];
     if (self != nil) {
+        isDragging = NO;
         _regionBorderColor  = [UIColor whiteColor];
         _normalTextColor    = [UIColor whiteColor];
         _highlightedColor   = [UIColor whiteColor];
@@ -287,7 +289,10 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
     if ( !annotationImage ) {
         UIImage *image;
         if ([annotation.title isEqualToString:MDRLocationAnnotationTitle])
-            image = [UIImage imageNamed:@"location_annotation"];
+            if (isDragging)
+                image = [UIImage imageNamed:@"location_annotation_dragging"];
+            else
+                image = [UIImage imageNamed:@"location_annotation"];
         else if ([annotation.title isEqualToString:MDRGrippyAnnotationTitle])
             image = [UIImage imageNamed:@"grippy_annotation"];
         else
@@ -298,6 +303,11 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
     return annotationImage;
 }
 
+- (void)mapView:(MGLMapView *)mapView regionWillChangeAnimated:(BOOL)animated {
+    isDragging = YES;
+    self.locationAnnotation.title = MDRLocationAnnotationTitle;
+}
+
 - (void)mapViewRegionIsChanging:(nonnull MGLMapView *)mapView {
     ((MDRLocationCondition *)self.condition).location = [[CLLocation alloc] initWithLatitude:mapView.centerCoordinate.latitude
                                                                                    longitude:mapView.centerCoordinate.longitude ];
@@ -305,6 +315,7 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 }
 
 - (void)mapView:(MGLMapView *)mapView regionDidChangeAnimated:(BOOL)animated {
+    isDragging = NO;
     [((MDRLocationCondition *)self.condition) refreshAddress];
 }
 

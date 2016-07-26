@@ -118,8 +118,8 @@
                                                         <constraint firstAttribute="width" constant="49" id="oAW-8Y-aOo"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRn-hN-Evr">
-                                                    <rect key="frame" x="301" y="34.5" width="49" height="31"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRn-hN-Evr">
+                                                    <rect key="frame" x="301" y="35" width="49" height="31"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <action selector="didPressSwitchButton:" destination="SMo-A9-W9X" eventType="touchUpInside" id="P2w-YA-bKD"/>

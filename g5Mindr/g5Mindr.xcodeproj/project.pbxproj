@@ -20,7 +20,7 @@
 		DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */; };
 		DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B471CC4640C0030F927 /* libz.tbd */; };
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
-		DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */; };
+		DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
 		DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1EC0D81CD4625F00605573 /* QuartzCore.framework */; };
 		DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC31D445FF900FC38E5 /* toggleBGOff.png */; };
@@ -67,6 +67,7 @@
 		DA863AC41CE6CC5900568A79 /* g5EmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */; };
 		DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */; };
 		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
+		DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */; };
 		DAB092421CDD839F00F1157B /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
@@ -79,7 +80,6 @@
 		DAC771C11D235B4500036B44 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */; };
 		DAC771C21D235B4500036B44 /* g5EmoticonSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BD1D235B4500036B44 /* g5EmoticonSelectionViewController.xib */; };
 		DAC771C31D235B4500036B44 /* g5ReminderExplanationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BE1D235B4500036B44 /* g5ReminderExplanationViewController.xib */; };
-		DAC771C41D235B4500036B44 /* g5ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BF1D235B4500036B44 /* g5ReminderViewController.xib */; };
 		DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */; };
 		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
@@ -124,8 +124,8 @@
 		DA0C4B471CC4640C0030F927 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5PersistenceManager.h; sourceTree = "<group>"; };
 		DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5PersistenceManager.m; sourceTree = "<group>"; };
-		DA1EC0C51CD461BF00605573 /* g5ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderViewController.h; sourceTree = "<group>"; };
-		DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderViewController.m; sourceTree = "<group>"; };
+		DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderViewController.h; sourceTree = "<group>"; };
+		DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderViewController.m; sourceTree = "<group>"; };
 		DA1EC0D51CD4623900605573 /* IBCellFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCellFlipSegue.h; sourceTree = "<group>"; };
 		DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBCellFlipSegue.m; sourceTree = "<group>"; };
 		DA1EC0D81CD4625F00605573 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -200,6 +200,7 @@
 		DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderExplanationViewController.h; sourceTree = "<group>"; };
 		DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderExplanationViewController.m; sourceTree = "<group>"; };
 		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderViewController.storyboard; sourceTree = "<group>"; };
 		DAB092411CDD839F00F1157B /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
 		DAC771BD1D235B4500036B44 /* g5EmoticonSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5EmoticonSelectionViewController.xib; sourceTree = "<group>"; };
 		DAC771BE1D235B4500036B44 /* g5ReminderExplanationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderExplanationViewController.xib; sourceTree = "<group>"; };
-		DAC771BF1D235B4500036B44 /* g5ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderViewController.xib; sourceTree = "<group>"; };
 		DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderList.storyboard; sourceTree = "<group>"; };
 		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
@@ -393,8 +393,8 @@
 				DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */,
 				DAC771BD1D235B4500036B44 /* g5EmoticonSelectionViewController.xib */,
 				DAC771BE1D235B4500036B44 /* g5ReminderExplanationViewController.xib */,
-				DAC771BF1D235B4500036B44 /* g5ReminderViewController.xib */,
 				DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */,
+				DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */,
 				DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */,
 				DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */,
 				DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */,
@@ -407,8 +407,8 @@
 				DA863ABC1CE6CC5900568A79 /* g5EmoticonSelectionViewController.m */,
 				DA863ABF1CE6CC5900568A79 /* g5ReminderExplanationViewController.h */,
 				DA863AC01CE6CC5900568A79 /* g5ReminderExplanationViewController.m */,
-				DA1EC0C51CD461BF00605573 /* g5ReminderViewController.h */,
-				DA1EC0C61CD461BF00605573 /* g5ReminderViewController.m */,
+				DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */,
+				DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */,
 				DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */,
 				DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */,
 				DA83FFE81D4191AF00D6209A /* MDREmptyViewController.h */,
@@ -702,6 +702,7 @@
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
+				DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */,
 				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
@@ -717,7 +718,6 @@
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
 				DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */,
-				DAC771C41D235B4500036B44 /* g5ReminderViewController.xib in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DAFD651C1CD52DAC00E92729 /* g5ReminderDetailSectionTableViewCell.xib in Resources */,
 				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
@@ -800,7 +800,7 @@
 				DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */,
 				DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */,
 				DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */,
-				DA1EC0C81CD461BF00605573 /* g5ReminderViewController.m in Sources */,
+				DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */,
 				DA863AC61CE6CC5900568A79 /* g5ReminderExplanationViewController.m in Sources */,
 				DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,

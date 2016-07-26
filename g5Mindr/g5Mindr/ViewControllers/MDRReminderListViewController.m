@@ -7,7 +7,7 @@
 //
 
 #import "MDRReminderListViewController.h"
-#import "g5ReminderViewController.h"
+#import "MDRReminderViewController.h"
 #import "g5CreateReminderConditionListViewController.h"
 #import "g5ReminderTableViewCell.h"
 #import "g5ReminderManager.h"
@@ -130,7 +130,8 @@
 - (void)segueToReminderViewControllerWithReminder:(MDRReminder *)reminder {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
-    g5ReminderViewController *vc = [[g5ReminderViewController alloc] initWithReminder:reminder];
+    UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderViewController" bundle:nil];
+    MDRReminderViewController *vc = [sbReminderList instantiateInitialViewController];
     vc.bounceNavigationController = ((mindrBounceNavigationViewController *)self.bounceNavigationController);
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }

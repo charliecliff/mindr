@@ -9,6 +9,7 @@
 #import "g5DateConditionViewController.h"
 #import "HROCalendarTableViewController.h"
 #import "MDRDateCondition.h"
+#import "g5ConfigAndMacros.h"
 
 @interface g5DateConditionViewController ()
 
@@ -56,9 +57,10 @@
 
 - (void)setUpCalendarView {
     self.calendarVC = [[HROCalendarTableViewController alloc] initWithSelectedDates:((MDRDateCondition *)self.condition).dates];
-    self.calendarVC.gridColor               = [UIColor colorWithRed:57.0/255.0 green:85.0/255.0 blue:115.0/255.0 alpha:1];
+    self.calendarVC.gridColor               = SLATE_BLUE_COLOR;
+    self.calendarVC.weekdayTextColor        = PERIWINKE_BLUE_COLOR;
     self.calendarVC.normalTextColor         = [UIColor whiteColor];;
-    self.calendarVC.selectedTextColor       = [UIColor colorWithRed:255.0/255.0 green:209.0/255.0 blue:77.0/255.0 alpha:1];
+    self.calendarVC.selectedTextColor       = GOLD_COLOR;
     self.calendarVC.normalBackgroundColor   = [UIColor clearColor];
     self.calendarVC.selectedBackgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     self.calendarVC.calendar                = [NSCalendar currentCalendar];

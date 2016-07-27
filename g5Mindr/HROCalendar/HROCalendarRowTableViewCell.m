@@ -170,14 +170,14 @@
     [self.fridayButton setUserInteractionEnabled:NO];
     [self.saturdayButton setUserInteractionEnabled:NO];
     
-    if ([self.datasource respondsToSelector:@selector(gridColor)]) {
-        [self.sundayLabel setTextColor:[self.datasource gridColor]];
-        [self.mondayLabel setTextColor:[self.datasource gridColor]];
-        [self.tuesdayLabel setTextColor:[self.datasource gridColor]];
-        [self.wednesdayLabel setTextColor:[self.datasource gridColor]];
-        [self.thursdayLabel setTextColor:[self.datasource gridColor]];
-        [self.fridayLabel setTextColor:[self.datasource gridColor]];
-        [self.saturdayLabel setTextColor:[self.datasource gridColor]];
+    if ([self.datasource respondsToSelector:@selector(weekdayTextColor)]) {
+        [self.sundayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.mondayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.tuesdayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.wednesdayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.thursdayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.fridayLabel setTextColor:[self.datasource weekdayTextColor]];
+        [self.saturdayLabel setTextColor:[self.datasource weekdayTextColor]];
     }
     
     if ([self.datasource respondsToSelector:@selector(normalBackgroundColor)]) {

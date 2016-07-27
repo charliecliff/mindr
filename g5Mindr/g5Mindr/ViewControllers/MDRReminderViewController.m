@@ -55,7 +55,6 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     return 3;
 }
 
-
 @end
 
 static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
@@ -84,8 +83,11 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Reminder Details";
     self.navigationItem.hidesBackButton = YES;
+    
+    [self.innerRingImageView.layer setCornerRadius:self.innerRingImageView.frame.size.height/2];
+    [self.outerRingImageView.layer setCornerRadius:self.outerRingImageView.frame.size.height/2];
+    
     [self setUpBackButton];
-    [self setUpRings];
     [self bindToReminder];
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
@@ -113,12 +115,6 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
     
     self.navigationItem.leftBarButtonItem = barBtn;
-}
-
-- (void)setUpRings {
-    [self.innerRingImageView.layer setCornerRadius:self.innerRingImageView.frame.size.height/2];
-    [self.outerRingImageView.layer setCornerRadius:self.outerRingImageView.frame.size.height/2];
-
 }
 
 #pragma mark - Binding

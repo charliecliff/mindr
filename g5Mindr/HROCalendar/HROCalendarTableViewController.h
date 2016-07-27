@@ -37,6 +37,11 @@
 /**
  *
  */
+@property (nonatomic, strong) UIColor *weekdayTextColor;
+
+/**
+ *
+ */
 @property (nonatomic, strong) UIColor *normalTextColor;
 
 /**

@@ -190,6 +190,10 @@ static const NSCalendarUnit kCalendarUnitYMD = NSCalendarUnitYear | NSCalendarUn
     return _gridColor;
 }
 
+- (UIColor *)weekdayTextColor {
+    return _weekdayTextColor;
+}
+
 - (UIColor *)normalTextColor {
     return _normalTextColor;
 }

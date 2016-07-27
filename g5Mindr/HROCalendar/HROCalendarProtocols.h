@@ -7,6 +7,7 @@
 @optional
 - (UIFont *)font;
 - (UIColor *)gridColor;
+- (UIColor *)weekdayTextColor;
 - (UIColor *)normalTextColor;
 - (UIColor *)selectedTextColor;
 - (UIColor *)normalBackgroundColor;

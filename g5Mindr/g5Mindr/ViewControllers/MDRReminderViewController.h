@@ -12,15 +12,13 @@
 
 @interface MDRReminderDetailTableViewController : UITableViewController
 
+@property(nonatomic, strong) MDRReminder *reminder;
+
 @end
 
 @interface MDRReminderViewController : UIViewController <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
-@property(nonatomic, strong, readonly) MDRReminder *reminder;
-
 @property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
-
-- (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithReminder:(MDRReminder *)reminder;
+@property(nonatomic, strong) MDRReminder *reminder;
 
 @end

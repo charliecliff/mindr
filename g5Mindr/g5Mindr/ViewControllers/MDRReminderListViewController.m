@@ -133,6 +133,7 @@
     UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderViewController" bundle:nil];
     MDRReminderViewController *vc = [sbReminderList instantiateInitialViewController];
     vc.bounceNavigationController = ((mindrBounceNavigationViewController *)self.bounceNavigationController);
+    vc.reminder = reminder;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
 

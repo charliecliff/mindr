@@ -12,6 +12,15 @@
 
 @interface MDRReminder : NSObject
 
+#pragma mark - Protected
+
+/**
+ 
+ */
+@property(nonatomic, strong, readonly) NSString *explanation;
+
+#pragma mark - Public
+
 /**
  
  */
@@ -41,11 +50,6 @@
  
  */
 @property(nonatomic, strong) NSString *pushNotificationSoundFileName;
-
-/**
- 
- */
-@property(nonatomic, strong, readonly) NSString *explanation;
 
 /**
  

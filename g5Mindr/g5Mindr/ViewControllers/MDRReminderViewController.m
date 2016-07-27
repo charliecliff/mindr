@@ -12,9 +12,9 @@
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "g5ConfigAndMacros.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
-
 
 @implementation MDRReminderDetailTableViewController
 
@@ -36,6 +36,18 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MDRReminderDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MDRReminderDetailCellIdentifier];
+    if ( indexPath.row == 0 ) {
+        cell.titleLabel.text = @"Title";
+        cell.explanationLabel.text = self.reminder.title;
+    }
+    else if ( indexPath.row == 1 ) {
+        cell.titleLabel.text = @"Conditions";
+
+    }
+    else if ( indexPath.row == 2 ) {
+        cell.titleLabel.text = @"Sound";
+        cell.explanationLabel.text = self.reminder.title;
+    }
     return cell;
 }
 
@@ -46,46 +58,35 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 
 @end
 
+static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
+
 @interface MDRReminderViewController ()
 
 // PROTECTED
-@property(nonatomic, strong, readwrite) MDRReminder *reminder;
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
 
 // OUTLETS
-@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
-@property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
-@property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
-@property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
-@property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
+@property (nonatomic, strong) IBOutlet UILabel *emoticonLabel;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *explanationLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
 
 @end
 
 @implementation MDRReminderViewController
 
-#pragma mark - Init
-
-- (instancetype)initWithReminder:(MDRReminder *)reminder {
-    self = [super init];
-    if (self != nil) {
-        self.reminder = reminder;
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        self.navigationItem.title = @"Reminder";
-        self.navigationItem.hidesBackButton = YES;
-        [self setUpBackButton];
-    }
-    return self;
-}
 
 #pragma mark - View Life-Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    [self.emoticonImageView setImage:[UIImage imageNamed:self.reminder.emoticonUnicodeCharacter]];
-    self.explanationLabel.text = self.reminder.explanation;
-    self.emoticonLabel.text = self.reminder.emoticonUnicodeCharacter;
+    self.navigationItem.title = @"Reminder Details";
+    self.navigationItem.hidesBackButton = YES;
+    [self setUpBackButton];
+    [self setUpRings];
+    [self bindToReminder];
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
 
@@ -114,6 +115,20 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     self.navigationItem.leftBarButtonItem = barBtn;
 }
 
+- (void)setUpRings {
+    [self.innerRingImageView.layer setCornerRadius:self.innerRingImageView.frame.size.height/2];
+    [self.outerRingImageView.layer setCornerRadius:self.outerRingImageView.frame.size.height/2];
+
+}
+
+#pragma mark - Binding
+
+- (void)bindToReminder {
+    RAC(self.titleLabel, text)       = RACObserve(self.reminder, title);
+    RAC(self.explanationLabel, text) = RACObserve(self.reminder, explanation);
+    RAC(self.emoticonLabel, text)    = RACObserve(self.reminder, emoticonUnicodeCharacter);
+}
+
 #pragma mark - Actions
 
 - (void)pressBackButton {
@@ -121,6 +136,14 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 }
 
 #pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:MDRReminderDetailEmbedSegue]) {
+        MDRReminderDetailTableViewController *reminderDetailsTableViewController = (MDRReminderDetailTableViewController *)segue.destinationViewController;
+        reminderDetailsTableViewController.reminder = self.reminder;
+        [reminderDetailsTableViewController.tableView reloadData];
+    }
+}
 
 - (void)segueToConditionViewControllerWithReminder:(MDRReminder *)reminder {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];

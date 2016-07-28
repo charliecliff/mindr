@@ -36,6 +36,7 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
         self.type        = g5WeatherType;
         self.weatherTypes= [[NSMutableSet alloc] init];
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
+        [self updateDescription];
     }
     return self;
 }
@@ -45,22 +46,29 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     if (self != nil) {
         self.type        = g5WeatherType;
         self.weatherTypes= [[NSMutableSet alloc] initWithObjects:g5WeatherSunny, nil];
+        [self updateDescription];
     }
     return self;
 }
 
-#pragma mark - Over Ride
-
-- (NSString *)conditionDescription {
+- (void)updateDescription {
     if (self.isActive) {
+        BOOL isFirstCondition = YES;
         NSString *resultString = @"When it's";
         for (NSString *currentWeatherType in self.weatherTypes) {
             NSString *weatherString = [MDRWeatherTypeCondition descriptionFromWeatherType:currentWeatherType];
-            resultString = [NSString stringWithFormat:@"%@ %@", resultString, weatherString];
+            if (isFirstCondition) {
+                isFirstCondition = NO;
+                resultString = [NSString stringWithFormat:@"%@ %@", resultString, weatherString];
+            }
+            else
+                resultString = [NSString stringWithFormat:@"%@ or %@", resultString, weatherString];
         }
-        return resultString;
+        self.conditionDescription = resultString;
     }
-    return @"WEATHER";
+    else
+        self.conditionDescription = @"WEATHER";
+    
 }
 
 #pragma mark - Weather Type Management
@@ -71,10 +79,12 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 - (void)removeWeatherType:(NSString *)weatherType {
     [self.weatherTypes removeObject:weatherType];
+    [self updateDescription];
 }
 
 - (void)addWeatherType:(NSString *)weatherType {
     [self.weatherTypes addObject:weatherType];
+    [self updateDescription];
 }
 
 #pragma mark - Persistence

@@ -75,10 +75,10 @@
     }
     
     g5DayOfTheWeekConditionTableViewCell *cell = [dayOfTheWeekCells objectAtIndex:indexPath.row];
-    NSString *dayOfTheWeekString = [self stringForDayOfTheWeekOrdinal:(indexPath.row+1)];
+    NSString *dayOfTheWeekString = [((MDRDayOfTheWeekCondition *)self.condition) stringForWeekday:(indexPath.row)];
     cell.dayOfTheWeekLabel.text = dayOfTheWeekString;
     
-    BOOL shouldSelectCell = [((MDRDayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row + 1)];
+    BOOL shouldSelectCell = [((MDRDayOfTheWeekCondition *)self.condition) containsDayOfTheWeek:(indexPath.row)];
     [cell setSelected:shouldSelectCell];
     
     return cell;
@@ -87,10 +87,10 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == dayOfTheWeekCells.count)
+    if (indexPath.row >= dayOfTheWeekCells.count)
         return;
     
-    [((MDRDayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row + 1)];
+    [((MDRDayOfTheWeekCondition *)self.condition) setDayOfTheWeek:(indexPath.row)];
     [self.dayOfTheWeekTableView reloadData];
 }
 
@@ -99,21 +99,6 @@
         return 200;
     }
     return 60;
-}
-
-#pragma mark - Helper
-
-- (NSString *)stringForDayOfTheWeekOrdinal:(NSUInteger)ordinal {
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.day = ordinal;
-    
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *date = [gregorianCalendar dateFromComponents:dateComponents];
-    
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    formatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    formatter.dateFormat = @"EEEE";
-    return [formatter stringFromDate:date];
 }
 
 @end

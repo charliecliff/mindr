@@ -22,6 +22,7 @@ static NSString *const kMDRConditionDates = @"dates";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
+        [self updateDescription];
     }
     return self;
 }
@@ -31,13 +32,12 @@ static NSString *const kMDRConditionDates = @"dates";
     if (self != nil) {
         self.type  = g5DateType;
         self.dates = [NSMutableArray arrayWithObjects:[NSDate date], nil];
+        [self updateDescription];
     }
     return self;
 }
 
-#pragma mark - Over Ride
-
-- (NSString *)conditionDescription {
+- (void)updateDescription {
     if (self.isActive) {
         NSDate *nextAvailableDate = [self.dates firstObject];
         
@@ -45,9 +45,15 @@ static NSString *const kMDRConditionDates = @"dates";
         formatter.dateStyle =  NSDateFormatterLongStyle;
         NSString *dateString = [formatter stringFromDate:nextAvailableDate];
         
-        return [NSString stringWithFormat:@"On %@", dateString];
+        self.conditionDescription = [NSString stringWithFormat:@"On %@", dateString];
     }
-    return @"DATE";
+    else
+        self.conditionDescription = @"DATE";
+}
+
+- (void)setDates:(NSMutableArray *)dates {
+    _dates = dates;
+    [self updateDescription];
 }
 
 #pragma mark - Persistence

@@ -58,6 +58,11 @@ static NSString *const kMDRConditionIsActive = @"is_active";
     self.uid = (__bridge_transfer NSString *)uuidStringRef;
 }
 
+- (void)setIsActive:(BOOL)isActive {
+    _isActive = isActive;
+    [self updateDescription];
+}
+
 #pragma mark - Over Ride
 
 - (NSString *)detailsText {
@@ -65,10 +70,6 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 }
 
 - (NSString *)placeholderText {
-    assert(false);
-}
-
-- (NSString *)conditionDescription {
     assert(false);
 }
 

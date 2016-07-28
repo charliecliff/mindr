@@ -66,6 +66,7 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
+        [self updateDescription];
     }
     return self;
 }
@@ -75,13 +76,12 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     if (self != nil) {
         self.type = g5TimeType;
         self.times = [[NSMutableArray alloc] initWithObjects:[[MDRTime alloc] init], nil];
+        [self updateDescription];
     }
     return self;
 }
 
-#pragma mark - Over Ride
-
-- (NSString *)conditionDescription {
+- (void)updateDescription {
     if (self.isActive) {
         NSString *dateString = @"At ";
         for (MDRTime *currentTime in self.times) {
@@ -89,11 +89,16 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
         }
         NSRange rangeSpace = [dateString rangeOfString:@" and at " options:NSBackwardsSearch];
         dateString = [dateString stringByReplacingCharactersInRange:rangeSpace withString:@""];
-        return dateString;;
+        self.conditionDescription = dateString;;
     }
-    return @"TIME";
+    else
+        self.conditionDescription = @"TIME";
 }
 
+- (void)setTimes:(NSMutableArray *)times {
+    _times = times;
+    [self updateDescription];
+}
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {

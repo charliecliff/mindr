@@ -18,5 +18,6 @@
 - (void)setDayOfTheWeek:(NSInteger)weekday;
 - (void)removeDayOfTheWeek:(NSInteger)weekday;
 - (BOOL)containsDayOfTheWeek:(NSInteger)weekday;
+- (NSString *)stringForWeekday:(NSInteger)dayOfTheWeekNumber;
 
 @end

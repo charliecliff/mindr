@@ -18,6 +18,7 @@ static NSString *const kMDRConditionTemperature = @"temperature";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
+        [self updateDescription];
     }
     return self;
 }
@@ -28,13 +29,27 @@ static NSString *const kMDRConditionTemperature = @"temperature";
         self.type        = g5TemperatureType;
         self.temperature = [NSNumber numberWithFloat:67.0];
         self.temperatureComparisonType = NSOrderedSame;
+        [self updateDescription];
     }
     return self;
 }
 
-#pragma mark - Over Ride
+- (void)setTemperatureunit:(g5TemperatureUnit)temperatureunit {
+    _temperatureunit = temperatureunit;
+    [self updateDescription];
+}
 
-- (NSString *)conditionDescription {
+- (void)setTemperature:(NSNumber *)temperature {
+    _temperature = temperature;
+    [self updateDescription];
+}
+
+- (void)setTemperatureComparisonType:(NSComparisonResult)temperatureComparisonType {
+    _temperatureComparisonType = temperatureComparisonType;
+    [self updateDescription];
+}
+
+- (void)updateDescription {
     if (self.isActive) {
         NSString *resultString = @"When it's";
         if (self.temperatureComparisonType == NSOrderedAscending) {
@@ -56,9 +71,11 @@ static NSString *const kMDRConditionTemperature = @"temperature";
             resultString = [NSString stringWithFormat:@"%@ %@", resultString, @"C"];
         }
         
-        return resultString;
+        self.conditionDescription = resultString;
     }
-    return @"TEMPERATURE";
+    else
+        self.conditionDescription =  @"TEMPERATURE";
+    
 }
 
 #pragma mark - Persistence

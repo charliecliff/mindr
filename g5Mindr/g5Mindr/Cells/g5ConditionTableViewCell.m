@@ -18,9 +18,9 @@
 @property(nonatomic, strong, readwrite) MDRCondition *condition;
 
 // OUTLETS
+@property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
 @property(nonatomic, strong) IBOutlet UIImageView *conditionIconImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *backgroundImageView;
-@property(nonatomic, strong) IBOutlet UILabel *conditionExplanationLabel;
 @property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
 
 @end
@@ -39,14 +39,12 @@
 
 - (void)configureForCondition:(MDRCondition *)condition {
     self.condition = condition;
-    RAC(self.conditionExplanationLabel, text) = RACObserve(condition, conditionDescription);
-
+    RAC(self.conditionExplanationLabel, text) = RACObserve(self.condition, conditionDescription);
     [self toggleSwitch:self.condition.isActive withCompletionBlock:nil];
     [self reload];
 }
 
 - (void)reload {
-    [self.conditionExplanationLabel setText:self.condition.conditionDescription]; //TODO: Pull This out
     [self.backgroundImageView setHidden:!self.condition.isActive];
     
     if (self.condition.isActive) {

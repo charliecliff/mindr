@@ -41,7 +41,6 @@ extern NSString *const kMDRConditionAttributes;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)encodeToDictionary;
 
-- (NSString *)conditionDescription __deprecated; // TODO: Pull tis into an attribute which can be REACTed to
 - (NSString *)conditionIconName;
 
 - (void)updateDescription;

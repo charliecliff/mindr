@@ -30,6 +30,7 @@ static NSString *const kMDRLocationRadius = @"radius";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
+        [self updateDescription];
     }
     return self;
 }
@@ -49,14 +50,6 @@ static NSString *const kMDRLocationRadius = @"radius";
 
 #pragma mark - Over Ride
 
-- (NSString *)conditionDescription {
-    if (self.isActive) {
-        NSString *resultString = [NSString stringWithFormat:@"At %@", self.address];
-        return resultString;
-    }
-    return @"LOCATION";
-}
-
 - (void)updateDescription {
     if (self.isActive && self.address && ![self.address isEqualToString:@""])
         self.conditionDescription = [NSString stringWithFormat:@"At %@", self.address];
@@ -75,11 +68,6 @@ static NSString *const kMDRLocationRadius = @"radius";
 }
 
 #pragma mark - Public
-
-- (void)setIsActive:(BOOL)isActive {
-    super.isActive = isActive;
-    [self updateDescription];
-}
 
 - (void)refreshAddress {
     __weak MDRLocationCondition *weakSelf = self;

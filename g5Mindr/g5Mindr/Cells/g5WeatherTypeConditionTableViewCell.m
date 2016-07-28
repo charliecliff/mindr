@@ -53,7 +53,7 @@
 - (NSString *)labelTextForWeatherConditionType:(NSString *)weatherConditionType {
     
     if ( [weatherConditionType isEqualToString:g5WeatherSunny] ) {
-        return @"Mostly Sunny";
+        return @"Sunny";
     }
     else if ( [weatherConditionType isEqualToString:g5WeatherPartlyCloudy] ) {
         return @"Partly Cloudy";

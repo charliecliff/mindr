@@ -85,11 +85,11 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     for (MDRCondition *currentCondition in self.conditions.allValues) {
         if (currentCondition.isActive) {
             if (isFirstCondition) {
-                resultString = [NSString stringWithFormat:@"%@%@", resultString, [currentCondition conditionDescription]];
+                resultString = [NSString stringWithFormat:@"%@%@", resultString, currentCondition.conditionDescription];
                 isFirstCondition = NO;
             }
             else
-                resultString = [NSString stringWithFormat:@"%@, %@", resultString, [currentCondition conditionDescription]];
+                resultString = [NSString stringWithFormat:@"%@, %@", resultString, currentCondition.conditionDescription];
         }
     }
     return resultString;

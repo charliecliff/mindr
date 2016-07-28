@@ -9,8 +9,6 @@
 #import "MDRDayOfTheWeekCondition.h"
 #import "g5ConfigAndMacros.h"
 
-#define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",@"Sunday", nil]
-
 static NSString *const G5DayOfTheWeekDateFormatter = @"EEEE";
 static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 
@@ -52,17 +50,17 @@ static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
 }
 
 - (void)setDayOfTheWeek:(NSInteger)weekday {
-    [self.daysOfTheWeek addObject:[NSNumber numberWithUnsignedInteger:weekday]];
+    [self.daysOfTheWeek addObject:[NSNumber numberWithInteger:weekday]];
     [self updateDescription];
 }
 
 - (void)removeDayOfTheWeek:(NSInteger)weekday {
-    [self.daysOfTheWeek removeObject:[NSNumber numberWithUnsignedInteger:weekday]];
+    [self.daysOfTheWeek removeObject:[NSNumber numberWithInteger:weekday]];
     [self updateDescription];
 }
 
 - (BOOL)containsDayOfTheWeek:(NSInteger)weekday {
-    NSNumber *dayOfTheWeekNumber = [NSNumber numberWithUnsignedInteger:weekday];
+    NSNumber *dayOfTheWeekNumber = [NSNumber numberWithInteger:weekday];
     BOOL output = [self.daysOfTheWeek containsObject:dayOfTheWeekNumber];
     return output;
 }

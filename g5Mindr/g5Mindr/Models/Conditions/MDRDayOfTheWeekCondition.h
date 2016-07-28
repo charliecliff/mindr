@@ -8,6 +8,8 @@
 
 #import "MDRCondition.h"
 
+#define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",@"Sunday", nil]
+
 @interface MDRDayOfTheWeekCondition : MDRCondition
 
 @property(nonatomic, strong, readonly) NSString *dayOfTheWeekString;

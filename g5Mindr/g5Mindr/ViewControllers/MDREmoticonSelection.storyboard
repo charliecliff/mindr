@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rA8-u7-l50">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delegate-->
+        <scene sceneID="b37-gf-waY">
+            <objects>
+                <viewController id="rA8-u7-l50" customClass="g5EmoticonSelectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FeR-lI-8wg"/>
+                        <viewControllerLayoutGuide type="bottom" id="0D9-QK-Yzf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C27-Aw-cqH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="6eK-KC-15u">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uV-Hp-wzC">
+                                <rect key="frame" x="0.0" y="50" width="600" height="550"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="v6Q-1b-hWR" kind="embed" id="BOx-fg-mPz"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-uF-JAL" userLabel="Header">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-g9-Yok" userLabel="Separator">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="omN-Mg-zaZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-CP-07n" userLabel="Separator">
+                                        <rect key="frame" x="0.0" y="49" width="600" height="1"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="pVS-0r-Mq2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-bZ-gsR" customClass="HROPageControl">
+                                        <rect key="frame" x="180" y="1" width="240" height="48"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="RrB-av-jrV"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="delegate" destination="rA8-u7-l50" id="JFq-ok-XDk"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="yeb-bZ-gsR" firstAttribute="top" secondItem="zGf-g9-Yok" secondAttribute="bottom" id="4Ee-19-CI4"/>
+                                    <constraint firstAttribute="height" constant="50" id="DCi-kD-sHh"/>
+                                    <constraint firstAttribute="trailing" secondItem="zGf-g9-Yok" secondAttribute="trailing" id="Nyy-2e-Hfe"/>
+                                    <constraint firstItem="yeb-bZ-gsR" firstAttribute="centerX" secondItem="iJO-uF-JAL" secondAttribute="centerX" id="OSZ-2C-tNw"/>
+                                    <constraint firstAttribute="bottom" secondItem="lAW-CP-07n" secondAttribute="bottom" id="P5p-Ln-XzW"/>
+                                    <constraint firstItem="zGf-g9-Yok" firstAttribute="top" secondItem="iJO-uF-JAL" secondAttribute="top" id="RSd-9K-sWt"/>
+                                    <constraint firstItem="lAW-CP-07n" firstAttribute="leading" secondItem="iJO-uF-JAL" secondAttribute="leading" id="bir-ld-xBi"/>
+                                    <constraint firstItem="zGf-g9-Yok" firstAttribute="leading" secondItem="iJO-uF-JAL" secondAttribute="leading" id="huw-6h-2Gp"/>
+                                    <constraint firstItem="lAW-CP-07n" firstAttribute="top" secondItem="yeb-bZ-gsR" secondAttribute="bottom" id="m21-y1-NNN"/>
+                                    <constraint firstAttribute="trailing" secondItem="lAW-CP-07n" secondAttribute="trailing" id="rbs-iR-P27"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="7uV-Hp-wzC" secondAttribute="bottom" id="0Fr-2k-xDb"/>
+                            <constraint firstItem="7uV-Hp-wzC" firstAttribute="top" secondItem="iJO-uF-JAL" secondAttribute="bottom" id="2is-Lp-7zX"/>
+                            <constraint firstItem="iJO-uF-JAL" firstAttribute="top" secondItem="C27-Aw-cqH" secondAttribute="topMargin" id="7aL-yl-79Z"/>
+                            <constraint firstItem="iJO-uF-JAL" firstAttribute="leading" secondItem="C27-Aw-cqH" secondAttribute="leading" id="7oE-ma-Ggb"/>
+                            <constraint firstItem="7uV-Hp-wzC" firstAttribute="leading" secondItem="C27-Aw-cqH" secondAttribute="leading" id="LaI-4J-I3B"/>
+                            <constraint firstAttribute="trailing" secondItem="6eK-KC-15u" secondAttribute="trailing" id="WSj-94-iua"/>
+                            <constraint firstAttribute="trailing" secondItem="iJO-uF-JAL" secondAttribute="trailing" id="WoW-6j-5vJ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="iJO-uF-JAL" secondAttribute="bottom" constant="380" id="Wv1-ZS-Ve1"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="6eK-KC-15u" secondAttribute="bottom" id="dGZ-HC-tOT"/>
+                            <constraint firstAttribute="trailing" secondItem="7uV-Hp-wzC" secondAttribute="trailing" id="dK6-0U-03m"/>
+                            <constraint firstItem="6eK-KC-15u" firstAttribute="leading" secondItem="C27-Aw-cqH" secondAttribute="leading" id="h6e-JM-Cda"/>
+                            <constraint firstItem="7uV-Hp-wzC" firstAttribute="top" secondItem="C27-Aw-cqH" secondAttribute="topMargin" constant="262" id="heP-HS-jfe"/>
+                            <constraint firstItem="6eK-KC-15u" firstAttribute="top" secondItem="C27-Aw-cqH" secondAttribute="topMargin" id="w6A-in-qZp"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Wv1-ZS-Ve1"/>
+                                <exclude reference="heP-HS-jfe"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="yeb-bZ-gsR" id="gAB-Qf-nbx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gb5-WL-DtU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1320" y="-52"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="hwp-ft-Ljm">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="v6Q-1b-hWR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ec6-Ja-6z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2021" y="-27"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
+</document>

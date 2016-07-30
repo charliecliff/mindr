@@ -1,19 +1,13 @@
-//
-//  g5EmoticonSelectionViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/22/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5EmoticonSelectionViewController.h"
-#import "g5ReminderExplanationViewController.h"
+#import "MDRReminderTitleViewController.h"
 #import "g5EmoticonCell.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 #import <PBJHexagonFlowLayout.h>
 
-@interface g5EmoticonSelectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
+
+@interface g5EmoticonSelectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, HROPageControlDelegate>
 
 @property(nonatomic, strong) NSArray *emoticonImageNames;
 
@@ -39,7 +33,7 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
-    self.navigationItem.title = @"Choose an Emoticon";
+    self.navigationItem.title = MDRSelectEmoticonTitle;
     self.navigationItem.hidesBackButton = YES;
     
     UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
@@ -53,6 +47,7 @@
     
     [self setUpHexagonFlowLayout];
     [self setUpEmoticonImageNames];
+    [self setUpPageControl];
     
     UINib *nib = [UINib nibWithNibName:RootCell_XIB bundle:nil];;
     [self.hexagonGridViewController registerNib:nib forCellWithReuseIdentifier:@"RootCellID"];
@@ -97,6 +92,18 @@
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
     self.emoticonImageNames = [plistDictionary objectForKey:@"emoticons"];
+}
+
+- (void)setUpPageControl {
+    self.pageControl.underscoreColor = [UIColor redColor];
+
+    UIImage *image1 = [UIImage imageNamed:@"add_new_time"];
+    UIImage *image2 = [UIImage imageNamed:@"add_new_time"];
+    UIImage *image3 = [UIImage imageNamed:@"add_new_time"];
+    NSArray *iconArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
+    self.pageControl.icons = iconArray;
+    
+    [self.pageControl setSelectedIconAtIndex:1];
 }
 
 #pragma mark - UICollectionView DataSource
@@ -184,6 +191,12 @@
     [self reload];
 }
 
+#pragma mark - HROPageControlDelegate
+
+- (void)didSelectOptionForIndex:(NSInteger)index {
+    
+}
+
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressCenterButton {
@@ -195,7 +208,7 @@
 }
 
 - (void)didPressNextButton {
-    g5ReminderExplanationViewController *vc = [[g5ReminderExplanationViewController alloc] initWithReminder:self.reminder];
+    MDRReminderTitleViewController *vc = [[MDRReminderTitleViewController alloc] initWithReminder:self.reminder];
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.navigationController pushViewController:vc animated:YES];
 }

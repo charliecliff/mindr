@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HROPageControl.h"
 #import "HROBounceNavigationController.h"
 
 @class MDRReminder;
@@ -16,6 +17,8 @@
 @property(nonatomic, strong) MDRReminder *reminder;
 
 @property(nonatomic, weak) HROBounceNavigationController *bounceNavigationController;
+
+@property(nonatomic, weak) IBOutlet HROPageControl *pageControl;
 
 - (instancetype)init NS_UNAVAILABLE;
 - (instancetype)initWithReminder:(MDRReminder *)reminder;

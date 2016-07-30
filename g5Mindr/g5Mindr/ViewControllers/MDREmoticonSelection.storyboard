@@ -45,10 +45,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-bZ-gsR" customClass="HROPageControl">
-                                        <rect key="frame" x="180" y="1" width="240" height="48"/>
+                                        <rect key="frame" x="228" y="1" width="144" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="RrB-av-jrV"/>
+                                            <constraint firstAttribute="width" constant="144" id="RrB-av-jrV"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="delegate" destination="rA8-u7-l50" id="JFq-ok-XDk"/>

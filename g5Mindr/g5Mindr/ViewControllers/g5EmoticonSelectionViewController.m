@@ -95,7 +95,7 @@ static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 }
 
 - (void)setUpPageControl {
-    self.pageControl.underscoreColor = [UIColor redColor];
+    self.pageControl.underscoreColor = [UIColor whiteColor];
 
     UIImage *image1 = [UIImage imageNamed:@"add_new_time"];
     UIImage *image2 = [UIImage imageNamed:@"add_new_time"];
@@ -194,7 +194,7 @@ static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 #pragma mark - HROPageControlDelegate
 
 - (void)didSelectOptionForIndex:(NSInteger)index {
-    
+    [self.pageControl setSelectedIconAtIndex:index];
 }
 
 #pragma mark - g5BounceNavigationDelegate

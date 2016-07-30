@@ -46,8 +46,10 @@ static NSInteger const HROUnderscoreAnimationDuration = 0.2;
         imageView.backgroundColor = [UIColor clearColor];
         [self addSubview:imageView];
         
-        self.underscoreView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - HROUnderscoreHeight,
-                                                                       self.frame.size.width, HROUnderscoreHeight)];
+        self.underscoreView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width  - image.size.width) /2,
+                                                                       self.frame.size.height - HROUnderscoreHeight,
+                                                                       image.size.width,
+                                                                       HROUnderscoreHeight)];
         [self addSubview:self.underscoreView];
         self.underscoreView.backgroundColor = [UIColor clearColor];
         

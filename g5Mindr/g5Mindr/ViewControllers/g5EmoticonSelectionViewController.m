@@ -96,6 +96,7 @@ static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 
 - (void)setUpPageControl {
     self.pageControl.underscoreColor = [UIColor whiteColor];
+    self.pageControl.unselectedColor = SLATE_BLUE_COLOR;
 
     UIImage *image1 = [UIImage imageNamed:@"add_new_time"];
     UIImage *image2 = [UIImage imageNamed:@"add_new_time"];

@@ -41,10 +41,11 @@ static NSInteger const HROUnderscoreAnimationDuration = 0.2;
 
         CGFloat x = (self.frame.size.width  - image.size.width) /2;
         CGFloat y = (self.frame.size.height - image.size.height)/2;
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.frame = CGRectMake(x, y, image.size.width, image.size.height);
-        imageView.backgroundColor = [UIColor clearColor];
-        [self addSubview:imageView];
+        self.imageView = [[UIImageView alloc] initWithImage:image];
+        self.imageView.frame = CGRectMake(x, y, image.size.width, image.size.height);
+        self.imageView.backgroundColor = [UIColor clearColor];
+        
+        [self addSubview:self.imageView];
         
         self.underscoreView = [[UIView alloc] initWithFrame:CGRectMake((self.frame.size.width  - image.size.width) /2,
                                                                        self.frame.size.height - HROUnderscoreHeight,
@@ -155,15 +156,16 @@ static NSInteger const HROUnderscoreAnimationDuration = 0.2;
 
 - (void)setIcons:(NSArray *)icons {
     _icons = icons;
-    
     NSMutableArray *tmp = [[NSMutableArray alloc] init];
-    
     NSInteger iconCount = self.icons.count;
     for(int i = 0; i< iconCount; i++) {
-        UIView *pageControlSubView = [[HROPageIcon alloc] initWithDelegate:self
-                                                                 withImage:[self.icons objectAtIndex:i]
-                                                             withHeight:self.frame.size.height
-                                                                atIndex:i];
+        HROPageIcon *pageControlSubView = [[HROPageIcon alloc] initWithDelegate:self
+                                                                      withImage:[self.icons objectAtIndex:i]
+                                                                     withHeight:self.frame.size.height
+                                                                        atIndex:i];
+        
+        pageControlSubView.imageView.image = [pageControlSubView.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [pageControlSubView.imageView setTintColor:self.unselectedColor];
         [self.scrollView addSubview:pageControlSubView];
         [tmp addObject:pageControlSubView];
     }
@@ -181,9 +183,13 @@ static NSInteger const HROUnderscoreAnimationDuration = 0.2;
                      animations:^{
                          for (HROPageIcon *currentIcon in self.pageIcons) {
                              currentIcon.underscoreView.backgroundColor = [UIColor clearColor];
+                             currentIcon.imageView.image = [currentIcon.imageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                             [currentIcon.imageView setTintColor:self.unselectedColor];
+                             
                          }
                          HROPageIcon *icon = [self.pageIcons objectAtIndex:index];
                          icon.underscoreView.backgroundColor = self.underscoreColor;
+                         icon.imageView.image = [icon.imageView.image imageWithRenderingMode:UIImageRenderingModeAutomatic];
                      }
                      completion:nil];
 }

@@ -35,6 +35,11 @@
 /**
  *
  */
+@property (nonatomic, strong) UIColor *unselectedColor;
+
+/**
+ *
+ */
 @property(nonatomic, strong) IBOutlet id<HROPageControlDelegate> delegate;
 
 /**

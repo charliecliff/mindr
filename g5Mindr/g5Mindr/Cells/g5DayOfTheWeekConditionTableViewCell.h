@@ -14,6 +14,4 @@
 @property(nonatomic, strong) IBOutlet UIImageView *checkMarkImageView;
 @property(nonatomic, strong) IBOutlet UILabel *dayOfTheWeekLabel;
 
-- (void)fuckYou:(BOOL)selected;
-
 @end

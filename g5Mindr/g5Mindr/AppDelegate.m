@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "g5ReminderManager.h"
 
-#import "g5EmoticonSelectionViewController.h"
+#import "MDREmoticonSelectionViewController.h"
 
 #import "mindrBounceNavigationViewController.h"
 #import "MDRReminderListViewController.h"

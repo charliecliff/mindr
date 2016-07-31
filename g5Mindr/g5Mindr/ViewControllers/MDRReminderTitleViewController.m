@@ -6,13 +6,13 @@
 //  Copyright © 2016 Charles Cliff. All rights reserved.
 //
 
-#import "g5ReminderExplanationViewController.h"
+#import "MDRReminderTitleViewController.h"
 #import "HROBounceNavigationController.h"
 #import "g5ReminderManager.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
-@interface g5ReminderExplanationViewController () <HROBounceNavigationDelegate, UITextFieldDelegate> {
+@interface MDRReminderTitleViewController () <HROBounceNavigationDelegate, UITextFieldDelegate> {
     CGFloat initialBottomConstraintConstant;
     BOOL textFieldIsActive;
 }
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation g5ReminderExplanationViewController
+@implementation MDRReminderTitleViewController
 
 #pragma mark - Init
 

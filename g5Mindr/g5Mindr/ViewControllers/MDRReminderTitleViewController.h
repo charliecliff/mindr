@@ -11,7 +11,7 @@
 @class MDRReminder;
 @class HROBounceNavigationController;
 
-@interface g5ReminderExplanationViewController : UIViewController
+@interface MDRReminderTitleViewController : UIViewController
 
 @property(nonatomic, strong) MDRReminder *reminder;
 

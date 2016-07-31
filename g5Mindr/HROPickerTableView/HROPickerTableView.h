@@ -11,17 +11,19 @@
 @class HROPickerTableView;
 
 @protocol HROPickerDataSource <NSObject>
-
 @required
+/**
+ *
+ */
 - (NSOrderedSet *)componentsForPickerView:(HROPickerTableView *)pickerTable;
-
 @end
 
 @protocol HROPickerDelegate <NSObject>
-
 @required
+/**
+ *
+ */
 - (void)pickerView:(HROPickerTableView *)pickerTable didSelectItemAtRow:(NSInteger)row;
-
 @end
 
 @interface HROPickerTableView : UITableView

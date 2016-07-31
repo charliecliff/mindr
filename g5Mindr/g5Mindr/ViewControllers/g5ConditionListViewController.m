@@ -7,7 +7,7 @@
 //
 
 #import "g5ConditionListViewController.h"
-#import "g5EmoticonSelectionViewController.h"
+#import "MDREmoticonSelectionViewController.h"
 #import "MDRTimeConditionViewController.h"
 #import "g5DayOfTheWeekViewController.h"
 #import "g5DateConditionViewController.h"
@@ -215,7 +215,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 }
 
 - (void)didPressNextButton {
-    g5EmoticonSelectionViewController *vc = [[g5EmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
+    MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.navigationController pushViewController:vc animated:YES];
 }

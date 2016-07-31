@@ -45,10 +45,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-bZ-gsR" customClass="HROPageControl">
-                                        <rect key="frame" x="228" y="1" width="144" height="48"/>
+                                        <rect key="frame" x="156" y="1" width="288" height="48"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="144" id="RrB-av-jrV"/>
+                                            <constraint firstAttribute="width" constant="288" id="RrB-av-jrV"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="delegate" destination="rA8-u7-l50" id="JFq-ok-XDk"/>
@@ -183,7 +183,7 @@
         <!--Page View Controller-->
         <scene sceneID="hwp-ft-Ljm">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="v6Q-1b-hWR" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="v6Q-1b-hWR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec6-Ja-6z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2021" y="-27"/>

@@ -3,6 +3,7 @@
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 #import <PBJHexagonFlowLayout.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation MDREmoticonCollectionViewController
 
@@ -38,12 +39,19 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)setReminder:(MDRReminder *)reminder {
     _reminder = reminder;
+    [self bindToRemider:self.reminder];
     [self.collectionView reloadData];
 }
 
 - (void)setEmoticonUnicodeCharacters:(NSArray *)array {
     _emoticonUnicodeCharacters = array;
     [self.collectionView reloadData];
+}
+
+#pragma mark - Helpers
+
+- (void)bindToRemider:(MDRReminder *)reminder {
+    
 }
 
 #pragma mark - UICollectionView DataSource
@@ -109,22 +117,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    NSInteger newSelectedCellNumber = indexPath.row;
-//    NSInteger previousSelectedCellNumber = [self.emoticonUnicodeCharacters indexOfObject:self.reminder.emoticonUnicodeCharacter];
-//    
-//    NSString *selectedEmoticon = [self.emoticonUnicodeCharacters objectAtIndex:newSelectedCellNumber];
-//    self.reminder.emoticonUnicodeCharacter = selectedEmoticon;
-//    
-//    
-//    [UIView setAnimationsEnabled:NO];
-//    
-//    [collectionView performBatchUpdates:^{
-//        [collectionView reloadItemsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previousSelectedCellNumber inSection:0]]];
-//    } completion:^(BOOL finished) {
-//        [UIView setAnimationsEnabled:YES];
-//    }];
-//    
-//    [self.collectionView reload];
+    NSInteger newSelectedCellNumber = indexPath.row;
+    NSInteger previousSelectedCellNumber = [self.emoticonUnicodeCharacters indexOfObject:self.reminder.emoticonUnicodeCharacter];
+    
+    NSString *selectedEmoticon = [self.emoticonUnicodeCharacters objectAtIndex:newSelectedCellNumber];
+    self.reminder.emoticonUnicodeCharacter = selectedEmoticon;
+    
+    [UIView setAnimationsEnabled:NO];
+
+    [collectionView performBatchUpdates:^{
+        [collectionView reloadItemsAtIndexPaths:@[indexPath, [NSIndexPath indexPathForRow:previousSelectedCellNumber inSection:0]]];
+    } completion:^(BOOL finished) {
+        [UIView setAnimationsEnabled:YES];
+    }];
+
+    [self.collectionView reloadData];
 }
 
 @end

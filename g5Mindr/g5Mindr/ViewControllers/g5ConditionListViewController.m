@@ -217,6 +217,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)didPressNextButton {
     UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
     MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
+    vc.reminder = self.reminder;
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -61,19 +61,14 @@
 - (void)addReminder:(MDRReminder *)reminder {
     [self.reminderIDs addObject:reminder.uid];
     [self.reminders setObject:reminder forKey:reminder.uid];
+    [self updateReminders];
     [self saveReminders];
-//    NSDictionary *currentReminderDictionary = [reminder encodeToDictionary];
-//    [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
-//                        withSuccess:^{
-//                            
-//                        } withFailure:^{
-//                            
-//                        }];
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {
     [self.reminderIDs removeObject:reminder.uid];
     [self.reminders removeObjectForKey:reminder.uid];
+    [self updateReminders];
     [self saveReminders];
 }
 

@@ -16,13 +16,7 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 
 @implementation MDRTime
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"hour": MDRTimeComponentHour,
-             @"minute": MDRTimeComponentMinute,
-             @"meridian": MDRTimeComponentMeridian
-             };
-}
+#pragma mark - Init
 
 - (instancetype)init {
     self = [super init];
@@ -34,6 +28,25 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
     return self;
 }
 
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self != nil) {
+        self.hour     = [[dictionary objectForKey:MDRTimeComponentHour] integerValue];
+        self.minute   = [[dictionary objectForKey:MDRTimeComponentMinute] integerValue];
+        self.meridian = [[dictionary objectForKey:MDRTimeComponentMeridian] intValue];
+    }
+    return self;
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+    [dictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
+    [dictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
+    [dictionary setObject:[NSNumber numberWithInteger:self.meridian] forKey:MDRTimeComponentMeridian];
+    return dictionary;
+}
+
+//TODO Edit?
 - (NSString *)description {
     NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
     dateComponents.hour = self.hour;
@@ -51,6 +64,8 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 }
 
 @end
+
+static NSString *const MDRTimeComponentTimes = @"times";
 
 @interface MDRTimeCondition ()
 
@@ -102,11 +117,21 @@ static NSString *const MDRTimeComponentMeridian = @"meridian";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
+    NSArray *arrayOfTimeDictionaries = [dictionary objectForKey:kMDRConditionAttributes];
+    for (NSDictionary *currentDictionary in arrayOfTimeDictionaries) {
+        MDRTime *currentTime = [[MDRTime alloc] initWithDictionary:currentDictionary];
+        [self.times addObject:currentTime];
+    }
 }
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *timesArray = [[NSMutableArray alloc] init];
+    for (MDRTime *currentTime in self.times) {
+        [timesArray addObject:[currentTime encodeToDictionary]];
+    }
+    [attributeDictionary setObject:timesArray forKey:MDRTimeComponentTimes];
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;
 }

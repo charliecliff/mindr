@@ -10,7 +10,7 @@
 #import "g5ConfigAndMacros.h"
 
 static NSString *const G5DayOfTheWeekDateFormatter = @"EEEE";
-static NSString *const G5DaysOfTheWeek = @"days_of_the_week";
+static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
 
 @interface MDRDayOfTheWeekCondition ()
 

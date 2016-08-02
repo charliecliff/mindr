@@ -74,6 +74,12 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
     [_conditions setObject:weatherCondition forKey:weatherCondition.type];
     [_conditions setObject:locationCondition forKey:locationCondition.type];
+    
+    NSDictionary *JSONDictionary;
+    JSONDictionary = [dayOfTheWeekCondition encodeToDictionary];
+    
+    
+    
 }
 
 #pragma mark - Getters

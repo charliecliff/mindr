@@ -16,12 +16,12 @@ NSString *const g5WeatherType       = @"weather";
 NSString *const g5TemperatureType   = @"temperature";
 NSString *const g5LocationType      = @"location";
 
-NSString *const kMDRConditionType = @"type";
-NSString *const kMDRConditionAttributes = @"attributes";
+NSString *const kMDRConditionType        = @"type";
+NSString *const kMDRConditionAttributes  = @"attributes";
 
-static NSString *const kMDRConditionID      = @"id";
-static NSString *const kMDRConditionIsLocked = @"is_locked";
-static NSString *const kMDRConditionIsActive = @"is_active";
+static NSString *const kMDRConditionID          = @"id";
+static NSString *const kMDRConditionIsLocked    = @"is_locked";
+static NSString *const kMDRConditionIsActive    = @"is_active";
 
 @implementation MDRCondition
 
@@ -30,9 +30,9 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.type = g5NoType;
-        self.isActive = NO;
-        self.isLocked = NO;
+        _type = g5NoType;
+        _isActive = NO;
+        _isLocked = NO;
         [self generateUID];
     }
     return self;
@@ -41,8 +41,8 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [self init];
     if (self != nil) {
-        self.uid  = [dictionary objectForKey:kMDRConditionID];
-        self.type = [dictionary objectForKey:kMDRConditionType];
+        self.uid      = [dictionary objectForKey:kMDRConditionID];
+        self.type     = [dictionary objectForKey:kMDRConditionType];
         self.isActive = [[dictionary objectForKey:kMDRConditionIsActive] boolValue];
         self.isLocked = [[dictionary objectForKey:kMDRConditionIsLocked] boolValue];
     }
@@ -60,7 +60,7 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 
 - (void)setIsActive:(BOOL)isActive {
     _isActive = isActive;
-    [self updateDescription];
+    [self performSelector:@selector(updateDescription)];
 }
 
 #pragma mark - Over Ride
@@ -85,12 +85,10 @@ static NSString *const kMDRConditionIsActive = @"is_active";
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-
     [dictionary setObject:self.uid forKey:kMDRConditionID];
     [dictionary setObject:self.type forKey:kMDRConditionType];
     [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRConditionIsActive];
     [dictionary setObject:[NSNumber numberWithBool:self.isLocked] forKey:kMDRConditionIsLocked];
-
     return dictionary;
 }
 

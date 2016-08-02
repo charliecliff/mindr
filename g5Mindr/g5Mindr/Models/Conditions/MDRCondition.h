@@ -43,6 +43,4 @@ extern NSString *const kMDRConditionAttributes;
 
 - (NSString *)conditionIconName;
 
-- (void)updateDescription;
-
 @end

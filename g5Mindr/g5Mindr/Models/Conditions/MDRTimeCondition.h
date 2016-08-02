@@ -7,14 +7,13 @@
 //
 
 #import "MDRCondition.h"
-#import <Mantle/Mantle.h>
 
 typedef enum {
     MDRTimeAM = 0,
     MDRTimePM,
 } MDRTimeMeridian;
 
-@interface MDRTime : MTLModel <MTLJSONSerializing>
+@interface MDRTime : NSObject
 
 @property(nonatomic) NSInteger hour;
 @property(nonatomic) NSInteger minute;
@@ -27,7 +26,5 @@ typedef enum {
 @interface MDRTimeCondition : MDRCondition
 
 @property(nonatomic, strong, readonly) NSMutableArray *times;
-
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

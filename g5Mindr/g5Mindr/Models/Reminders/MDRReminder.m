@@ -74,10 +74,6 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
     [_conditions setObject:weatherCondition forKey:weatherCondition.type];
     [_conditions setObject:locationCondition forKey:locationCondition.type];
-    
-    NSDictionary *JSONDictionary;
-    JSONDictionary = [temperatureCondition encodeToDictionary];
-    
 }
 
 #pragma mark - Getters
@@ -104,9 +100,8 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 - (BOOL)hasActiveConditions {
     BOOL hasActiveConditions = NO;
     for (MDRCondition *currentCondition in self.conditions.allValues) {
-        if (currentCondition.isActive) {
+        if (currentCondition.isActive)
             hasActiveConditions = YES;
-        }
     }
     return hasActiveConditions;
 }
@@ -126,29 +121,21 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 
     for (NSDictionary *currentConditionDictionary in [dictionary objectForKey:kMDRReminderConditions]) {
         NSString *conditionType = [currentConditionDictionary objectForKey:kMDRConditionType];
-        
         MDRCondition *currentCondition;
-        if ([conditionType isEqualToString:g5TimeType]) {
+        if ([conditionType isEqualToString:g5TimeType])
             currentCondition = [[MDRTimeCondition alloc] initWithDictionary:currentConditionDictionary];
-        }
-        else if ([conditionType isEqualToString:g5DateType]) {
+        else if ([conditionType isEqualToString:g5DateType])
             currentCondition = [[MDRDateCondition alloc] init];
-        }
-        else if ([conditionType isEqualToString:g5DayOfTheWeekType]) {
+        else if ([conditionType isEqualToString:g5DayOfTheWeekType])
             currentCondition = [[MDRDayOfTheWeekCondition alloc] initWithDictionary:currentConditionDictionary];
-        }
-        else if ([conditionType isEqualToString:g5TemperatureType]) {
+        else if ([conditionType isEqualToString:g5TemperatureType])
             currentCondition = [[MDRTemperatureCondition alloc] initWithDictionary:currentConditionDictionary];
-        }
-        else if ([conditionType isEqualToString:g5WeatherType]) {
+        else if ([conditionType isEqualToString:g5WeatherType])
             currentCondition = [[MDRWeatherTypeCondition alloc] initWithDictionary:currentConditionDictionary];
-        }
-        else if ([conditionType isEqualToString:g5LocationType]) {
+        else if ([conditionType isEqualToString:g5LocationType])
             currentCondition = [[MDRLocationCondition alloc] initWithDictionary:currentConditionDictionary];
-        }
-        else {
+        else
             assert(false);
-        }
         [self.conditions setObject:currentCondition forKey:currentCondition.type];
     }
 }

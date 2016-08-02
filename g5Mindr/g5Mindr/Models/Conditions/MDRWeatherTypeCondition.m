@@ -96,10 +96,8 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
     [attributeDictionary setObject:self.weatherTypes.allObjects forKey:kMDRConditionWeatherTypes];
-    
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;
 }
@@ -107,33 +105,24 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 #pragma mark - Class Helpers
 
 + (NSString *)descriptionFromWeatherType:(NSString *)weatherType {
-    if ([weatherType isEqualToString:g5WeatherSunny]) {
+    if ([weatherType isEqualToString:g5WeatherSunny])
         return @"Sunny";
-    }
-    else if ([weatherType isEqualToString:g5WeatherPartlyCloudy]) {
+    else if ([weatherType isEqualToString:g5WeatherPartlyCloudy])
         return @"Partly Cloudy";
-    }
-    else if ([weatherType isEqualToString:g5WeatherMostlyCloudy]) {
+    else if ([weatherType isEqualToString:g5WeatherMostlyCloudy])
         return @"Mostly Cloudy";
-    }
-    else if ([weatherType isEqualToString:g5WeatherLightRain]) {
+    else if ([weatherType isEqualToString:g5WeatherLightRain])
         return @"Lightly Raining";
-    }
-    else if ([weatherType isEqualToString:g5WeatherHeavyRain]) {
+    else if ([weatherType isEqualToString:g5WeatherHeavyRain])
         return @"Heavily Raining";
-    }
-    else if ([weatherType isEqualToString:g5WeatherSeverThunderstorm]) {
+    else if ([weatherType isEqualToString:g5WeatherSeverThunderstorm])
         return @"Stormy";
-    }
-    else if ([weatherType isEqualToString:g5WeatherFoggy]) {
+    else if ([weatherType isEqualToString:g5WeatherFoggy])
         return @"Foggy";
-    }
-    else if ([weatherType isEqualToString:g5WeatherWindy]) {
+    else if ([weatherType isEqualToString:g5WeatherWindy])
         return @"Windy";
-    }
-    else if ([weatherType isEqualToString:g5WeatherSnowy]) {
+    else if ([weatherType isEqualToString:g5WeatherSnowy])
         return @"Snowing";
-    }
     return nil;
 }
 

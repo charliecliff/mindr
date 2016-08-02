@@ -106,10 +106,8 @@ static NSString *const kMDRLocationRadius = @"radius";
         [attributeDictionary setObject:[NSNumber numberWithFloat:self.location.coordinate.longitude] forKey:kMDRLocationLongitude];
     }
 
-    if (self.address != nil) {
+    if (self.address != nil)
         [attributeDictionary setObject:self.address forKey:kMDRLocationAddress];
-    }
-    
     [attributeDictionary setObject:[NSNumber numberWithFloat:self.radius] forKey:kMDRLocationRadius];
     
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];

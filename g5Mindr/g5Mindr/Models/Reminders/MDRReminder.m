@@ -76,9 +76,7 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     [_conditions setObject:locationCondition forKey:locationCondition.type];
     
     NSDictionary *JSONDictionary;
-    JSONDictionary = [dayOfTheWeekCondition encodeToDictionary];
-    
-    
+    JSONDictionary = [temperatureCondition encodeToDictionary];
     
 }
 

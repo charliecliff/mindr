@@ -113,7 +113,6 @@ static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
-    
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:0]])] forKey:@"monday"];
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:1]])] forKey:@"tuesday"];
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:2]])] forKey:@"wednesday"];
@@ -121,7 +120,6 @@ static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:4]])] forKey:@"friday"];
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:5]])] forKey:@"saturday"];
     [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:6]])] forKey:@"sunday"];
-    
     
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;

@@ -47,7 +47,7 @@
     [RACObserve(locationManager, currentLocation) subscribeNext:^(CLLocation *newLocation) {
         self.currentUserContext.currentLocation = newLocation;
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-//        [strongSelf updateContext];
+        [strongSelf updateContext];
     }];
 }
 

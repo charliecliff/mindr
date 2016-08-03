@@ -30,7 +30,7 @@ static NSString *const kMDRTemperatureUnit      = @"unit";
     self = [super init];
     if (self != nil) {
         self.type        = g5TemperatureType;
-        self.temperature = [NSNumber numberWithFloat:67.0];
+        self.temperature = @67;
         self.temperatureComparisonType = NSOrderedSame;
         [self updateDescription];
     }
@@ -84,7 +84,7 @@ static NSString *const kMDRTemperatureUnit      = @"unit";
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.temperature = [dictionary objectForKey:kMDRConditionTemperature];
+    self.temperature = [dictionary objectForKey:kMDRTemperatureDegrees];
     
     NSString *string;
     string = [dictionary objectForKey:kMDRTemperatureOperator];
@@ -106,7 +106,9 @@ static NSString *const kMDRTemperatureUnit      = @"unit";
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+    
     [attributeDictionary setObject:self.temperature forKey:kMDRTemperatureDegrees];
+    
     switch (self.temperatureComparisonType) {
         case NSOrderedSame:
             [attributeDictionary setObject:@"at" forKey:kMDRTemperatureOperator];

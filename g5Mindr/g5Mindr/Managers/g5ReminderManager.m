@@ -1,8 +1,7 @@
 #import "g5ReminderManager.h"
-#import "MDRReminderClient.h"
-#import "MDRLocationManager.h"
 #import "g5PersistenceManager.h"
 #import "MDRUserManager.h"
+#import "MDRReminderClient.h"
 
 #define REMINDERS @"REMINDERS"
 
@@ -70,6 +69,8 @@
 
 - (void)updateReminders {
     NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
+    if (userID == nil)
+        return;
     for (MDRReminder *currentReminder in self.reminders.allValues) {
         NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
         [MDRReminderClient postReminder:currentReminderDictionary

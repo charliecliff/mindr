@@ -37,7 +37,6 @@ static const NSString *reminderAPIGateWay = @"http://ec2-54-149-60-145.us-west-2
 
     NSMutableDictionary *paramaters = [[NSMutableDictionary alloc] initWithDictionary:reminderDict];
     [paramaters setObject:userID forKey:userIDKey];
-    [paramaters setObject:@"description" forKey:@"Reminders dont have decriptions you jackass!"];
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer  = [AFJSONRequestSerializer serializer];

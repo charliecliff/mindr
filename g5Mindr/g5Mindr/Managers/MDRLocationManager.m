@@ -1,15 +1,11 @@
-//
-//  LocationManager.m
-//  RideScout
-//
-//  Created by Brady Miller on 2/18/15.
-//  Copyright (c) 2015 RideScout. All rights reserved.
-//
-
 #import "MDRLocationManager.h"
 #import <GoogleMaps/GoogleMaps.h>
 
+static NSInteger const NumberOfSecondsBetweenLocationUpdates = 300;
+
 @interface MDRLocationManager ()
+
+@property (nonatomic, strong) NSDate *nextDateToPostUserContext;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSTimer *locationServicesEnabledMonitoringTimer;
@@ -35,6 +31,7 @@
 - (MDRLocationManager *)init {
     self = [super init];
     if ( self != nil) {
+        self.nextDateToPostUserContext = [NSDate date];
         self.currentLocation = nil;
         [self configureLocationManager];
     }
@@ -75,7 +72,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     CLLocation *location = [locations lastObject];
-    self.currentLocation = location;
+    
+    if ([[NSDate date] compare:self.nextDateToPostUserContext] == NSOrderedDescending) {
+        self.nextDateToPostUserContext = [[NSDate date] dateByAddingTimeInterval:NumberOfSecondsBetweenLocationUpdates];
+        self.currentLocation = location;
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -119,6 +120,13 @@
             }
         }
     }];
+}
+
+#pragma mark - Helpers
+
+
+- (void)resetLocaitonTimer {
+    
 }
 
 @end

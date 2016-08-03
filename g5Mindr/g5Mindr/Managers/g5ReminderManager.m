@@ -1,21 +1,13 @@
-//
-//  g5MindrManager.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5ReminderManager.h"
 #import "MDRReminderClient.h"
 #import "MDRLocationManager.h"
 #import "g5PersistenceManager.h"
+#import "MDRUserManager.h"
 
 #define REMINDERS @"REMINDERS"
 
 @interface g5ReminderManager ()
 
-@property(nonatomic, strong, readwrite) MDRUserContext *userContext;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 
@@ -39,14 +31,7 @@
 - (g5ReminderManager *)init {
     self = [super init];
     if (self != nil) {
-        self.userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
         [self loadReminders];
-        
-        [NSTimer scheduledTimerWithTimeInterval:1.0
-                                         target:self
-                                       selector:@selector(updateContext)
-                                       userInfo:nil
-                                        repeats:YES];
     }
     return self;
 }
@@ -81,34 +66,16 @@
     return [self.reminders objectForKey:reminderID];
 }
 
-#pragma mark - Setters
-
-- (void)setUserID:(NSString *)userID {
-    _userID = userID;
-    [[NSUserDefaults standardUserDefaults] setObject:self.userID forKey:@"push_token"];
-}
-
 #pragma mark - API Calls
 
-- (void)updateContext {
-    if (self.userID != nil) {
-        [MDRReminderClient postConextForUserID:self.userID withSuccess:^{
-            
-        } withFailure:^{
-            
-        }];
-    }
-}
-
 - (void)updateReminders {
+    NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
     for (MDRReminder *currentReminder in self.reminders.allValues) {
         NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
-        [MDRReminderClient postReminder:currentReminderDictionary withUserID:self.userID
-                            withSuccess:^{
-                                
-                            } withFailure:^{
-                                
-                            }];
+        [MDRReminderClient postReminder:currentReminderDictionary
+                             withUserID:userID
+                            withSuccess:nil
+                            withFailure:nil];
     }
 
 }

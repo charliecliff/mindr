@@ -11,7 +11,7 @@
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_page_view_controller";
 
-@interface MDREmoticonSelectionViewController () <HROPageControlDelegate, UIPageViewControllerDataSource>
+@interface MDREmoticonSelectionViewController () <HROPageControlDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 // PRIVATE
 @property(nonatomic) NSInteger selectedPageIndex;
@@ -130,11 +130,12 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 - (void)scrollToViewControllerAtIndex:(NSInteger)index {
-    UIViewController *currentViewController = ((NSArray *)[self orderedViewControllers])[index];
+    MDREmoticonCollectionViewController *currentViewController = ((NSArray *)[self orderedViewControllers])[index];
     [self.emoticonPageVC setViewControllers:@[currentViewController]
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:NO
                                  completion:nil];
+    [currentViewController.collectionView reloadData];
     [self updateForDisplayedViewController:currentViewController];
 }
 
@@ -147,7 +148,9 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
-        [self updateForDisplayedViewController:[self.emoticonPageVC.viewControllers firstObject]];
+        MDREmoticonCollectionViewController *vc = [self.emoticonPageVC.viewControllers firstObject];
+        [vc.collectionView reloadData];
+        [self updateForDisplayedViewController:vc];
     }
 }
 

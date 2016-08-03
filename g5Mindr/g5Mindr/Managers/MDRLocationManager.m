@@ -74,7 +74,6 @@
 #pragma mark - CLLocationManager Delegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-//    NSLog(@"didUpdateLocations: %@", [NSDate date]);
     CLLocation *location = [locations lastObject];
     self.currentLocation = location;
 }

@@ -73,17 +73,13 @@ static NSString *const MapBoxStyle = @"mapbox://styles/coopaloops/cimzpqej4000xa
 #pragma mark - Setup
 
 - (void)setUpMapView {
+    shouldDragGrippyImage = NO;
+
     self.mapView.showsUserLocation = NO;
     self.mapView.zoomLevel = 12;
     self.mapView.centerCoordinate = ((MDRLocationCondition *)self.condition).location.coordinate;
-    
     self.mapView.styleURL = [NSURL URLWithString:MapBoxStyle];
-    
-    
     self.mapView.delegate = self;
-    
-    shouldDragGrippyImage = NO;
-    
     self.longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(didLongPressMapView:)];
     [self.mapView addGestureRecognizer:self.longPressGesture];
     

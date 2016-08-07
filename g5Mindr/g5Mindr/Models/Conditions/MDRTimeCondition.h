@@ -27,4 +27,7 @@ typedef enum {
 
 @property(nonatomic, strong, readonly) NSMutableArray *times;
 
+- (void)addTime:(MDRTime *)time;
+- (void)removeTime:(MDRTime *)time;
+
 @end

@@ -69,6 +69,9 @@
 
 - (void)reloadTitleLabels {
     self.timeLabel.text = [self.time description];
+    if ([self.delegate respondsToSelector:@selector(didUpdateTime)]) {
+        [self.delegate didUpdateTime];
+    }
 }
 
 #pragma mark -  HROPickerDataSource

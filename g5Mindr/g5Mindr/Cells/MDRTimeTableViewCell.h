@@ -10,7 +10,16 @@
 
 @class MDRTime;
 
+@protocol MDRTimeTableViewCellDelegate <NSObject>
+
+@required
+- (void)didUpdateTime;
+
+@end
+
 @interface MDRTimeTableViewCell : UITableViewCell
+
+@property(nonatomic, strong) id<MDRTimeTableViewCellDelegate> delegate;
 
 - (void)configureForDate:(MDRTime *)time;
 

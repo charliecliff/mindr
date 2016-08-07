@@ -100,9 +100,9 @@ static NSString *const MDRTimeComponentTimes = @"times";
     if (self.isActive) {
         NSString *dateString = @"At ";
         for (MDRTime *currentTime in self.times) {
-            dateString = [NSString stringWithFormat:@"%@ %@ and at ", dateString, currentTime.description];
+            dateString = [NSString stringWithFormat:@"%@ %@ or at ", dateString, currentTime.description];
         }
-        NSRange rangeSpace = [dateString rangeOfString:@" and at " options:NSBackwardsSearch];
+        NSRange rangeSpace = [dateString rangeOfString:@" or at " options:NSBackwardsSearch];
         dateString = [dateString stringByReplacingCharactersInRange:rangeSpace withString:@""];
         self.conditionDescription = dateString;;
     }
@@ -110,17 +110,25 @@ static NSString *const MDRTimeComponentTimes = @"times";
         self.conditionDescription = @"TIME";
 }
 
-- (void)setTimes:(NSMutableArray *)times {
-    _times = times;
+#pragma mark - Time Management (LOL!!!)
+
+- (void)addTime:(MDRTime *)time {
+    [self.times addObject:time];
     [self updateDescription];
 }
+
+- (void)removeTime:(MDRTime *)time {
+    [self.times removeObject:time];
+    [self updateDescription];
+}
+
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
     NSArray *arrayOfTimeDictionaries = [dictionary objectForKey:kMDRConditionAttributes];
     for (NSDictionary *currentDictionary in arrayOfTimeDictionaries) {
         MDRTime *currentTime = [[MDRTime alloc] initWithDictionary:currentDictionary];
-        [self.times addObject:currentTime];
+        [self addTime:currentTime];
     }
 }
 

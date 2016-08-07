@@ -15,7 +15,7 @@
 static NSString *const MDRTimeConditionCell = @"time_condition_cell";
 static NSString *const MDRNewTimeConditionCell = @"add_new_time_condition_cell";
 
-@interface MDRTimeTableViewController ()
+@interface MDRTimeTableViewController () <MDRTimeTableViewCellDelegate>
 
 @end
 
@@ -39,12 +39,13 @@ static NSString *const MDRNewTimeConditionCell = @"add_new_time_condition_cell";
         return cell;
     }
     MDRTimeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MDRTimeConditionCell forIndexPath:indexPath];
+    cell.delegate = self;
     [cell configureForDate:[self.timeCondition.times objectAtIndex:indexPath.row]];
     [cell setTitleForIndexPath:indexPath];
     return cell;
 }
 
-#pragma mark - Table view delegate
+#pragma mark - TableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.timeCondition.times.count)
@@ -57,9 +58,16 @@ static NSString *const MDRNewTimeConditionCell = @"add_new_time_condition_cell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == self.timeCondition.times.count) {
         MDRTime *newTime = [[MDRTime alloc] init];
-        [self.timeCondition.times addObject:newTime];
+        [self.timeCondition addTime:newTime];
         [self.tableView reloadData];
     }
 }
+
+#pragma mark - MDRTimeTableViewCellDelegate
+
+- (void)didUpdateTime {
+    [self.timeCondition updateDescription];
+}
+
 
 @end

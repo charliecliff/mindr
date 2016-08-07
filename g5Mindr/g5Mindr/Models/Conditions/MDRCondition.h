@@ -41,6 +41,8 @@ extern NSString *const kMDRConditionAttributes;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (NSDictionary *)encodeToDictionary;
 
+- (void)updateDescription;
+
 - (NSString *)conditionIconName;
 
 @end

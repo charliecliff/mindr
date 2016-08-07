@@ -80,21 +80,6 @@
     [[self.innerRingImageView layer] addSublayer:circleLayer];
 }
 
-- (void)reload {
-//    [self.conditionExplanationLabel setText:self.condition.placeholderText];
-//    [self.backgroundImageView setHidden:!self.condition.isActive];
-//    [self.conditionActivationSwitch setOn:self.condition.isActive];
-//    
-//    if (self.condition.isActive) {
-//        [self.conditionExplanationLabel setTextColor:[UIColor whiteColor]];
-//        [self.conditionIconImageView setImage:[self activeImageForCondition:self.condition]];
-//    }
-//    else {
-//        [self.conditionExplanationLabel setTextColor:SECONDARY_FILL_COLOR];
-//        [self.conditionIconImageView setImage:[self inActiveImageForCondition:self.condition]];
-//    }
-}
-
 #pragma mark - Actions
 
 - (IBAction)didPressSwitchButton:(id)sender {
@@ -106,8 +91,6 @@
         [self.onSwitch addToggleOnAnimation];
     else
         [self.onSwitch addToggleOffAnimation];
-    
-    [self reload];
 }
 
 @end

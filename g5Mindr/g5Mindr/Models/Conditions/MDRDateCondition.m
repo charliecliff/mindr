@@ -31,7 +31,14 @@ static NSString *const kMDRConditionDates = @"dates";
     self = [super init];
     if (self != nil) {
         self.type  = g5DateType;
-        self.dates = [NSMutableArray arrayWithObjects:[NSDate date], nil];
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"d"];
+        
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear| NSCalendarUnitMonth| NSCalendarUnitWeekOfMonth| NSCalendarUnitWeekday fromDate:[NSDate date]];
+        NSDate *newDate = [[NSCalendar currentCalendar] dateFromComponents:components];
+
+        self.dates = [NSMutableArray arrayWithObjects:newDate, nil];
         [self updateDescription];
     }
     return self;

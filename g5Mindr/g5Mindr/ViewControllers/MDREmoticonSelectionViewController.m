@@ -32,12 +32,12 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     [super viewDidLoad];
     self.selectedPageIndex =0;
     
-    self.orderedViewControllers = @[[self collectionViewForEmoticonSet:@"emoticons"],
-                                    [self collectionViewForEmoticonSet:@"emoticons"],
-                                    [self collectionViewForEmoticonSet:@"emoticons"],
-                                    [self collectionViewForEmoticonSet:@"emoticons"],
-                                    [self collectionViewForEmoticonSet:@"emoticons"],
-                                    [self collectionViewForEmoticonSet:@"emoticons"]];
+    self.orderedViewControllers = @[[self collectionViewForEmoticonSet:@"emoji_faces"],
+                                    [self collectionViewForEmoticonSet:@"emoji_sports"],
+                                    [self collectionViewForEmoticonSet:@"emoji_food"],
+                                    [self collectionViewForEmoticonSet:@"emoji_nature"],
+                                    [self collectionViewForEmoticonSet:@"emoji_transport"],
+                                    [self collectionViewForEmoticonSet:@"emoji_objects"]];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
 
@@ -76,9 +76,9 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 #pragma mark - Set Up
 
 - (void)setUpEmoticonImageNames {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    self.emoticonImageNames = [plistDictionary objectForKey:@"emoticons"];
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
+//    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+//    self.emoticonImageNames = [plistDictionary objectForKey:@"emoticons"];
 }
 
 - (void)setUpPageControl {
@@ -120,9 +120,9 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:[NSBundle mainBundle]];
     MDREmoticonCollectionViewController *emoticonCollectionVC = [storyboard instantiateViewControllerWithIdentifier:@"collection_vc"];
     
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:emoticonSetName ofType:@"plist"];
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    emoticonCollectionVC.emoticonUnicodeCharacters = [plistDictionary objectForKey:emoticonSetName];
+    emoticonCollectionVC.emoticonUnicodeCharacters = [plistDictionary objectForKey:@"emoticons"];
     
     emoticonCollectionVC.reminder = self.reminder;
     

@@ -78,7 +78,7 @@
 		DA9E91461D516D3A00C1BF36 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91451D516D3A00C1BF36 /* MDRUserContext.m */; };
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
-		DAB092421CDD839F00F1157B /* emoticons_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons_faces.plist */; };
+		DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoji_faces.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
@@ -224,7 +224,7 @@
 		DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserManager.m; sourceTree = "<group>"; };
 		DA9E914A1D516F5400C1BF36 /* MDRUserClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserClient.h; sourceTree = "<group>"; };
 		DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserClient.m; sourceTree = "<group>"; };
-		DAB092411CDD839F00F1157B /* emoticons_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons_faces.plist; sourceTree = "<group>"; };
+		DAB092411CDD839F00F1157B /* emoji_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_faces.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -613,12 +613,12 @@
 				DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */,
 				DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */,
 				DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */,
+				DAB092411CDD839F00F1157B /* emoji_faces.plist */,
+				DAF695811D5A343900CD0189 /* emoji_sports.plist */,
 				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
 				DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */,
 				DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */,
 				DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */,
-				DAB092411CDD839F00F1157B /* emoticons_faces.plist */,
-				DAF695811D5A343900CD0189 /* emoji_sports.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -782,7 +782,7 @@
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
 				DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */,
-				DAB092421CDD839F00F1157B /* emoticons_faces.plist in Resources */,
+				DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */,
 				DAC771C31D235B4500036B44 /* MDRReminderTitleViewController.xib in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,

@@ -20,6 +20,10 @@
 		DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */; };
 		DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B471CC4640C0030F927 /* libz.tbd */; };
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
+		DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */; };
+		DA15F2001D5A69C300CD44EE /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */; };
+		DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */; };
+		DA15F2021D5A69C300CD44EE /* emoji_transport.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */; };
 		DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
 		DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1EC0D81CD4625F00605573 /* QuartzCore.framework */; };
@@ -74,7 +78,7 @@
 		DA9E91461D516D3A00C1BF36 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91451D516D3A00C1BF36 /* MDRUserContext.m */; };
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
-		DAB092421CDD839F00F1157B /* emoticons.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons.plist */; };
+		DAB092421CDD839F00F1157B /* emoticons_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoticons_faces.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
@@ -92,7 +96,6 @@
 		DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF281CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m */; };
 		DAC8BF381CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2A1CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m */; };
 		DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */; };
-		DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */; };
 		DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAC71CA4A41700849427 /* MDRDateCondition.m */; };
 		DAE9CACB1CA4A42700849427 /* MDRTimeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CACA1CA4A42700849427 /* MDRTimeCondition.m */; };
 		DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */; };
@@ -105,6 +108,7 @@
 		DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */; };
 		DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
 		DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
+		DAF695821D5A343900CD0189 /* emoji_sports.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAF695811D5A343900CD0189 /* emoji_sports.plist */; };
 		DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */; };
 		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
 		DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */; };
@@ -127,6 +131,10 @@
 		DA0C4B471CC4640C0030F927 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5PersistenceManager.h; sourceTree = "<group>"; };
 		DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5PersistenceManager.m; sourceTree = "<group>"; };
+		DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_food.plist; sourceTree = "<group>"; };
+		DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_nature.plist; sourceTree = "<group>"; };
+		DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_objects.plist; sourceTree = "<group>"; };
+		DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_transport.plist; sourceTree = "<group>"; };
 		DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderViewController.h; sourceTree = "<group>"; };
 		DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderViewController.m; sourceTree = "<group>"; };
 		DA1EC0D51CD4623900605573 /* IBCellFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCellFlipSegue.h; sourceTree = "<group>"; };
@@ -216,7 +224,7 @@
 		DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserManager.m; sourceTree = "<group>"; };
 		DA9E914A1D516F5400C1BF36 /* MDRUserClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserClient.h; sourceTree = "<group>"; };
 		DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserClient.m; sourceTree = "<group>"; };
-		DAB092411CDD839F00F1157B /* emoticons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons.plist; sourceTree = "<group>"; };
+		DAB092411CDD839F00F1157B /* emoticons_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons_faces.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -243,7 +251,6 @@
 		DAC8BF2A1CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeConditionViewController.m; sourceTree = "<group>"; };
 		DAC8BF2B1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF2C1CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionViewController.m; sourceTree = "<group>"; };
-		DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoticons_2.plist; sourceTree = "<group>"; };
 		DAE9CAC61CA4A41700849427 /* MDRDateCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRDateCondition.h; sourceTree = "<group>"; };
 		DAE9CAC71CA4A41700849427 /* MDRDateCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRDateCondition.m; sourceTree = "<group>"; };
 		DAE9CAC91CA4A42700849427 /* MDRTimeCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTimeCondition.h; sourceTree = "<group>"; };
@@ -264,6 +271,7 @@
 		DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROCalendarTableViewController.m; sourceTree = "<group>"; };
 		DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarHeaderView.xib; sourceTree = "<group>"; };
 		DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarRowTableViewCell.xib; sourceTree = "<group>"; };
+		DAF695811D5A343900CD0189 /* emoji_sports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_sports.plist; sourceTree = "<group>"; };
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
 		DAFD65181CD52DAC00E92729 /* MDRReminderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderDetailTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderDetailTableViewCell.m; sourceTree = "<group>"; };
@@ -601,12 +609,16 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */,
+				DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */,
+				DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */,
+				DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */,
 				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
 				DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */,
 				DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */,
 				DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */,
-				DAB092411CDD839F00F1157B /* emoticons.plist */,
-				DAD71D661CCAB44700F42BB8 /* emoticons_2.plist */,
+				DAB092411CDD839F00F1157B /* emoticons_faces.plist */,
+				DAF695811D5A343900CD0189 /* emoji_sports.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -739,9 +751,12 @@
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */,
+				DA15F2001D5A69C300CD44EE /* emoji_nature.plist in Resources */,
+				DAF695821D5A343900CD0189 /* emoji_sports.plist in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
 				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
+				DA15F2021D5A69C300CD44EE /* emoji_transport.plist in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
@@ -750,7 +765,7 @@
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
 				DAC771C11D235B4500036B44 /* g5ConditionListViewController.xib in Resources */,
-				DAD71D671CCAB44700F42BB8 /* emoticons_2.plist in Resources */,
+				DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
 				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
@@ -766,7 +781,8 @@
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
-				DAB092421CDD839F00F1157B /* emoticons.plist in Resources */,
+				DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */,
+				DAB092421CDD839F00F1157B /* emoticons_faces.plist in Resources */,
 				DAC771C31D235B4500036B44 /* MDRReminderTitleViewController.xib in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,

@@ -8,7 +8,6 @@ target 'g5Mindr' do
     pod 'GoogleMaps'
     pod 'Google/Analytics'
     pod 'AFNetworking', '~> 2.6.3'
-    pod 'PBJHexagon'
     pod 'AMWaveTransition'
     pod 'ReactiveCocoa', '~> 2.5'
 

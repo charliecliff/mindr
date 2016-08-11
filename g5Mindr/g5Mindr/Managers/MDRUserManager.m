@@ -3,6 +3,8 @@
 #import "MDRUserClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+static NSString* const kMDRSimulatorUserID = @"ffffffffffffffff";
+
 @interface MDRUserManager ()
 
 @property (nonatomic, strong, readwrite) MDRUserContext *currentUserContext;
@@ -29,6 +31,8 @@
     if (self != nil) {
         self.currentUserContext = [[MDRUserContext alloc] init];
         self.currentUserContext.userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"push_token"];
+        if (self.currentUserContext.userID == nil)
+            self.currentUserContext.userID = kMDRSimulatorUserID;
     }
     return self;
 }

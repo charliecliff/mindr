@@ -9,12 +9,44 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "491882699.535339"
+            filePath = "g5Mindr/AppDelegate.m"
+            timestampString = "491883076.698688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "g5Mindr/Managers/g5ReminderManager.m"
+            timestampString = "492568983.70452"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-updateReminders"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "g5Mindr/Client/MDRReminderClient.m"
+            timestampString = "492571514.101947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +57,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/AppDelegate.m"
-            timestampString = "491883076.698688"
+            filePath = "g5Mindr/Client/MDRReminderClient.m"
+            timestampString = "492572698.054033"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[MDRReminderClient postReminder:withUserID:withSuccess:withFailure:]"
+                  moduleName = "Buoy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
+                  timestampString = "492572900.347274"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "596">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__69+[MDRReminderClient postReminder:withUserID:withSuccess:withFailure:]_block_invoke"
+                  moduleName = "Buoy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
+                  timestampString = "492572900.347444"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "g5Mindr/Client/MDRReminderClient.m"
+            timestampString = "492572862.898553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

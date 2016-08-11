@@ -14,6 +14,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpHexagonFlowLayout];
+    [self bindToReminder];
 }
 
 #pragma mark - Set Up
@@ -35,11 +36,9 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView setCollectionViewLayout:flowLayout];
 }
 
-#pragma mark - Setters
+#pragma mark - Binding
 
-- (void)setReminder:(MDRReminder *)reminder {
-    _reminder = reminder;
-
+- (void)bindToReminder {
     __weak __typeof(self)weakSelf = self;
     [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *mewEmoticon) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;

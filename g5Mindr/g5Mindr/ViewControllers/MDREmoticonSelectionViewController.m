@@ -45,6 +45,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     
     [self setUpNavigationBarButton];
     [self setUpPageControl];
+    [self bindToReminder];
     [self scrollToViewControllerAtIndex:self.selectedPageIndex];
 }
 
@@ -86,11 +87,9 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     self.pageControl.icons = iconArray;
 }
 
-#pragma mark - Setters
+#pragma mark - Binsing
 
-- (void)setReminder:(MDRReminder *)reminder {
-    _reminder = reminder;
-    
+- (void)bindToReminder {
     __weak __typeof(self)weakSelf = self;
     [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *newEmoticon) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;

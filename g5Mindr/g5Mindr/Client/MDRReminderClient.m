@@ -4,7 +4,7 @@
 
 static const NSString *userIDKey        = @"user_id";
 static const NSString *reminderArrayKey = @"reminders";
-static const NSString *reminderAPIGateWay = @"http://ec2-54-149-60-145.us-west-2.compute.amazonaws.com:8000/reminder";
+static const NSString *reminderAPIGateWay = @"http://buoy-api-dev.us-west-2.elasticbeanstalk.com/reminder";
 
 @implementation MDRReminderClient
 
@@ -48,7 +48,7 @@ static const NSString *reminderAPIGateWay = @"http://ec2-54-149-60-145.us-west-2
             success();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure");
+        NSLog(@"Failure - %@", [operation.responseObject objectForKey:@"description"]);
         if (failure) {
             failure();
         }

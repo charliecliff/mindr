@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const kMDRReminderDefault = @"default";
+
 @class MDRCondition;
 
 @interface MDRReminder : NSObject

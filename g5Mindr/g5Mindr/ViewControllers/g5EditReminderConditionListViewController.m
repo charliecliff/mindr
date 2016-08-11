@@ -1,11 +1,3 @@
-//
-//  g5EditReminderConditionListViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 5/13/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5EditReminderConditionListViewController.h"
 
 @interface g5EditReminderConditionListViewController ()

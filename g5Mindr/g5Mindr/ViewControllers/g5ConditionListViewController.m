@@ -1,11 +1,3 @@
-//
-//  g5ConditionListViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5ConditionListViewController.h"
 #import "MDREmoticonSelectionViewController.h"
 #import "MDRTimeConditionViewController.h"
@@ -59,9 +51,7 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUpCells];
-    
     [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:NO];
 }
 
@@ -217,8 +207,8 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
 - (void)didPressNextButton {
     UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
     MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
-    vc.reminder = self.reminder;
     vc.bounceNavigationController = self.bounceNavigationController;
+    vc.reminder = self.reminder;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -40,9 +40,9 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 
         self.isActive = YES;
         
-        self.title = @"default";
-        self.emoticonUnicodeCharacter = @"default";
-        self.pushNotificationSoundFileName = @"default";
+        self.title = kMDRReminderDefault;
+        self.emoticonUnicodeCharacter = kMDRReminderDefault;
+        self.pushNotificationSoundFileName = kMDRReminderDefault;
     }
     return self;
 }

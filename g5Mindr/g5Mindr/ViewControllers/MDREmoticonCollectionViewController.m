@@ -39,19 +39,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)setReminder:(MDRReminder *)reminder {
     _reminder = reminder;
-    [self bindToRemider:self.reminder];
-    [self.collectionView reloadData];
-}
 
-- (void)setEmoticonUnicodeCharacters:(NSArray *)array {
-    _emoticonUnicodeCharacters = array;
-    [self.collectionView reloadData];
-}
-
-#pragma mark - Helpers
-
-- (void)bindToRemider:(MDRReminder *)reminder {
-    
+    __weak __typeof(self)weakSelf = self;
+    [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *mewEmoticon) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf.collectionView reloadData];
+    }];
 }
 
 #pragma mark - UICollectionView DataSource
@@ -130,8 +123,6 @@ static NSString * const reuseIdentifier = @"Cell";
     } completion:^(BOOL finished) {
         [UIView setAnimationsEnabled:YES];
     }];
-
-    [self.collectionView reloadData];
 }
 
 @end

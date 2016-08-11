@@ -40,10 +40,22 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
                                     [self collectionViewForEmoticonSet:@"emoji_objects"]];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
     self.navigationItem.title = MDRSelectEmoticonTitle;
     self.navigationItem.hidesBackButton = YES;
     
+    [self setUpNavigationBarButton];
+    [self setUpPageControl];
+    [self scrollToViewControllerAtIndex:self.selectedPageIndex];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.bounceNavigationController.delegate = self;
+}
+
+#pragma mark - Set Up
+
+- (void)setUpNavigationBarButton {
     UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     progressLabel.text = @"2/3";
@@ -52,33 +64,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     [barView addSubview:progressLabel];
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
     self.navigationItem.leftBarButtonItem = barBtn;
-    
-    
-    [self setUpPageControl];
-    [self scrollToViewControllerAtIndex:self.selectedPageIndex];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.bounceNavigationController.delegate = self;
-    [self reload];
-}
-
-- (void)reload {
-    if ([self.reminder hasEmoticon]) {
-        [self.bounceNavigationController setRightButtonEnabled:YES];
-    }
-    else {
-        [self.bounceNavigationController setRightButtonEnabled:NO];
-    }
-}
-
-#pragma mark - Set Up
-
-- (void)setUpEmoticonImageNames {
-//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
-//    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-//    self.emoticonImageNames = [plistDictionary objectForKey:@"emoticons"];
 }
 
 - (void)setUpPageControl {
@@ -99,6 +84,19 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
                            image5,
                            image6];
     self.pageControl.icons = iconArray;
+}
+
+#pragma mark - Setters
+
+- (void)setReminder:(MDRReminder *)reminder {
+    _reminder = reminder;
+    
+    __weak __typeof(self)weakSelf = self;
+    [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *newEmoticon) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        BOOL shouldEnableRightButton = (![newEmoticon isEqualToString:kMDRReminderDefault]);
+        [strongSelf.bounceNavigationController setRightButtonEnabled:shouldEnableRightButton];
+    }];
 }
 
 #pragma mark - Segue
@@ -149,7 +147,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     if (completed) {
         MDREmoticonCollectionViewController *vc = [self.emoticonPageVC.viewControllers firstObject];
-        [vc.collectionView reloadData];
         [self updateForDisplayedViewController:vc];
     }
 }

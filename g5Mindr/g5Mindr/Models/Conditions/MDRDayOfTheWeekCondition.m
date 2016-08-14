@@ -69,7 +69,6 @@ static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
 
 - (void)updateDescription {
     if (self.isActive) {
-        
         NSString *resultString = @"On a";
         for (NSNumber *currentDayOfTheWeek in self.daysOfTheWeek) {
             NSString *dateString = [self stringForWeekday:[currentDayOfTheWeek integerValue]];

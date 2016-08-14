@@ -1,10 +1,24 @@
-//
-//  g5TemperatureCondition.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
+/**
+ 
+ {
+ “degrees” 70,
+ “operator”: [wait for it],
+ “unit”: “C” or “F”
+ }
+ 
+ [1:29]
+ operators:
+  "at": lambda x, v: all(k == v for k in x),
+    "below": lambda x, v: all(k < v for k in x),
+    "above": lambda x, v: all(k > v for k in x)
+ 
+ [1:29]
+ so {
+ “degrees”: 70,
+ “operator”: “below”,
+ “unit”: “F”
+ }
+ */
 
 #import "MDRTemperatureCondition.h"
 

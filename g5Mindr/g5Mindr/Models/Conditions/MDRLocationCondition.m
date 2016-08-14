@@ -1,10 +1,11 @@
-//
-//  g5LocationCondition.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
+/**
+ {
+ “longitude": 97.75,
+ "latitutde":30.25,
+ "radius": 5000,
+ "pretty_address": "1000 S Congress St. Austin, TX 78702"
+ }
+ */
 
 #import "MDRLocationCondition.h"
 #import "MDRLocationManager.h"
@@ -12,7 +13,7 @@
 
 static NSString *const kMDRLocationLongitude = @"longitude";
 static NSString *const kMDRLocationLatitude = @"latitude";
-static NSString *const kMDRLocationAddress = @"address";
+static NSString *const kMDRLocationAddress = @"pretty_address";
 static NSString *const kMDRLocationRadius = @"radius";
 
 @interface MDRLocationCondition ()

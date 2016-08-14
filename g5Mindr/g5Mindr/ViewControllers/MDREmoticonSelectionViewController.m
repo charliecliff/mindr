@@ -91,10 +91,9 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 - (void)bindToReminder {
     __weak __typeof(self)weakSelf = self;
-    [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *newEmoticon) {
+    [RACObserve(self.reminder, hasEmoji) subscribeNext:^(NSNumber *hasEmojiNumberValue) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
-        BOOL shouldEnableRightButton = (![newEmoticon isEqualToString:kMDRReminderDefault]);
-        [strongSelf.bounceNavigationController setRightButtonEnabled:shouldEnableRightButton];
+        [strongSelf.bounceNavigationController setRightButtonEnabled:[hasEmojiNumberValue boolValue]];
     }];
 }
 

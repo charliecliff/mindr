@@ -40,7 +40,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)bindToReminder {
     __weak __typeof(self)weakSelf = self;
-    [RACObserve(self.reminder, emoticonUnicodeCharacter) subscribeNext:^(NSString *mewEmoticon) {
+    [RACObserve(self.reminder, emoji) subscribeNext:^(NSString *newEmoji) {
         __strong __typeof(weakSelf)strongSelf = weakSelf;
         [strongSelf.collectionView reloadData];
     }];
@@ -100,7 +100,7 @@ static NSString * const reuseIdentifier = @"Cell";
              withOuterRingWithColor:[UIColor whiteColor]
              withInnerRingWithColor:PRIMARY_STROKE_COLOR];
     
-    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoticonUnicodeCharacter]];
+    [cell setHasSelectedEmoticon:[selectedEmoticonImageName isEqualToString:self.reminder.emoji]];
     
     return cell;
 }
@@ -110,10 +110,10 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
     NSInteger newSelectedCellNumber = indexPath.row;
-    NSInteger previousSelectedCellNumber = [self.emoticonUnicodeCharacters indexOfObject:self.reminder.emoticonUnicodeCharacter];
+    NSInteger previousSelectedCellNumber = [self.emoticonUnicodeCharacters indexOfObject:self.reminder.emoji];
     
     NSString *selectedEmoticon = [self.emoticonUnicodeCharacters objectAtIndex:newSelectedCellNumber];
-    self.reminder.emoticonUnicodeCharacter = selectedEmoticon;
+    self.reminder.emoji = selectedEmoticon;
     
     [UIView setAnimationsEnabled:NO];
 

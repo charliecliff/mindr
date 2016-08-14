@@ -1,10 +1,13 @@
-//
-//  g5Reminder.h
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
+/**
+ {
+ "user_id": "brandon",
+ "title": "test",
+ "active": false,
+ "sound": null,
+ "description": "a thing when something is true",
+ "conditions": []
+ }
+ */
 
 #import <Foundation/Foundation.h>
 
@@ -16,53 +19,19 @@ static NSString *const kMDRReminderDefault = @"default";
 
 #pragma mark - Protected
 
-/**
- 
- */
-@property(nonatomic, strong, readonly) NSString *explanation;
-
-#pragma mark - Public
-
-/**
- 
- */
-@property(nonatomic) BOOL isActive;
-
-/**
- 
- */
-@property(nonatomic, readonly) BOOL hasEmoticon;
-
-/**
- 
- */
+// PROTECTED
+@property(nonatomic, readonly) BOOL hasEmoji;
 @property(nonatomic, readonly) BOOL hasActiveConditions;
-
-/**
- 
- */
-@property(nonatomic, strong) NSString *uid;
-
-/**
- 
- */
-@property(nonatomic, strong) NSString *title;
-
-/**
- 
- */
-@property(nonatomic, strong) NSString *pushNotificationSoundFileName;
-
-/**
- 
- */
-@property(nonatomic, strong) NSString *emoticonUnicodeCharacter;
-
-/**
- 
- */
-@property(nonatomic, strong) NSMutableDictionary *conditions;
+@property(nonatomic, strong, readonly) NSString *uid;
+@property(nonatomic, strong, readonly) NSString *explanation;
+@property(nonatomic, strong, readonly) NSMutableDictionary *conditions;
 @property(nonatomic, strong, readonly) NSArray *conditionIDs;
+
+// PUBLIC
+@property(nonatomic) BOOL isActive;
+@property(nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *emoji;
+@property(nonatomic, strong) NSString *sound;
 
 /**
     Initialization and Persistence

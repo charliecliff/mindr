@@ -122,7 +122,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)bindToReminder {
     RAC(self.titleLabel, text)       = RACObserve(self.reminder, title);
     RAC(self.explanationLabel, text) = RACObserve(self.reminder, explanation);
-    RAC(self.emoticonLabel, text)    = RACObserve(self.reminder, emoticonUnicodeCharacter);
+    RAC(self.emoticonLabel, text)    = RACObserve(self.reminder, emoji);
 }
 
 #pragma mark - Actions

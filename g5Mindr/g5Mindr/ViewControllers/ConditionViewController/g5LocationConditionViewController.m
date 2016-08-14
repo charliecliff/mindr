@@ -1,11 +1,3 @@
-//
-//  g5LocationConditionViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/23/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5LocationConditionViewController.h"
 #import "MDRLocationManager.h"
 #import "MDRLocationCondition.h"

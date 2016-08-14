@@ -1,11 +1,3 @@
-//
-//  g5Reminder.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "MDRReminder.h"
 #import "MDRDateCondition.h"
 #import "MDRTimeCondition.h"
@@ -13,14 +5,28 @@
 #import "MDRLocationCondition.h"
 #import "MDRWeatherTypeCondition.h"
 #import "MDRTemperatureCondition.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *const kMDRReminderType                     = @"type";
 static NSString *const kMDRReminderID                       = @"id";
 static NSString *const kMDRReminderTitle                    = @"title";
 static NSString *const kMDRReminderEmoticonUnicodeCharacter = @"emoticon";
 static NSString *const kMDRReminderNotificationSound        = @"sound";
+static NSString *const kMDRReminderDescription              = @"description";
 static NSString *const kMDRReminderIsActive                 = @"active";
 static NSString *const kMDRReminderConditions               = @"conditions";
+
+@interface MDRReminder ()
+
+// PROTECTED
+@property(nonatomic, readwrite) BOOL hasEmoji;
+@property(nonatomic, readwrite) BOOL hasActiveConditions;
+@property(nonatomic, strong, readwrite) NSString *uid;
+@property(nonatomic, strong, readwrite) NSString *explanation;
+@property(nonatomic, strong, readwrite) NSMutableDictionary *conditions;
+@property(nonatomic, strong, readwrite) NSArray *conditionIDs;
+
+@end
 
 @implementation MDRReminder
 
@@ -34,25 +40,21 @@ static NSString *const kMDRReminderConditions               = @"conditions";
         CFRelease(uuidRef);
         self.uid = (__bridge_transfer NSString *)uuidStringRef;
         
-        _conditionIDs = @[g5TimeType, g5DayOfTheWeekType, g5DateType, g5TemperatureType, g5WeatherType, g5LocationType];
-        _conditions = [[NSMutableDictionary alloc] init];
-        [self setUpConditions];
-
         self.isActive = YES;
-        
         self.title = kMDRReminderDefault;
-        self.emoticonUnicodeCharacter = kMDRReminderDefault;
-        self.pushNotificationSoundFileName = kMDRReminderDefault;
+        self.emoji = kMDRReminderDefault;
+        self.sound = kMDRReminderDefault;
+        
+        [self setUpConditions];
     }
     return self;
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    self= [super init];
+    self= [self init];
     if (self != nil) {
-        _conditionIDs = @[g5TimeType, g5DayOfTheWeekType, g5DateType, g5TemperatureType, g5WeatherType, g5LocationType];
-        _conditions   = [[NSMutableDictionary alloc] init];
         [self parseDictionary:dictionary];
+        [self updateExplanation];
     }
     return self;
 }
@@ -60,25 +62,63 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 #pragma mark - Set Up
 
 - (void)setUpConditions {
+    __weak __typeof(self)weakSelf = self;
+
+    _conditionIDs = @[//g5TimeType,
+                      g5DayOfTheWeekType,
+                      g5DateType,
+                      g5TemperatureType,
+//                      g5WeatherType,
+                      g5LocationType];
+    
     MDRTimeCondition *timeCondition = [[MDRTimeCondition alloc] init];
+    [RACObserve(timeCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
+    
     MDRDayOfTheWeekCondition *dayOfTheWeekCondition = [[MDRDayOfTheWeekCondition alloc] init];
+    [RACObserve(dayOfTheWeekCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
+    
     MDRDateCondition *dateCondition = [[MDRDateCondition alloc] init];
+    [RACObserve(dateCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
+    
     MDRTemperatureCondition *temperatureCondition = [[MDRTemperatureCondition alloc] init];
+    [RACObserve(temperatureCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
+    
     MDRWeatherTypeCondition *weatherCondition = [[MDRWeatherTypeCondition alloc] init];
+    [RACObserve(weatherCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
+    
     MDRLocationCondition *locationCondition = [[MDRLocationCondition alloc] init];
+    [RACObserve(locationCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf updateExplanation];
+    }];
     
     _conditions   = [[NSMutableDictionary alloc] init];
-    [_conditions setObject:timeCondition forKey:timeCondition.type];
+//    [_conditions setObject:timeCondition forKey:timeCondition.type];
     [_conditions setObject:dayOfTheWeekCondition forKey:dayOfTheWeekCondition.type];
     [_conditions setObject:dateCondition forKey:dateCondition.type];
     [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
-    [_conditions setObject:weatherCondition forKey:weatherCondition.type];
+//    [_conditions setObject:weatherCondition forKey:weatherCondition.type];
     [_conditions setObject:locationCondition forKey:locationCondition.type];
 }
 
 #pragma mark - Getters
 
-- (NSString *)explanation {
+- (void)updateExplanation {
     NSString *resultString = @"";
     
     BOOL isFirstCondition = YES;
@@ -92,7 +132,14 @@ static NSString *const kMDRReminderConditions               = @"conditions";
                 resultString = [NSString stringWithFormat:@"%@, %@", resultString, currentCondition.conditionDescription];
         }
     }
-    return resultString;
+    self.explanation = resultString;
+}
+
+#pragma mark - Setters 
+
+- (void)setEmoji:(NSString *)emoji {
+    _emoji = emoji;
+    self.hasEmoji = !( (self.emoji == nil) || ([self.emoji isEqualToString:kMDRReminderDefault]) );
 }
 
 #pragma mark - State
@@ -106,18 +153,14 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     return hasActiveConditions;
 }
 
-- (BOOL)hasEmoticon {
-    return !(self.emoticonUnicodeCharacter == nil);
-}
-
 #pragma mark - Persistence
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.uid = [dictionary objectForKey:kMDRReminderID];
-    self.title = [dictionary objectForKey:kMDRReminderTitle];
-    self.isActive = [[dictionary objectForKey:kMDRReminderIsActive] boolValue];
-    self.emoticonUnicodeCharacter = [dictionary objectForKey:kMDRReminderEmoticonUnicodeCharacter];
-    self.pushNotificationSoundFileName = [dictionary objectForKey:kMDRReminderNotificationSound];
+    self.uid        = [dictionary objectForKey:kMDRReminderID];
+    self.isActive   = [[dictionary objectForKey:kMDRReminderIsActive] boolValue];
+    self.title      = [dictionary objectForKey:kMDRReminderTitle];
+    self.emoji      = [dictionary objectForKey:kMDRReminderEmoticonUnicodeCharacter];
+    self.sound      = [dictionary objectForKey:kMDRReminderNotificationSound];
 
     for (NSDictionary *currentConditionDictionary in [dictionary objectForKey:kMDRReminderConditions]) {
         NSString *conditionType = [currentConditionDictionary objectForKey:kMDRConditionType];
@@ -146,8 +189,9 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     [dictionary setObject:self.uid forKey:kMDRReminderID];
     [dictionary setObject:self.title forKey:kMDRReminderTitle];
     [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRReminderIsActive];
-    [dictionary setObject:self.emoticonUnicodeCharacter forKey:kMDRReminderEmoticonUnicodeCharacter];
-    [dictionary setObject:self.pushNotificationSoundFileName forKey:kMDRReminderNotificationSound];
+    [dictionary setObject:self.emoji forKey:kMDRReminderEmoticonUnicodeCharacter];
+    [dictionary setObject:self.sound forKey:kMDRReminderNotificationSound];
+    [dictionary setObject:self.explanation forKey:kMDRReminderDescription];
     
     NSMutableArray *conditionArray = [[NSMutableArray alloc] init];
     for (MDRCondition *currentCondition in self.conditions.allValues) {

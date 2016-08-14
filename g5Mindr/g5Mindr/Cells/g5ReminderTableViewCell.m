@@ -35,7 +35,7 @@
     self.reminder = reminder;
     [self.titleLabel setText:self.reminder.title];
     [self.explanationLabel setText:self.reminder.explanation];
-    [self.emoticonLabel setText:self.reminder.emoticonUnicodeCharacter];
+    [self.emoticonLabel setText:self.reminder.emoji];
     
     [self configureOuterRingWithColor:[UIColor whiteColor]];
     [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];

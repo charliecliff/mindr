@@ -22,22 +22,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Managers/g5ReminderManager.m"
-            timestampString = "492568983.70452"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-updateReminders"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -74,7 +58,7 @@
                   moduleName = "Buoy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "492572900.347274"
+                  timestampString = "492896928.635772"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"
@@ -89,7 +73,7 @@
                   moduleName = "Buoy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "492572900.347444"
+                  timestampString = "492896928.635954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "45"

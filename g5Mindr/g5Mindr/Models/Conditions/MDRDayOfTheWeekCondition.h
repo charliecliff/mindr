@@ -1,11 +1,3 @@
-//
-//  g5DayOfTheWeekCondition.h
-//  g5Mindr
-//
-//  Created by Charles Cliff on 5/29/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "MDRCondition.h"
 
 #define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",@"Sunday", nil]

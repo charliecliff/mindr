@@ -36,7 +36,7 @@ static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
     self = [super init];
     if (self != nil) {
         self.type = g5DayOfTheWeekType;
-        self.daysOfTheWeek = [[NSMutableSet alloc] initWithObjects:[NSNumber numberWithDouble:0], nil];
+        self.daysOfTheWeek = [[NSMutableSet alloc] init];
         [self updateDescription];
     }
     return self;

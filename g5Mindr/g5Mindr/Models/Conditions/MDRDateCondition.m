@@ -8,7 +8,8 @@
 
 #import "MDRDateCondition.h"
 
-static NSString *const kMDRConditionDates = @"dates";
+static NSString *const kMDRConditionDates = @"days";
+static NSString *const kMDRConditionDateFormatter = @"dd/MM/YYYY";
 
 @interface MDRDateCondition ()
 
@@ -68,9 +69,12 @@ static NSString *const kMDRConditionDates = @"dates";
 - (void)parseDictionary:(NSDictionary *)dictionary {
     NSArray *arrayOfDateEpochs = [dictionary objectForKey:kMDRConditionDates];
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = kMDRConditionDateFormatter;
+
     NSMutableArray *tmpMutableArray = [[NSMutableArray alloc] init];
-    for (NSNumber *epochTimeInSecondsNumber in arrayOfDateEpochs) {
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:[epochTimeInSecondsNumber intValue]];
+    for (NSString *dateString in arrayOfDateEpochs) {
+        NSDate *date = [dateFormatter dateFromString:dateString];
         [tmpMutableArray addObject:date];
     }
     self.dates = [NSMutableArray arrayWithArray:tmpMutableArray];
@@ -79,11 +83,14 @@ static NSString *const kMDRConditionDates = @"dates";
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = kMDRConditionDateFormatter;
     
     NSMutableArray *arrayOfDateEpochs = [[NSMutableArray alloc] init];
     for (NSDate *currentDate in self.dates) {
-        NSTimeInterval epochTimeInSeconds = [currentDate timeIntervalSince1970];
-        [arrayOfDateEpochs addObject:[NSNumber numberWithInt:epochTimeInSeconds]];
+        NSString *dateString = [[dateFormatter stringFromDate:currentDate] capitalizedString];
+        [arrayOfDateEpochs addObject:dateString];
     }
     
     [attributeDictionary setObject:arrayOfDateEpochs forKey:kMDRConditionDates];

@@ -1,11 +1,3 @@
-//
-//  g5ReminderViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 4/29/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "MDRReminderViewController.h"
 #import "g5EditReminderConditionListViewController.h"
 #import "MDRReminderDetailTableViewCell.h"
@@ -18,20 +10,6 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 
 @implementation MDRReminderDetailTableViewController
 
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if ( indexPath.row == 0 ) {
-        
-    }
-    else if ( indexPath.row == 1 ) {
-        
-    }
-    else if ( indexPath.row == 2 ) {
-        
-    }
-}
-
 #pragma mark - UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -42,7 +20,6 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     }
     else if ( indexPath.row == 1 ) {
         cell.titleLabel.text = @"Conditions";
-
     }
     else if ( indexPath.row == 2 ) {
         cell.titleLabel.text = @"Sound";
@@ -59,7 +36,7 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 
 static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 
-@interface MDRReminderViewController ()
+@interface MDRReminderViewController () <UITableViewDelegate>
 
 // PROTECTED
 @property(nonatomic, strong, readwrite) NSMutableArray *cells;
@@ -89,12 +66,12 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     
     [self setUpBackButton];
     [self bindToReminder];
-    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
+    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -137,6 +114,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     if ([segue.identifier isEqualToString:MDRReminderDetailEmbedSegue]) {
         MDRReminderDetailTableViewController *reminderDetailsTableViewController = (MDRReminderDetailTableViewController *)segue.destinationViewController;
         reminderDetailsTableViewController.reminder = self.reminder;
+        reminderDetailsTableViewController.tableView.delegate = self;
         [reminderDetailsTableViewController.tableView reloadData];
     }
 }
@@ -147,6 +125,20 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if ( indexPath.row == 0 ) {
+        
+    }
+    else if ( indexPath.row == 1 ) {
+        [self segueToConditionViewControllerWithReminder:self.reminder];
+    }
+    else if ( indexPath.row == 2 ) {
+        
+    }
 }
 
 #pragma mark - g5BounceNavigationDelegate

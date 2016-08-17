@@ -66,11 +66,11 @@ static NSString *const kMDRReminderConditions               = @"conditions";
 
     _conditionIDs = @[
 //                      g5TimeType,  //TODO: Not Supported
-//                      g5DayOfTheWeekType,
+                      g5DayOfTheWeekType,
                       g5DateType,
-//                      g5TemperatureType,
+                      g5TemperatureType,
 //                      g5WeatherType, //TODO: Not Supported
-//                      g5LocationType
+                      g5LocationType
                       ];
     
     MDRTimeCondition *timeCondition = [[MDRTimeCondition alloc] init];
@@ -111,11 +111,11 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     
     _conditions   = [[NSMutableDictionary alloc] init];
 //    [_conditions setObject:timeCondition forKey:timeCondition.type];
-//    [_conditions setObject:dayOfTheWeekCondition forKey:dayOfTheWeekCondition.type];
+    [_conditions setObject:dayOfTheWeekCondition forKey:dayOfTheWeekCondition.type];
     [_conditions setObject:dateCondition forKey:dateCondition.type];
-//    [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
+    [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
 //    [_conditions setObject:weatherCondition forKey:weatherCondition.type];
-//    [_conditions setObject:locationCondition forKey:locationCondition.type];
+    [_conditions setObject:locationCondition forKey:locationCondition.type];
 }
 
 #pragma mark - Getters

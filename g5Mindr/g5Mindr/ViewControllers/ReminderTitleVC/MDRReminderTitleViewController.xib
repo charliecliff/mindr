@@ -9,7 +9,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="g5ReminderExplanationViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDRReminderTitleViewController">
             <connections>
                 <outlet property="backgroundView" destination="gVu-iB-rhn" id="CLt-mu-aGc"/>
                 <outlet property="reminderExplanationLabel" destination="3Wa-vg-w43" id="csH-vE-a0f"/>

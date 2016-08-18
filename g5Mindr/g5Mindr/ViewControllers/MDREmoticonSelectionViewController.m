@@ -1,5 +1,5 @@
 #import "MDREmoticonSelectionViewController.h"
-#import "MDRReminderTitleViewController.h"
+#import "MDRCreateReminderTitleViewController.h"
 #import "MDREmoticonCollectionViewController.h"
 #import "g5EmoticonCell.h"
 #import "HROPageControl.h"
@@ -184,7 +184,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 - (void)didPressNextButton {
-    MDRReminderTitleViewController *vc = [[MDRReminderTitleViewController alloc] initWithReminder:self.reminder];
+    MDRCreateReminderTitleViewController *vc = [[MDRReminderTitleViewController alloc] initWithReminder:self.reminder];
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.navigationController pushViewController:vc animated:YES];
 }

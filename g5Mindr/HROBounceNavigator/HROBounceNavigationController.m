@@ -117,7 +117,8 @@
 }
 
 - (void)reloadBottomButtonBackgroundAsCircle {
-    self.bottomButtonBackgroundImage.backgroundColor = [self.datasource bottomButtonFillColor];
+    if ([self.datasource respondsToSelector:@selector(bottomButtonFillColor)])
+        self.bottomButtonBackgroundImage.backgroundColor = [self.datasource bottomButtonFillColor];
     self.bottomButtonBackgroundImage.layer.cornerRadius = self.bottomButtonBackgroundImage.frame.size.width / 2;
     self.bottomButtonBackgroundImage.layer.masksToBounds = YES;
     self.bottomButtonBackgroundImage.layer.borderColor = [[self.datasource strokeColor] CGColor];
@@ -156,7 +157,9 @@
 }
 
 - (void)reloadLeftButtonBackgroundAsCircle {
-    self.leftButtonBackground.backgroundColor = [self.datasource bounceButtonFillColor];
+    if ([self.datasource respondsToSelector:@selector(bounceButtonFillColor)])
+        self.leftButtonBackground.backgroundColor = [self.datasource bounceButtonFillColor];
+    
     self.leftButtonBackground.layer.cornerRadius = self.leftButtonBackground.frame.size.width / 2;
     self.leftButtonBackground.layer.masksToBounds = YES;
     self.leftButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];

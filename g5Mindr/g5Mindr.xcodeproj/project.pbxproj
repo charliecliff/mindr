@@ -58,16 +58,20 @@
 		DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* MDRTemperatureCondition.m */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
+		DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */; };
+		DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
+		DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */; };
+		DA4C5FF01D6530A1003CC595 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE61D6530A1003CC595 /* g5EditReminderConditionListViewController.m */; };
+		DA4C5FF11D6530A1003CC595 /* MDRCreateReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE91D6530A1003CC595 /* MDRCreateReminderTitleViewController.m */; };
+		DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */; };
+		DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */; };
+		DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
 		DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */; };
 		DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */; };
 		DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */; };
 		DA83FFEA1D4191AF00D6209A /* MDREmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */; };
-		DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */; };
-		DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */; };
-		DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */; };
 		DA863AC41CE6CC5900568A79 /* MDREmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863ABC1CE6CC5900568A79 /* MDREmoticonSelectionViewController.m */; };
-		DA863AC61CE6CC5900568A79 /* MDRReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA863AC01CE6CC5900568A79 /* MDRReminderTitleViewController.m */; };
 		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
 		DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */; };
 		DA9A74531D4D251300CC5A25 /* MDREmoticonSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA9A74521D4D251300CC5A25 /* MDREmoticonSelection.storyboard */; };
@@ -87,8 +91,6 @@
 		DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B51D235B2500036B44 /* g5LocationConditionViewController.xib */; };
 		DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B61D235B2500036B44 /* g5TemperatureConditionViewController.xib */; };
 		DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B71D235B2500036B44 /* g5WeatherTypeConditionViewController.xib */; };
-		DAC771C11D235B4500036B44 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */; };
-		DAC771C31D235B4500036B44 /* MDRReminderTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771BE1D235B4500036B44 /* MDRReminderTitleViewController.xib */; };
 		DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */; };
 		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
@@ -188,6 +190,20 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
+		DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
+		DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
+		DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
+		DA4C5FE31D6530A1003CC595 /* g5CreateReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CreateReminderConditionListViewController.h; sourceTree = "<group>"; };
+		DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CreateReminderConditionListViewController.m; sourceTree = "<group>"; };
+		DA4C5FE51D6530A1003CC595 /* g5EditReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EditReminderConditionListViewController.h; sourceTree = "<group>"; };
+		DA4C5FE61D6530A1003CC595 /* g5EditReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EditReminderConditionListViewController.m; sourceTree = "<group>"; };
+		DA4C5FE81D6530A1003CC595 /* MDRCreateReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRCreateReminderTitleViewController.h; sourceTree = "<group>"; };
+		DA4C5FE91D6530A1003CC595 /* MDRCreateReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRCreateReminderTitleViewController.m; sourceTree = "<group>"; };
+		DA4C5FEA1D6530A1003CC595 /* MDRReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderTitleViewController.h; sourceTree = "<group>"; };
+		DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderTitleViewController.m; sourceTree = "<group>"; };
+		DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderTitleViewController.xib; sourceTree = "<group>"; };
+		DA4C5FF41D6530CC003CC595 /* MDREditReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditReminderTitleViewController.h; sourceTree = "<group>"; };
+		DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditReminderTitleViewController.m; sourceTree = "<group>"; };
 		DA543D9B1D0CA1D20079BBB0 /* HROPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPickerTableView.h; sourceTree = "<group>"; };
 		DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPickerTableView.m; sourceTree = "<group>"; };
 		DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRTimeCondition.storyboard; sourceTree = "<group>"; };
@@ -197,16 +213,8 @@
 		DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewController.m; sourceTree = "<group>"; };
 		DA83FFE81D4191AF00D6209A /* MDREmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmptyViewController.h; sourceTree = "<group>"; };
 		DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmptyViewController.m; sourceTree = "<group>"; };
-		DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
-		DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
-		DA863AB71CE6CC5900568A79 /* g5CreateReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5CreateReminderConditionListViewController.h; sourceTree = "<group>"; };
-		DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5CreateReminderConditionListViewController.m; sourceTree = "<group>"; };
-		DA863AB91CE6CC5900568A79 /* g5EditReminderConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EditReminderConditionListViewController.h; sourceTree = "<group>"; };
-		DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EditReminderConditionListViewController.m; sourceTree = "<group>"; };
 		DA863ABB1CE6CC5900568A79 /* MDREmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmoticonSelectionViewController.h; sourceTree = "<group>"; };
 		DA863ABC1CE6CC5900568A79 /* MDREmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmoticonSelectionViewController.m; sourceTree = "<group>"; };
-		DA863ABF1CE6CC5900568A79 /* MDRReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderTitleViewController.h; sourceTree = "<group>"; };
-		DA863AC01CE6CC5900568A79 /* MDRReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderTitleViewController.m; sourceTree = "<group>"; };
 		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderViewController.storyboard; sourceTree = "<group>"; };
 		DA9A74521D4D251300CC5A25 /* MDREmoticonSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDREmoticonSelection.storyboard; sourceTree = "<group>"; };
@@ -236,8 +244,6 @@
 		DAC771B51D235B2500036B44 /* g5LocationConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5LocationConditionViewController.xib; sourceTree = "<group>"; };
 		DAC771B61D235B2500036B44 /* g5TemperatureConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5TemperatureConditionViewController.xib; sourceTree = "<group>"; };
 		DAC771B71D235B2500036B44 /* g5WeatherTypeConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5WeatherTypeConditionViewController.xib; sourceTree = "<group>"; };
-		DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
-		DAC771BE1D235B4500036B44 /* MDRReminderTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderTitleViewController.xib; sourceTree = "<group>"; };
 		DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderList.storyboard; sourceTree = "<group>"; };
 		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
@@ -407,24 +413,16 @@
 		DA30CF011C9DD3AA00FD4438 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DA4C5FDF1D6530A1003CC595 /* ConditionListVC */,
+				DA4C5FE71D6530A1003CC595 /* ReminderTitleVC */,
 				DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */,
-				DAC771BC1D235B4500036B44 /* g5ConditionListViewController.xib */,
-				DA863AB51CE6CC5900568A79 /* g5ConditionListViewController.h */,
-				DA863AB61CE6CC5900568A79 /* g5ConditionListViewController.m */,
 				DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */,
 				DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */,
-				DA863AB71CE6CC5900568A79 /* g5CreateReminderConditionListViewController.h */,
-				DA863AB81CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m */,
-				DA863AB91CE6CC5900568A79 /* g5EditReminderConditionListViewController.h */,
-				DA863ABA1CE6CC5900568A79 /* g5EditReminderConditionListViewController.m */,
 				DA9A74521D4D251300CC5A25 /* MDREmoticonSelection.storyboard */,
 				DA863ABB1CE6CC5900568A79 /* MDREmoticonSelectionViewController.h */,
 				DA863ABC1CE6CC5900568A79 /* MDREmoticonSelectionViewController.m */,
 				DA9A745A1D4D7CD800CC5A25 /* MDREmoticonCollectionViewController.h */,
 				DA9A745B1D4D7CD800CC5A25 /* MDREmoticonCollectionViewController.m */,
-				DAC771BE1D235B4500036B44 /* MDRReminderTitleViewController.xib */,
-				DA863ABF1CE6CC5900568A79 /* MDRReminderTitleViewController.h */,
-				DA863AC01CE6CC5900568A79 /* MDRReminderTitleViewController.m */,
 				DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */,
 				DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */,
 				DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */,
@@ -507,6 +505,34 @@
 				DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DA4C5FDF1D6530A1003CC595 /* ConditionListVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */,
+				DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */,
+				DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */,
+				DA4C5FE31D6530A1003CC595 /* g5CreateReminderConditionListViewController.h */,
+				DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */,
+				DA4C5FE51D6530A1003CC595 /* g5EditReminderConditionListViewController.h */,
+				DA4C5FE61D6530A1003CC595 /* g5EditReminderConditionListViewController.m */,
+			);
+			path = ConditionListVC;
+			sourceTree = "<group>";
+		};
+		DA4C5FE71D6530A1003CC595 /* ReminderTitleVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA4C5FF41D6530CC003CC595 /* MDREditReminderTitleViewController.h */,
+				DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */,
+				DA4C5FE81D6530A1003CC595 /* MDRCreateReminderTitleViewController.h */,
+				DA4C5FE91D6530A1003CC595 /* MDRCreateReminderTitleViewController.m */,
+				DA4C5FEA1D6530A1003CC595 /* MDRReminderTitleViewController.h */,
+				DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */,
+				DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */,
+			);
+			path = ReminderTitleVC;
 			sourceTree = "<group>";
 		};
 		DA508DF41CCF0B4100C96AED /* CoreAnimator */ = {
@@ -764,8 +790,8 @@
 				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
-				DAC771C11D235B4500036B44 /* g5ConditionListViewController.xib in Resources */,
 				DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */,
+				DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
 				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
@@ -781,9 +807,9 @@
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
+				DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */,
 				DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */,
 				DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */,
-				DAC771C31D235B4500036B44 /* MDRReminderTitleViewController.xib in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA9A74531D4D251300CC5A25 /* MDREmoticonSelection.storyboard in Resources */,
@@ -850,8 +876,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4C5FF01D6530A1003CC595 /* g5EditReminderConditionListViewController.m in Sources */,
+				DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DA863AC41CE6CC5900568A79 /* MDREmoticonSelectionViewController.m in Sources */,
 				DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */,
+				DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */,
 				DA9E913E1D51651A00C1BF36 /* MDRTimeComponents.m in Sources */,
 				DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */,
 				DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */,
@@ -861,15 +890,16 @@
 				DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */,
 				DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */,
 				DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */,
-				DA863AC61CE6CC5900568A79 /* MDRReminderTitleViewController.m in Sources */,
 				DA9A745C1D4D7CD800CC5A25 /* MDREmoticonCollectionViewController.m in Sources */,
 				DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */,
+				DA4C5FF11D6530A1003CC595 /* MDRCreateReminderTitleViewController.m in Sources */,
+				DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */,
 				DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
-				DA863AC11CE6CC5900568A79 /* g5ConditionListViewController.m in Sources */,
 				DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */,
+				DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */,
 				DAE9CACB1CA4A42700849427 /* MDRTimeCondition.m in Sources */,
 				DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */,
 				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
@@ -892,11 +922,9 @@
 				DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */,
 				DA9A74571D4D28BF00CC5A25 /* HROPageControl.m in Sources */,
 				DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */,
-				DA863AC31CE6CC5900568A79 /* g5EditReminderConditionListViewController.m in Sources */,
 				DA9E91461D516D3A00C1BF36 /* MDRUserContext.m in Sources */,
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
 				DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */,
-				DA863AC21CE6CC5900568A79 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAF5C1BF1D29E195000D3DEC /* HROCalendarRowTableViewCell.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* MDRCondition.m in Sources */,
 				DA2EA6DF1CFB569F004338CA /* MDRDayOfTheWeekCondition.m in Sources */,

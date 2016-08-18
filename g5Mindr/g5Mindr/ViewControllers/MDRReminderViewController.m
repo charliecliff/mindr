@@ -1,5 +1,7 @@
 #import "MDRReminderViewController.h"
 #import "g5EditReminderConditionListViewController.h"
+#import "MDREmoticonSelectionViewController.h"
+#import "MDREditReminderTitleViewController.h"
 #import "MDRReminderDetailTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
 #import "g5ReminderManager.h"
@@ -119,22 +121,38 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     }
 }
 
-- (void)segueToConditionViewControllerWithReminder:(MDRReminder *)reminder {
+- (void)segueToConditionViewController {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     
-    g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:reminder];
+    g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:self.reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
+}
+
+- (void)segueToEmoticonViewController {
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+
+    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
+    MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    vc.reminder = self.reminder;
+    [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)segueToTitleViewController {
+    MDREditReminderTitleViewController *vc = [[MDREditReminderTitleViewController alloc] initWithReminder:self.reminder];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if ( indexPath.row == 0 ) {
-        
+        [self segueToTitleViewController];
     }
     else if ( indexPath.row == 1 ) {
-        [self segueToConditionViewControllerWithReminder:self.reminder];
+        [self segueToConditionViewController];
     }
     else if ( indexPath.row == 2 ) {
         

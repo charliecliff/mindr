@@ -18,13 +18,23 @@
 
 @implementation MDREditReminderTitleViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-//    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:^{
-        self.bounceNavigationController.datasource = self;
-        [self.bounceNavigationController reload];
-        [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
-//    }];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:@"MDRReminderTitleViewController" bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.bounceNavigationController.datasource = self;
+    [self.bounceNavigationController reload];
+    [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - g5BounceNavigationDelegate

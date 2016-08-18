@@ -70,15 +70,15 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     [self bindToReminder];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.bounceNavigationController.delegate = self;
-    [self.bounceNavigationController setShouldShowTrashCanOnBounceButton:YES];
+- (void)viewDidAppear:(BOOL)animated {
+    self.bounceNavigationController.datasource = self;
+    [self.bounceNavigationController reload];
+    [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:YES withCompletion:nil];
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up
@@ -176,6 +176,37 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 
 - (void)didPressCancelButton {
     assert(false);
+}
+
+
+#pragma mark - HROBounceNavigationDatasource
+
+- (UIColor *)rightButtonFillColor {
+    return DELETE_FILL_COLOR;
+}
+
+- (UIColor *)leftButtonFillColor {
+    return SECONDARY_FILL_COLOR;
+}
+
+- (UIColor *)strokeColor {
+    return PRIMARY_STROKE_COLOR;
+}
+
+- (UIColor *)borderColor {
+    return SECONDARY_FILL_COLOR;
+}
+
+- (UIColor *)textColor {
+    return [UIColor whiteColor];
+}
+
+- (UIImage *)leftCornerButtonImage {
+    return [UIImage imageNamed:@"button_delete"];
+}
+
+- (UIImage *)rightCornerButtonImage {
+    return [UIImage imageNamed:@"button_back"];
 }
 
 @end

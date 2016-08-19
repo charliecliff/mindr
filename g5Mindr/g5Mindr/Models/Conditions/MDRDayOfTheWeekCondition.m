@@ -36,7 +36,11 @@ static NSString *const MDRDaysOfTheWeek = @"days_of_the_week";
     self = [super init];
     if (self != nil) {
         self.type = g5DayOfTheWeekType;
+        
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:[NSDate date]];
         self.daysOfTheWeek = [[NSMutableSet alloc] init];
+        [self setDayOfTheWeek:[comps weekday]-1];
         [self updateDescription];
     }
     return self;

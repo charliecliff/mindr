@@ -1,6 +1,6 @@
 #import "MDRCondition.h"
+#define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Sunday",@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday", nil]
 
-#define DAYS_OF_THE_WEEK_ARRAY [NSArray arrayWithObjects:@"Monday", @"Tuesday", @"Wednesday", @"Thursday", @"Friday", @"Saturday",@"Sunday", nil]
 
 @interface MDRDayOfTheWeekCondition : MDRCondition
 

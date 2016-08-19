@@ -66,7 +66,6 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     [self.innerRingImageView.layer setCornerRadius:self.innerRingImageView.frame.size.height/2];
     [self.outerRingImageView.layer setCornerRadius:self.outerRingImageView.frame.size.height/2];
     
-    [self setUpBackButton];
     [self bindToReminder];
 }
 
@@ -74,26 +73,6 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
-    [super viewWillDisappear:animated];
-}
-
-#pragma mark - Set Up
-
-- (void)setUpBackButton {
-    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    [backButton setImage:[UIImage imageNamed:@"button_back_grey"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(pressBackButton) forControlEvents:UIControlEventTouchUpInside];
-    [backButtonView addSubview:backButton];
-    
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
-    
-    self.navigationItem.leftBarButtonItem = barBtn;
 }
 
 #pragma mark - Binding
@@ -107,7 +86,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 #pragma mark - Actions
 
 - (void)pressBackButton {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Segues
@@ -122,16 +101,12 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 }
 
 - (void)segueToConditionViewController {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
-    
     g5EditReminderConditionListViewController *conditionListVC = [[g5EditReminderConditionListViewController alloc] initWithReminder:self.reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
 }
 
 - (void)segueToEmoticonViewController {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
-
     UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
     MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
     vc.bounceNavigationController = self.bounceNavigationController;
@@ -142,7 +117,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)segueToTitleViewController {
     MDREditReminderTitleViewController *vc = [[MDREditReminderTitleViewController alloc] initWithReminder:self.reminder];
     vc.bounceNavigationController = self.bounceNavigationController;
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -177,7 +152,6 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)didPressCancelButton {
     assert(false);
 }
-
 
 #pragma mark - HROBounceNavigationDatasource
 

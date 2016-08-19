@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -89,6 +89,7 @@
                             <state key="normal" image="button_next"/>
                             <connections>
                                 <action selector="didPressNextButton:" destination="-1" eventType="touchUpInside" id="mdP-6j-37O"/>
+                                <action selector="didPressRightButton:" destination="-1" eventType="touchUpInside" id="QZP-EW-uGC"/>
                             </connections>
                         </button>
                         <imageView hidden="YES" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K2Z-Ap-Akz">
@@ -155,6 +156,7 @@
                             <state key="normal" image="button_cancel"/>
                             <connections>
                                 <action selector="didPressCancelButton:" destination="-1" eventType="touchUpInside" id="drj-cQ-wKM"/>
+                                <action selector="didPressLeftButton:" destination="-1" eventType="touchUpInside" id="BvM-qC-a1F"/>
                             </connections>
                         </button>
                     </subviews>

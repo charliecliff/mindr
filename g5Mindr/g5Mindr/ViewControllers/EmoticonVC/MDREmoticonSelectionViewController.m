@@ -26,6 +26,16 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 @implementation MDREmoticonSelectionViewController
 
+#pragma mark - Init
+
+- (instancetype)initWithReminder:(MDRReminder *)reminder {
+    self = [super init];
+    if (self) {
+        self.reminder = reminder;
+    }
+    return self;
+}
+
 #pragma mark - View Life-Cycle
 
 - (void)viewDidLoad {
@@ -43,7 +53,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     self.navigationItem.title = MDRSelectEmoticonTitle;
     self.navigationItem.hidesBackButton = YES;
     
-    [self setUpNavigationBarButton];
     [self setUpPageControl];
     [self bindToReminder];
     [self scrollToViewControllerAtIndex:self.selectedPageIndex];
@@ -55,17 +64,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 #pragma mark - Set Up
-
-- (void)setUpNavigationBarButton {
-    UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    progressLabel.text = @"2/3";
-    progressLabel.textColor = [UIColor colorWithRed:138.0/255.0 green:183.0/255.0 blue:230.0/255.0 alpha:1];
-    progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-    [barView addSubview:progressLabel];
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
-    self.navigationItem.leftBarButtonItem = barBtn;
-}
 
 - (void)setUpPageControl {
     self.pageControl.underscoreColor = [UIColor whiteColor];
@@ -171,26 +169,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 - (void)didSelectOptionForIndex:(NSInteger)index {
     [self scrollToViewControllerAtIndex:index];
-}
-
-#pragma mark - g5BounceNavigationDelegate
-
-- (void)didPressCenterButton {
-    assert(false);
-}
-
-- (void)didPressPreviousButton {
-    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)didPressNextButton {
-    MDRCreateReminderTitleViewController *vc = [[MDRReminderTitleViewController alloc] initWithReminder:self.reminder];
-    vc.bounceNavigationController = self.bounceNavigationController;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)didPressCancelButton {
-    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

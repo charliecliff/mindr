@@ -197,24 +197,32 @@
     }
 }
 
-- (IBAction)didPressPreviousButton:(id)sender {
-    [self.delegate didPressPreviousButton];
-    if ([self.delegate respondsToSelector:@selector(didPressLeftButton)]) {
+- (IBAction)didPressLeftButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didPressLeftButton)])
         [self.delegate didPressLeftButton];
+}
+
+
+- (IBAction)didPressPreviousButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didPressPreviousButton)]) {
+        [self.delegate didPressPreviousButton];
     }
 }
 
-- (IBAction)didPressNextButton:(id)sender {
-    [self.delegate didPressNextButton];
-    if ([self.delegate respondsToSelector:@selector(didPressRightButton)]) {
+- (IBAction)didPressRightButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didPressRightButton)])
         [self.delegate didPressRightButton];
+}
+
+- (IBAction)didPressNextButton:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(didPressNextButton)]) {
+        [self.delegate didPressNextButton];
     }
 }
 
 - (IBAction)didPressCancelButton:(id)sender {
-    [self.delegate didPressCancelButton];
-    if ([self.delegate respondsToSelector:@selector(didPressBounceButton)]) {
-        [self.delegate didPressBounceButton];
+    if ([self.delegate respondsToSelector:@selector(didPressCancelButton)]) {
+        [self.delegate didPressCancelButton];
     }
 }
 

@@ -1,12 +1,5 @@
-//
-//  g5CreateReminderConditionListViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 5/13/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "g5CreateReminderConditionListViewController.h"
+#import "MDRCreateEmoticonSelectionViewController.h"
 
 @interface g5CreateReminderConditionListViewController ()
 
@@ -28,6 +21,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.bounceNavigationController.delegate = self;
+    [self.bounceNavigationController reload];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
@@ -52,6 +47,18 @@
     [barView addSubview:progressLabel];
     UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
     self.navigationItem.leftBarButtonItem = barBtn;
+}
+
+#pragma mark - g5BounceNavigationDelegate
+
+- (void)didPressRightButton {
+    MDRCreateEmoticonSelectionViewController *vc = [[MDRCreateEmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)didPressLeftButton {
+    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
 @end

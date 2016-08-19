@@ -14,6 +14,13 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"Choose a Title";
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];

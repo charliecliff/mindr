@@ -1,11 +1,3 @@
-//
-//  g5ReminderExplanationViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 4/23/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "MDRReminderTitleViewController.h"
 #import "HROBounceNavigationController.h"
 #import "g5ReminderManager.h"
@@ -17,15 +9,14 @@
     BOOL textFieldIsActive;
 }
 
+@property(nonatomic, strong) UITapGestureRecognizer *selectionTapGestureRecognizer;
+
 @property(nonatomic, strong) IBOutlet UIView *backgroundView;
-@property(nonatomic, strong) IBOutlet UILabel *reminderExplanationLabel;
 @property(nonatomic, strong) IBOutlet UITextField *textField;
 @property(nonatomic, strong) IBOutlet UIButton *deleteTextFieldButton;
-
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *textFieldBottomConstraint;
 @property(nonatomic, strong) IBOutlet NSLayoutConstraint *textFieldHeightConstraint;
-
-@property(nonatomic, strong) UITapGestureRecognizer *selectionTapGestureRecognizer;
+@property(nonatomic, strong) IBOutlet UILabel *reminderExplanationLabel;
 
 @end
 
@@ -46,18 +37,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    self.navigationItem.title = @"Choose a Title";
-    self.navigationItem.hidesBackButton = YES;
-    
-    UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    progressLabel.text = @"3/3";
-    progressLabel.textColor = [UIColor colorWithRed:138.0/255.0 green:183.0/255.0 blue:230.0/255.0 alpha:1];
-    progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
-    [barView addSubview:progressLabel];
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
-    self.navigationItem.leftBarButtonItem = barBtn;
     
     [self.reminderExplanationLabel setTextColor:SECONDARY_FILL_COLOR];
     [self setTextFieldActive:NO];
@@ -123,26 +102,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.textField resignFirstResponder];
     return YES;
-}
-
-#pragma mark - g5BounceNavigationDelegate
-
-- (void)didPressCenterButton {
-    assert(false);
-}
-
-- (void)didPressPreviousButton {
-    assert(false);
-}
-
-- (void)didPressNextButton {
-    self.reminder.title = self.textField.text;
-    [[g5ReminderManager sharedManager] addReminder:self.reminder];
-    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
-}
-
-- (void)didPressCancelButton {
-    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - Keyboard Notifications

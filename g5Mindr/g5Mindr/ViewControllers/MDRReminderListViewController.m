@@ -38,9 +38,6 @@
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = REMINDERS_VC_TITLE;
-    
-//    [self setUpTableView];
-//    [self setUpEditButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -56,6 +53,11 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:YES bounceButton:NO withCompletion:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up

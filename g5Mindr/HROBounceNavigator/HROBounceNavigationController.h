@@ -10,13 +10,12 @@
 
 @protocol HROBounceNavigationDelegate <NSObject>
 
-@required
+@optional
 - (void)didPressCenterButton;
 - (void)didPressPreviousButton;
 - (void)didPressNextButton;
 - (void)didPressCancelButton;
 
-@optional
 - (void)didPressRightButton;
 - (void)didPressLeftButton;
 - (void)didPressBounceButton;

@@ -1,18 +1,10 @@
-//
-//  g5ReminderExplanationViewController.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 4/23/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import "MDREditReminderTitleViewController.h"
 #import "HROBounceNavigationController.h"
 #import "g5ReminderManager.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
-@interface MDREditReminderTitleViewController () <HROBounceNavigationDatasource>
+@interface MDREditReminderTitleViewController () <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
 @end
 
@@ -26,33 +18,29 @@
     return self;
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationItem.title = @"Edit Title";
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.datasource = self;
+    self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController reload];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
-    [super viewWillDisappear:animated];
-}
-
 #pragma mark - g5BounceNavigationDelegate
 
-- (void)didPressCenterButton {
-    assert(false);
+- (void)didPressRightButton {
+    [[g5ReminderManager sharedManager] removeReminder:self.reminder];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)didPressPreviousButton {
-    assert(false);
-}
-
-- (void)didPressNextButton {
-    assert(false);
-}
-
-- (void)didPressCancelButton {
-    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
+- (void)didPressLeftButton {
+    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - HROBounceNavigationDatasource

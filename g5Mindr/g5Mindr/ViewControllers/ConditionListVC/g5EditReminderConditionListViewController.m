@@ -1,8 +1,5 @@
 #import "g5EditReminderConditionListViewController.h"
-
-@interface g5EditReminderConditionListViewController ()
-
-@end
+#import "g5ReminderManager.h"
 
 @implementation g5EditReminderConditionListViewController
 
@@ -12,38 +9,27 @@
     self = [super initWithReminder:reminder];
     if (self) {
         self.navigationItem.title = @"Edit Conditions";
-        [self setUpBackButton];
     }
     return self;
 }
 
 #pragma mark - View Life-Cycle
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+- (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.delegate = self;
+    [self.bounceNavigationController reload];
+    [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
-#pragma mark - Set Up
+#pragma mark - g5BounceNavigationDelegate
 
-- (void)setUpBackButton {
-    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    [backButton setImage:[UIImage imageNamed:@"button_back_grey"] forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(pressBackButton) forControlEvents:UIControlEventTouchUpInside];
-    [backButtonView addSubview:backButton];
-    
-    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:backButtonView];
-    
-    self.navigationItem.leftBarButtonItem = barBtn;
+- (void)didPressRightButton {
+    [[g5ReminderManager sharedManager] removeReminder:self.reminder];
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
-#pragma mark - Actions
-
-- (void)pressBackButton {
-    [self.navigationController popViewControllerAnimated:YES];
+- (void)didPressLeftButton {
+    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
 }
 
 @end

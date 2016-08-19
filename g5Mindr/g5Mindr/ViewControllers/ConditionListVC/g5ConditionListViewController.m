@@ -194,26 +194,4 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     [self.reminder.conditions setObject:condition forKey:condition.type];
 }
 
-#pragma mark - g5BounceNavigationDelegate
-
-- (void)didPressCenterButton {
-    assert(false);
-}
-
-- (void)didPressPreviousButton {
-    [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)didPressNextButton {
-    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
-    MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
-    vc.bounceNavigationController = self.bounceNavigationController;
-    vc.reminder = self.reminder;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)didPressCancelButton {
-    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
-}
-
 @end

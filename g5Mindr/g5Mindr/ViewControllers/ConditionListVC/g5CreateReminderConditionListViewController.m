@@ -50,6 +50,7 @@
 - (void)didPressRightButton {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
     MDRCreateReminderEmoticonSelectionViewController *vc = [sb instantiateViewControllerWithIdentifier:@"MDRCreateEmoticonSelectionViewController"];
+    vc.reminder = self.reminder;
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }

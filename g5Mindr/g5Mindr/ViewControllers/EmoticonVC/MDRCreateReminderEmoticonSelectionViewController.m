@@ -53,6 +53,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 - (void)didPressRightButton {
     MDRCreateReminderTitleViewController *vc = [[MDRCreateReminderTitleViewController alloc] initWithReminder:self.reminder];
     vc.bounceNavigationController = self.bounceNavigationController;
+    vc.reminder = self.reminder;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
 

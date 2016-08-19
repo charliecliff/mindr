@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "493087842.342019"
+            filePath = "g5Mindr/ViewControllers/MDRReminderListViewController.m"
+            timestampString = "493341883.066892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "+postReminder:withUserID:withSuccess:withFailure:"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-didPressCenterButton"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

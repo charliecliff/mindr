@@ -10,8 +10,7 @@
 
 @implementation MDRCreateReminderTitleViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:@"MDRReminderTitleViewController" bundle:nibBundleOrNil];
     if (self) {
     }
@@ -39,7 +38,7 @@
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressRightButton {
-    [[g5ReminderManager sharedManager] removeReminder:self.reminder];
+    [[g5ReminderManager sharedManager] addReminder:self.reminder];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

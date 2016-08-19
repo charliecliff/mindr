@@ -92,7 +92,7 @@
 		DAC857211D668DD400276C09 /* MDREmoticonCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8571D1D668DD400276C09 /* MDREmoticonCollectionViewController.m */; };
 		DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */; };
 		DAC857231D668DD400276C09 /* MDREmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */; };
-		DAC857281D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857251D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.m */; };
+		DAC857281D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */; };
 		DAC857291D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */; };
 		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
@@ -247,8 +247,8 @@
 		DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDREmoticonSelection.storyboard; sourceTree = "<group>"; };
 		DAC8571F1D668DD400276C09 /* MDREmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmoticonSelectionViewController.h; sourceTree = "<group>"; };
 		DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmoticonSelectionViewController.m; sourceTree = "<group>"; };
-		DAC857241D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRCreateEmoticonSelectionViewController.h; sourceTree = "<group>"; };
-		DAC857251D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRCreateEmoticonSelectionViewController.m; sourceTree = "<group>"; };
+		DAC857241D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRCreateReminderEmoticonSelectionViewController.h; sourceTree = "<group>"; };
+		DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRCreateReminderEmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DAC857261D668EAC00276C09 /* MDREditEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditEmoticonSelectionViewController.h; sourceTree = "<group>"; };
 		DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditEmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
@@ -608,15 +608,15 @@
 		DAC8571B1D668DD400276C09 /* EmoticonVC */ = {
 			isa = PBXGroup;
 			children = (
-				DAC857241D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.h */,
-				DAC857251D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.m */,
+				DAC857241D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.h */,
+				DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */,
 				DAC857261D668EAC00276C09 /* MDREditEmoticonSelectionViewController.h */,
 				DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */,
+				DAC8571F1D668DD400276C09 /* MDREmoticonSelectionViewController.h */,
+				DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */,
 				DAC8571C1D668DD400276C09 /* MDREmoticonCollectionViewController.h */,
 				DAC8571D1D668DD400276C09 /* MDREmoticonCollectionViewController.m */,
 				DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */,
-				DAC8571F1D668DD400276C09 /* MDREmoticonSelectionViewController.h */,
-				DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */,
 			);
 			path = EmoticonVC;
 			sourceTree = "<group>";
@@ -901,7 +901,7 @@
 				DA9E913E1D51651A00C1BF36 /* MDRTimeComponents.m in Sources */,
 				DAC857211D668DD400276C09 /* MDREmoticonCollectionViewController.m in Sources */,
 				DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */,
-				DAC857281D668EAC00276C09 /* MDRCreateEmoticonSelectionViewController.m in Sources */,
+				DAC857281D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m in Sources */,
 				DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */,
 				DAC857291D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m in Sources */,
 				DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */,

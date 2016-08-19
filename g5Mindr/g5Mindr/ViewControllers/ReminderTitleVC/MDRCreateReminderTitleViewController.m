@@ -4,6 +4,10 @@
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
 
+@interface MDRCreateReminderTitleViewController () <HROBounceNavigationDatasource>
+
+@end
+
 @implementation MDRCreateReminderTitleViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,27 +38,19 @@
 
 #pragma mark - g5BounceNavigationDelegate
 
-- (void)didPressCenterButton {
-    assert(false);
-}
-
-- (void)didPressPreviousButton {
-    assert(false);
-}
-
-- (void)didPressNextButton {
-    assert(false);
-}
-
-- (void)didPressCancelButton {
+- (void)didPressRightButton {
+    [[g5ReminderManager sharedManager] removeReminder:self.reminder];
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (void)didPressLeftButton {
+    [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
+}
 
 #pragma mark - HROBounceNavigationDatasource
 
 - (UIColor *)rightButtonFillColor {
-    return DELETE_FILL_COLOR;
+    return PRIMARY_FILL_COLOR;
 }
 
 - (UIColor *)leftButtonFillColor {
@@ -74,7 +70,7 @@
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return [UIImage imageNamed:@"button_delete"];
+    return [UIImage imageNamed:@"button_check"];
 }
 
 - (UIImage *)rightCornerButtonImage {

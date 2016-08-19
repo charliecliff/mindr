@@ -4,6 +4,6 @@
 
 @class MDRReminder;
 
-@interface MDRCreateEmoticonSelectionViewController : MDREmoticonSelectionViewController
+@interface MDRCreateReminderEmoticonSelectionViewController : MDREmoticonSelectionViewController
 
 @end

@@ -1,9 +1,5 @@
 #import "g5CreateReminderConditionListViewController.h"
-#import "MDRCreateEmoticonSelectionViewController.h"
-
-@interface g5CreateReminderConditionListViewController ()
-
-@end
+#import "MDRCreateReminderEmoticonSelectionViewController.h"
 
 @implementation g5CreateReminderConditionListViewController
 
@@ -52,7 +48,8 @@
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressRightButton {
-    MDRCreateEmoticonSelectionViewController *vc = [[MDRCreateEmoticonSelectionViewController alloc] initWithReminder:self.reminder];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
+    MDRCreateReminderEmoticonSelectionViewController *vc = [sb instantiateViewControllerWithIdentifier:@"MDRCreateEmoticonSelectionViewController"];
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }

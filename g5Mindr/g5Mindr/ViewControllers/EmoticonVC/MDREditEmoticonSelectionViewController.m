@@ -1,5 +1,4 @@
 #import "MDREditEmoticonSelectionViewController.h"
-#import "MDRCreateReminderTitleViewController.h"
 #import "MDREmoticonCollectionViewController.h"
 #import "g5EmoticonCell.h"
 #import "HROPageControl.h"
@@ -7,6 +6,8 @@
 #import "g5ConfigAndMacros.h"
 #import <PBJHexagonFlowLayout.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
+
 
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_page_view_controller";
@@ -26,15 +27,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 @implementation MDREditEmoticonSelectionViewController
 
-#pragma mark - Init
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:@"MDREmoticonSelection" bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
 #pragma mark - View Life-Cycle
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,7 +39,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 #pragma mark - g5BounceNavigationDelegate
 
 - (void)didPressRightButton {
-    
+
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 

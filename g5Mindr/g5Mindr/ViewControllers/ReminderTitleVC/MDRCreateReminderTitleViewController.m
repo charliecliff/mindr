@@ -73,7 +73,7 @@
 }
 
 - (UIImage *)rightCornerButtonImage {
-    return [UIImage imageNamed:@"button_back"];
+    return [UIImage imageNamed:@"button_cancel"];
 }
 
 @end

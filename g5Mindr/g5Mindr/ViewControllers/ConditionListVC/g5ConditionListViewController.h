@@ -1,14 +1,7 @@
-//
-//  g5ConditionListViewController.h
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import "mindrBounceNavigationViewController.h"
 #import "MDRReminder.h"
+#import "g5ConfigAndMacros.h"
 
 @protocol g5ConditionListViewControllerDelegate <NSObject>
 

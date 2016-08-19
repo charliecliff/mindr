@@ -8,7 +8,6 @@
 #import "g5LocationConditionViewController.h"
 #import "g5ConditionTableViewCell.h"
 #import "g5ReminderManager.h"
-#import "g5ConfigAndMacros.h"
 #import "MDRMessageAndCopy.h"
 #import "AMWaveViewController.h"
 

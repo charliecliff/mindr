@@ -1,6 +1,10 @@
 #import "g5CreateReminderConditionListViewController.h"
 #import "MDRCreateReminderEmoticonSelectionViewController.h"
 
+@interface g5CreateReminderConditionListViewController () <HROBounceNavigationDatasource>
+
+@end
+
 @implementation g5CreateReminderConditionListViewController
 
 #pragma mark - View Life-Cycle
@@ -57,6 +61,36 @@
 
 - (void)didPressLeftButton {
     [self.bounceNavigationController.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - HROBounceNavigationDatasource
+
+- (UIColor *)rightButtonFillColor {
+    return PRIMARY_FILL_COLOR;
+}
+
+- (UIColor *)leftButtonFillColor {
+    return SECONDARY_FILL_COLOR;
+}
+
+- (UIColor *)strokeColor {
+    return PRIMARY_STROKE_COLOR;
+}
+
+- (UIColor *)borderColor {
+    return SECONDARY_FILL_COLOR;
+}
+
+- (UIColor *)textColor {
+    return [UIColor whiteColor];
+}
+
+- (UIImage *)leftCornerButtonImage {
+    return [UIImage imageNamed:@"button_next"];
+}
+
+- (UIImage *)rightCornerButtonImage {
+    return [UIImage imageNamed:@"button_cancel"];
 }
 
 @end

@@ -18,6 +18,10 @@
 
 #define CONDITION_TITLE_FOR_DAY_OF_THE_WEEK @"DAY OF THE WEEK";
 
+#define REMINDER_VIEW_CONTROLLER_SOUND @"Select Notification Sound";
+
 #define CONDITION_VIEW_CONTROLLER_NAVIGATION_TITLE_FOR_DAY_OF_THE_WEEK @"DAY";
 
 #define REMINDERS_VC_ROW_HEIGHT 100
+
+#define REMINDER_SOUNDS [NSArray arrayWithObjects:@"Sound 1",@"Bees", @"Wonderwall", @"Over the Rainbow", nil]

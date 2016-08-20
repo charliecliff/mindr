@@ -1,4 +1,4 @@
-#import "MDREditEmoticonSelectionViewController.h"
+#import "MDREditReminderEmoticonSelectionViewController.h"
 #import "MDREmoticonCollectionViewController.h"
 #import "g5EmoticonCell.h"
 #import "HROPageControl.h"
@@ -12,7 +12,7 @@
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
 static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_page_view_controller";
 
-@interface MDREditEmoticonSelectionViewController ()
+@interface MDREditReminderEmoticonSelectionViewController ()
 
 // PRIVATE
 @property(nonatomic) NSInteger selectedPageIndex;
@@ -25,7 +25,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 @end
 
-@implementation MDREditEmoticonSelectionViewController
+@implementation MDREditReminderEmoticonSelectionViewController
 
 #pragma mark - View Life-Cycle
 

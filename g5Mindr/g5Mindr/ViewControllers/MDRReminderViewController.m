@@ -1,10 +1,15 @@
 #import "MDRReminderViewController.h"
+
 #import "g5EditReminderConditionListViewController.h"
-#import "MDREmoticonSelectionViewController.h"
+#import "MDREditReminderEmoticonSelectionViewController.h"
 #import "MDREditReminderTitleViewController.h"
+#import "MDRReminderSoundViewController.h"
+
 #import "MDRReminderDetailTableViewCell.h"
 #import "g5ReminderDetailButtonTableViewCell.h"
+
 #import "g5ReminderManager.h"
+
 #import "g5ConfigAndMacros.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
@@ -72,6 +77,8 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];
+    [self.bounceNavigationController setLeftButtonEnabled:YES];
+    [self.bounceNavigationController setRightButtonEnabled:YES];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
 }
 
@@ -107,8 +114,8 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 }
 
 - (void)segueToEmoticonViewController {
-    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
-    MDREmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateInitialViewController];
+    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREditReminderEmoticonSelection" bundle:nil];
+    MDREditReminderEmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateViewControllerWithIdentifier:@""];
     vc.bounceNavigationController = self.bounceNavigationController;
     vc.reminder = self.reminder;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
@@ -116,6 +123,12 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 
 - (void)segueToTitleViewController {
     MDREditReminderTitleViewController *vc = [[MDREditReminderTitleViewController alloc] initWithReminder:self.reminder];
+    vc.bounceNavigationController = self.bounceNavigationController;
+    [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)segueToNotificationAlertSoundViewController {
+    MDRReminderSoundViewController *vc = [[MDRReminderSoundViewController alloc] initWithReminder:self.reminder];
     vc.bounceNavigationController = self.bounceNavigationController;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
 }
@@ -130,7 +143,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
         [self segueToConditionViewController];
     }
     else if ( indexPath.row == 2 ) {
-        
+        [self segueToNotificationAlertSoundViewController];
     }
 }
 

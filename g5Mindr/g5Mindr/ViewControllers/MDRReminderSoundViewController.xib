@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDRReminderSoundViewController">
+            <connections>
+                <outlet property="soundTableview" destination="iMz-rv-r8j" id="AYB-US-Jyz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0Tv-es-NFw">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iMz-rv-r8j">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="vGV-k3-hnB"/>
+                        <outlet property="delegate" destination="-1" id="8ez-by-QHX"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0Tv-es-NFw" secondAttribute="bottom" id="3Wp-GH-OJs"/>
+                <constraint firstAttribute="trailing" secondItem="0Tv-es-NFw" secondAttribute="trailing" id="3vl-aV-CtL"/>
+                <constraint firstItem="0Tv-es-NFw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EN0-Cu-bII"/>
+                <constraint firstItem="iMz-rv-r8j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bDs-KW-BFT"/>
+                <constraint firstItem="iMz-rv-r8j" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="64" id="pMx-XF-YeE"/>
+                <constraint firstItem="0Tv-es-NFw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qf7-yK-iSF"/>
+                <constraint firstItem="iMz-rv-r8j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rV5-Ii-zId"/>
+                <constraint firstAttribute="trailing" secondItem="iMz-rv-r8j" secondAttribute="trailing" id="sdz-4p-gA3"/>
+                <constraint firstAttribute="bottom" secondItem="iMz-rv-r8j" secondAttribute="bottom" id="uvc-J2-oxX"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="pMx-XF-YeE"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="375" height="667"/>
+    </resources>
+</document>

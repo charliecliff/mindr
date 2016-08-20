@@ -8,7 +8,7 @@
         <!--Delegate-->
         <scene sceneID="b37-gf-waY">
             <objects>
-                <viewController storyboardIdentifier="MDREditEmoticonSelectionViewController" id="rA8-u7-l50" customClass="MDREditEmoticonSelectionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MDREditEmoticonSelectionViewController" id="rA8-u7-l50" customClass="MDREditReminderEmoticonSelectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FeR-lI-8wg"/>
                         <viewControllerLayoutGuide type="bottom" id="0D9-QK-Yzf"/>

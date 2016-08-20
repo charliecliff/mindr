@@ -1,7 +1,7 @@
 #import "g5CreateReminderConditionListViewController.h"
 #import "MDRCreateReminderEmoticonSelectionViewController.h"
 
-@interface g5CreateReminderConditionListViewController () <HROBounceNavigationDatasource>
+@interface g5CreateReminderConditionListViewController () <HROBounceNavigationDatasource, HROBounceNavigationDelegate>
 
 @end
 
@@ -21,6 +21,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.bounceNavigationController.datasource = self;
     self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController reload];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];

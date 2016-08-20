@@ -79,6 +79,8 @@
 		DA9E91461D516D3A00C1BF36 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91451D516D3A00C1BF36 /* MDRUserContext.m */; };
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
+		DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */; };
+		DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */; };
 		DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoji_faces.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
@@ -93,7 +95,7 @@
 		DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */; };
 		DAC857231D668DD400276C09 /* MDREmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */; };
 		DAC857281D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */; };
-		DAC857291D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */; };
+		DAC857291D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857271D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m */; };
 		DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */; };
 		DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF241CCC6D5F004CA7D6 /* g5DateConditionViewController.m */; };
 		DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8BF261CCC6D5F004CA7D6 /* g5LocationConditionViewController.m */; };
@@ -229,6 +231,9 @@
 		DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserManager.m; sourceTree = "<group>"; };
 		DA9E914A1D516F5400C1BF36 /* MDRUserClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserClient.h; sourceTree = "<group>"; };
 		DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserClient.m; sourceTree = "<group>"; };
+		DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
+		DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderSoundViewController.m; sourceTree = "<group>"; };
+		DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderSoundViewController.xib; sourceTree = "<group>"; };
 		DAB092411CDD839F00F1157B /* emoji_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_faces.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
@@ -249,8 +254,8 @@
 		DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DAC857241D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRCreateReminderEmoticonSelectionViewController.h; sourceTree = "<group>"; };
 		DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRCreateReminderEmoticonSelectionViewController.m; sourceTree = "<group>"; };
-		DAC857261D668EAC00276C09 /* MDREditEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditEmoticonSelectionViewController.h; sourceTree = "<group>"; };
-		DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditEmoticonSelectionViewController.m; sourceTree = "<group>"; };
+		DAC857261D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditReminderEmoticonSelectionViewController.h; sourceTree = "<group>"; };
+		DAC857271D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditReminderEmoticonSelectionViewController.m; sourceTree = "<group>"; };
 		DAC8BF211CCC6D5F004CA7D6 /* g5ConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionViewController.h; sourceTree = "<group>"; };
 		DAC8BF221CCC6D5F004CA7D6 /* g5ConditionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionViewController.m; sourceTree = "<group>"; };
 		DAC8BF231CCC6D5F004CA7D6 /* g5DateConditionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5DateConditionViewController.h; sourceTree = "<group>"; };
@@ -433,6 +438,9 @@
 				DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */,
 				DA83FFE81D4191AF00D6209A /* MDREmptyViewController.h */,
 				DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */,
+				DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */,
+				DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */,
+				DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -610,8 +618,8 @@
 			children = (
 				DAC857241D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.h */,
 				DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */,
-				DAC857261D668EAC00276C09 /* MDREditEmoticonSelectionViewController.h */,
-				DAC857271D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m */,
+				DAC857261D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.h */,
+				DAC857271D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m */,
 				DAC8571F1D668DD400276C09 /* MDREmoticonSelectionViewController.h */,
 				DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */,
 				DAC8571C1D668DD400276C09 /* MDREmoticonCollectionViewController.h */,
@@ -833,6 +841,7 @@
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
+				DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
 				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,
@@ -898,12 +907,13 @@
 				DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */,
 				DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */,
+				DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */,
 				DA9E913E1D51651A00C1BF36 /* MDRTimeComponents.m in Sources */,
 				DAC857211D668DD400276C09 /* MDREmoticonCollectionViewController.m in Sources */,
 				DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */,
 				DAC857281D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m in Sources */,
 				DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */,
-				DAC857291D668EAC00276C09 /* MDREditEmoticonSelectionViewController.m in Sources */,
+				DAC857291D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m in Sources */,
 				DAC8BF341CCC6D5F004CA7D6 /* g5ConditionViewController.m in Sources */,
 				DA30CF431C9E23AD00FD4438 /* MDRWeatherTypeCondition.m in Sources */,
 				DA30CF2B1C9DF96A00FD4438 /* g5ReminderManager.m in Sources */,

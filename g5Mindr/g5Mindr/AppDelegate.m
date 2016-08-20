@@ -50,6 +50,7 @@
     //  Managers
     [[g5ReminderManager sharedManager] loadReminders];
     [[MDRLocationManager sharedManager] startUpdatingLocation];
+    [[MDRUserManager sharedManager] bindToLocationManager:[MDRLocationManager sharedManager]];
     
     //  Register For Push Notifications
     if ([MDRUserManager sharedManager].currentUserContext.userID == nil) {

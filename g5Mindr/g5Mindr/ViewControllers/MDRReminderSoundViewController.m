@@ -48,8 +48,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSInteger tmp = REMINDER_SOUNDS.count + 1;
-    NSLog(@"%ld", (long)tmp);
     return REMINDER_SOUNDS.count + 1;
 }
 

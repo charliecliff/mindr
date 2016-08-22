@@ -24,4 +24,9 @@
 
 #define REMINDERS_VC_ROW_HEIGHT 100
 
-#define REMINDER_SOUNDS [NSArray arrayWithObjects:@"Sound 1",@"Bees", @"Wonderwall", @"Over the Rainbow", nil]
+#define BUTTON_DELETE [UIImage imageNamed:@"button_delete"]
+#define BUTTON_BACK [UIImage imageNamed:@"button_back"]
+#define BUTTON_NEXT [UIImage imageNamed:@"button_next"]
+#define BUTTON_CANCEL [UIImage imageNamed:@"button_cancel"]
+#define BUTTON_NEW [UIImage imageNamed:@"button_new"]
+#define BUTTON_CHECK [UIImage imageNamed:@"button_check"]

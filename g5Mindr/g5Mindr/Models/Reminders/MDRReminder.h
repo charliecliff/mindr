@@ -9,6 +9,8 @@
  }
  */
 
+#define REMINDER_SOUNDS [NSArray arrayWithObjects:@"Sound 1",@"Bees", @"Wonderwall", @"Over the Rainbow", nil]
+
 #import <Foundation/Foundation.h>
 
 static NSString *const kMDRReminderDefault = @"default";

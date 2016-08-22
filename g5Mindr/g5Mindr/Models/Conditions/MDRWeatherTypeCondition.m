@@ -1,10 +1,17 @@
-//
-//  g5WeatherTypeCondition.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/19/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
+/**
+ "type":"weather",
+ "attributes": {
+    "sunny": true,
+    "partly_cloudy": false,
+    "mostly_cloudy": true,
+    "light_rain": true,
+    "heavy_rain": true,
+    "severe_thunderstorm": true,
+    "foggy": false,
+    "windy": false,
+    "snowy": false
+    } 
+ */
 
 #import "MDRWeatherTypeCondition.h"
 
@@ -126,4 +133,47 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     return nil;
 }
 
+/**
+- (void)parseDictionary:(NSDictionary *)dictionary {
+    self.daysOfTheWeek = [[NSMutableSet alloc] init];
+    
+    if ([(NSNumber *)[dictionary objectForKey:@"monday"] boolValue]) {
+        [self setDayOfTheWeek:0];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"tuesday"] boolValue]) {
+        [self setDayOfTheWeek:1];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"wednesday"] boolValue]) {
+        [self setDayOfTheWeek:2];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"thursday"] boolValue]) {
+        [self setDayOfTheWeek:3];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"friday"] boolValue]) {
+        [self setDayOfTheWeek:4];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"saturday"] boolValue]) {
+        [self setDayOfTheWeek:5];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:@"sunday"] boolValue]) {
+        [self setDayOfTheWeek:6];
+    }
+}
+
+- (NSDictionary *)encodeToDictionary {
+    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
+    
+    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:0]])] forKey:@"monday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:1]])] forKey:@"tuesday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:2]])] forKey:@"wednesday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:3]])] forKey:@"thursday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:4]])] forKey:@"friday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:5]])] forKey:@"saturday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:6]])] forKey:@"sunday"];
+    
+    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
+    return superDictionary;
+}
+*/
 @end

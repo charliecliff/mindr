@@ -139,8 +139,8 @@
     self.rightButtonOverlayImageView.layer.cornerRadius = self.rightButtonBackground.frame.size.width / 2;
     self.rightButtonOverlayImageView.layer.masksToBounds = YES;
     
-    if ([self.datasource respondsToSelector:@selector(leftCornerButtonImage)]) {
-        [self.rightButton setImage:[self.datasource leftCornerButtonImage] forState:UIControlStateNormal];
+    if ([self.datasource respondsToSelector:@selector(rightCornerButtonImage)]) {
+        [self.rightButton setImage:[self.datasource rightCornerButtonImage] forState:UIControlStateNormal];
     }
 }
 
@@ -165,8 +165,8 @@
     self.leftButtonBackground.layer.borderColor = [[self.datasource strokeColor] CGColor];
     self.leftButtonBackground.layer.borderWidth = 4.0;
     
-    if ([self.datasource respondsToSelector:@selector(rightCornerButtonImage)]) {
-        [self.leftButton setImage:[self.datasource rightCornerButtonImage] forState:UIControlStateNormal];
+    if ([self.datasource respondsToSelector:@selector(leftCornerButtonImage)]) {
+        [self.leftButton setImage:[self.datasource leftCornerButtonImage] forState:UIControlStateNormal];
     }
 }
 

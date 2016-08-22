@@ -30,7 +30,7 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     }
     else if ( indexPath.row == 2 ) {
         cell.titleLabel.text = @"Sound";
-        cell.explanationLabel.text = self.reminder.title;
+        cell.explanationLabel.text = self.reminder.sound;
     }
     return cell;
 }
@@ -45,8 +45,11 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 
 @interface MDRReminderViewController () <UITableViewDelegate>
 
+// PRIVATE
+@property (nonatomic, weak) UITableViewController *detailVC;
+
 // PROTECTED
-@property(nonatomic, strong, readwrite) NSMutableArray *cells;
+@property (nonatomic, strong, readwrite) NSMutableArray *cells;
 
 // OUTLETS
 @property (nonatomic, strong) IBOutlet UILabel *emoticonLabel;
@@ -77,6 +80,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];
+    [self.detailVC.tableView reloadData]; // HMMMMMMM
     [self.bounceNavigationController setLeftButtonEnabled:YES];
     [self.bounceNavigationController setRightButtonEnabled:YES];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
@@ -96,6 +100,10 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (IBAction)didPressEmojiButton:(id)sender {
+    [self segueToEmoticonViewController];
+}
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -104,6 +112,8 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
         reminderDetailsTableViewController.reminder = self.reminder;
         reminderDetailsTableViewController.tableView.delegate = self;
         [reminderDetailsTableViewController.tableView reloadData];
+        
+        self.detailVC = reminderDetailsTableViewController;
     }
 }
 
@@ -114,8 +124,8 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 }
 
 - (void)segueToEmoticonViewController {
-    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREditReminderEmoticonSelection" bundle:nil];
-    MDREditReminderEmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateViewControllerWithIdentifier:@""];
+    UIStoryboard *emoticonReminderStoryboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:nil];
+    MDREditReminderEmoticonSelectionViewController *vc = [emoticonReminderStoryboard instantiateViewControllerWithIdentifier:@"MDREditEmoticonSelectionViewController"];
     vc.bounceNavigationController = self.bounceNavigationController;
     vc.reminder = self.reminder;
     [self.bounceNavigationController.navigationController pushViewController:vc animated:YES];
@@ -189,11 +199,11 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return [UIImage imageNamed:@"button_delete"];
+    return BUTTON_BACK;
 }
 
 - (UIImage *)rightCornerButtonImage {
-    return [UIImage imageNamed:@"button_back"];
+    return BUTTON_DELETE;
 }
 
 @end

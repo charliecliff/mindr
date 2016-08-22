@@ -1,18 +1,30 @@
-//
-//  g5TimeCondition.m
-//  g5Mindr
-//
-//  Created by Charles Cliff on 3/24/16.
-//  Copyright © 2016 Charles Cliff. All rights reserved.
-//
+/**
+ {
+    "user_id": "brandon",
+    "title": "tester",
+    "active": false,
+    "sound": null,
+    "description": "a thing when something is true",
+    "conditions": [
+        {
+            "type":"time",
+            "attributes": 
+            {
+                "times": [
+                "13:37:00 -0500"
+                ]
+            }
+        }
+    ]
+ }
+ */
 
 #import "MDRTimeCondition.h"
 
-#define NOON 43200
-
-static NSString *const MDRTimeComponentHour     = @"hour";
-static NSString *const MDRTimeComponentMinute   = @"minute";
-static NSString *const MDRTimeComponentMeridian = @"meridian";
+static NSString *const MDRTimeComponentHour          = @"hour";
+static NSString *const MDRTimeComponentMinute        = @"minute";
+static NSString *const MDRTimeComponentMeridian      = @"meridian";
+static NSString *const MDRTimeConditionDateFormatter = @"HH:MM:SS Z";
 
 @implementation MDRTime
 

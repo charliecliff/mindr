@@ -66,11 +66,11 @@
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return [UIImage imageNamed:@"button_delete"];
+    return BUTTON_BACK;
 }
 
 - (UIImage *)rightCornerButtonImage {
-    return [UIImage imageNamed:@"button_back"];
+    return BUTTON_DELETE;
 }
 
 @end

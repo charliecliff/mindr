@@ -10,7 +10,7 @@
 #import "AMWaveTransition.h"
 
 #define coordinate 65
-#define previous_button_bottom_constraint_on_screen 30
+#define previous_button_bottom_constraint_on_screen 40
 
 @interface HROBounceNavigationController () <UINavigationControllerDelegate> {
     UIViewController *rootVC;
@@ -246,7 +246,7 @@
     }
     
     if (bottom) {       // Display Bottom
-        self.centerButtonBottomConstraint.constant = -55;
+        self.centerButtonBottomConstraint.constant = -70;
     }
     else {              // Hide Bottom
         self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
@@ -275,112 +275,5 @@
                          }
                      }];
 }
-
-
-
-
-
-/*
-- (void)hideCornerButtonsWithCompletion:(void (^)(void))completion {
-    self.nextButtonBottomConstraint.constant   = -2*coordinate;
-    self.nextButtonTrailingConstraint.constant = -2*coordinate;
-    
-    self.backButtonBottomConstraint.constant   = -2*coordinate;
-    self.backButtonLeadingConstraint.constant  = -2*coordinate;
-    
-
-}
-
-- (void)hideCenterButtonWithCompletion:(void (^)(void))completion {
-    self.centerButtonBottomConstraint.constant = -self.centerButtonHeightConstraint.constant;
-    
-    [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished && completion) {
-                             completion();
-                         }
-                     }];
-}
-
-- (void)hidePreviousButtonWithCompletion:(void (^)(void))completion {
-    self.previousButtonBottomConstraint.constant = -self.previousButtonHeightConstraint.constant;
-    
-    [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished && completion) {
-                             completion();
-                         }
-                     }];
-}
-
-- (void)displayCornerButtonsOntoScreenWithCompletion:(void (^)(void))completion {
-    self.nextButtonBottomConstraint.constant   = -coordinate;
-    self.nextButtonTrailingConstraint.constant = -coordinate;
-
-    self.backButtonBottomConstraint.constant   = -coordinate;
-    self.backButtonLeadingConstraint.constant  = -coordinate;
-    
-    [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:20
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                        }
-                     completion:^(BOOL finished) {
-                         if (finished && completion) {
-                             completion();
-                         }
-                     }];
-}
-
-- (void)displayCenterButtonOntoScreenWithCompletion:(void (^)(void))completion {
-    self.centerButtonBottomConstraint.constant = -55;
-    
-    [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:20
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished && completion) {
-                             completion();
-                         }
-                     }];
-}
-
-- (void)displayPreviousButtonOntoScreenWithCompletion:(void (^)(void))completion {
-    self.previousButtonBottomConstraint.constant = previous_button_bottom_constraint_on_screen;
-    
-    [self.view setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3
-                          delay:0.0
-         usingSpringWithDamping:0.5
-          initialSpringVelocity:20
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         [self.view layoutIfNeeded];
-                     }
-                     completion:^(BOOL finished) {
-                         if (finished && completion) {
-                             completion();
-                         }
-                     }];
-}
-*/
 
 @end

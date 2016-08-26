@@ -8,6 +8,8 @@
 
 @interface MDRReminderSoundViewController () <UITableViewDataSource, UITableViewDelegate, HROBounceNavigationDelegate>
 
+@property (strong, nonatomic) AVAudioPlayer *player;
+
 @property (nonatomic, strong) IBOutlet UITableView *soundTableview;
 
 @end
@@ -45,9 +47,8 @@
 - (void)playSoundFileWithName:(NSString *)fileName {
     NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4r"];
     NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:pewPewURL error:nil];
-    [audioPlayer play];
-    audioPlayer = nil;
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:pewPewURL error:nil];
+    [self.player play];
 }
 
 #pragma mark - UITableViewDatasource

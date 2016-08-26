@@ -30,3 +30,15 @@
 #define BUTTON_CANCEL [UIImage imageNamed:@"button_cancel"]
 #define BUTTON_NEW [UIImage imageNamed:@"button_new"]
 #define BUTTON_CHECK [UIImage imageNamed:@"button_check"]
+
+#define SOUND_SYSTEM        @"System"
+#define SOUND_FAST_ACTION   @"Fast Action"
+#define SOUND_RAINDROP      @"Raindrop"
+#define SOUND_STAR_FALL     @"Star Fall"
+#define SOUND_WONDER        @"Wonder"
+#define SOUND_BOUNCE        @"Bounce"
+#define SOUND_GREETING      @"Greeting"
+#define SOUND_FLOAT         @"Float"
+#define SOUND_PING_PONG     @"Ping Pong"
+#define SOUND_BELLS         @"Bells"
+#define REMINDER_SOUNDS [NSArray arrayWithObjects:SOUND_SYSTEM, SOUND_FAST_ACTION, SOUND_RAINDROP, SOUND_STAR_FALL, SOUND_WONDER, SOUND_BOUNCE, SOUND_GREETING, SOUND_FLOAT, SOUND_PING_PONG, SOUND_BELLS, nil]

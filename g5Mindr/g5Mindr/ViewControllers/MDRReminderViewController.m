@@ -38,8 +38,8 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-//    return 3;
+//    return 2;
+    return 3;
 }
 
 @end

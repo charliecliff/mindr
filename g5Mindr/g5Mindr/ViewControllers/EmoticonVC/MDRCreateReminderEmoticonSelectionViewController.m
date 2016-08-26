@@ -96,7 +96,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return BUTTON_BACK;
+    return BUTTON_CANCEL;
 }
 
 - (UIImage *)rightCornerButtonImage {

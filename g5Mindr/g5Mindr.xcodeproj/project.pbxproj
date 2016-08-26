@@ -58,6 +58,15 @@
 		DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* MDRTemperatureCondition.m */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
+		DA3670741D70E2AB0038A5F4 /* Fast Action.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */; };
+		DA3670751D70E2AB0038A5F4 /* Raindrop.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */; };
+		DA3670761D70E2AB0038A5F4 /* Star Fall.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */; };
+		DA3670771D70E2AB0038A5F4 /* Wonder.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */; };
+		DA3670781D70E2AB0038A5F4 /* Bounce.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */; };
+		DA3670791D70E2AB0038A5F4 /* Greeting.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670701D70E2AB0038A5F4 /* Greeting.m4r */; };
+		DA36707A1D70E2AB0038A5F4 /* Float.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670711D70E2AB0038A5F4 /* Float.m4r */; };
+		DA36707B1D70E2AB0038A5F4 /* Ping Pong.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */; };
+		DA36707C1D70E2AB0038A5F4 /* Bells.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670731D70E2AB0038A5F4 /* Bells.m4r */; };
 		DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */; };
 		DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
 		DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */; };
@@ -194,6 +203,15 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
+		DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fast Action.m4r"; sourceTree = "<group>"; };
+		DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Raindrop.m4r; sourceTree = "<group>"; };
+		DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Star Fall.m4r"; sourceTree = "<group>"; };
+		DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wonder.m4r; sourceTree = "<group>"; };
+		DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bounce.m4r; sourceTree = "<group>"; };
+		DA3670701D70E2AB0038A5F4 /* Greeting.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greeting.m4r; sourceTree = "<group>"; };
+		DA3670711D70E2AB0038A5F4 /* Float.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Float.m4r; sourceTree = "<group>"; };
+		DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ping Pong.m4r"; sourceTree = "<group>"; };
+		DA3670731D70E2AB0038A5F4 /* Bells.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bells.m4r; sourceTree = "<group>"; };
 		DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
 		DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
 		DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
@@ -517,6 +535,22 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		DA36706A1D70E2AB0038A5F4 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */,
+				DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */,
+				DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */,
+				DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */,
+				DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */,
+				DA3670701D70E2AB0038A5F4 /* Greeting.m4r */,
+				DA3670711D70E2AB0038A5F4 /* Float.m4r */,
+				DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */,
+				DA3670731D70E2AB0038A5F4 /* Bells.m4r */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
 		DA4C5FDF1D6530A1003CC595 /* ConditionListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +695,7 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA36706A1D70E2AB0038A5F4 /* sounds */,
 				DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */,
 				DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */,
 				DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */,
@@ -807,16 +842,21 @@
 				DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */,
 				DAF695821D5A343900CD0189 /* emoji_sports.plist in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
+				DA3670741D70E2AB0038A5F4 /* Fast Action.m4r in Resources */,
 				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
+				DA3670771D70E2AB0038A5F4 /* Wonder.m4r in Resources */,
 				DA15F2021D5A69C300CD44EE /* emoji_transport.plist in Resources */,
+				DA3670781D70E2AB0038A5F4 /* Bounce.m4r in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
+				DA3670761D70E2AB0038A5F4 /* Star Fall.m4r in Resources */,
 				DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */,
 				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
+				DA36707C1D70E2AB0038A5F4 /* Bells.m4r in Resources */,
 				DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */,
 				DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
@@ -833,15 +873,19 @@
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
+				DA36707A1D70E2AB0038A5F4 /* Float.m4r in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
 				DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */,
 				DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */,
 				DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */,
+				DA36707B1D70E2AB0038A5F4 /* Ping Pong.m4r in Resources */,
+				DA3670791D70E2AB0038A5F4 /* Greeting.m4r in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
 				DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */,
+				DA3670751D70E2AB0038A5F4 /* Raindrop.m4r in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
 				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,

@@ -3,7 +3,7 @@
 #import "MDRUserClient.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-static NSString* const kMDRSimulatorUserID = @"ffffffffffffffff";
+static NSString* const kMDRSimulatorUserID = @"simulator_id";
 
 @interface MDRUserManager ()
 

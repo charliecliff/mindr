@@ -5,6 +5,9 @@
 #import "MDRLocationCondition.h"
 #import "MDRWeatherTypeCondition.h"
 #import "MDRTemperatureCondition.h"
+
+#import "g5ConfigAndMacros.h"
+
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *const kMDRReminderType                     = @"type";
@@ -45,7 +48,7 @@ static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
         self.isActive = YES;
         self.title = kMDRReminderDefaultTitle;
         self.emoji = kMDRReminderDefault;
-        self.sound = [REMINDER_SOUNDS objectAtIndex:1];
+        self.sound = SOUND_SYSTEM;
         
         [self setUpConditions];
     }

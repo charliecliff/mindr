@@ -23,10 +23,12 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     MDRReminderDetailTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MDRReminderDetailCellIdentifier];
     if ( indexPath.row == 0 ) {
         cell.titleLabel.text = @"Title";
-        cell.explanationLabel.text = self.reminder.title;
+        cell.explanationLabel.hidden = YES;
+//        cell.explanationLabel.text = self.reminder.title;
     }
     else if ( indexPath.row == 1 ) {
         cell.titleLabel.text = @"Conditions";
+        cell.explanationLabel.hidden = YES;
     }
     else if ( indexPath.row == 2 ) {
         cell.titleLabel.text = @"Sound";

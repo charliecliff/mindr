@@ -22,6 +22,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = @"Choose a Title";
     self.navigationItem.hidesBackButton = YES;
+    [self setUpProgressLabel];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -33,6 +34,17 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
     [super viewWillDisappear:animated];
+}
+
+- (void)setUpProgressLabel {
+    UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
+    progressLabel.text = @"3/3";
+    progressLabel.textColor = [UIColor colorWithRed:138.0/255.0 green:183.0/255.0 blue:230.0/255.0 alpha:1];
+    progressLabel.font = [UIFont fontWithName:@"ProximaNovaSoftW03-Bold" size:18.0f];
+    [barView addSubview:progressLabel];
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithCustomView:barView];
+    self.navigationItem.leftBarButtonItem = barBtn;
 }
 
 #pragma mark - g5BounceNavigationDelegate

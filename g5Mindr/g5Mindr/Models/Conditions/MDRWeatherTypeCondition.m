@@ -15,8 +15,6 @@
 
 #import "MDRWeatherTypeCondition.h"
 
-static NSString *const kMDRConditionWeatherTypes = @"weather_types";
-
 NSString *const g5WeatherSunny              = @"weather_mostlysunny";
 NSString *const g5WeatherPartlyCloudy       = @"weather_partlycloudy";
 NSString *const g5WeatherMostlyCloudy       = @"weather_mostlycloudy";
@@ -40,7 +38,7 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
-        self.type        = g5WeatherType;
+        self.type = g5WeatherType;
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
         [self updateDescription];
     }

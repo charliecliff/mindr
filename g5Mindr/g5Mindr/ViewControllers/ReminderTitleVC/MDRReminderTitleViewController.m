@@ -41,6 +41,9 @@
     [self.reminderExplanationLabel setTextColor:SECONDARY_FILL_COLOR];
     [self setTextFieldActive:NO];
     
+    self.reminderExplanationLabel.text = self.reminder.title;
+    self.textField.text = self.reminderExplanationLabel.text;
+
     self.selectionTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectExplanation)];
     [self.backgroundView addGestureRecognizer:self.selectionTapGestureRecognizer];
 }

@@ -2,7 +2,7 @@
 #import "g5EmoticonCell.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
-#import <PBJHexagonFlowLayout.h>
+#import "PBJHexagonFlowLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @implementation MDREmoticonCollectionViewController

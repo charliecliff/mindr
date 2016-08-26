@@ -5,7 +5,7 @@
 #import "HROPageControl.h"
 #import "MDRReminder.h"
 #import "g5ConfigAndMacros.h"
-#import <PBJHexagonFlowLayout.h>
+#import "PBJHexagonFlowLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";

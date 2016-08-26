@@ -7,7 +7,7 @@
 
 #import "MDRCreateReminderTitleViewController.h"
 
-#import <PBJHexagonFlowLayout.h>
+#import "PBJHexagonFlowLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";

@@ -89,6 +89,7 @@
 		DA9E91461D516D3A00C1BF36 /* MDRUserContext.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91451D516D3A00C1BF36 /* MDRUserContext.m */; };
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
+		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
 		DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */; };
 		DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */; };
 		DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoji_faces.plist */; };
@@ -251,6 +252,8 @@
 		DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserManager.m; sourceTree = "<group>"; };
 		DA9E914A1D516F5400C1BF36 /* MDRUserClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserClient.h; sourceTree = "<group>"; };
 		DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserClient.m; sourceTree = "<group>"; };
+		DAAD3EC41D70EC870050F69C /* PBJHexagonFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBJHexagonFlowLayout.h; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.h"; sourceTree = SOURCE_ROOT; };
+		DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBJHexagonFlowLayout.m; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.m"; sourceTree = SOURCE_ROOT; };
 		DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
 		DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderSoundViewController.m; sourceTree = "<group>"; };
 		DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderSoundViewController.xib; sourceTree = "<group>"; };
@@ -558,6 +561,8 @@
 		DA36707F1D70EBBC0038A5F4 /* PBJHexagonFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
+				DAAD3EC41D70EC870050F69C /* PBJHexagonFlowLayout.h */,
+				DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */,
 			);
 			path = PBJHexagonFlowLayout;
 			sourceTree = SOURCE_ROOT;
@@ -1016,6 +1021,7 @@
 				DA2EA6DF1CFB569F004338CA /* MDRDayOfTheWeekCondition.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */,
 				DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */,
+				DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */,
 				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
 				DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */,
 			);

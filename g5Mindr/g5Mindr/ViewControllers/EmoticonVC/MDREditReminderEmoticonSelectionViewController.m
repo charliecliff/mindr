@@ -8,7 +8,7 @@
 #import "g5ReminderManager.h"
 
 #import "g5ConfigAndMacros.h"
-#import <PBJHexagonFlowLayout.h>
+#import "PBJHexagonFlowLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 

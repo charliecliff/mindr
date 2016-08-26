@@ -65,11 +65,11 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     __weak __typeof(self)weakSelf = self;
 
     _conditionIDs = @[
-//                      g5TimeType,  //TODO: Not Supported
+                      g5TimeType,  //TODO: Not Supported
 //                      g5DayOfTheWeekType,
 //                      g5DateType,
 //                      g5TemperatureType,
-                      g5WeatherType, //TODO: Not Supported
+//                      g5WeatherType, //TODO: Not Supported
 //                      g5LocationType
                       ];
     
@@ -110,11 +110,11 @@ static NSString *const kMDRReminderConditions               = @"conditions";
     }];
     
     _conditions   = [[NSMutableDictionary alloc] init];
-//    [_conditions setObject:timeCondition forKey:timeCondition.type]; // TODO
+    [_conditions setObject:timeCondition forKey:timeCondition.type]; // TODO
 //    [_conditions setObject:dayOfTheWeekCondition forKey:dayOfTheWeekCondition.type];
 //    [_conditions setObject:dateCondition forKey:dateCondition.type];
 //    [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
-    [_conditions setObject:weatherCondition forKey:weatherCondition.type]; //TODO
+//    [_conditions setObject:weatherCondition forKey:weatherCondition.type]; //TODO
 //    [_conditions setObject:locationCondition forKey:locationCondition.type];
 }
 

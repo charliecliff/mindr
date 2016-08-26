@@ -18,6 +18,7 @@ typedef enum {
 @property(nonatomic) NSInteger hour;
 @property(nonatomic) NSInteger minute;
 @property(nonatomic) MDRTimeMeridian meridian;
+@property(nonatomic, strong) NSString *timeZoneString;
 
 - (NSString *)description;
 

@@ -24,7 +24,8 @@
 static NSString *const MDRTimeComponentHour          = @"hour";
 static NSString *const MDRTimeComponentMinute        = @"minute";
 static NSString *const MDRTimeComponentMeridian      = @"meridian";
-static NSString *const MDRTimeConditionDateFormatter = @"HH:MM:SS Z";
+static NSString *const MDRTimeConditionDateFormatterForServer  = @"HH:MM:SS";
+static NSString *const MDRTimeConditionDateFormatterForDisplay = @"hh:mm a";
 
 @implementation MDRTime
 
@@ -33,46 +34,88 @@ static NSString *const MDRTimeConditionDateFormatter = @"HH:MM:SS Z";
 - (instancetype)init {
     self = [super init];
     if (self != nil) {
-        self.hour     = 12;
-        self.minute   = 0;
-        self.meridian = MDRTimePM;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"Z"];
+        [formatter setTimeZone:[NSTimeZone localTimeZone]];
+        _timeZoneString = [formatter stringFromDate:[NSDate date]];
+        
+        _hour     = 12;
+        _minute   = 0;
+        _meridian = MDRTimeAM;
     }
     return self;
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithString:(NSString *)string {
     self = [super init];
     if (self != nil) {
-        self.hour     = [[dictionary objectForKey:MDRTimeComponentHour] integerValue];
-        self.minute   = [[dictionary objectForKey:MDRTimeComponentMinute] integerValue];
-        self.meridian = [[dictionary objectForKey:MDRTimeComponentMeridian] intValue];
+        [self parseDateString:string];
     }
     return self;
 }
 
-- (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    [dictionary setObject:[NSNumber numberWithInteger:self.hour] forKey:MDRTimeComponentHour];
-    [dictionary setObject:[NSNumber numberWithInteger:self.minute] forKey:MDRTimeComponentMinute];
-    [dictionary setObject:[NSNumber numberWithInteger:self.meridian] forKey:MDRTimeComponentMeridian];
-    return dictionary;
+#pragma mark - Parse
+
+- (NSString *)encodeToString {
+    NSInteger hourInTwentyFourFormat = self.hour;
+    
+    if (hourInTwentyFourFormat == 12 && self.meridian == MDRTimeAM) {
+        hourInTwentyFourFormat = 0;
+    }
+    else if (hourInTwentyFourFormat != 12 && self.meridian == MDRTimePM) {
+        hourInTwentyFourFormat = hourInTwentyFourFormat + 12;
+    }
+    
+    NSString *dateString = [NSString stringWithFormat:@"%02ld:%02ld:00", (long)hourInTwentyFourFormat, (long)self.minute];
+    
+    if (_meridian == MDRTimeAM) {
+        dateString= [NSString stringWithFormat:@"%@", dateString];
+    }
+    else if (_meridian == MDRTimePM) {
+        dateString= [NSString stringWithFormat:@"%@", dateString];
+    }
+    
+    dateString= [NSString stringWithFormat:@"%@ %@", dateString, self.timeZoneString];
+
+    return dateString;
 }
 
-//TODO Edit?
-- (NSString *)description {
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.hour = self.hour;
-    if (dateComponents.hour == 12 && self.meridian == MDRTimeAM)
-        dateComponents.hour = 0;
-    if (dateComponents.hour != 12 && self.meridian == MDRTimePM)
-        dateComponents.hour = dateComponents.hour + 12;
-    dateComponents.minute = self.minute;
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *timeOfDayDate = [gregorianCalendar dateFromComponents:dateComponents];
+- (void)parseDateString:(NSString *)string {
+//    "13:37:00 -0500"
+    _timeZoneString = [string substringWithRange:NSMakeRange(string.length - 6, 5)];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.timeStyle =  NSDateFormatterShortStyle;
-    return [formatter stringFromDate:timeOfDayDate];
+    NSArray *chunks = [string componentsSeparatedByString: @":"];
+    _hour   = [[chunks objectAtIndex:0] integerValue];
+    _minute = [[chunks objectAtIndex:1] integerValue];
+    
+    if (_hour > 12) {
+        _hour = _hour - 12;
+        _meridian = MDRTimePM;
+    }
+    else if (_hour == 12) {
+        _meridian = MDRTimePM;
+    }
+    else if (_hour < 12 && _hour > 0) {
+        _meridian = MDRTimeAM;
+    }
+    else {
+        _hour = 12;
+        _meridian = MDRTimeAM;
+    }
+    
+}
+
+- (NSString *)description {
+    NSString *dateString = [NSString stringWithFormat:@"%ld:%02ld", (long)self.hour, (long)self.minute];
+    
+    if (_meridian == MDRTimeAM) {
+        dateString= [NSString stringWithFormat:@"%@ AM", dateString];
+    }
+    else if (_meridian == MDRTimePM) {
+        dateString= [NSString stringWithFormat:@"%@ PM", dateString];
+    }
+    
+    return dateString;
 }
 
 @end
@@ -138,8 +181,8 @@ static NSString *const MDRTimeComponentTimes = @"times";
 
 - (void)parseDictionary:(NSDictionary *)dictionary {
     NSArray *arrayOfTimeDictionaries = [dictionary objectForKey:kMDRConditionAttributes];
-    for (NSDictionary *currentDictionary in arrayOfTimeDictionaries) {
-        MDRTime *currentTime = [[MDRTime alloc] initWithDictionary:currentDictionary];
+    for (NSString *currentTimeString in arrayOfTimeDictionaries) {
+        MDRTime *currentTime = [[MDRTime alloc] initWithString:currentTimeString];
         [self addTime:currentTime];
     }
 }
@@ -149,7 +192,7 @@ static NSString *const MDRTimeComponentTimes = @"times";
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
     NSMutableArray *timesArray = [[NSMutableArray alloc] init];
     for (MDRTime *currentTime in self.times) {
-        [timesArray addObject:[currentTime encodeToDictionary]];
+        [timesArray addObject:[currentTime encodeToString]];
     }
     [attributeDictionary setObject:timesArray forKey:MDRTimeComponentTimes];
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];

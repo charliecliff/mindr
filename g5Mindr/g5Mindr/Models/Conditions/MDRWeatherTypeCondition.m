@@ -41,7 +41,6 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     self = [super initWithDictionary:dictionary];
     if (self != nil) {
         self.type        = g5WeatherType;
-        self.weatherTypes= [[NSMutableSet alloc] init];
         [self parseDictionary:dictionary[kMDRConditionAttributes]];
         [self updateDescription];
     }
@@ -94,21 +93,6 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     [self updateDescription];
 }
 
-#pragma mark - Persistence
-
-- (void)parseDictionary:(NSDictionary *)dictionary {
-    NSArray *arrayOfWeatherTypes = [dictionary objectForKey:kMDRConditionWeatherTypes];
-    self.weatherTypes = [NSMutableSet setWithArray:arrayOfWeatherTypes];
-}
-
-- (NSDictionary *)encodeToDictionary {
-    NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
-    NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
-    [attributeDictionary setObject:self.weatherTypes.allObjects forKey:kMDRConditionWeatherTypes];
-    [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
-    return superDictionary;
-}
-
 #pragma mark - Class Helpers
 
 + (NSString *)descriptionFromWeatherType:(NSString *)weatherType {
@@ -133,30 +117,37 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     return nil;
 }
 
-/**
+#pragma mark - Persistence
+
 - (void)parseDictionary:(NSDictionary *)dictionary {
-    self.daysOfTheWeek = [[NSMutableSet alloc] init];
+    self.weatherTypes= [[NSMutableSet alloc] init];
     
-    if ([(NSNumber *)[dictionary objectForKey:@"monday"] boolValue]) {
-        [self setDayOfTheWeek:0];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherSunny] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherSunny];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"tuesday"] boolValue]) {
-        [self setDayOfTheWeek:1];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherPartlyCloudy] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherPartlyCloudy];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"wednesday"] boolValue]) {
-        [self setDayOfTheWeek:2];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherMostlyCloudy] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherMostlyCloudy];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"thursday"] boolValue]) {
-        [self setDayOfTheWeek:3];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherLightRain] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherLightRain];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"friday"] boolValue]) {
-        [self setDayOfTheWeek:4];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherHeavyRain] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherHeavyRain];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"saturday"] boolValue]) {
-        [self setDayOfTheWeek:5];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherSeverThunderstorm] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherSeverThunderstorm];
     }
-    if ([(NSNumber *)[dictionary objectForKey:@"sunday"] boolValue]) {
-        [self setDayOfTheWeek:6];
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherFoggy] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherFoggy];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherWindy] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherWindy];
+    }
+    if ([(NSNumber *)[dictionary objectForKey:g5WeatherSnowy] boolValue]) {
+        [self.weatherTypes addObject:g5WeatherSnowy];
     }
 }
 
@@ -164,16 +155,18 @@ NSString *const g5WeatherSnowy              = @"weather_snowy";
     NSMutableDictionary *superDictionary = [NSMutableDictionary dictionaryWithDictionary:[super encodeToDictionary]];
     
     NSMutableDictionary *attributeDictionary = [[NSMutableDictionary alloc] init];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:0]])] forKey:@"monday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:1]])] forKey:@"tuesday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:2]])] forKey:@"wednesday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:3]])] forKey:@"thursday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:4]])] forKey:@"friday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:5]])] forKey:@"saturday"];
-    [attributeDictionary setObject:[NSNumber numberWithBool:([self.daysOfTheWeek containsObject:[NSNumber numberWithUnsignedInteger:6]])] forKey:@"sunday"];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherSunny])] forKey:g5WeatherSunny];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherPartlyCloudy])] forKey:g5WeatherPartlyCloudy];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherMostlyCloudy])] forKey:g5WeatherMostlyCloudy];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherLightRain])] forKey:g5WeatherLightRain];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherHeavyRain])] forKey:g5WeatherHeavyRain];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherSeverThunderstorm])] forKey:g5WeatherSeverThunderstorm];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherFoggy])] forKey:g5WeatherFoggy];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherWindy])] forKey:g5WeatherWindy];
+    [attributeDictionary setObject:[NSNumber numberWithBool:([self.weatherTypes containsObject:g5WeatherSnowy])] forKey:g5WeatherSnowy];
     
     [superDictionary setObject:attributeDictionary forKey:kMDRConditionAttributes];
     return superDictionary;
 }
-*/
+
 @end

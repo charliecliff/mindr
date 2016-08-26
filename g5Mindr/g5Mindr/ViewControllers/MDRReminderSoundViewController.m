@@ -1,7 +1,10 @@
 #import "MDRReminderSoundViewController.h"
 #import "g5DayOfTheWeekConditionTableViewCell.h"
 #import "g5ReminderManager.h"
+
 #import "g5ConfigAndMacros.h"
+
+#import <AVFoundation/AVFoundation.h>
 
 @interface MDRReminderSoundViewController () <UITableViewDataSource, UITableViewDelegate, HROBounceNavigationDelegate>
 
@@ -37,8 +40,14 @@
     [self.bounceNavigationController reload];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+#pragma mark - Sound Helper
+
+- (void)playSoundFileWithName:(NSString *)fileName {
+    NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"m4r"];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:pewPewURL error:nil];
+    [audioPlayer play];
+    audioPlayer = nil;
 }
 
 #pragma mark - UITableViewDatasource
@@ -82,6 +91,7 @@
     if (indexPath.row >= REMINDER_SOUNDS.count) return;
     self.reminder.sound = [REMINDER_SOUNDS objectAtIndex:indexPath.row];
     [self.soundTableview reloadData];
+    [self playSoundFileWithName:self.reminder.sound];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

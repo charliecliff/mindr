@@ -67,6 +67,7 @@
 		DA36707A1D70E2AB0038A5F4 /* Float.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670711D70E2AB0038A5F4 /* Float.m4r */; };
 		DA36707B1D70E2AB0038A5F4 /* Ping Pong.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */; };
 		DA36707C1D70E2AB0038A5F4 /* Bells.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670731D70E2AB0038A5F4 /* Bells.m4r */; };
+		DA36707E1D70E77E0038A5F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */; };
 		DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */; };
 		DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
 		DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */; };
@@ -212,6 +213,7 @@
 		DA3670711D70E2AB0038A5F4 /* Float.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Float.m4r; sourceTree = "<group>"; };
 		DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ping Pong.m4r"; sourceTree = "<group>"; };
 		DA3670731D70E2AB0038A5F4 /* Bells.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bells.m4r; sourceTree = "<group>"; };
+		DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
 		DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
 		DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ConditionListViewController.xib; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA36707E1D70E77E0038A5F4 /* AVFoundation.framework in Frameworks */,
 				DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */,
 				DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */,
 				DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */,
@@ -756,6 +759,7 @@
 		DE203C273EE8525155F6095F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */,
 				DA1EC0D81CD4625F00605573 /* QuartzCore.framework */,
 				DA0C4B471CC4640C0030F927 /* libz.tbd */,
 				DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */,

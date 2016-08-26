@@ -48,7 +48,7 @@ static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
         self.isActive = YES;
         self.title = kMDRReminderDefaultTitle;
         self.emoji = kMDRReminderDefault;
-        self.sound = SOUND_SYSTEM;
+        self.sound = SOUND_FAST_ACTION;
         
         [self setUpConditions];
     }

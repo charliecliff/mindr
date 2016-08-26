@@ -24,7 +24,6 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
     if ( indexPath.row == 0 ) {
         cell.titleLabel.text = @"Title";
         cell.explanationLabel.hidden = YES;
-//        cell.explanationLabel.text = self.reminder.title;
     }
     else if ( indexPath.row == 1 ) {
         cell.titleLabel.text = @"Conditions";
@@ -38,7 +37,6 @@ static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 2;
     return 3;
 }
 

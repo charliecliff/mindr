@@ -69,11 +69,11 @@
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return [UIImage imageNamed:@"button_check"];
+    return BUTTON_BACK;
 }
 
 - (UIImage *)rightCornerButtonImage {
-    return [UIImage imageNamed:@"button_cancel"];
+    return BUTTON_CHECK;
 }
 
 @end

@@ -87,11 +87,10 @@
 }
 
 - (UIImage *)leftCornerButtonImage {
-    return BUTTON_NEXT;
+    return BUTTON_BACK;
 }
 
 - (UIImage *)rightCornerButtonImage {
-    return BUTTON_CANCEL;
+    return BUTTON_NEXT;
 }
-
 @end

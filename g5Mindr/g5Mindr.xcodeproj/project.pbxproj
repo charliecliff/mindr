@@ -404,8 +404,6 @@
 		DA30CEE81C9DD38900FD4438 /* g5Mindr */ = {
 			isa = PBXGroup;
 			children = (
-				DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */,
-				DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */,
 				DAC771B01D234E1C00036B44 /* Categories */,
 				DA508DF41CCF0B4100C96AED /* CoreAnimator */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
@@ -413,6 +411,8 @@
 				DA30CF001C9DD3AA00FD4438 /* Models */,
 				DA30CF5E1C9E3A9B00FD4438 /* Cells */,
 				DA30CF011C9DD3AA00FD4438 /* ViewControllers */,
+				DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */,
+				DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */,
 				DA30CEEC1C9DD38900FD4438 /* AppDelegate.h */,
 				DA30CEED1C9DD38900FD4438 /* AppDelegate.m */,
 				DA30CEF51C9DD38900FD4438 /* Assets.xcassets */,

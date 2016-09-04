@@ -25,4 +25,9 @@
  */
 - (void)bindToLocationManager:(MDRLocationManager *)locationManager;
 
+/**
+ @discussion
+ */
+- (void)updateContext;
+
 @end

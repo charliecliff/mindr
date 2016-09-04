@@ -45,7 +45,7 @@
     [[MDRUserManager sharedManager] bindToLocationManager:[MDRLocationManager sharedManager]];
     
     //  Register For Push Notifications
-    if ([MDRUserManager sharedManager].currentUserContext.userID == nil) {
+    if ([MDRUserManager sharedManager].currentUserContext.userID == nil || [[MDRUserManager sharedManager].currentUserContext.userID isEqualToString:@"simulator_id"]) {
         [self registerForPushNotifications];
     }
     
@@ -90,6 +90,7 @@
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
     [[MDRUserManager sharedManager] setUserID:token];
+    [[MDRUserManager sharedManager] updateContext];
 }
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {

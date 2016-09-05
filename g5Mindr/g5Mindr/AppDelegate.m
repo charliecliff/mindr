@@ -74,6 +74,13 @@
 
 #pragma mark - Push Notifications
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfon fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
+    
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1 ;
+}
+
+
 - (void)registerForPushNotifications {
     UIUserNotificationType types = (UIUserNotificationType) (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert);
     UIUserNotificationSettings *mySettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];

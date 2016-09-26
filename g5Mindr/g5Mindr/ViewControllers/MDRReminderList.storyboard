@@ -282,12 +282,12 @@
                                 </variation>
                             </view>
                             <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6I1-V9-wt9">
-                                <rect key="frame" x="27.5" y="100" width="320" height="320"/>
+                                <rect key="frame" x="100" y="100" width="175" height="175"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="40x-WH-dC0"/>
-                                    <constraint firstAttribute="width" constant="320" id="Wm9-Kv-0fa"/>
+                                    <constraint firstAttribute="height" constant="175" id="40x-WH-dC0"/>
+                                    <constraint firstAttribute="width" constant="175" id="Wm9-Kv-0fa"/>
                                 </constraints>
                             </webView>
                         </subviews>

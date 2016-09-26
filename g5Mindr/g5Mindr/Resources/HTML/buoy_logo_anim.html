@@ -26,7 +26,8 @@
                 //conifg Aniatmion
                 htmlCanvas = document.getElementById('c'),
                 context = htmlCanvas.getContext('2d');
-                stageWidth = 324; //must be original stage width
+                stageWidth = 350; //must be original stage width
+                stageHeight = 350; //must be original stage width
                 currentSeq = seq1;
                 initialize();
                 
@@ -40,9 +41,8 @@
             stage.canvas.width = window.innerWidth;
             stage.canvas.height =window.innerHeight;
             var aspectLock = (window.innerWidth/stageWidth)*1;
-            //var aspectLock = 1/2;
-
-            exportRoot.scaleX = exportRoot.scaleY = aspectLock;
+            exportRoot.scaleX = (window.innerWidth/stageWidth)*1
+            exportRoot.scaleY = (window.innerHeight/stageHeight)*1;
             stage.update();
             createjs.Ticker.setFPS(lib.properties.fps);
             createjs.Ticker.addEventListener("tick", stage);

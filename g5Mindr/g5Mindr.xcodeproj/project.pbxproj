@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C5771196748F0F20DD9787E0 /* libPods-g5Mindr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C4A5EBCD1A1AB5268D5C80 /* libPods-g5Mindr.a */; };
-		DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */; };
-		DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */; };
-		DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */; };
 		DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */; };
 		DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA0C4B3B1CC447550030F927 /* Settings.bundle */; };
 		DA0C4B3E1CC4639C0030F927 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B3D1CC4639C0030F927 /* CouchbaseLite.framework */; };
@@ -20,10 +17,6 @@
 		DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */; };
 		DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B471CC4640C0030F927 /* libz.tbd */; };
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
-		DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */; };
-		DA15F2001D5A69C300CD44EE /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */; };
-		DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */; };
-		DA15F2021D5A69C300CD44EE /* emoji_transport.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */; };
 		DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
 		DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1EC0D81CD4625F00605573 /* QuartzCore.framework */; };
@@ -60,15 +53,6 @@
 		DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* MDRTemperatureCondition.m */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
-		DA3670741D70E2AB0038A5F4 /* Fast Action.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */; };
-		DA3670751D70E2AB0038A5F4 /* Raindrop.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */; };
-		DA3670761D70E2AB0038A5F4 /* Star Fall.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */; };
-		DA3670771D70E2AB0038A5F4 /* Wonder.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */; };
-		DA3670781D70E2AB0038A5F4 /* Bounce.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */; };
-		DA3670791D70E2AB0038A5F4 /* Greeting.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670701D70E2AB0038A5F4 /* Greeting.m4r */; };
-		DA36707A1D70E2AB0038A5F4 /* Float.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670711D70E2AB0038A5F4 /* Float.m4r */; };
-		DA36707B1D70E2AB0038A5F4 /* Ping Pong.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */; };
-		DA36707C1D70E2AB0038A5F4 /* Bells.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DA3670731D70E2AB0038A5F4 /* Bells.m4r */; };
 		DA36707E1D70E77E0038A5F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */; };
 		DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */; };
 		DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
@@ -94,9 +78,26 @@
 		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
 		DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */; };
 		DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */; };
-		DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB092411CDD839F00F1157B /* emoji_faces.plist */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
+		DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACD1D99DED300EF798F /* emoji_faces.plist */; };
+		DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACE1D99DED300EF798F /* emoji_food.plist */; };
+		DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACF1D99DED300EF798F /* emoji_nature.plist */; };
+		DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD01D99DED300EF798F /* emoji_objects.plist */; };
+		DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD11D99DED300EF798F /* emoji_sports.plist */; };
+		DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD21D99DED300EF798F /* emoji_transport.plist */; };
+		DAC14AE71D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */; };
+		DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */; };
+		DAC14AE91D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */; };
+		DAC14AEA1D99DED300EF798F /* Bells.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD81D99DED300EF798F /* Bells.m4r */; };
+		DAC14AEB1D99DED300EF798F /* Bounce.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD91D99DED300EF798F /* Bounce.m4r */; };
+		DAC14AEC1D99DED300EF798F /* Fast Action.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADA1D99DED300EF798F /* Fast Action.m4r */; };
+		DAC14AED1D99DED300EF798F /* Float.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADB1D99DED300EF798F /* Float.m4r */; };
+		DAC14AEE1D99DED300EF798F /* Greeting.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADC1D99DED300EF798F /* Greeting.m4r */; };
+		DAC14AEF1D99DED300EF798F /* Ping Pong.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADD1D99DED300EF798F /* Ping Pong.m4r */; };
+		DAC14AF01D99DED300EF798F /* Raindrop.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADE1D99DED300EF798F /* Raindrop.m4r */; };
+		DAC14AF11D99DED300EF798F /* Star Fall.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ADF1D99DED300EF798F /* Star Fall.m4r */; };
+		DAC14AF21D99DED300EF798F /* Wonder.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AE01D99DED300EF798F /* Wonder.m4r */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
 		DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */; };
 		DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B41D235B2500036B44 /* g5DateConditionViewController.xib */; };
@@ -127,7 +128,6 @@
 		DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */; };
 		DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
 		DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
-		DAF695821D5A343900CD0189 /* emoji_sports.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAF695811D5A343900CD0189 /* emoji_sports.plist */; };
 		DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */; };
 		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
 		DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */; };
@@ -136,9 +136,6 @@
 /* Begin PBXFileReference section */
 		795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.release.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.release.xcconfig"; sourceTree = "<group>"; };
 		A8C4A5EBCD1A1AB5268D5C80 /* libPods-g5Mindr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-g5Mindr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Bold.ttf"; sourceTree = "<group>"; };
-		DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Medium.ttf"; sourceTree = "<group>"; };
-		DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Semibold.ttf"; sourceTree = "<group>"; };
 		DA0C4B381CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionTableViewCell.h; sourceTree = "<group>"; };
 		DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA0C4B3B1CC447550030F927 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
@@ -150,10 +147,6 @@
 		DA0C4B471CC4640C0030F927 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5PersistenceManager.h; sourceTree = "<group>"; };
 		DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5PersistenceManager.m; sourceTree = "<group>"; };
-		DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_food.plist; sourceTree = "<group>"; };
-		DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_nature.plist; sourceTree = "<group>"; };
-		DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_objects.plist; sourceTree = "<group>"; };
-		DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_transport.plist; sourceTree = "<group>"; };
 		DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderViewController.h; sourceTree = "<group>"; };
 		DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderViewController.m; sourceTree = "<group>"; };
 		DA1EC0D51CD4623900605573 /* IBCellFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCellFlipSegue.h; sourceTree = "<group>"; };
@@ -209,15 +202,6 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
-		DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fast Action.m4r"; sourceTree = "<group>"; };
-		DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Raindrop.m4r; sourceTree = "<group>"; };
-		DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Star Fall.m4r"; sourceTree = "<group>"; };
-		DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wonder.m4r; sourceTree = "<group>"; };
-		DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bounce.m4r; sourceTree = "<group>"; };
-		DA3670701D70E2AB0038A5F4 /* Greeting.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greeting.m4r; sourceTree = "<group>"; };
-		DA3670711D70E2AB0038A5F4 /* Float.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Float.m4r; sourceTree = "<group>"; };
-		DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ping Pong.m4r"; sourceTree = "<group>"; };
-		DA3670731D70E2AB0038A5F4 /* Bells.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bells.m4r; sourceTree = "<group>"; };
 		DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
 		DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
@@ -261,10 +245,27 @@
 		DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
 		DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderSoundViewController.m; sourceTree = "<group>"; };
 		DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderSoundViewController.xib; sourceTree = "<group>"; };
-		DAB092411CDD839F00F1157B /* emoji_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_faces.plist; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
+		DAC14ACD1D99DED300EF798F /* emoji_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_faces.plist; sourceTree = "<group>"; };
+		DAC14ACE1D99DED300EF798F /* emoji_food.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_food.plist; sourceTree = "<group>"; };
+		DAC14ACF1D99DED300EF798F /* emoji_nature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_nature.plist; sourceTree = "<group>"; };
+		DAC14AD01D99DED300EF798F /* emoji_objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_objects.plist; sourceTree = "<group>"; };
+		DAC14AD11D99DED300EF798F /* emoji_sports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_sports.plist; sourceTree = "<group>"; };
+		DAC14AD21D99DED300EF798F /* emoji_transport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_transport.plist; sourceTree = "<group>"; };
+		DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Bold.ttf"; sourceTree = "<group>"; };
+		DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Medium.ttf"; sourceTree = "<group>"; };
+		DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Semibold.ttf"; sourceTree = "<group>"; };
+		DAC14AD81D99DED300EF798F /* Bells.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bells.m4r; sourceTree = "<group>"; };
+		DAC14AD91D99DED300EF798F /* Bounce.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bounce.m4r; sourceTree = "<group>"; };
+		DAC14ADA1D99DED300EF798F /* Fast Action.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fast Action.m4r"; sourceTree = "<group>"; };
+		DAC14ADB1D99DED300EF798F /* Float.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Float.m4r; sourceTree = "<group>"; };
+		DAC14ADC1D99DED300EF798F /* Greeting.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Greeting.m4r; sourceTree = "<group>"; };
+		DAC14ADD1D99DED300EF798F /* Ping Pong.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ping Pong.m4r"; sourceTree = "<group>"; };
+		DAC14ADE1D99DED300EF798F /* Raindrop.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Raindrop.m4r; sourceTree = "<group>"; };
+		DAC14ADF1D99DED300EF798F /* Star Fall.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Star Fall.m4r"; sourceTree = "<group>"; };
+		DAC14AE01D99DED300EF798F /* Wonder.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = Wonder.m4r; sourceTree = "<group>"; };
 		DAC771AD1D234ADA00036B44 /* MDRLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRLocationManager.h; sourceTree = "<group>"; };
 		DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRLocationManager.m; sourceTree = "<group>"; };
 		DAC771B11D234E1C00036B44 /* UIGestureRecognizer+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Cancel.h"; sourceTree = "<group>"; };
@@ -315,7 +316,6 @@
 		DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROCalendarTableViewController.m; sourceTree = "<group>"; };
 		DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarHeaderView.xib; sourceTree = "<group>"; };
 		DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HROCalendarRowTableViewCell.xib; sourceTree = "<group>"; };
-		DAF695811D5A343900CD0189 /* emoji_sports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_sports.plist; sourceTree = "<group>"; };
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
 		DAFD65181CD52DAC00E92729 /* MDRReminderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderDetailTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderDetailTableViewCell.m; sourceTree = "<group>"; };
@@ -555,22 +555,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		DA36706A1D70E2AB0038A5F4 /* sounds */ = {
-			isa = PBXGroup;
-			children = (
-				DA36706B1D70E2AB0038A5F4 /* Fast Action.m4r */,
-				DA36706C1D70E2AB0038A5F4 /* Raindrop.m4r */,
-				DA36706D1D70E2AB0038A5F4 /* Star Fall.m4r */,
-				DA36706E1D70E2AB0038A5F4 /* Wonder.m4r */,
-				DA36706F1D70E2AB0038A5F4 /* Bounce.m4r */,
-				DA3670701D70E2AB0038A5F4 /* Greeting.m4r */,
-				DA3670711D70E2AB0038A5F4 /* Float.m4r */,
-				DA3670721D70E2AB0038A5F4 /* Ping Pong.m4r */,
-				DA3670731D70E2AB0038A5F4 /* Bells.m4r */,
-			);
-			path = sounds;
-			sourceTree = "<group>";
-		};
 		DA36707F1D70EBBC0038A5F4 /* PBJHexagonFlowLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +651,45 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		DAC14ACC1D99DED300EF798F /* Emojis */ = {
+			isa = PBXGroup;
+			children = (
+				DAC14ACD1D99DED300EF798F /* emoji_faces.plist */,
+				DAC14ACE1D99DED300EF798F /* emoji_food.plist */,
+				DAC14ACF1D99DED300EF798F /* emoji_nature.plist */,
+				DAC14AD01D99DED300EF798F /* emoji_objects.plist */,
+				DAC14AD11D99DED300EF798F /* emoji_sports.plist */,
+				DAC14AD21D99DED300EF798F /* emoji_transport.plist */,
+			);
+			path = Emojis;
+			sourceTree = "<group>";
+		};
+		DAC14AD31D99DED300EF798F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */,
+				DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */,
+				DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DAC14AD71D99DED300EF798F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DAC14AD81D99DED300EF798F /* Bells.m4r */,
+				DAC14AD91D99DED300EF798F /* Bounce.m4r */,
+				DAC14ADA1D99DED300EF798F /* Fast Action.m4r */,
+				DAC14ADB1D99DED300EF798F /* Float.m4r */,
+				DAC14ADC1D99DED300EF798F /* Greeting.m4r */,
+				DAC14ADD1D99DED300EF798F /* Ping Pong.m4r */,
+				DAC14ADE1D99DED300EF798F /* Raindrop.m4r */,
+				DAC14ADF1D99DED300EF798F /* Star Fall.m4r */,
+				DAC14AE01D99DED300EF798F /* Wonder.m4r */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		DAC771B01D234E1C00036B44 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,18 +747,11 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DAC14ACC1D99DED300EF798F /* Emojis */,
+				DAC14AD31D99DED300EF798F /* Fonts */,
+				DAC14AD71D99DED300EF798F /* Sounds */,
 				DA24202F1D99C0CD00A7DC09 /* HTML */,
-				DA36706A1D70E2AB0038A5F4 /* sounds */,
-				DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */,
-				DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */,
-				DA15F1FD1D5A69C300CD44EE /* emoji_objects.plist */,
-				DA15F1FE1D5A69C300CD44EE /* emoji_transport.plist */,
-				DAB092411CDD839F00F1157B /* emoji_faces.plist */,
-				DAF695811D5A343900CD0189 /* emoji_sports.plist */,
 				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
-				DA06366C1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf */,
-				DA06366D1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf */,
-				DA06366E1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -869,59 +885,59 @@
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */,
-				DA15F2001D5A69C300CD44EE /* emoji_nature.plist in Resources */,
 				DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */,
-				DAF695821D5A343900CD0189 /* emoji_sports.plist in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
-				DA3670741D70E2AB0038A5F4 /* Fast Action.m4r in Resources */,
+				DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */,
 				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
-				DA3670771D70E2AB0038A5F4 /* Wonder.m4r in Resources */,
-				DA15F2021D5A69C300CD44EE /* emoji_transport.plist in Resources */,
-				DA3670781D70E2AB0038A5F4 /* Bounce.m4r in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
-				DA3670761D70E2AB0038A5F4 /* Star Fall.m4r in Resources */,
 				DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */,
 				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
+				DAC14AED1D99DED300EF798F /* Float.m4r in Resources */,
+				DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
-				DA36707C1D70E2AB0038A5F4 /* Bells.m4r in Resources */,
-				DA15F1FF1D5A69C300CD44EE /* emoji_food.plist in Resources */,
+				DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */,
 				DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */,
+				DAC14AE71D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
 				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
+				DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
 				DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */,
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
-				DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */,
 				DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */,
+				DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
+				DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */,
+				DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */,
+				DAC14AEF1D99DED300EF798F /* Ping Pong.m4r in Resources */,
 				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
+				DAC14AEB1D99DED300EF798F /* Bounce.m4r in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
-				DA36707A1D70E2AB0038A5F4 /* Float.m4r in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
 				DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */,
-				DA15F2011D5A69C300CD44EE /* emoji_objects.plist in Resources */,
-				DAB092421CDD839F00F1157B /* emoji_faces.plist in Resources */,
-				DA36707B1D70E2AB0038A5F4 /* Ping Pong.m4r in Resources */,
-				DA3670791D70E2AB0038A5F4 /* Greeting.m4r in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
-				DA06366F1D0F8BF5001CBD60 /* Proxima Nova Soft W03 Bold.ttf in Resources */,
-				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
+				DAC14AF01D99DED300EF798F /* Raindrop.m4r in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
 				DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */,
+				DAC14AEC1D99DED300EF798F /* Fast Action.m4r in Resources */,
 				DA2420321D99C0CD00A7DC09 /* Buoy_Logo_Animation.js in Resources */,
-				DA3670751D70E2AB0038A5F4 /* Raindrop.m4r in Resources */,
+				DAC14AEE1D99DED300EF798F /* Greeting.m4r in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
+				DAC14AF21D99DED300EF798F /* Wonder.m4r in Resources */,
+				DAC14AEA1D99DED300EF798F /* Bells.m4r in Resources */,
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
+				DAC14AE91D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,
+				DAC14AF11D99DED300EF798F /* Star Fall.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

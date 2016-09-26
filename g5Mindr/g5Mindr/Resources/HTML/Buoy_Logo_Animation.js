@@ -12,15 +12,9 @@ lib.properties = {
 	manifest: []
 };
 
-
-
 lib.ssMetadata = [];
 
-
 // symbols:
-
-
-
 (lib.Wave = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 

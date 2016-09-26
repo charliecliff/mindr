@@ -18,20 +18,19 @@
         <script src="Buoy_Logo_Animation.js"></script>
         
         <script>
-            var canvas, stage, exportRoot, stageWidth, currentSeq, seq1, seq2, seq3;
+            var canvas, stage, exportRoot, stageWidth, currentSeq, seq1;
             
-            function init() {
-                //preload all sequences
-                seq1 = new lib.BuoyLogoTestAnimation();
-                //conifg Aniatmion
-                htmlCanvas = document.getElementById('c'),
-                context = htmlCanvas.getContext('2d');
-                stageWidth = 350; //must be original stage width
-                stageHeight = 350; //must be original stage width
-                currentSeq = seq1;
-                initialize();
-                
-            }
+        function init() {
+          //preload all sequences
+          seq1 = new lib.BuoyLogoTestAnimation();
+          //conifg Animation
+          htmlCanvas = document.getElementById('c'),
+          context = htmlCanvas.getContext('2d');
+          stageWidth = 350; //must be original stage width
+          stageHeight = 350; //must be original stage width
+          currentSeq = seq1;
+          initialize();
+        }
         
         function draw() {
             exportRoot = currentSeq;
@@ -50,7 +49,7 @@
         
         function setSeq(newSeq) {
             currentSeq = newSeq;
-            draw();
+<!--            draw();-->
         }
         
       </script>
@@ -59,11 +58,10 @@
 
 <body onload="init();">
     
-    <canvas id='c' style = 'position: absolute; left: 0px; top: 0px;background:#31373E' ></canvas>
+    <canvas id='c' style = 'position: absolute; left: 0px; top: 0px; background:transparent' ></canvas>
     
     <script>
-        
-        
+      
         function initialize() {
             window.addEventListener('resize', resizeCanvas, false);
             resizeCanvas();
@@ -72,9 +70,8 @@
         function resizeCanvas() {
             htmlCanvas.width = window.innerWidth;
             htmlCanvas.height = window.innerHeight;
-            draw();
+<!--            draw();-->
         }
-    
     
     </script>
     

@@ -40,6 +40,8 @@
 		DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCD1D445FF900FC38E5 /* toggleSwitchOn@2x.png */; };
 		DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */; };
 		DA216BDD1D445FF900FC38E5 /* BuoyToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA216BD01D445FF900FC38E5 /* BuoyToggleView.m */; };
+		DA2420321D99C0CD00A7DC09 /* Buoy_Logo_Animation.js in Resources */ = {isa = PBXBuildFile; fileRef = DA2420301D99C0CD00A7DC09 /* Buoy_Logo_Animation.js */; };
+		DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */ = {isa = PBXBuildFile; fileRef = DA2420341D99C0ED00A7DC09 /* buoy_logo_anim.html */; };
 		DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */; };
 		DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */; };
 		DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */; };
@@ -171,6 +173,8 @@
 		DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggleSwitchOn@3x.png"; sourceTree = "<group>"; };
 		DA216BCF1D445FF900FC38E5 /* BuoyToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuoyToggleView.h; sourceTree = "<group>"; };
 		DA216BD01D445FF900FC38E5 /* BuoyToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuoyToggleView.m; sourceTree = "<group>"; };
+		DA2420301D99C0CD00A7DC09 /* Buoy_Logo_Animation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Buoy_Logo_Animation.js; sourceTree = "<group>"; };
+		DA2420341D99C0ED00A7DC09 /* buoy_logo_anim.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = buoy_logo_anim.html; sourceTree = "<group>"; };
 		DA297EDB1CA21787001D6148 /* g5ConfigAndMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConfigAndMacros.h; sourceTree = "<group>"; };
 		DA297EE71CA23ED0001D6148 /* g5EmoticonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5EmoticonCell.h; sourceTree = "<group>"; };
 		DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5EmoticonCell.m; sourceTree = "<group>"; };
@@ -377,6 +381,15 @@
 				DA216BCE1D445FF900FC38E5 /* toggleSwitchOn@3x.png */,
 			);
 			path = buoy_toggle_images;
+			sourceTree = "<group>";
+		};
+		DA24202F1D99C0CD00A7DC09 /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				DA2420341D99C0ED00A7DC09 /* buoy_logo_anim.html */,
+				DA2420301D99C0CD00A7DC09 /* Buoy_Logo_Animation.js */,
+			);
+			path = HTML;
 			sourceTree = "<group>";
 		};
 		DA30CEDD1C9DD38900FD4438 = {
@@ -711,6 +724,7 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA24202F1D99C0CD00A7DC09 /* HTML */,
 				DA36706A1D70E2AB0038A5F4 /* sounds */,
 				DA15F1FB1D5A69C300CD44EE /* emoji_food.plist */,
 				DA15F1FC1D5A69C300CD44EE /* emoji_nature.plist */,
@@ -885,6 +899,7 @@
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
 				DA0636701D0F8BF5001CBD60 /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */,
+				DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
 				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
@@ -902,6 +917,7 @@
 				DA0636711D0F8BF5001CBD60 /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
 				DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */,
+				DA2420321D99C0CD00A7DC09 /* Buoy_Logo_Animation.js in Resources */,
 				DA3670751D70E2AB0038A5F4 /* Raindrop.m4r in Resources */,
 				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,

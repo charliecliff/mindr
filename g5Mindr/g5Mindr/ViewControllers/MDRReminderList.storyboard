@@ -239,7 +239,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-3i-chS">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUh-3i-chS">
                                 <rect key="frame" x="16" y="215" width="343" height="174"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzn-2q-WGy">
@@ -281,6 +281,15 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6I1-V9-wt9">
+                                <rect key="frame" x="27.5" y="100" width="320" height="320"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="320" id="40x-WH-dC0"/>
+                                    <constraint firstAttribute="width" constant="320" id="Wm9-Kv-0fa"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -288,8 +297,10 @@
                             <constraint firstItem="IUh-3i-chS" firstAttribute="centerX" secondItem="aHd-Rk-taN" secondAttribute="centerX" id="TNw-BK-mcJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="IUh-3i-chS" secondAttribute="trailing" constant="20" id="Ude-sN-Au3"/>
                             <constraint firstItem="IUh-3i-chS" firstAttribute="leading" secondItem="aHd-Rk-taN" secondAttribute="leadingMargin" id="aKV-Hs-Nhl"/>
+                            <constraint firstItem="6I1-V9-wt9" firstAttribute="top" secondItem="I32-9T-5O3" secondAttribute="bottom" constant="100" id="gnt-Mu-MxL"/>
                             <constraint firstItem="IUh-3i-chS" firstAttribute="leading" secondItem="aHd-Rk-taN" secondAttribute="leadingMargin" constant="20" id="n0J-fp-9TS"/>
                             <constraint firstItem="IUh-3i-chS" firstAttribute="centerY" secondItem="aHd-Rk-taN" secondAttribute="centerY" constant="-32" id="qrF-kt-ftB"/>
+                            <constraint firstItem="6I1-V9-wt9" firstAttribute="centerX" secondItem="aHd-Rk-taN" secondAttribute="centerX" id="uS2-FK-G6C"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -300,6 +311,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="animationWebView" destination="6I1-V9-wt9" id="HDJ-nK-7g5"/>
                         <outlet property="fancyQuoteLabel" destination="yzn-2q-WGy" id="aCx-JM-k1X"/>
                     </connections>
                 </viewController>

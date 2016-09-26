@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+        <title></title>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0 px;
+                border: 0;
+                overflow: hidden; /*  Disable scrollbars */
+                display: block;  /* No floating content on sides */
+            }
+        </style>
+        <script src="http://code.createjs.com/easeljs-0.8.1.min.js"></script>
+        <script src="http://code.createjs.com/tweenjs-0.6.1.min.js"></script>
+        <script src="http://code.createjs.com/movieclip-0.8.1.min.js"></script>
+        <script src="Buoy_Logo_Animation.js"></script>
+        
+        <script>
+            var canvas, stage, exportRoot, stageWidth, currentSeq, seq1, seq2, seq3;
+            
+            function init() {
+                //preload all sequences
+                seq1 = new lib.BuoyLogoTestAnimation();
+                //conifg Aniatmion
+                htmlCanvas = document.getElementById('c'),
+                context = htmlCanvas.getContext('2d');
+                stageWidth = 324; //must be original stage width
+                currentSeq = seq1;
+                initialize();
+                
+            }
+        
+        function draw() {
+            exportRoot = currentSeq;
+            exportRoot.gotoAndPlay(0);
+            stage = new createjs.Stage(htmlCanvas);
+            stage.addChild(exportRoot);
+            stage.canvas.width = window.innerWidth;
+            stage.canvas.height =window.innerHeight;
+            var aspectLock = (window.innerWidth/stageWidth)*1;
+            //var aspectLock = 1/2;
+
+            exportRoot.scaleX = exportRoot.scaleY = aspectLock;
+            stage.update();
+            createjs.Ticker.setFPS(lib.properties.fps);
+            createjs.Ticker.addEventListener("tick", stage);
+        }
+        
+        function setSeq(newSeq) {
+            currentSeq = newSeq;
+            draw();
+        }
+        
+      </script>
+        
+</head>
+
+<body onload="init();">
+    
+    <canvas id='c' style = 'position: absolute; left: 0px; top: 0px;background:#31373E' ></canvas>
+    
+    <script>
+        
+        
+        function initialize() {
+            window.addEventListener('resize', resizeCanvas, false);
+            resizeCanvas();
+        }
+				
+        function resizeCanvas() {
+            htmlCanvas.width = window.innerWidth;
+            htmlCanvas.height = window.innerHeight;
+            draw();
+        }
+    
+    
+    </script>
+    
+</body>
+
+</html>

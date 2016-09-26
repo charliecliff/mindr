@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "mindrBounceNavigationViewController.h"
 
-@interface MDRReminderListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, HROBounceNavigationDatasource, HROBounceNavigationDelegate>
+@interface MDRReminderListViewController : UIViewController <UITableViewDataSource,
+                                                             UITableViewDelegate,
+                                                             HROBounceNavigationDatasource,
+                                                             HROBounceNavigationDelegate>
 
 @property(nonatomic, weak) mindrBounceNavigationViewController *bounceNavigationController;
 

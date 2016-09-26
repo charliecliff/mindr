@@ -8,7 +8,9 @@ static const NSString *reminderAPIGateWay = @"http://buoy-api-dev.us-west-2.elas
 
 @implementation MDRReminderClient
 
-+ (void)getRemindersWithUserID:(NSString *)userID withSuccess:(void (^)(NSDictionary *))success withFailure:(void (^)(void))failure {
++ (void)getRemindersWithUserID:(NSString *)userID
+                   withSuccess:(void (^)(NSArray *))success
+                   withFailure:(void (^)(void))failure {
 
     NSString *escapedString = [reminderAPIGateWay stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
     
@@ -20,7 +22,7 @@ static const NSString *reminderAPIGateWay = @"http://buoy-api-dev.us-west-2.elas
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [manager GET:escapedString parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *JSON = (NSDictionary *)responseObject;
+        NSArray *JSON = (NSArray *)responseObject;
         if (success) {
             success(JSON);
         }
@@ -31,7 +33,10 @@ static const NSString *reminderAPIGateWay = @"http://buoy-api-dev.us-west-2.elas
     }];
 }
 
-+ (void)postReminder:(NSDictionary *)reminderDict withUserID:(NSString *)userID withSuccess:(void (^)(void))success withFailure:(void (^)(void))failure {
++ (void)postReminder:(NSDictionary *)reminderDict
+          withUserID:(NSString *)userID
+         withSuccess:(void (^)(void))success
+         withFailure:(void (^)(void))failure {
    
     NSString *escapedString = [reminderAPIGateWay stringByAddingPercentEncodingWithAllowedCharacters:NSCharacterSet.URLQueryAllowedCharacterSet];
 
@@ -42,7 +47,8 @@ static const NSString *reminderAPIGateWay = @"http://buoy-api-dev.us-west-2.elas
     manager.requestSerializer  = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    [manager POST:escapedString parameters:paramaters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:escapedString parameters:paramaters
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success");
         if (success) {
             success();

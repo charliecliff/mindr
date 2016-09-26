@@ -73,17 +73,19 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[g5ReminderManager sharedManager] loadReminders];
+  [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+  [[g5ReminderManager sharedManager] loadReminders];
 }
 
 #pragma mark - Push Notifications
 
 - (void)application:(UIApplication *)application
-  didReceiveRemoteNotification:(NSDictionary *)userInfon
+  didReceiveRemoteNotification:(NSDictionary *)userInfo
   fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
-    
-    NSInteger badgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1 ;
-    [UIApplication sharedApplication].applicationIconBadgeNumber = badgeNumber;
+  
+  NSLog(@"fetchCompletionHandler");
+  
+  handler(UIBackgroundFetchResultNewData);
 }
 
 

@@ -19,6 +19,8 @@
 #import "AMWaveTransition.h"
 #import "IBCellFlipSegue.h"
 
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 @interface MDRReminderListViewController () <UINavigationControllerDelegate>
 
 @property(nonatomic, strong) NSMutableArray *cells;
@@ -35,9 +37,18 @@
 #pragma mark - View Life-Cycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.navigationItem.title = REMINDERS_VC_TITLE;
+  [super viewDidLoad];
+  self.edgesForExtendedLayout = UIRectEdgeNone;
+  self.navigationItem.title = REMINDERS_VC_TITLE;
+  
+  __weak __typeof(self)weakSelf = self;
+  [RACObserve([g5ReminderManager sharedManager], didLoadReminders)
+    subscribeNext:^(NSNumber *didLoadNumber) {
+      if ([didLoadNumber boolValue]) {
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf refresh];
+      }
+  }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,11 +64,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.bounceNavigationController displayCornerButtons:NO bottomButton:YES bounceButton:NO withCompletion:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    
-    [super viewWillDisappear:animated];
 }
 
 #pragma mark - Set Up

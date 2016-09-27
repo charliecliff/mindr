@@ -20,6 +20,7 @@ static NSString *const kMDRReminderIsActive                 = @"active";
 static NSString *const kMDRReminderConditions               = @"conditions";
 
 static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
+static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
 
 @interface MDRReminder ()
 
@@ -38,13 +39,11 @@ static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
 #pragma mark - Init
 
 - (instancetype)init {
-    self= [super init];
-    if (self != nil) {
-        CFUUIDRef uuidRef = CFUUIDCreate(NULL);
-        CFStringRef uuidStringRef = CFUUIDCreateString(NULL, uuidRef);
-        CFRelease(uuidRef);
-        self.uid = (__bridge_transfer NSString *)uuidStringRef;
-        
+  self= [super init];
+  if (self != nil) {
+
+    self.uid = kMDRReminderDefaultUID;
+      
         self.isActive = YES;
         self.title = kMDRReminderDefaultTitle;
         self.emoji = kMDRReminderDefault;
@@ -126,20 +125,22 @@ static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
 #pragma mark - Getters
 
 - (void)updateExplanation {
-    NSString *resultString = @"";
+  NSString *resultString = @"";
     
-    BOOL isFirstCondition = YES;
-    for (MDRCondition *currentCondition in self.conditions.allValues) {
-        if (currentCondition.isActive) {
-            if (isFirstCondition) {
-                resultString = [NSString stringWithFormat:@"%@%@", resultString, currentCondition.conditionDescription];
-                isFirstCondition = NO;
-            }
-            else
-                resultString = [NSString stringWithFormat:@"%@, %@", resultString, currentCondition.conditionDescription];
-        }
+  BOOL isFirstCondition = YES;
+  for (MDRCondition *currentCondition in self.conditions.allValues) {
+    if (currentCondition.isActive) {
+      if (isFirstCondition) {
+        NSString *conidtionDescriptions = currentCondition.conditionDescription;
+        resultString = [NSString stringWithFormat:@"%@%@", resultString, conidtionDescriptions];
+        isFirstCondition = NO;
+      } else {
+        NSString *conidtionDescriptions = currentCondition.conditionDescription;
+        resultString = [NSString stringWithFormat:@"%@, %@", resultString, conidtionDescriptions];
+      }
     }
-    self.explanation = resultString;
+  }
+  self.explanation = resultString;
 }
 
 #pragma mark - Setters 
@@ -192,8 +193,10 @@ static NSString *const kMDRReminderDefaultTitle = @"A New Reminder";
 
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
-    
+  
+  if (self.uid) {
     [dictionary setObject:self.uid forKey:kMDRReminderID];
+  }
     [dictionary setObject:self.title forKey:kMDRReminderTitle];
     [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRReminderIsActive];
     [dictionary setObject:self.emoji forKey:kMDRReminderEmoticonUnicodeCharacter];

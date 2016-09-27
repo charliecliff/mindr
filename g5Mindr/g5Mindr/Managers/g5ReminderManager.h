@@ -6,6 +6,12 @@
 /**
  @discussion
  */
+@property(nonatomic, readonly) BOOL didLoadReminders;
+
+
+/**
+ @discussion
+ */
 @property(nonatomic, strong, readonly) NSMutableOrderedSet *reminderIDs;
 
 /**

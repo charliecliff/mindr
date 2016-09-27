@@ -12,35 +12,50 @@
 static NSString *const fancyQuote               = @"\"It is not the ship so much as the skillful sailing that assures the prosperous voyage.\"";
 static NSString *const fancyQuoteHighlightedPart = @"skillful sailing";
 
-@interface MDREmptyViewController ()
+@interface MDREmptyViewController () <UIWebViewDelegate>
 
-@property(nonatomic, strong) IBOutlet UILabel *fancyQuoteLabel;
+@property (nonatomic, strong) IBOutlet UIImageView *logoImageView;
+@property (nonatomic, strong) IBOutlet UIWebView *animationWebView;
 
 @end
 
 @implementation MDREmptyViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self buildFancyQuote];
+- (void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  [self setupAnimationWebView];
 }
 
-- (void)buildFancyQuote {
-        
-    UIFont *systemFont = [UIFont fontWithName:@"ProximaNovaSoftW03-Semibold" size:25];
-    NSDictionary * fontAttributes = [[NSDictionary alloc] initWithObjectsAndKeys:systemFont, NSFontAttributeName, nil];
-    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:fancyQuote attributes:fontAttributes];
+#pragma mark - Animation
 
-    [attString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:NSMakeRange(0, attString.length)];
+- (void)setupAnimationWebView {
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"buoy_logo_anim" ofType:@"html"];
+  NSURL *url = [NSURL fileURLWithPath:path];
+  [self.animationWebView loadRequest:[NSURLRequest requestWithURL:url]];
+  self.animationWebView.delegate = self;
+  self.animationWebView.scrollView.scrollEnabled = NO;
+  self.animationWebView.scalesPageToFit = YES;
+  self.animationWebView.contentMode = UIViewContentModeScaleAspectFit;
+  self.animationWebView.userInteractionEnabled = NO;
+  self.animationWebView.alpha = 0.0;
+}
 
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle setAlignment:NSTextAlignmentCenter];
-    [attString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, attString.length)];
+#pragma mark - UIWebViewDelegate
 
-    NSRange range = [fancyQuote rangeOfString:fancyQuoteHighlightedPart];
-    [attString addAttribute:NSForegroundColorAttributeName value:GOLD_COLOR range:range];
-   
-    self.fancyQuoteLabel.attributedText = attString;
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+  
+  [UIView animateWithDuration:0.3
+                   animations:^{
+    self.animationWebView.alpha = 1.0;
+                   }
+                   completion:^(BOOL finished) {
+    [self.animationWebView stringByEvaluatingJavaScriptFromString:@"newAnimation(seq1);"];
+
+                   }];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+  NSLog(@"Error : %@",error);
 }
 
 @end

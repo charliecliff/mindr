@@ -7,6 +7,7 @@
 
 @interface g5ReminderManager ()
 
+@property(nonatomic, readwrite) BOOL didLoadReminders;
 @property(nonatomic, strong, readwrite) NSMutableOrderedSet *reminderIDs;
 @property(nonatomic, strong, readwrite) NSMutableDictionary *reminders;
 
@@ -43,14 +44,23 @@
 }
 
 - (void)addReminder:(MDRReminder *)reminder {
-    [self.reminderIDs addObject:reminder.uid];
-    [self.reminders setObject:reminder forKey:reminder.uid];
-    [self updateReminders];
-    [self saveReminders];
+  NSDictionary *reminderDict = [reminder encodeToDictionary];
+  NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
+
+  __weak __typeof(self)weakSelf = self;
+  [MDRReminderClient postReminder:reminderDict
+                       withUserID:userID
+                      withSuccess:^{
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    [strongSelf updateReminders];
+                      }
+                      withFailure:^{
+                        
+                      }];
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {
-    [self.reminderIDs removeObject:reminder.uid];
+//    [self.reminderIDs removeObject:reminder.uid];
     [self.reminders removeObjectForKey:reminder.uid];
     [self updateReminders];
     [self saveReminders];
@@ -68,17 +78,35 @@
 #pragma mark - API Calls
 
 - (void)updateReminders {
-    NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
-    if (userID == nil)
-        return;
-    for (MDRReminder *currentReminder in self.reminders.allValues) {
-        NSDictionary *currentReminderDictionary = [currentReminder encodeToDictionary];
-        [MDRReminderClient postReminder:currentReminderDictionary
-                             withUserID:userID
-                            withSuccess:nil
-                            withFailure:nil];
-    }
+  NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
+  if (userID == nil) {
+    return;
+  }
+  
+  self.didLoadReminders = NO;
+  __weak __typeof(self)weakSelf = self;
+  [MDRReminderClient getRemindersWithUserID:userID
+                                withSuccess:^(NSArray *reminders) {
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    [strongSelf updateRemindersFromJSONArray:reminders];
+    strongSelf.didLoadReminders = YES;
+                                }
+                                withFailure:^{
+    __strong typeof(weakSelf) strongSelf = weakSelf;
+    strongSelf.didLoadReminders = YES;
+                                  
+                                }];
+}
 
+- (void)updateRemindersFromJSONArray:(NSArray *)array {
+  self.reminders   = [[NSMutableDictionary alloc] init];
+  self.reminderIDs = [[NSMutableOrderedSet alloc] init];
+  for (NSDictionary *reminderDict in array) {
+    MDRReminder *newReminder = [[MDRReminder alloc] initWithDictionary:reminderDict];
+    [self.reminders setObject:newReminder forKey:newReminder.uid];
+    [self.reminderIDs addObject:newReminder.uid];
+  }
+  [self saveReminders];
 }
 
 #pragma mark - Persistence

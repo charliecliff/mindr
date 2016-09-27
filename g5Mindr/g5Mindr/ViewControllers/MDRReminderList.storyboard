@@ -238,14 +238,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pik-rP-byk">
-                                <rect key="frame" x="100" y="188" width="175" height="227"/>
+                                <rect key="frame" x="100" y="185.5" width="175" height="232"/>
                                 <subviews>
-                                    <webView hidden="YES" opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6I1-V9-wt9">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="w88-9I-6ak">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="179"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="w88-9I-6ak" secondAttribute="height" constant="1" id="DoF-MB-bfh"/>
+                                            <constraint firstAttribute="height" constant="179" id="iRQ-CJ-v7W"/>
+                                            <constraint firstAttribute="height" constant="128" id="kjF-qv-cPP"/>
+                                            <constraint firstAttribute="width" constant="240" id="toP-EX-gXv"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DoF-MB-bfh"/>
+                                                <exclude reference="kjF-qv-cPP"/>
+                                                <exclude reference="toP-EX-gXv"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-l6-VIt">
+                                        <rect key="frame" x="0.0" y="200" width="175" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="JFf-dl-6EM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6I1-V9-wt9">
                                         <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="175" id="40x-WH-dC0"/>
+                                            <constraint firstAttribute="height" constant="175" id="4m2-C0-5BF"/>
                                             <constraint firstAttribute="width" constant="175" id="Wm9-Kv-0fa"/>
                                             <constraint firstAttribute="width" secondItem="6I1-V9-wt9" secondAttribute="height" multiplier="1:1" id="z66-dq-jRq"/>
                                         </constraints>
@@ -253,29 +276,10 @@
                                             <mask key="constraints">
                                                 <exclude reference="40x-WH-dC0"/>
                                                 <exclude reference="Wm9-Kv-0fa"/>
+                                                <exclude reference="z66-dq-jRq"/>
                                             </mask>
                                         </variation>
                                     </webView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="w88-9I-6ak">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="174"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="w88-9I-6ak" secondAttribute="height" constant="1" id="DoF-MB-bfh"/>
-                                            <constraint firstAttribute="height" constant="128" id="kjF-qv-cPP"/>
-                                            <constraint firstAttribute="width" constant="240" id="toP-EX-gXv"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="toP-EX-gXv"/>
-                                                <exclude reference="kjF-qv-cPP"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_text" translatesAutoresizingMaskIntoConstraints="NO" id="2Us-l6-VIt">
-                                        <rect key="frame" x="0.0" y="195" width="175" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="JFf-dl-6EM"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -307,6 +311,7 @@
                     </view>
                     <connections>
                         <outlet property="animationWebView" destination="6I1-V9-wt9" id="HDJ-nK-7g5"/>
+                        <outlet property="logoImageView" destination="w88-9I-6ak" id="me0-Tg-QES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6d-G5-Mu1" userLabel="First Responder" sceneMemberID="firstResponder"/>

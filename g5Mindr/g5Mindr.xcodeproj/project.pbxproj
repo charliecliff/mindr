@@ -17,7 +17,6 @@
 		DA0C4B461CC463FF0030F927 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B451CC463FF0030F927 /* libsqlite3.tbd */; };
 		DA0C4B481CC4640C0030F927 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B471CC4640C0030F927 /* libz.tbd */; };
 		DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */; };
-		DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */; };
 		DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */; };
 		DA1EC0D91CD4625F00605573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA1EC0D81CD4625F00605573 /* QuartzCore.framework */; };
 		DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */ = {isa = PBXBuildFile; fileRef = DA216BC31D445FF900FC38E5 /* toggleBGOff.png */; };
@@ -37,10 +36,8 @@
 		DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */ = {isa = PBXBuildFile; fileRef = DA2420341D99C0ED00A7DC09 /* buoy_logo_anim.html */; };
 		DA297EEC1CA23ED0001D6148 /* g5EmoticonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA297EE81CA23ED0001D6148 /* g5EmoticonCell.m */; };
 		DA2EA6DB1CFB5424004338CA /* g5DayOfTheWeekViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6D91CFB5424004338CA /* g5DayOfTheWeekViewController.m */; };
-		DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */; };
 		DA2EA6DF1CFB569F004338CA /* MDRDayOfTheWeekCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6DE1CFB569F004338CA /* MDRDayOfTheWeekCondition.m */; };
 		DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2EA6E11CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m */; };
-		DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */; };
 		DA30CEEB1C9DD38900FD4438 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CEEA1C9DD38900FD4438 /* main.m */; };
 		DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CEED1C9DD38900FD4438 /* AppDelegate.m */; };
 		DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA30CEF51C9DD38900FD4438 /* Assets.xcassets */; };
@@ -53,22 +50,32 @@
 		DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF451C9E23BE00FD4438 /* MDRTemperatureCondition.m */; };
 		DA30CF621C9E3ABB00FD4438 /* g5ConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */; };
 		DA30CF6B1C9E448000FD4438 /* g5ReminderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */; };
+		DA366E2C1D9C308F00CB4307 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA366E191D9C308F00CB4307 /* mindrBounceNavigationViewController.m */; };
+		DA366E2D1D9C308F00CB4307 /* MDRReminderSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA366E1D1D9C308F00CB4307 /* MDRReminderSoundViewController.m */; };
+		DA366E3A1D9C309D00CB4307 /* MDRReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA366E381D9C309D00CB4307 /* MDRReminderViewController.m */; };
+		DA366E411D9C314E00CB4307 /* MDREmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA366E3D1D9C314E00CB4307 /* MDREmptyViewController.m */; };
+		DA366E431D9C314E00CB4307 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA366E401D9C314E00CB4307 /* MDRReminderListViewController.m */; };
+		DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA366E391D9C309D00CB4307 /* MDRReminderViewController.storyboard */; };
+		DA366E451D9C320100CB4307 /* MDRReminderList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA366E3E1D9C314E00CB4307 /* MDRReminderList.storyboard */; };
+		DA366E461D9C320600CB4307 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B41D235B2500036B44 /* g5DateConditionViewController.xib */; };
+		DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B51D235B2500036B44 /* g5LocationConditionViewController.xib */; };
+		DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B61D235B2500036B44 /* g5TemperatureConditionViewController.xib */; };
+		DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B71D235B2500036B44 /* g5WeatherTypeConditionViewController.xib */; };
+		DA366E4A1D9C322000CB4307 /* g5DayOfTheWeekViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6DA1CFB5424004338CA /* g5DayOfTheWeekViewController.xib */; };
+		DA366E4B1D9C322200CB4307 /* MDRTimeCondition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */; };
+		DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
+		DA366E4D1D9C323400CB4307 /* MDREmoticonSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */; };
 		DA36707E1D70E77E0038A5F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */; };
 		DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */; };
-		DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FE21D6530A1003CC595 /* g5ConditionListViewController.xib */; };
 		DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE41D6530A1003CC595 /* g5CreateReminderConditionListViewController.m */; };
 		DA4C5FF01D6530A1003CC595 /* g5EditReminderConditionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE61D6530A1003CC595 /* g5EditReminderConditionListViewController.m */; };
 		DA4C5FF11D6530A1003CC595 /* MDRCreateReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE91D6530A1003CC595 /* MDRCreateReminderTitleViewController.m */; };
 		DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */; };
-		DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */; };
 		DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
-		DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */; };
 		DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */; };
 		DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */; };
-		DA83FFEA1D4191AF00D6209A /* MDREmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */; };
 		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
-		DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */; };
 		DA9A74571D4D28BF00CC5A25 /* HROPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */; };
 		DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91391D51651A00C1BF36 /* MDRTemperatureComponents.m */; };
 		DA9E913E1D51651A00C1BF36 /* MDRTimeComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E913B1D51651A00C1BF36 /* MDRTimeComponents.m */; };
@@ -76,10 +83,7 @@
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
 		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
-		DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */; };
-		DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
-		DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
 		DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACD1D99DED300EF798F /* emoji_faces.plist */; };
 		DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACE1D99DED300EF798F /* emoji_food.plist */; };
 		DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACF1D99DED300EF798F /* emoji_nature.plist */; };
@@ -100,13 +104,7 @@
 		DAC14AF21D99DED300EF798F /* Wonder.m4r in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AE01D99DED300EF798F /* Wonder.m4r */; };
 		DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771AE1D234ADA00036B44 /* MDRLocationManager.m */; };
 		DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC771B21D234E1C00036B44 /* UIGestureRecognizer+Cancel.m */; };
-		DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B41D235B2500036B44 /* g5DateConditionViewController.xib */; };
-		DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B51D235B2500036B44 /* g5LocationConditionViewController.xib */; };
-		DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B61D235B2500036B44 /* g5TemperatureConditionViewController.xib */; };
-		DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAC771B71D235B2500036B44 /* g5WeatherTypeConditionViewController.xib */; };
-		DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */; };
 		DAC857211D668DD400276C09 /* MDREmoticonCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC8571D1D668DD400276C09 /* MDREmoticonCollectionViewController.m */; };
-		DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */; };
 		DAC857231D668DD400276C09 /* MDREmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857201D668DD400276C09 /* MDREmoticonSelectionViewController.m */; };
 		DAC857281D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857251D668EAC00276C09 /* MDRCreateReminderEmoticonSelectionViewController.m */; };
 		DAC857291D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAC857271D668EAC00276C09 /* MDREditReminderEmoticonSelectionViewController.m */; };
@@ -119,18 +117,11 @@
 		DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CAC71CA4A41700849427 /* MDRDateCondition.m */; };
 		DAE9CACB1CA4A42700849427 /* MDRTimeCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = DAE9CACA1CA4A42700849427 /* MDRTimeCondition.m */; };
 		DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */; };
-		DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */; };
-		DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */; };
-		DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */; };
 		DAF5C1AD1D289011000D3DEC /* MDRReminderClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1AC1D289011000D3DEC /* MDRReminderClient.m */; };
 		DAF5C1BE1D29E195000D3DEC /* HROCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1B51D29E195000D3DEC /* HROCalendarHeaderView.m */; };
 		DAF5C1BF1D29E195000D3DEC /* HROCalendarRowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1B81D29E195000D3DEC /* HROCalendarRowTableViewCell.m */; };
 		DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAF5C1BA1D29E195000D3DEC /* HROCalendarTableViewController.m */; };
-		DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
-		DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
 		DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */; };
-		DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */; };
-		DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,8 +138,6 @@
 		DA0C4B471CC4640C0030F927 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		DA0C4B491CC464A00030F927 /* g5PersistenceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5PersistenceManager.h; sourceTree = "<group>"; };
 		DA0C4B4A1CC464A00030F927 /* g5PersistenceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5PersistenceManager.m; sourceTree = "<group>"; };
-		DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderViewController.h; sourceTree = "<group>"; };
-		DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderViewController.m; sourceTree = "<group>"; };
 		DA1EC0D51CD4623900605573 /* IBCellFlipSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBCellFlipSegue.h; sourceTree = "<group>"; };
 		DA1EC0D61CD4623900605573 /* IBCellFlipSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBCellFlipSegue.m; sourceTree = "<group>"; };
 		DA1EC0D81CD4625F00605573 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -202,6 +191,19 @@
 		DA30CF601C9E3ABB00FD4438 /* g5ConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA30CF681C9E448000FD4438 /* g5ReminderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderTableViewCell.h; sourceTree = "<group>"; };
 		DA30CF691C9E448000FD4438 /* g5ReminderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderTableViewCell.m; sourceTree = "<group>"; };
+		DA366E181D9C308F00CB4307 /* mindrBounceNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mindrBounceNavigationViewController.h; sourceTree = "<group>"; };
+		DA366E191D9C308F00CB4307 /* mindrBounceNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mindrBounceNavigationViewController.m; sourceTree = "<group>"; };
+		DA366E1C1D9C308F00CB4307 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
+		DA366E1D1D9C308F00CB4307 /* MDRReminderSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderSoundViewController.m; sourceTree = "<group>"; };
+		DA366E1E1D9C308F00CB4307 /* MDRReminderSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderSoundViewController.xib; sourceTree = "<group>"; };
+		DA366E371D9C309D00CB4307 /* MDRReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderViewController.h; sourceTree = "<group>"; };
+		DA366E381D9C309D00CB4307 /* MDRReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderViewController.m; sourceTree = "<group>"; };
+		DA366E391D9C309D00CB4307 /* MDRReminderViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderViewController.storyboard; sourceTree = "<group>"; };
+		DA366E3C1D9C314E00CB4307 /* MDREmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmptyViewController.h; sourceTree = "<group>"; };
+		DA366E3D1D9C314E00CB4307 /* MDREmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmptyViewController.m; sourceTree = "<group>"; };
+		DA366E3E1D9C314E00CB4307 /* MDRReminderList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderList.storyboard; sourceTree = "<group>"; };
+		DA366E3F1D9C314E00CB4307 /* MDRReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderListViewController.h; sourceTree = "<group>"; };
+		DA366E401D9C314E00CB4307 /* MDRReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderListViewController.m; sourceTree = "<group>"; };
 		DA36707D1D70E77E0038A5F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DA4C5FE01D6530A1003CC595 /* g5ConditionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ConditionListViewController.h; sourceTree = "<group>"; };
 		DA4C5FE11D6530A1003CC595 /* g5ConditionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ConditionListViewController.m; sourceTree = "<group>"; };
@@ -224,10 +226,7 @@
 		DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewCell.m; sourceTree = "<group>"; };
 		DA5673DD1D42EC70008AF230 /* MDRTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTimeTableViewController.h; sourceTree = "<group>"; };
 		DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewController.m; sourceTree = "<group>"; };
-		DA83FFE81D4191AF00D6209A /* MDREmptyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmptyViewController.h; sourceTree = "<group>"; };
-		DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmptyViewController.m; sourceTree = "<group>"; };
 		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderViewController.storyboard; sourceTree = "<group>"; };
 		DA9A74551D4D28BF00CC5A25 /* HROPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPageControl.h; sourceTree = "<group>"; };
 		DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPageControl.m; sourceTree = "<group>"; };
 		DA9E91381D51651A00C1BF36 /* MDRTemperatureComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTemperatureComponents.h; sourceTree = "<group>"; };
@@ -243,9 +242,6 @@
 		DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buoy.entitlements; sourceTree = "<group>"; };
 		DAAD3EC41D70EC870050F69C /* PBJHexagonFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBJHexagonFlowLayout.h; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.h"; sourceTree = SOURCE_ROOT; };
 		DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBJHexagonFlowLayout.m; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.m"; sourceTree = SOURCE_ROOT; };
-		DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
-		DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderSoundViewController.m; sourceTree = "<group>"; };
-		DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderSoundViewController.xib; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -275,7 +271,6 @@
 		DAC771B51D235B2500036B44 /* g5LocationConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5LocationConditionViewController.xib; sourceTree = "<group>"; };
 		DAC771B61D235B2500036B44 /* g5TemperatureConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5TemperatureConditionViewController.xib; sourceTree = "<group>"; };
 		DAC771B71D235B2500036B44 /* g5WeatherTypeConditionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5WeatherTypeConditionViewController.xib; sourceTree = "<group>"; };
-		DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRReminderList.storyboard; sourceTree = "<group>"; };
 		DAC8571C1D668DD400276C09 /* MDREmoticonCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREmoticonCollectionViewController.h; sourceTree = "<group>"; };
 		DAC8571D1D668DD400276C09 /* MDREmoticonCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREmoticonCollectionViewController.m; sourceTree = "<group>"; };
 		DAC8571E1D668DD400276C09 /* MDREmoticonSelection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDREmoticonSelection.storyboard; sourceTree = "<group>"; };
@@ -320,10 +315,6 @@
 		DAF727AE1D1EE4E700A3193E /* MDRMessageAndCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRMessageAndCopy.h; sourceTree = "<group>"; };
 		DAFD65181CD52DAC00E92729 /* MDRReminderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderDetailTableViewCell.h; sourceTree = "<group>"; };
 		DAFD65191CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderDetailTableViewCell.m; sourceTree = "<group>"; };
-		DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderListViewController.h; sourceTree = "<group>"; };
-		DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRReminderListViewController.m; sourceTree = "<group>"; };
-		DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mindrBounceNavigationViewController.h; sourceTree = "<group>"; };
-		DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mindrBounceNavigationViewController.m; sourceTree = "<group>"; };
 		EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-g5Mindr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-g5Mindr/Pods-g5Mindr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -418,7 +409,6 @@
 		DA30CEE81C9DD38900FD4438 /* g5Mindr */ = {
 			isa = PBXGroup;
 			children = (
-				DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */,
 				DAC771B01D234E1C00036B44 /* Categories */,
 				DA508DF41CCF0B4100C96AED /* CoreAnimator */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
@@ -433,6 +423,7 @@
 				DA30CEF51C9DD38900FD4438 /* Assets.xcassets */,
 				DA30CEF71C9DD38900FD4438 /* LaunchScreen.storyboard */,
 				DA30CEFA1C9DD38900FD4438 /* Info.plist */,
+				DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */,
 				DA1EC0D31CD4623900605573 /* Third Party */,
 				DA30CEE91C9DD38900FD4438 /* Supporting Files */,
 				DAD71D651CCAB43000F42BB8 /* Resources */,
@@ -466,21 +457,12 @@
 			children = (
 				DAC8571B1D668DD400276C09 /* EmoticonVC */,
 				DA4C5FDF1D6530A1003CC595 /* ConditionListVC */,
-				DA4C5FE71D6530A1003CC595 /* ReminderTitleVC */,
 				DAC8BF201CCC6D5F004CA7D6 /* ConditionViewController */,
-				DAFD65291CD5611900E92729 /* mindrBounceNavigationViewController.h */,
-				DAFD652A1CD5611900E92729 /* mindrBounceNavigationViewController.m */,
-				DA91A6BD1D47E082003C0C52 /* MDRReminderViewController.storyboard */,
-				DA1EC0C51CD461BF00605573 /* MDRReminderViewController.h */,
-				DA1EC0C61CD461BF00605573 /* MDRReminderViewController.m */,
-				DAC771C01D235B4500036B44 /* MDRReminderList.storyboard */,
-				DAFD65201CD5414700E92729 /* MDRReminderListViewController.h */,
-				DAFD65211CD5414700E92729 /* MDRReminderListViewController.m */,
-				DA83FFE81D4191AF00D6209A /* MDREmptyViewController.h */,
-				DA83FFE91D4191AF00D6209A /* MDREmptyViewController.m */,
-				DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */,
-				DAB075FF1D67EAC500C85932 /* MDRReminderSoundViewController.m */,
-				DAB076041D67EB2900C85932 /* MDRReminderSoundViewController.xib */,
+				DA366E171D9C308F00CB4307 /* mindrBounceNavVC */,
+				DA366E361D9C309D00CB4307 /* ReminderVC */,
+				DA366E1A1D9C308F00CB4307 /* ReminderListVC */,
+				DA366E1B1D9C308F00CB4307 /* ReminderSoundVC */,
+				DA4C5FE71D6530A1003CC595 /* ReminderTitleVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -555,6 +537,47 @@
 				DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		DA366E171D9C308F00CB4307 /* mindrBounceNavVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA366E181D9C308F00CB4307 /* mindrBounceNavigationViewController.h */,
+				DA366E191D9C308F00CB4307 /* mindrBounceNavigationViewController.m */,
+			);
+			path = mindrBounceNavVC;
+			sourceTree = "<group>";
+		};
+		DA366E1A1D9C308F00CB4307 /* ReminderListVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA366E3C1D9C314E00CB4307 /* MDREmptyViewController.h */,
+				DA366E3D1D9C314E00CB4307 /* MDREmptyViewController.m */,
+				DA366E3E1D9C314E00CB4307 /* MDRReminderList.storyboard */,
+				DA366E3F1D9C314E00CB4307 /* MDRReminderListViewController.h */,
+				DA366E401D9C314E00CB4307 /* MDRReminderListViewController.m */,
+			);
+			path = ReminderListVC;
+			sourceTree = "<group>";
+		};
+		DA366E1B1D9C308F00CB4307 /* ReminderSoundVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA366E1C1D9C308F00CB4307 /* MDRReminderSoundViewController.h */,
+				DA366E1D1D9C308F00CB4307 /* MDRReminderSoundViewController.m */,
+				DA366E1E1D9C308F00CB4307 /* MDRReminderSoundViewController.xib */,
+			);
+			path = ReminderSoundVC;
+			sourceTree = "<group>";
+		};
+		DA366E361D9C309D00CB4307 /* ReminderVC */ = {
+			isa = PBXGroup;
+			children = (
+				DA366E371D9C309D00CB4307 /* MDRReminderViewController.h */,
+				DA366E381D9C309D00CB4307 /* MDRReminderViewController.m */,
+				DA366E391D9C309D00CB4307 /* MDRReminderViewController.storyboard */,
+			);
+			path = ReminderVC;
 			sourceTree = "<group>";
 		};
 		DA36707F1D70EBBC0038A5F4 /* PBJHexagonFlowLayout */ = {
@@ -845,7 +868,7 @@
 		DA30CEDE1C9DD38900FD4438 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Charles Cliff";
 				TargetAttributes = {
 					DA30CEE51C9DD38900FD4438 = {
@@ -886,59 +909,50 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
-				DAF412581CF0CC950092DEF8 /* HROBounceNavigationController.xib in Resources */,
-				DAC857221D668DD400276C09 /* MDREmoticonSelection.storyboard in Resources */,
+				DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
 				DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */,
-				DAF4125F1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
+				DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
-				DA2EA6DC1CFB5424004338CA /* g5DayOfTheWeekViewController.xib in Resources */,
-				DA91A6BE1D47E082003C0C52 /* MDRReminderViewController.storyboard in Resources */,
-				DA5673D81D427CE1008AF230 /* MDRTimeCondition.storyboard in Resources */,
+				DA366E451D9C320100CB4307 /* MDRReminderList.storyboard in Resources */,
 				DAC14AED1D99DED300EF798F /* Float.m4r in Resources */,
+				DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */,
+				DA366E4D1D9C323400CB4307 /* MDREmoticonSelection.storyboard in Resources */,
 				DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
 				DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */,
-				DA4C5FEE1D6530A1003CC595 /* g5ConditionListViewController.xib in Resources */,
 				DAC14AE71D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
-				DAC771BA1D235B2500036B44 /* g5TemperatureConditionViewController.xib in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
 				DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
-				DAC771BB1D235B2500036B44 /* g5WeatherTypeConditionViewController.xib in Resources */,
-				DAF4125D1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib in Resources */,
+				DA366E4B1D9C322200CB4307 /* MDRTimeCondition.storyboard in Resources */,
 				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
-				DAC771B81D235B2500036B44 /* g5DateConditionViewController.xib in Resources */,
 				DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */,
 				DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
-				DAC771B91D235B2500036B44 /* g5LocationConditionViewController.xib in Resources */,
-				DAB092471CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */,
 				DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */,
+				DA366E4A1D9C322000CB4307 /* g5DayOfTheWeekViewController.xib in Resources */,
 				DAC14AEF1D99DED300EF798F /* Ping Pong.m4r in Resources */,
-				DAC771C51D235B4500036B44 /* MDRReminderList.storyboard in Resources */,
 				DAC14AEB1D99DED300EF798F /* Bounce.m4r in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
-				DA4C5FF31D6530A1003CC595 /* MDRReminderTitleViewController.xib in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DAC14AF01D99DED300EF798F /* Raindrop.m4r in Resources */,
-				DAF5C1C21D29E195000D3DEC /* HROCalendarRowTableViewCell.xib in Resources */,
-				DAB076061D67EB2900C85932 /* MDRReminderSoundViewController.xib in Resources */,
 				DAC14AEC1D99DED300EF798F /* Fast Action.m4r in Resources */,
 				DA2420321D99C0CD00A7DC09 /* Buoy_Logo_Animation.js in Resources */,
+				DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */,
+				DA366E461D9C320600CB4307 /* g5DateConditionViewController.xib in Resources */,
+				DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */,
 				DAC14AEE1D99DED300EF798F /* Greeting.m4r in Resources */,
-				DA2EA6E41CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DAC14AF21D99DED300EF798F /* Wonder.m4r in Resources */,
 				DAC14AEA1D99DED300EF798F /* Bells.m4r in Resources */,
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
 				DAC14AE91D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
-				DAF5C1C11D29E195000D3DEC /* HROCalendarHeaderView.xib in Resources */,
 				DAC14AF11D99DED300EF798F /* Star Fall.m4r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,7 +1016,6 @@
 				DA4C5FEF1D6530A1003CC595 /* g5CreateReminderConditionListViewController.m in Sources */,
 				DAF412571CF0CC950092DEF8 /* HROBounceNavigationController.m in Sources */,
 				DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */,
-				DAB076001D67EAC500C85932 /* MDRReminderSoundViewController.m in Sources */,
 				DA9E913E1D51651A00C1BF36 /* MDRTimeComponents.m in Sources */,
 				DAC857211D668DD400276C09 /* MDREmoticonCollectionViewController.m in Sources */,
 				DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */,
@@ -1015,25 +1028,23 @@
 				DA30CF461C9E23BE00FD4438 /* MDRTemperatureCondition.m in Sources */,
 				DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */,
 				DAC857231D668DD400276C09 /* MDREmoticonSelectionViewController.m in Sources */,
-				DA1EC0C81CD461BF00605573 /* MDRReminderViewController.m in Sources */,
 				DAC771B31D234E1C00036B44 /* UIGestureRecognizer+Cancel.m in Sources */,
 				DA2EA6E31CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.m in Sources */,
 				DA30CF381C9E05B100FD4438 /* MDRReminder.m in Sources */,
 				DA4C5FF11D6530A1003CC595 /* MDRCreateReminderTitleViewController.m in Sources */,
 				DA4C5FED1D6530A1003CC595 /* g5ConditionListViewController.m in Sources */,
-				DAFD65221CD5414700E92729 /* MDRReminderListViewController.m in Sources */,
 				DAC8BF351CCC6D5F004CA7D6 /* g5DateConditionViewController.m in Sources */,
 				DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */,
 				DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */,
 				DAE9CACB1CA4A42700849427 /* MDRTimeCondition.m in Sources */,
-				DAFD652B1CD5611900E92729 /* mindrBounceNavigationViewController.m in Sources */,
 				DAC8BF391CCC6D5F004CA7D6 /* g5WeatherTypeConditionViewController.m in Sources */,
+				DA366E3A1D9C309D00CB4307 /* MDRReminderViewController.m in Sources */,
 				DAC771AF1D234ADA00036B44 /* MDRLocationManager.m in Sources */,
 				DA30CF401C9E239200FD4438 /* MDRLocationCondition.m in Sources */,
 				DA1EC0D71CD4623900605573 /* IBCellFlipSegue.m in Sources */,
 				DAC8BF371CCC6D5F004CA7D6 /* g5TemperatureConditionViewController.m in Sources */,
-				DA83FFEA1D4191AF00D6209A /* MDREmptyViewController.m in Sources */,
 				DA30CEEE1C9DD38900FD4438 /* AppDelegate.m in Sources */,
+				DA366E411D9C314E00CB4307 /* MDREmptyViewController.m in Sources */,
 				DAC8BF381CCC6D5F004CA7D6 /* MDRTimeConditionViewController.m in Sources */,
 				DA216BDD1D445FF900FC38E5 /* BuoyToggleView.m in Sources */,
 				DAC8BF361CCC6D5F004CA7D6 /* g5LocationConditionViewController.m in Sources */,
@@ -1051,11 +1062,14 @@
 				DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */,
 				DAFD651B1CD52DAC00E92729 /* MDRReminderDetailTableViewCell.m in Sources */,
 				DAF5C1BF1D29E195000D3DEC /* HROCalendarRowTableViewCell.m in Sources */,
+				DA366E431D9C314E00CB4307 /* MDRReminderListViewController.m in Sources */,
 				DA30CF371C9E05B100FD4438 /* MDRCondition.m in Sources */,
 				DA2EA6DF1CFB569F004338CA /* MDRDayOfTheWeekCondition.m in Sources */,
+				DA366E2D1D9C308F00CB4307 /* MDRReminderSoundViewController.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */,
 				DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */,
 				DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */,
+				DA366E2C1D9C308F00CB4307 /* mindrBounceNavigationViewController.m in Sources */,
 				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
 				DAF5C1C01D29E195000D3DEC /* HROCalendarTableViewController.m in Sources */,
 			);
@@ -1088,8 +1102,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1133,8 +1149,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

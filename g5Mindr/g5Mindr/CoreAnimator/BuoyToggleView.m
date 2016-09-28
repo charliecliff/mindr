@@ -7,7 +7,7 @@
 
 #import "BuoyToggleView.h"
 
-@interface BuoyToggleView ()
+@interface BuoyToggleView () <CAAnimationDelegate>
 @property (strong, nonatomic) NSMapTable *completionBlocksByAnimation;
 @end
 

@@ -23,6 +23,10 @@
 
 #import "IBCellFlipSegue.h"
 
+@interface IBCellFlipSegue() <CAAnimationDelegate>
+
+@end
+
 @implementation IBCellFlipSegue
 
 - (void)perform

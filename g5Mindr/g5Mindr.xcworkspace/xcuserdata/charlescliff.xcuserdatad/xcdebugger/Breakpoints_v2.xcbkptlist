@@ -40,11 +40,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/ViewControllers/MDREmptyViewController.m"
-            timestampString = "496683563.032083"
+            timestampString = "496772658.85905"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64">
+            startingLineNumber = "69"
+            endingLineNumber = "69">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

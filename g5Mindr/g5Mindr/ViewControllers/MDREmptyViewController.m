@@ -21,11 +21,16 @@ static NSString *const fancyQuoteHighlightedPart = @"skillful sailing";
 
 @implementation MDREmptyViewController
 
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  [self setupAnimationWebView];
+}
+  
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
   [self setupAnimationWebView];
 }
-
+  
 #pragma mark - Animation
 
 - (void)setupAnimationWebView {
@@ -44,7 +49,7 @@ static NSString *const fancyQuoteHighlightedPart = @"skillful sailing";
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
   
-  [UIView animateWithDuration:0.3
+  [UIView animateWithDuration:0.0
                    animations:^{
     self.animationWebView.alpha = 1.0;
                    }

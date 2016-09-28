@@ -240,6 +240,7 @@
 		DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserManager.m; sourceTree = "<group>"; };
 		DA9E914A1D516F5400C1BF36 /* MDRUserClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRUserClient.h; sourceTree = "<group>"; };
 		DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRUserClient.m; sourceTree = "<group>"; };
+		DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buoy.entitlements; sourceTree = "<group>"; };
 		DAAD3EC41D70EC870050F69C /* PBJHexagonFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBJHexagonFlowLayout.h; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.h"; sourceTree = SOURCE_ROOT; };
 		DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBJHexagonFlowLayout.m; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.m"; sourceTree = SOURCE_ROOT; };
 		DAB075FE1D67EAC500C85932 /* MDRReminderSoundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRReminderSoundViewController.h; sourceTree = "<group>"; };
@@ -417,6 +418,7 @@
 		DA30CEE81C9DD38900FD4438 /* g5Mindr */ = {
 			isa = PBXGroup;
 			children = (
+				DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */,
 				DAC771B01D234E1C00036B44 /* Categories */,
 				DA508DF41CCF0B4100C96AED /* CoreAnimator */,
 				DA8F6CAB1CA0B1E100DEF16B /* Client */,
@@ -1166,7 +1168,9 @@
 			baseConfigurationReference = EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = g5Mindr/Buoy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 23CZC4883B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1186,7 +1190,9 @@
 			baseConfigurationReference = 795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = g5Mindr/Buoy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 23CZC4883B;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

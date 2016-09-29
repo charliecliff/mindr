@@ -85,6 +85,14 @@
 		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */; };
+		DAC069C21D9DA47300D3DC0B /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */; };
+		DAC069C31D9DA47400D3DC0B /* g5WeatherTypeConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125C1CF0D7730092DEF8 /* g5WeatherTypeConditionTableViewCell.xib */; };
+		DAC069C41D9DA47600D3DC0B /* g5ConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF4125A1CF0D7730092DEF8 /* g5ConditionTableViewCell.xib */; };
+		DAC069C51D9DA47800D3DC0B /* g5ReminderDetailButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */; };
+		DAC069C61D9DA4BD00D3DC0B /* MDRReminderSoundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA366E1E1D9C308F00CB4307 /* MDRReminderSoundViewController.xib */; };
+		DAC069C71D9DA50200D3DC0B /* MDRReminderTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */; };
+		DAC069C81D9DA56A00D3DC0B /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
+		DAC069C91D9DA56C00D3DC0B /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
 		DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACD1D99DED300EF798F /* emoji_faces.plist */; };
 		DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACE1D99DED300EF798F /* emoji_food.plist */; };
 		DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACF1D99DED300EF798F /* emoji_nature.plist */; };
@@ -910,18 +918,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
-				DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
+				DA366E4D1D9C323400CB4307 /* MDREmoticonSelection.storyboard in Resources */,
 				DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */,
+				DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */,
+				DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */,
+				DAC069C61D9DA4BD00D3DC0B /* MDRReminderSoundViewController.xib in Resources */,
+				DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */,
+				DAC069C71D9DA50200D3DC0B /* MDRReminderTitleViewController.xib in Resources */,
+				DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */,
+				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
+				DA366E461D9C320600CB4307 /* g5DateConditionViewController.xib in Resources */,
+				DAC069C91D9DA56C00D3DC0B /* HROCalendarRowTableViewCell.xib in Resources */,
+				DAC069C21D9DA47300D3DC0B /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
+				DAC069C81D9DA56A00D3DC0B /* HROCalendarHeaderView.xib in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
-				DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */,
+				DA366E4A1D9C322000CB4307 /* g5DayOfTheWeekViewController.xib in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
+				DA366E4B1D9C322200CB4307 /* MDRTimeCondition.storyboard in Resources */,
+				DAC069C31D9DA47400D3DC0B /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
+				DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */,
+				DAC069C51D9DA47800D3DC0B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
+				DAC069C41D9DA47600D3DC0B /* g5ConditionTableViewCell.xib in Resources */,
 				DA366E451D9C320100CB4307 /* MDRReminderList.storyboard in Resources */,
 				DAC14AED1D99DED300EF798F /* Float.m4r in Resources */,
-				DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */,
-				DA366E4D1D9C323400CB4307 /* MDREmoticonSelection.storyboard in Resources */,
 				DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
@@ -931,14 +953,11 @@
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
 				DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
-				DA366E4B1D9C322200CB4307 /* MDRTimeCondition.storyboard in Resources */,
-				DA30CEF91C9DD38900FD4438 /* LaunchScreen.storyboard in Resources */,
 				DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */,
 				DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
 				DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */,
 				DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */,
-				DA366E4A1D9C322000CB4307 /* g5DayOfTheWeekViewController.xib in Resources */,
 				DAC14AEF1D99DED300EF798F /* Ping Pong.m4r in Resources */,
 				DAC14AEB1D99DED300EF798F /* Bounce.m4r in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
@@ -947,9 +966,6 @@
 				DAC14AF01D99DED300EF798F /* Raindrop.m4r in Resources */,
 				DAC14AEC1D99DED300EF798F /* Fast Action.m4r in Resources */,
 				DA2420321D99C0CD00A7DC09 /* Buoy_Logo_Animation.js in Resources */,
-				DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */,
-				DA366E461D9C320600CB4307 /* g5DateConditionViewController.xib in Resources */,
-				DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */,
 				DAC14AEE1D99DED300EF798F /* Greeting.m4r in Resources */,
 				DAC14AF21D99DED300EF798F /* Wonder.m4r in Resources */,
 				DAC14AEA1D99DED300EF798F /* Bells.m4r in Resources */,

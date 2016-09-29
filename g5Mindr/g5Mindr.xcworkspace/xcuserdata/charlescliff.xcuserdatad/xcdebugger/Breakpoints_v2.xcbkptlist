@@ -69,8 +69,24 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "g5Mindr/ViewControllers/ReminderListVC/MDRReminderListViewController.m"
+            timestampString = "496870225.963748"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-refresh"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
             filePath = "g5Mindr/Managers/g5ReminderManager.m"
-            timestampString = "496870139.229668"
+            timestampString = "496870926.175449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -85,13 +101,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/ViewControllers/ReminderListVC/MDRReminderListViewController.m"
-            timestampString = "496870225.963748"
+            filePath = "g5Mindr/Managers/g5ReminderManager.m"
+            timestampString = "496870928.283515"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-refresh"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-updateReminders"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "g5Mindr/Managers/g5ReminderManager.m"
+            timestampString = "496870936.625245"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-addReminder:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

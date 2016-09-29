@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
+  
   self.edgesForExtendedLayout = UIRectEdgeNone;
   self.navigationItem.title = REMINDERS_VC_TITLE;
   

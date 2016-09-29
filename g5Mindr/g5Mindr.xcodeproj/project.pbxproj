@@ -84,6 +84,7 @@
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
 		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
+		DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */; };
 		DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACD1D99DED300EF798F /* emoji_faces.plist */; };
 		DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACE1D99DED300EF798F /* emoji_food.plist */; };
 		DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACF1D99DED300EF798F /* emoji_nature.plist */; };
@@ -785,8 +786,8 @@
 			isa = PBXGroup;
 			children = (
 				DAF412541CF0CC950092DEF8 /* HROBounceNavigationController.h */,
-				DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */,
 				DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */,
+				DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */,
 			);
 			path = HROBounceNavigator;
 			sourceTree = "<group>";
@@ -915,6 +916,7 @@
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
 				DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
+				DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DA366E451D9C320100CB4307 /* MDRReminderList.storyboard in Resources */,
 				DAC14AED1D99DED300EF798F /* Float.m4r in Resources */,

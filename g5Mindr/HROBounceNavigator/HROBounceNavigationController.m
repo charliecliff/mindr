@@ -55,6 +55,7 @@
 #pragma mark - Init
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController withDelegate:(id<HROBounceNavigationDelegate>)delegate withDatasource:(id<HROBounceNavigationDatasource>)datasource {
+  
     NSBundle *bundle = [NSBundle bundleForClass:[HROBounceNavigationController class]];
     self = [super initWithNibName:@"HROBounceNavigationController" bundle:bundle];
     if (self != nil) {

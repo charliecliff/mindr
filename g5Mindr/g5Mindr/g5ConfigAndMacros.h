@@ -1,3 +1,10 @@
+//
+//  g5ConfigAndMacros.h
+//  g5Mindr
+//
+//  Created by Charles Cliff on 6/25/16.
+//  Copyright © 2016 Charles Cliff. All rights reserved.
+//
 
 // Colors
 #define PRIMARY_FILL_COLOR   [UIColor colorWithRed:41.0/255.0 green:204.0/255.0 blue:163.0/255.0 alpha:1]
@@ -17,8 +24,7 @@
 // Dimensions
 #define REMINDERS_VC_ROW_HEIGHT 100
 
-// Message and Copy
-
+// Images
 #define BUTTON_DELETE [UIImage imageNamed:@"button_delete"]
 #define BUTTON_BACK [UIImage imageNamed:@"button_back"]
 #define BUTTON_NEXT [UIImage imageNamed:@"button_next"]
@@ -26,6 +32,7 @@
 #define BUTTON_NEW [UIImage imageNamed:@"button_new"]
 #define BUTTON_CHECK [UIImage imageNamed:@"button_check"]
 
+// Sounds
 #define SOUND_FAST_ACTION   @"Fast Action"
 #define SOUND_RAINDROP      @"Raindrop"
 #define SOUND_STAR_FALL     @"Star Fall"

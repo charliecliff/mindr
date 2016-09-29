@@ -97,6 +97,7 @@
 }
 
 - (void)updateRemindersFromJSONArray:(NSArray *)array {
+  
   self.didLoadReminders = NO;
   self.reminders   = [[NSMutableDictionary alloc] init];
   self.reminderIDs = [[NSMutableOrderedSet alloc] init];

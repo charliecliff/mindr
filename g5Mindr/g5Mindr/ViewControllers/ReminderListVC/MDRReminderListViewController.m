@@ -54,6 +54,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+  
     self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController displayCornerButtons:NO
                                              bottomButton:NO
@@ -67,6 +68,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+  
     [self.bounceNavigationController displayCornerButtons:NO
                                              bottomButton:YES
                                              bounceButton:NO
@@ -84,8 +86,8 @@
 }
 
 - (void)setUpCells {
-    self.cells = [[NSMutableArray alloc] init];
-    
+  
+  self.cells = [[NSMutableArray alloc] init];
     for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
         g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"reminder_table_view_cell"];
         
@@ -97,6 +99,7 @@
 }
 
 - (void)setUpEditButton {
+  
     UIView *barView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     
     UILabel *progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
@@ -117,20 +120,23 @@
 #pragma mark - Setters
 
 - (void)setEmptyInventoryHidden:(BOOL)hidden {
-    [self.tableView setHidden:!hidden];
-    [self.containerView setHidden:hidden];
-    if (hidden)
+  
+  [self.tableView setHidden:!hidden];
+  if (hidden) {
         self.navigationItem.title = REMINDERS_VC_TITLE;
-    else
+  } else {
         self.navigationItem.title = NO_REMINDERS_VC_TITLE;
+  }
+  [self.containerView setHidden:hidden];
 }
 
 #pragma mark - Resets
 
 - (void)refresh {
   
-    [self setUpCells];
-    [self.tableView reloadData];
+  [self setUpCells];
+  [self.tableView reloadData];
+  [self setEmptyInventoryHidden:(self.cells.count >= 1)];
 }
 
 #pragma mark - Segues

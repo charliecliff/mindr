@@ -85,6 +85,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     [self.bounceNavigationController setLeftButtonEnabled:YES];
     [self.bounceNavigationController setRightButtonEnabled:YES];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
+  [super viewDidAppear:animated];
 }
 
 #pragma mark - Binding

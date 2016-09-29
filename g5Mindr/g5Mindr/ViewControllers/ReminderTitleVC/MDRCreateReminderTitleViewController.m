@@ -26,9 +26,12 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    self.bounceNavigationController.datasource = self;
-    [self.bounceNavigationController reload];
-    [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
+  
+  self.bounceNavigationController.datasource = self;
+  [self.bounceNavigationController reload];
+  [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
+  
+  [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

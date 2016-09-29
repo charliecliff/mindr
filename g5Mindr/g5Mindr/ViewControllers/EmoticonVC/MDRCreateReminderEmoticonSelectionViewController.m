@@ -40,9 +40,12 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+  
     self.bounceNavigationController.delegate = self;
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];
+  
+  [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -37,8 +37,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+  
     self.bounceNavigationController.delegate = self;
     [self.bounceNavigationController reload];
+  [super viewDidAppear:animated];
 }
 
 #pragma mark - Sound Helper

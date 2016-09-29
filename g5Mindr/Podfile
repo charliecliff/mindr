@@ -11,4 +11,5 @@ target 'g5Mindr' do
     pod 'AMWaveTransition'
     pod 'ReactiveCocoa', '~> 2.5'
 
+    pod 'SWTableViewCell', '~> 0.3.7'
 end

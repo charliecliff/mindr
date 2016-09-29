@@ -32,6 +32,7 @@
 
 
 - (void)configureWithReminder:(MDRReminder *)reminder {
+  
   self.reminder = reminder;
   [self layoutIfNeeded];
   [self.titleLabel setText:self.reminder.title];
@@ -45,6 +46,8 @@
   } else {
     [self.onSwitch addToggleOffAnimation];
   }
+  
+  self.rightUtilityButtons = [self rightButtons];
 }
 
 - (void)configureOuterRingWithColor:(UIColor *)color {
@@ -61,7 +64,7 @@
 
 - (IBAction)didPressSwitchButton:(id)sender {
     BOOL newReminderActiveState = (!self.reminder.isActive);
-    [self.delegate g5Reminder:self.reminder didSetActive:newReminderActiveState];
+    [self.reminderDelegate g5Reminder:self.reminder didSetActive:newReminderActiveState];
     [self.reminder setIsActive:newReminderActiveState];
 
     if (self.reminder.isActive)
@@ -70,4 +73,14 @@
         [self.onSwitch addToggleOffAnimation];
 }
 
+#pragma mark - Buttons
+
+- (NSArray *)rightButtons {
+  
+  NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+  
+  [rightUtilityButtons sw_addUtilityButtonWithColor:RED_COLOR
+                                               icon:[UIImage imageNamed:@"button_delete"]];
+  return rightUtilityButtons;
+}
 @end

@@ -44,6 +44,7 @@
 }
 
 - (void)addReminder:(MDRReminder *)reminder {
+  
   NSDictionary *reminderDict = [reminder encodeToDictionary];
   NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
 
@@ -60,18 +61,20 @@
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {
-//    [self.reminderIDs removeObject:reminder.uid];
-    [self.reminders removeObjectForKey:reminder.uid];
-    [self updateReminders];
-    [self saveReminders];
+  
+  [self.reminderIDs removeObject:reminder.uid];
+  [self.reminders removeObjectForKey:reminder.uid];
+  self.didLoadReminders = YES;
 }
 
 - (MDRReminder *)reminderForIndex:(NSInteger)index {
+  
     NSString *reminderID = [self.reminderIDs objectAtIndex:index];
     return [self reminderForID:reminderID];
 }
 
 - (MDRReminder *)reminderForID:(NSString *)reminderID {
+  
     return [self.reminders objectForKey:reminderID];
 }
 

@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PBJHexagon.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-g5Mindr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,10 +24,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2DCE0F20351AAF1D59F313DE540A0759</key>
+		<key>0DD7F380C031E6CB1A505CD46A1E21D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2A403334B58C0AD3D797FAE6E1110C3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E4DFABD5275F8AD89C67624EE43F8B1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A2E37A9D3AD12EEF20AE1C5078EC18CC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F12F1C9972B6D543D9390EA8A2268F97</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F9E1BFC6006DF6A38CE441381843AD3A</key>
+		<key>788A29C2A64C46DD710971DAB3796E1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

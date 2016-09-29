@@ -21,7 +21,8 @@
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface MDRReminderListViewController () <UINavigationControllerDelegate>
+@interface MDRReminderListViewController () <UINavigationControllerDelegate,
+                                             SWTableViewCellDelegate>
 
 @property(nonatomic, strong) NSMutableArray *cells;
 
@@ -88,14 +89,15 @@
 - (void)setUpCells {
   
   self.cells = [[NSMutableArray alloc] init];
-    for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
-        g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"reminder_table_view_cell"];
+  for (NSString *currentReminderUID in [g5ReminderManager sharedManager].reminderIDs) {
+    g5ReminderTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"reminder_table_view_cell"];
         
-        MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
-        [cell configureWithReminder:currentReminder];
-        
-        [self.cells addObject:cell];
-    }
+    MDRReminder *currentReminder = [[g5ReminderManager sharedManager] reminderForID:currentReminderUID];
+    [cell configureWithReminder:currentReminder];
+    cell.delegate = self;
+      
+    [self.cells addObject:cell];
+  }
 }
 
 - (void)setUpEditButton {
@@ -142,17 +144,25 @@
 #pragma mark - Segues
 
 - (void)segueToConditionViewControllerWithReminder:(MDRReminder *)reminder {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO
+                                             bottomButton:NO
+                                             bounceButton:NO
+                                           withCompletion:nil];
 
     g5CreateReminderConditionListViewController *conditionListVC = [[g5CreateReminderConditionListViewController alloc] initWithReminder:reminder];
     conditionListVC.bounceNavigationController = self.bounceNavigationController;
-    [self.bounceNavigationController.navigationController pushViewController:conditionListVC animated:YES];
+    [self.bounceNavigationController.navigationController pushViewController:conditionListVC
+                                                                    animated:YES];
 }
 
 - (void)segueToReminderViewControllerWithReminder:(MDRReminder *)reminder {
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO
+                                             bottomButton:NO
+                                             bounceButton:NO
+                                           withCompletion:nil];
     
-    UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderViewController" bundle:nil];
+    UIStoryboard *sbReminderList = [UIStoryboard storyboardWithName:@"MDRReminderViewController"
+                                                             bundle:nil];
     MDRReminderViewController *vc = [sbReminderList instantiateInitialViewController];
     vc.bounceNavigationController = ((mindrBounceNavigationViewController *)self.bounceNavigationController);
     vc.reminder = reminder;
@@ -161,14 +171,18 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView
+    didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+  
     MDRReminder *selectedReminder = [[g5ReminderManager sharedManager] reminderForIndex:indexPath.row];    
     [self segueToReminderViewControllerWithReminder:selectedReminder];
 }
 
 #pragma mark - UITableViewDataSource
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
     if (indexPath.row >= self.cells.count) {
         UITableViewCell *cell = [[UITableViewCell alloc] init];
         cell.contentView.backgroundColor =  [UIColor clearColor];
@@ -180,8 +194,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSUInteger count = self.cells.count;
-    return count + 1;
+
+  return self.cells.count + 1;
 }
 
 #pragma mark - g5BounceNavigationDelegate
@@ -202,7 +216,17 @@
 }
 
 - (void)didPressCancelButton {
+  
     [self.bounceNavigationController.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - SWTableViewCellDelegate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell
+    didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+  
+  MDRReminder *reminder = ((g5ReminderTableViewCell *)cell).reminder;
+  [[g5ReminderManager sharedManager] removeReminder:reminder];
 }
 
 @end

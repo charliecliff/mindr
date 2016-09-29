@@ -15,6 +15,7 @@
 #define GOLD_COLOR [UIColor colorWithRed:255.0/255.0 green:208.0/255.0 blue:89.0/255.0 alpha:1]
 #define PERIWINKE_BLUE_COLOR [UIColor colorWithRed:138.0/255.0 green:183.0/255.0 blue:230.0/255.0 alpha:1]
 #define SLATE_BLUE_COLOR [UIColor colorWithRed:92.0/255.0 green:122.0/255.0 blue:153.0/255.0 alpha:1]
+#define RED_COLOR [UIColor colorWithRed:255.0/255.0 green:87.0/255.0 blue:84.0/255.0 alpha:1]
 
 // Message and Copy
 #define CONDITION_TITLE_FOR_DAY_OF_THE_WEEK @"DAY OF THE WEEK";

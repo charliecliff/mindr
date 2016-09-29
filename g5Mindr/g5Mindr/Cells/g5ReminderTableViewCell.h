@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SWTableViewCell/SWTableViewCell.h>
 #import "MDRReminder.h"
 
 @class MDRReminder;
@@ -18,10 +19,10 @@
 
 @end
 
-@interface g5ReminderTableViewCell : UITableViewCell
+@interface g5ReminderTableViewCell : SWTableViewCell
 
 @property(nonatomic, strong, readonly) MDRReminder *reminder;
-@property(nonatomic, strong) id<g5ReminderCellDelegate> delegate;
+@property(nonatomic, strong) id<g5ReminderCellDelegate> reminderDelegate;
 
 - (void)configureWithReminder:(MDRReminder *)reminder;
 

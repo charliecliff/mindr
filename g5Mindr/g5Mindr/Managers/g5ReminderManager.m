@@ -83,22 +83,21 @@
     return;
   }
   
-  self.didLoadReminders = NO;
   __weak __typeof(self)weakSelf = self;
   [MDRReminderClient getRemindersWithUserID:userID
-                                withSuccess:^(NSArray *reminders) {
+                                withSuccess:^(NSArray *reminders)
+  {
     __strong typeof(weakSelf) strongSelf = weakSelf;
     [strongSelf updateRemindersFromJSONArray:reminders];
-    strongSelf.didLoadReminders = YES;
-                                }
-                                withFailure:^{
-    __strong typeof(weakSelf) strongSelf = weakSelf;
-    strongSelf.didLoadReminders = YES;
-                                  
-                                }];
+  }
+                                withFailure:^
+  {
+    
+  }];
 }
 
 - (void)updateRemindersFromJSONArray:(NSArray *)array {
+  self.didLoadReminders = NO;
   self.reminders   = [[NSMutableDictionary alloc] init];
   self.reminderIDs = [[NSMutableOrderedSet alloc] init];
   for (NSDictionary *reminderDict in array) {
@@ -107,6 +106,7 @@
     [self.reminderIDs addObject:newReminder.uid];
   }
   [self saveReminders];
+  self.didLoadReminders = YES;
 }
 
 #pragma mark - Persistence

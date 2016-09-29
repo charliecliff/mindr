@@ -786,8 +786,8 @@
 			isa = PBXGroup;
 			children = (
 				DAF412541CF0CC950092DEF8 /* HROBounceNavigationController.h */,
-				DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */,
 				DAF412551CF0CC950092DEF8 /* HROBounceNavigationController.m */,
+				DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */,
 			);
 			path = HROBounceNavigator;
 			sourceTree = "<group>";

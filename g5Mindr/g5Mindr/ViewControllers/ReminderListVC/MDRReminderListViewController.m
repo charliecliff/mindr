@@ -55,7 +55,10 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.bounceNavigationController.delegate = self;
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:NO bounceButton:NO withCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO
+                                             bottomButton:NO
+                                             bounceButton:NO
+                                           withCompletion:nil];
     
     [self setEmptyInventoryHidden:([g5ReminderManager sharedManager].reminders.count > 0)];
     
@@ -64,7 +67,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.bounceNavigationController displayCornerButtons:NO bottomButton:YES bounceButton:NO withCompletion:nil];
+    [self.bounceNavigationController displayCornerButtons:NO
+                                             bottomButton:YES
+                                             bounceButton:NO
+                                           withCompletion:nil];
 }
 
 #pragma mark - Set Up
@@ -122,6 +128,7 @@
 #pragma mark - Resets
 
 - (void)refresh {
+  
     [self setUpCells];
     [self.tableView reloadData];
 }

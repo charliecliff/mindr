@@ -69,13 +69,16 @@
 #pragma mark - View Life Cycle
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setUpNavigationController];
-    [self reload];
+  [super viewDidLoad];
+  
+  [self.view layoutIfNeeded];
+  [self setUpNavigationController];
+  [self reload];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+  
     [self.navigationController setDelegate:self];
 }
 
@@ -111,6 +114,7 @@
 #pragma mark - Reload
 
 - (void)reload {
+  
     [self reloadBottomButtonBackgroundAsCircle];
     [self reloadRightButtonBackgroundAsCircle];
     [self reloadLeftButtonBackgroundAsCircle];

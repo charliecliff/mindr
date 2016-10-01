@@ -47,6 +47,7 @@ static NSString* const kMDRSimulatorUserID = @"simulator_id";
 #pragma mark - Binding
 
 - (void)bindToLocationManager:(MDRLocationManager *)locationManager {
+  
     __weak __typeof(self)weakSelf = self;
     [RACObserve(locationManager, currentLocation) subscribeNext:^(CLLocation *newLocation) {
         self.currentUserContext.currentLocation = newLocation;
@@ -58,9 +59,12 @@ static NSString* const kMDRSimulatorUserID = @"simulator_id";
 #pragma mark - API Calls
 
 - (void)updateContext {
-    if (self.currentUserContext != nil) {
-        [MDRUserClient postContextForUserContext:self.currentUserContext withSuccess:nil withFailure:nil];
-    }
+  
+  if (self.currentUserContext != nil) {
+    [MDRUserClient postContextForUserContext:self.currentUserContext
+                                 withSuccess:nil
+                                 withFailure:nil];
+  }
 }
 
 @end

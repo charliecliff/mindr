@@ -72,6 +72,8 @@
 		DA4C5FF11D6530A1003CC595 /* MDRCreateReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FE91D6530A1003CC595 /* MDRCreateReminderTitleViewController.m */; };
 		DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */; };
 		DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */; };
+		DA4FF5011DAAB5C10035D8D3 /* Emoji-One-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA4FF5001DAAB5C10035D8D3 /* Emoji-One-Regular.otf */; };
+		DA4FF5031DAAB8BD0035D8D3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
 		DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */; };
 		DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */; };
@@ -228,6 +230,8 @@
 		DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDRReminderTitleViewController.xib; sourceTree = "<group>"; };
 		DA4C5FF41D6530CC003CC595 /* MDREditReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditReminderTitleViewController.h; sourceTree = "<group>"; };
 		DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditReminderTitleViewController.m; sourceTree = "<group>"; };
+		DA4FF5001DAAB5C10035D8D3 /* Emoji-One-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Emoji-One-Regular.otf"; sourceTree = "<group>"; };
+		DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		DA543D9B1D0CA1D20079BBB0 /* HROPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPickerTableView.h; sourceTree = "<group>"; };
 		DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPickerTableView.m; sourceTree = "<group>"; };
 		DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRTimeCondition.storyboard; sourceTree = "<group>"; };
@@ -701,6 +705,7 @@
 		DAC14AD31D99DED300EF798F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				DA4FF5001DAAB5C10035D8D3 /* Emoji-One-Regular.otf */,
 				DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */,
 				DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */,
 				DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */,
@@ -786,6 +791,7 @@
 				DAC14AD71D99DED300EF798F /* Sounds */,
 				DA24202F1D99C0CD00A7DC09 /* HTML */,
 				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
+				DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -924,6 +930,7 @@
 				DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */,
 				DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */,
 				DAC069C61D9DA4BD00D3DC0B /* MDRReminderSoundViewController.xib in Resources */,
+				DA4FF5031DAAB8BD0035D8D3 /* Media.xcassets in Resources */,
 				DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */,
 				DAC069C71D9DA50200D3DC0B /* MDRReminderTitleViewController.xib in Resources */,
 				DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */,
@@ -945,6 +952,7 @@
 				DA366E451D9C320100CB4307 /* MDRReminderList.storyboard in Resources */,
 				DAC14AED1D99DED300EF798F /* Float.m4r in Resources */,
 				DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */,
+				DA4FF5011DAAB5C10035D8D3 /* Emoji-One-Regular.otf in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
 				DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */,
@@ -1020,7 +1028,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -51,6 +51,9 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>Emoji-One-Regular.otf</string>
+		<string>emojione-apple.ttf</string>
+		<string>emoji-faces.ttf</string>
 		<string>fetch</string>
 		<string>location</string>
 		<string>remote-notification</string>

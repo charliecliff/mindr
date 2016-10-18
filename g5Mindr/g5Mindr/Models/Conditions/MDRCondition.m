@@ -9,7 +9,7 @@
 #import "MDRCondition.h"
 
 NSString *const g5NoType            = @"none";
-NSString *const g5DateType          = @"date_range";
+NSString *const g5DateType          = @"date";
 NSString *const g5TimeType          = @"time";
 NSString *const g5DayOfTheWeekType  = @"day_of_week";
 NSString *const g5WeatherType       = @"weather";

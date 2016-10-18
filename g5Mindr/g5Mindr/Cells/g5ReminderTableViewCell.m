@@ -37,10 +37,14 @@
   [self layoutIfNeeded];
   [self.titleLabel setText:self.reminder.title];
   [self.explanationLabel setText:self.reminder.explanation];
-  [self.emoticonLabel setText:self.reminder.emoji];
+
+//  UIFont *fuckYou = [UIFont fontWithName:@"Emoji-One" size:14];
+//  [self.emoticonLabel setFont:[UIFont fontWithName:@"emojione-apple" size:14]];
+  [self.emoticonLabel setText:@"\U0001F641"];
+  //[self.emoticonLabel setText:self.reminder.emoji];
   [self configureOuterRingWithColor:[UIColor whiteColor]];
   [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
-    
+  
   if (reminder.isActive) {
     [self.onSwitch addToggleOnAnimation];
   } else {

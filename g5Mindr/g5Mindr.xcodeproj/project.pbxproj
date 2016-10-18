@@ -73,10 +73,11 @@
 		DA4C5FF21D6530A1003CC595 /* MDRReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FEB1D6530A1003CC595 /* MDRReminderTitleViewController.m */; };
 		DA4C5FF61D6530CC003CC595 /* MDREditReminderTitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */; };
 		DA4FF5011DAAB5C10035D8D3 /* Emoji-One-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA4FF5001DAAB5C10035D8D3 /* Emoji-One-Regular.otf */; };
-		DA4FF5031DAAB8BD0035D8D3 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */; };
 		DA543D9D1D0CA1D20079BBB0 /* HROPickerTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */; };
 		DA5673DC1D42E935008AF230 /* MDRTimeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */; };
 		DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */; };
+		DA7EA85C1DB6A12600065FB5 /* fonts_large.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85A1DB6A12600065FB5 /* fonts_large.xcassets */; };
+		DA7EA85D1DB6A12600065FB5 /* fonts_small.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85B1DB6A12600065FB5 /* fonts_small.xcassets */; };
 		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
 		DA9A74571D4D28BF00CC5A25 /* HROPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */; };
 		DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91391D51651A00C1BF36 /* MDRTemperatureComponents.m */; };
@@ -231,7 +232,6 @@
 		DA4C5FF41D6530CC003CC595 /* MDREditReminderTitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDREditReminderTitleViewController.h; sourceTree = "<group>"; };
 		DA4C5FF51D6530CC003CC595 /* MDREditReminderTitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDREditReminderTitleViewController.m; sourceTree = "<group>"; };
 		DA4FF5001DAAB5C10035D8D3 /* Emoji-One-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Emoji-One-Regular.otf"; sourceTree = "<group>"; };
-		DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		DA543D9B1D0CA1D20079BBB0 /* HROPickerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPickerTableView.h; sourceTree = "<group>"; };
 		DA543D9C1D0CA1D20079BBB0 /* HROPickerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPickerTableView.m; sourceTree = "<group>"; };
 		DA5673D71D427CE1008AF230 /* MDRTimeCondition.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MDRTimeCondition.storyboard; sourceTree = "<group>"; };
@@ -239,6 +239,8 @@
 		DA5673DB1D42E935008AF230 /* MDRTimeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewCell.m; sourceTree = "<group>"; };
 		DA5673DD1D42EC70008AF230 /* MDRTimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDRTimeTableViewController.h; sourceTree = "<group>"; };
 		DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewController.m; sourceTree = "<group>"; };
+		DA7EA85A1DB6A12600065FB5 /* fonts_large.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = fonts_large.xcassets; path = g5Mindr/fonts_large.xcassets; sourceTree = SOURCE_ROOT; };
+		DA7EA85B1DB6A12600065FB5 /* fonts_small.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = fonts_small.xcassets; path = g5Mindr/fonts_small.xcassets; sourceTree = SOURCE_ROOT; };
 		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DA9A74551D4D28BF00CC5A25 /* HROPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPageControl.h; sourceTree = "<group>"; };
 		DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPageControl.m; sourceTree = "<group>"; };
@@ -786,12 +788,13 @@
 		DAD71D651CCAB43000F42BB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA7EA85A1DB6A12600065FB5 /* fonts_large.xcassets */,
+				DA7EA85B1DB6A12600065FB5 /* fonts_small.xcassets */,
 				DAC14ACC1D99DED300EF798F /* Emojis */,
 				DAC14AD31D99DED300EF798F /* Fonts */,
 				DAC14AD71D99DED300EF798F /* Sounds */,
 				DA24202F1D99C0CD00A7DC09 /* HTML */,
 				DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */,
-				DA4FF5021DAAB8BD0035D8D3 /* Media.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -930,7 +933,6 @@
 				DA366E471D9C321200CB4307 /* g5LocationConditionViewController.xib in Resources */,
 				DA366E4C1D9C322B00CB4307 /* g5ConditionListViewController.xib in Resources */,
 				DAC069C61D9DA4BD00D3DC0B /* MDRReminderSoundViewController.xib in Resources */,
-				DA4FF5031DAAB8BD0035D8D3 /* Media.xcassets in Resources */,
 				DA366E481D9C321500CB4307 /* g5TemperatureConditionViewController.xib in Resources */,
 				DAC069C71D9DA50200D3DC0B /* MDRReminderTitleViewController.xib in Resources */,
 				DA366E441D9C31F800CB4307 /* MDRReminderViewController.storyboard in Resources */,
@@ -939,6 +941,7 @@
 				DAC069C91D9DA56C00D3DC0B /* HROCalendarRowTableViewCell.xib in Resources */,
 				DAC069C21D9DA47300D3DC0B /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */,
 				DAC069C81D9DA56A00D3DC0B /* HROCalendarHeaderView.xib in Resources */,
+				DA7EA85C1DB6A12600065FB5 /* fonts_large.xcassets in Resources */,
 				DA216BD81D445FF900FC38E5 /* toggleSwitchOff@2x.png in Resources */,
 				DA366E4A1D9C322000CB4307 /* g5DayOfTheWeekViewController.xib in Resources */,
 				DA216BDA1D445FF900FC38E5 /* toggleSwitchOn.png in Resources */,
@@ -946,6 +949,7 @@
 				DAC069C31D9DA47400D3DC0B /* g5WeatherTypeConditionTableViewCell.xib in Resources */,
 				DA366E491D9C321800CB4307 /* g5WeatherTypeConditionViewController.xib in Resources */,
 				DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */,
+				DA7EA85D1DB6A12600065FB5 /* fonts_small.xcassets in Resources */,
 				DAC069C51D9DA47800D3DC0B /* g5ReminderDetailButtonTableViewCell.xib in Resources */,
 				DA216BD41D445FF900FC38E5 /* toggleBGOn.png in Resources */,
 				DAC069C41D9DA47600D3DC0B /* g5ConditionTableViewCell.xib in Resources */,

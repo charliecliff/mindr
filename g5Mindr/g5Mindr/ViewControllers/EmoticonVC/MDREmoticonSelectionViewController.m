@@ -41,13 +41,13 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selectedPageIndex =0;
-    
-    self.orderedViewControllers = @[[self collectionViewForEmoticonSet:@"emoji_faces"],
-                                    [self collectionViewForEmoticonSet:@"emoji_sports"],
-                                    [self collectionViewForEmoticonSet:@"emoji_food"],
-                                    [self collectionViewForEmoticonSet:@"emoji_nature"],
-                                    [self collectionViewForEmoticonSet:@"emoji_transport"],
-                                    [self collectionViewForEmoticonSet:@"emoji_objects"]];
+  
+    self.orderedViewControllers = @[[self collectionViewForEmoticonSet:EMOJI_SHEET_ONE],
+                                    [self collectionViewForEmoticonSet:EMOJI_SHEET_TWO],
+                                    [self collectionViewForEmoticonSet:EMOJI_SHEET_THREE],
+                                    [self collectionViewForEmoticonSet:EMOJI_SHEET_FOUR],
+                                    [self collectionViewForEmoticonSet:EMOJI_SHEET_FIVE],
+                                    [self collectionViewForEmoticonSet:EMOJI_SHEET_SIX]];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = MDRSelectEmoticonTitle;
@@ -99,9 +99,12 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([segue.identifier isEqualToString:MDREmbedEmoticonPageViewController]) {
-         MDREmoticonCollectionViewController *emoticonCollectionVC = [self collectionViewForEmoticonSet:@"emoticons"];
+         MDREmoticonCollectionViewController *emoticonCollectionVC = [self collectionViewForEmoticonSet:@"emoji_smileys"];
          self.emoticonPageVC = (UIPageViewController *)segue.destinationViewController;
-         [self.emoticonPageVC setViewControllers:@[emoticonCollectionVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+         [self.emoticonPageVC setViewControllers:@[emoticonCollectionVC]
+                                       direction:UIPageViewControllerNavigationDirectionForward
+                                        animated:NO
+                                      completion:nil];
          self.emoticonPageVC.doubleSided = NO;
          self.emoticonPageVC.dataSource = self;
          self.emoticonPageVC.delegate = self;

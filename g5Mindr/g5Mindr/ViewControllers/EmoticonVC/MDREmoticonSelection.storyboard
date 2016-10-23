@@ -106,7 +106,7 @@
         <scene sceneID="Arv-ko-KKu">
             <objects>
                 <collectionViewController storyboardIdentifier="collection_vc" id="mYf-6w-tz5" customClass="MDREmoticonCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="0Xm-iA-uPg">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="0Xm-iA-uPg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,16 +138,12 @@
                                                 <constraint firstAttribute="width" constant="54" id="y26-Zc-uku"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbA-hf-tde">
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ed-g8-7i4">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Egl-JQ-uKo"/>
-                                                <constraint firstAttribute="width" constant="40" id="vAI-dl-B1P"/>
+                                                <constraint firstAttribute="height" constant="28" id="9Kd-Qw-NVG"/>
+                                                <constraint firstAttribute="width" constant="28" id="vHk-BA-V1P"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,13 +151,13 @@
                                     <constraint firstItem="9yp-Yn-Ugk" firstAttribute="centerX" secondItem="er1-ha-noW" secondAttribute="centerX" id="DAe-px-PYP"/>
                                     <constraint firstItem="SMU-r6-Wiy" firstAttribute="centerY" secondItem="9yp-Yn-Ugk" secondAttribute="centerY" id="Lp6-Fz-nro"/>
                                     <constraint firstItem="9yp-Yn-Ugk" firstAttribute="centerY" secondItem="er1-ha-noW" secondAttribute="centerY" id="SLO-sN-cCg"/>
-                                    <constraint firstItem="rbA-hf-tde" firstAttribute="centerX" secondItem="er1-ha-noW" secondAttribute="centerX" id="SLy-uL-FRf"/>
-                                    <constraint firstItem="rbA-hf-tde" firstAttribute="centerY" secondItem="er1-ha-noW" secondAttribute="centerY" id="VLg-hB-Pza"/>
+                                    <constraint firstItem="3ed-g8-7i4" firstAttribute="centerX" secondItem="SMU-r6-Wiy" secondAttribute="centerX" id="ohg-mY-BSe"/>
                                     <constraint firstItem="SMU-r6-Wiy" firstAttribute="centerX" secondItem="9yp-Yn-Ugk" secondAttribute="centerX" id="uOA-HB-tul"/>
+                                    <constraint firstItem="3ed-g8-7i4" firstAttribute="centerY" secondItem="SMU-r6-Wiy" secondAttribute="centerY" id="yaS-Oe-3ub"/>
                                 </constraints>
                                 <size key="customSize" width="106" height="106"/>
                                 <connections>
-                                    <outlet property="emoticonLabel" destination="rbA-hf-tde" id="ZgU-Re-NUD"/>
+                                    <outlet property="emojiImageView" destination="3ed-g8-7i4" id="vrq-Ue-LoT"/>
                                     <outlet property="innerRingImageView" destination="SMU-r6-Wiy" id="bkN-Zj-N1F"/>
                                     <outlet property="outerRingImageView" destination="9yp-Yn-Ugk" id="IEz-he-TN0"/>
                                 </connections>
@@ -183,7 +179,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="v6Q-1b-hWR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ec6-Ja-6z0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021" y="-27"/>
+            <point key="canvasLocation" x="2224" y="-105"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="0i5-DN-Nqt">
@@ -287,7 +283,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="HRw-xu-uUg" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TcZ-gb-0eq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021" y="-677"/>
+            <point key="canvasLocation" x="2200" y="-755"/>
         </scene>
     </scenes>
     <resources>

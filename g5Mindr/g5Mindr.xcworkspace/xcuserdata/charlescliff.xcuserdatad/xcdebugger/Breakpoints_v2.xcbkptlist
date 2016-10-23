@@ -53,13 +53,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Cells/g5ReminderTableViewCell.m"
-            timestampString = "497726341.239693"
+            filePath = "g5Mindr/Cells/g5EmoticonCell.m"
+            timestampString = "498517605.306942"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-configureWithReminder:"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "-configureWithEmoticonName:withOuterRingWithColor:withInnerRingWithColor:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

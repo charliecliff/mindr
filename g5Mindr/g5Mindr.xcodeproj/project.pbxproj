@@ -78,6 +78,10 @@
 		DA5673DF1D42EC70008AF230 /* MDRTimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */; };
 		DA7EA85C1DB6A12600065FB5 /* fonts_large.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85A1DB6A12600065FB5 /* fonts_large.xcassets */; };
 		DA7EA85D1DB6A12600065FB5 /* fonts_small.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85B1DB6A12600065FB5 /* fonts_small.xcassets */; };
+		DA7EA8621DB6C0ED00065FB5 /* emoji_activities.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85E1DB6C0ED00065FB5 /* emoji_activities.plist */; };
+		DA7EA8631DB6C0ED00065FB5 /* emoji_hands.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA85F1DB6C0ED00065FB5 /* emoji_hands.plist */; };
+		DA7EA8641DB6C0ED00065FB5 /* emoji_smileys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA8601DB6C0ED00065FB5 /* emoji_smileys.plist */; };
+		DA7EA8651DB6C0ED00065FB5 /* emoji_travel.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA7EA8611DB6C0ED00065FB5 /* emoji_travel.plist */; };
 		DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */; };
 		DA9A74571D4D28BF00CC5A25 /* HROPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */; };
 		DA9E913D1D51651A00C1BF36 /* MDRTemperatureComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91391D51651A00C1BF36 /* MDRTemperatureComponents.m */; };
@@ -96,12 +100,8 @@
 		DAC069C71D9DA50200D3DC0B /* MDRReminderTitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4C5FEC1D6530A1003CC595 /* MDRReminderTitleViewController.xib */; };
 		DAC069C81D9DA56A00D3DC0B /* HROCalendarHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BC1D29E195000D3DEC /* HROCalendarHeaderView.xib */; };
 		DAC069C91D9DA56C00D3DC0B /* HROCalendarRowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF5C1BD1D29E195000D3DEC /* HROCalendarRowTableViewCell.xib */; };
-		DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACD1D99DED300EF798F /* emoji_faces.plist */; };
 		DAC14AE21D99DED300EF798F /* emoji_food.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACE1D99DED300EF798F /* emoji_food.plist */; };
 		DAC14AE31D99DED300EF798F /* emoji_nature.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14ACF1D99DED300EF798F /* emoji_nature.plist */; };
-		DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD01D99DED300EF798F /* emoji_objects.plist */; };
-		DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD11D99DED300EF798F /* emoji_sports.plist */; };
-		DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD21D99DED300EF798F /* emoji_transport.plist */; };
 		DAC14AE71D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */; };
 		DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */; };
 		DAC14AE91D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */; };
@@ -241,6 +241,10 @@
 		DA5673DE1D42EC70008AF230 /* MDRTimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDRTimeTableViewController.m; sourceTree = "<group>"; };
 		DA7EA85A1DB6A12600065FB5 /* fonts_large.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = fonts_large.xcassets; path = g5Mindr/fonts_large.xcassets; sourceTree = SOURCE_ROOT; };
 		DA7EA85B1DB6A12600065FB5 /* fonts_small.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = fonts_small.xcassets; path = g5Mindr/fonts_small.xcassets; sourceTree = SOURCE_ROOT; };
+		DA7EA85E1DB6C0ED00065FB5 /* emoji_activities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_activities.plist; sourceTree = "<group>"; };
+		DA7EA85F1DB6C0ED00065FB5 /* emoji_hands.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_hands.plist; sourceTree = "<group>"; };
+		DA7EA8601DB6C0ED00065FB5 /* emoji_smileys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_smileys.plist; sourceTree = "<group>"; };
+		DA7EA8611DB6C0ED00065FB5 /* emoji_travel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_travel.plist; sourceTree = "<group>"; };
 		DA91A6BA1D47A2D6003C0C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Resources/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DA9A74551D4D28BF00CC5A25 /* HROPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROPageControl.h; sourceTree = "<group>"; };
 		DA9A74561D4D28BF00CC5A25 /* HROPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROPageControl.m; sourceTree = "<group>"; };
@@ -260,12 +264,8 @@
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
-		DAC14ACD1D99DED300EF798F /* emoji_faces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_faces.plist; sourceTree = "<group>"; };
 		DAC14ACE1D99DED300EF798F /* emoji_food.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_food.plist; sourceTree = "<group>"; };
 		DAC14ACF1D99DED300EF798F /* emoji_nature.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_nature.plist; sourceTree = "<group>"; };
-		DAC14AD01D99DED300EF798F /* emoji_objects.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_objects.plist; sourceTree = "<group>"; };
-		DAC14AD11D99DED300EF798F /* emoji_sports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_sports.plist; sourceTree = "<group>"; };
-		DAC14AD21D99DED300EF798F /* emoji_transport.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emoji_transport.plist; sourceTree = "<group>"; };
 		DAC14AD41D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Bold.ttf"; sourceTree = "<group>"; };
 		DAC14AD51D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Medium.ttf"; sourceTree = "<group>"; };
 		DAC14AD61D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Soft W03 Semibold.ttf"; sourceTree = "<group>"; };
@@ -694,12 +694,12 @@
 		DAC14ACC1D99DED300EF798F /* Emojis */ = {
 			isa = PBXGroup;
 			children = (
-				DAC14ACD1D99DED300EF798F /* emoji_faces.plist */,
+				DA7EA85E1DB6C0ED00065FB5 /* emoji_activities.plist */,
+				DA7EA85F1DB6C0ED00065FB5 /* emoji_hands.plist */,
+				DA7EA8601DB6C0ED00065FB5 /* emoji_smileys.plist */,
+				DA7EA8611DB6C0ED00065FB5 /* emoji_travel.plist */,
 				DAC14ACE1D99DED300EF798F /* emoji_food.plist */,
 				DAC14ACF1D99DED300EF798F /* emoji_nature.plist */,
-				DAC14AD01D99DED300EF798F /* emoji_objects.plist */,
-				DAC14AD11D99DED300EF798F /* emoji_sports.plist */,
-				DAC14AD21D99DED300EF798F /* emoji_transport.plist */,
 			);
 			path = Emojis;
 			sourceTree = "<group>";
@@ -926,6 +926,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA7EA8641DB6C0ED00065FB5 /* emoji_smileys.plist in Resources */,
 				DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
 				DA366E4D1D9C323400CB4307 /* MDREmoticonSelection.storyboard in Resources */,
@@ -959,21 +960,19 @@
 				DA4FF5011DAAB5C10035D8D3 /* Emoji-One-Regular.otf in Resources */,
 				DA216BD71D445FF900FC38E5 /* toggleSwitchOff.png in Resources */,
 				DA216BD11D445FF900FC38E5 /* toggleBGOff.png in Resources */,
-				DAC14AE11D99DED300EF798F /* emoji_faces.plist in Resources */,
 				DAC14AE71D99DED300EF798F /* Proxima Nova Soft W03 Bold.ttf in Resources */,
 				DA216BD21D445FF900FC38E5 /* toggleBGOff@2x.png in Resources */,
 				DA216BD51D445FF900FC38E5 /* toggleBGOn@2x.png in Resources */,
+				DA7EA8631DB6C0ED00065FB5 /* emoji_hands.plist in Resources */,
 				DAC14AE81D99DED300EF798F /* Proxima Nova Soft W03 Medium.ttf in Resources */,
 				DA216BD91D445FF900FC38E5 /* toggleSwitchOff@3x.png in Resources */,
 				DA2420351D99C0ED00A7DC09 /* buoy_logo_anim.html in Resources */,
-				DAC14AE61D99DED300EF798F /* emoji_transport.plist in Resources */,
 				DA30CEF61C9DD38900FD4438 /* Assets.xcassets in Resources */,
-				DAC14AE51D99DED300EF798F /* emoji_sports.plist in Resources */,
-				DAC14AE41D99DED300EF798F /* emoji_objects.plist in Resources */,
 				DAC14AEF1D99DED300EF798F /* Ping Pong.m4r in Resources */,
 				DAC14AEB1D99DED300EF798F /* Bounce.m4r in Resources */,
 				DA216BDC1D445FF900FC38E5 /* toggleSwitchOn@3x.png in Resources */,
 				DA216BD31D445FF900FC38E5 /* toggleBGOff@3x.png in Resources */,
+				DA7EA8621DB6C0ED00065FB5 /* emoji_activities.plist in Resources */,
 				DA216BD61D445FF900FC38E5 /* toggleBGOn@3x.png in Resources */,
 				DAC14AF01D99DED300EF798F /* Raindrop.m4r in Resources */,
 				DAC14AEC1D99DED300EF798F /* Fast Action.m4r in Resources */,
@@ -984,6 +983,7 @@
 				DA91A6BB1D47A2D6003C0C52 /* GoogleService-Info.plist in Resources */,
 				DAC14AE91D99DED300EF798F /* Proxima Nova Soft W03 Semibold.ttf in Resources */,
 				DAC14AF11D99DED300EF798F /* Star Fall.m4r in Resources */,
+				DA7EA8651DB6C0ED00065FB5 /* emoji_travel.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

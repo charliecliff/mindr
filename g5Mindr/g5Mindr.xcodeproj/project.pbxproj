@@ -2642,6 +2642,7 @@
 		DA00EEBF1DC8125E00397E3A /* 270d_small.png in Resources */ = {isa = PBXBuildFile; fileRef = DA00E4751DC8125800397E3A /* 270d_small.png */; };
 		DA00EEC01DC8125E00397E3A /* 270d_small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA00E4761DC8125800397E3A /* 270d_small@2x.png */; };
 		DA00EEC11DC8125E00397E3A /* 270d_small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA00E4771DC8125800397E3A /* 270d_small@3x.png */; };
+		DA00EED81DCABB3800397E3A /* Ordered_Emojis.txt in Resources */ = {isa = PBXBuildFile; fileRef = DA00EED71DCABB3800397E3A /* Ordered_Emojis.txt */; };
 		DA0C4B3A1CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */; };
 		DA0C4B3C1CC447550030F927 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA0C4B3B1CC447550030F927 /* Settings.bundle */; };
 		DA0C4B3E1CC4639C0030F927 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA0C4B3D1CC4639C0030F927 /* CouchbaseLite.framework */; };
@@ -5405,6 +5406,7 @@
 		DA00E4751DC8125800397E3A /* 270d_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 270d_small.png; sourceTree = "<group>"; };
 		DA00E4761DC8125800397E3A /* 270d_small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "270d_small@2x.png"; sourceTree = "<group>"; };
 		DA00E4771DC8125800397E3A /* 270d_small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "270d_small@3x.png"; sourceTree = "<group>"; };
+		DA00EED71DCABB3800397E3A /* Ordered_Emojis.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ordered_Emojis.txt; sourceTree = "<group>"; };
 		DA0C4B381CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5WeatherTypeConditionTableViewCell.h; sourceTree = "<group>"; };
 		DA0C4B391CC4374F0030F927 /* g5WeatherTypeConditionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5WeatherTypeConditionTableViewCell.m; sourceTree = "<group>"; };
 		DA0C4B3B1CC447550030F927 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
@@ -5620,6 +5622,7 @@
 		DA00DA2B1DC8124400397E3A /* Emojis */ = {
 			isa = PBXGroup;
 			children = (
+				DA00EED71DCABB3800397E3A /* Ordered_Emojis.txt */,
 				DA00DA2C1DC8124400397E3A /* emojis_large */,
 				DA00DF521DC8124E00397E3A /* emojis_small */,
 			);
@@ -8923,6 +8926,7 @@
 				DA00E6041DC8125900397E3A /* 1f3f8_large.png in Resources */,
 				DA00E5951DC8125800397E3A /* 1f3ab_large.png in Resources */,
 				DA216BDB1D445FF900FC38E5 /* toggleSwitchOn@2x.png in Resources */,
+				DA00EED81DCABB3800397E3A /* Ordered_Emojis.txt in Resources */,
 				DA00E89A1DC8125A00397E3A /* 1f91a_large@3x.png in Resources */,
 				DA00EE7E1DC8125E00397E3A /* 1f98b_small@2x.png in Resources */,
 				DA00EC781DC8125C00397E3A /* 1f483_small@3x.png in Resources */,

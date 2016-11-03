@@ -18,35 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="6eK-KC-15u">
-                                <frame key="frameInset" width="600" height="600"/>
-                            </imageView>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7uV-Hp-wzC">
-                                <frame key="frameInset" minY="50" width="600" height="550"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="6eK-KC-15u"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uV-Hp-wzC">
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="v6Q-1b-hWR" kind="embed" identifier="embed_emoticon_page_view_controller" id="BOx-fg-mPz"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-uF-JAL" userLabel="Header">
-                                <frame key="frameInset" width="600" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJO-uF-JAL" userLabel="Header">
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-g9-Yok" userLabel="Separator">
-                                        <frame key="frameInset" width="600" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGf-g9-Yok" userLabel="Separator">
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="omN-Mg-zaZ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-CP-07n" userLabel="Separator">
-                                        <frame key="frameInset" minY="49" width="600" height="1"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAW-CP-07n" userLabel="Separator">
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.47843137250000001" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="pVS-0r-Mq2"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-bZ-gsR" customClass="HROPageControl">
-                                        <frame key="frameInset" minX="156" minY="1" width="288" height="48"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeb-bZ-gsR" customClass="HROPageControl">
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="288" id="RrB-av-jrV"/>
@@ -89,8 +82,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Wv1-ZS-Ve1"/>
                                 <exclude reference="heP-HS-jfe"/>
+                                <exclude reference="Wv1-ZS-Ve1"/>
                             </mask>
                         </variation>
                     </view>
@@ -106,7 +99,7 @@
         <scene sceneID="Arv-ko-KKu">
             <objects>
                 <collectionViewController storyboardIdentifier="collection_vc" id="mYf-6w-tz5" customClass="MDREmoticonCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="0Xm-iA-uPg">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="0Xm-iA-uPg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,8 +133,8 @@
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ed-g8-7i4">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="28" id="9Kd-Qw-NVG"/>
-                                                <constraint firstAttribute="width" constant="28" id="vHk-BA-V1P"/>
+                                                <constraint firstAttribute="height" constant="40" id="9Kd-Qw-NVG"/>
+                                                <constraint firstAttribute="width" constant="40" id="vHk-BA-V1P"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>

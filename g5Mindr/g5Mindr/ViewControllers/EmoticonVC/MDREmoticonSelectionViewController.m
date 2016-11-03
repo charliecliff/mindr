@@ -116,11 +116,16 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 - (MDREmoticonCollectionViewController *)collectionViewForEmoticonSet:(NSString *)emoticonSetName {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:[NSBundle mainBundle]];
     MDREmoticonCollectionViewController *emoticonCollectionVC = [storyboard instantiateViewControllerWithIdentifier:@"collection_vc"];
-    
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:emoticonSetName ofType:@"plist"];
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    emoticonCollectionVC.emoticonUnicodeCharacters = [plistDictionary objectForKey:@"emoticons"];
-    
+	
+	NSError *error;
+	NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"Ordered_Emojis" ofType:@"txt"];
+	NSString *txtFileContents = [NSString stringWithContentsOfFile:txtFilePath
+														  encoding:NSUTF8StringEncoding
+															 error:&error];
+	NSCharacterSet *newlineCharSet = [NSCharacterSet newlineCharacterSet];
+	NSArray *emojiCharacter = [txtFileContents componentsSeparatedByCharactersInSet:newlineCharSet];
+	emoticonCollectionVC.emoticonUnicodeCharacters = emojiCharacter;
+	
     emoticonCollectionVC.reminder = self.reminder;
     
     return emoticonCollectionVC;

@@ -49,22 +49,26 @@
   NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
 
   __weak __typeof(self)weakSelf = self;
-  [MDRReminderClient postReminder:reminderDict
-                       withUserID:userID
-                      withSuccess:^{
+  [MDRReminderClient postReminder:reminderDict withUserID:userID withSuccess:^{
     __strong typeof(weakSelf) strongSelf = weakSelf;
     [strongSelf updateReminders];
-                      }
-                      withFailure:^{
-                        
-                      }];
+  } withFailure:^{
+	  
+  }];
 }
 
 - (void)removeReminder:(MDRReminder *)reminder {
   
-  [self.reminderIDs removeObject:reminder.uid];
-  [self.reminders removeObjectForKey:reminder.uid];
-  self.didLoadReminders = YES;
+	[self.reminderIDs removeObject:reminder.uid];
+	[self.reminders removeObjectForKey:reminder.uid];
+  	self.didLoadReminders = YES;
+	
+	__weak __typeof(self)weakSelf = self;
+	[MDRReminderClient deleteReminderWithID:reminder.uid withSuccess:^{
+		
+	} withFailure:^{
+		
+	}];
 }
 
 - (MDRReminder *)reminderForIndex:(NSInteger)index {

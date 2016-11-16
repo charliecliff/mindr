@@ -18,7 +18,7 @@
 // OUTLET
 @property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
-@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
+@property(nonatomic, strong) IBOutlet UIImageView *emojiImageView;
 @property(nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property(nonatomic, strong) IBOutlet UILabel *explanationLabel;
 @property(nonatomic, strong) IBOutlet BuoyToggleView *onSwitch;
@@ -37,11 +37,7 @@
   [self layoutIfNeeded];
   [self.titleLabel setText:self.reminder.title];
   [self.explanationLabel setText:self.reminder.explanation];
-
-//  UIFont *fuckYou = [UIFont fontWithName:@"Emoji-One" size:14];
-//  [self.emoticonLabel setFont:[UIFont fontWithName:@"emojione-apple" size:14]];
-  [self.emoticonLabel setText:@"\U0001F641"];
-  //[self.emoticonLabel setText:self.reminder.emoji];
+  [self.emojiImageView setImage:[UIImage imageNamed:self.reminder.emoji]];
   [self configureOuterRingWithColor:[UIColor whiteColor]];
   [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
   

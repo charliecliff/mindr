@@ -194,22 +194,22 @@ static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
 - (NSDictionary *)encodeToDictionary {
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
   
-  if (self.uid) {
-    [dictionary setObject:self.uid forKey:kMDRReminderID];
-  }
+  	if (self.uid) {
+    	[dictionary setObject:self.uid forKey:kMDRReminderID];
+  	}
     [dictionary setObject:self.title forKey:kMDRReminderTitle];
     [dictionary setObject:[NSNumber numberWithBool:self.isActive] forKey:kMDRReminderIsActive];
     [dictionary setObject:self.emoji forKey:kMDRReminderEmoticonUnicodeCharacter];
     [dictionary setObject:self.sound forKey:kMDRReminderNotificationSound];
     [dictionary setObject:self.explanation forKey:kMDRReminderDescription];
-    
+	
     NSMutableArray *conditionArray = [[NSMutableArray alloc] init];
     for (MDRCondition *currentCondition in self.conditions.allValues) {
         NSDictionary *currentConditionDictionary = [currentCondition encodeToDictionary];
         [conditionArray addObject:currentConditionDictionary];
     }
     [dictionary setObject:conditionArray forKey:kMDRReminderConditions];
-    
+	
     return dictionary;
 }
 

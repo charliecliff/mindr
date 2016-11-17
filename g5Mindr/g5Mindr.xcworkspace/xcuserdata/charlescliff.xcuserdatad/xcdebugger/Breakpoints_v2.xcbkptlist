@@ -54,60 +54,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "500748758.897412"
+            timestampString = "501048527.027025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "+putReminder:withSuccess:withFailure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[MDRReminderClient putReminder:withSuccess:withFailure:]"
-                  moduleName = "Buoy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "501045215.494393"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "526">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__57+[MDRReminderClient putReminder:withSuccess:withFailure:]_block_invoke"
-                  moduleName = "Buoy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "501045215.495906"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "30">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "500748760.237425"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "+putReminder:withSuccess:withFailure:"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "+deleteReminderWithID:withSuccess:withFailure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -118,44 +70,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "500748763.389055"
+            timestampString = "501048528.03844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "+putReminder:withSuccess:withFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "500749270.687083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "+putReminder:withSuccess:withFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "g5Mindr/Client/MDRReminderClient.m"
-            timestampString = "500749272.15277"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "+putReminder:withSuccess:withFailure:"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "+deleteReminderWithID:withSuccess:withFailure:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -49,7 +49,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 	[super viewDidAppear:animated];
 }
 
-
+/**
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.delegate = self;
     self.bounceNavigationController.datasource = self;
@@ -57,6 +57,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
     [super viewDidAppear:animated];
 }
+*/
 
 #pragma mark - g5BounceNavigationDelegate
 

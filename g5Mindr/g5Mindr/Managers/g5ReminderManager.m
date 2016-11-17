@@ -44,7 +44,6 @@
 }
 
 - (void)addReminder:(MDRReminder *)reminder {
-  
   NSDictionary *reminderDict = [reminder encodeToDictionary];
   NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
 
@@ -61,24 +60,22 @@
   
 	[self.reminderIDs removeObject:reminder.uid];
 	[self.reminders removeObjectForKey:reminder.uid];
-  	self.didLoadReminders = YES;
 	
 	__weak __typeof(self)weakSelf = self;
 	[MDRReminderClient deleteReminderWithID:reminder.uid withSuccess:^{
-		
+		__strong typeof(weakSelf) strongSelf = weakSelf;
+		[strongSelf updateReminders];
 	} withFailure:^{
 		
 	}];
 }
 
 - (MDRReminder *)reminderForIndex:(NSInteger)index {
-  
     NSString *reminderID = [self.reminderIDs objectAtIndex:index];
     return [self reminderForID:reminderID];
 }
 
 - (MDRReminder *)reminderForID:(NSString *)reminderID {
-  
     return [self.reminders objectForKey:reminderID];
 }
 
@@ -89,16 +86,12 @@
   if (userID == nil) {
     return;
   }
-  
+	
   __weak __typeof(self)weakSelf = self;
-  [MDRReminderClient getRemindersWithUserID:userID
-                                withSuccess:^(NSArray *reminders)
-  {
+  [MDRReminderClient getRemindersWithUserID:userID withSuccess:^(NSArray *reminders) {
     __strong typeof(weakSelf) strongSelf = weakSelf;
     [strongSelf updateRemindersFromJSONArray:reminders];
-  }
-                                withFailure:^
-  {
+  } withFailure:^{
     
   }];
 }

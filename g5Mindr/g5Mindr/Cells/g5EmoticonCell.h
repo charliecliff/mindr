@@ -15,8 +15,7 @@
 
 @interface g5EmoticonCell : UICollectionViewCell
 
-@property(nonatomic, strong) IBOutlet UILabel *emoticonLabel;
-@property(nonatomic, strong) IBOutlet UIImageView *emoticonImageView;
+@property(nonatomic, strong) IBOutlet UIImageView *emojiImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property(nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
 

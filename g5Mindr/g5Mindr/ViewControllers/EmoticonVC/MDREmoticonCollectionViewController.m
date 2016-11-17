@@ -71,14 +71,11 @@ static NSString * const reuseIdentifier = @"Cell";
     cell.contentView.layer.transform = scale;
     
     // 3. Inflate beyond the size constraints of a Cell
-    [UIView animateWithDuration:durationOfFirstAnimation
-                          delay:randomCellAnimationDelay
-                        options:UIViewAnimationOptionTransitionNone
-                     animations:^{
-                         CATransform3D inflatedScale = CATransform3DScale(CATransform3DIdentity,
-                                                                          cellInflationSize,
-                                                                          cellInflationSize,
-                                                                          1.0);
+    [UIView animateWithDuration:durationOfFirstAnimation delay:randomCellAnimationDelay options:UIViewAnimationOptionTransitionNone animations:^{
+		CATransform3D inflatedScale = CATransform3DScale(CATransform3DIdentity,
+														 cellInflationSize,
+														 cellInflationSize,
+														 1.0);
                          cell.contentView.layer.transform = inflatedScale;
                          cell.contentView.alpha = 0.8;
                      }
@@ -96,7 +93,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 4. Configure the Emoticon Cell
     NSInteger cellNumber = indexPath.row;
     NSString *selectedEmoticonImageName = [self.emoticonUnicodeCharacters objectAtIndex:cellNumber];
-    [cell configureWithEmoticonName:selectedEmoticonImageName
+    [cell configureWithEmoticonName:[NSString stringWithFormat:@"%@_large", selectedEmoticonImageName]
              withOuterRingWithColor:[UIColor whiteColor]
              withInnerRingWithColor:PRIMARY_STROKE_COLOR];
     

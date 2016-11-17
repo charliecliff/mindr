@@ -17,7 +17,8 @@
 #pragma mark - Configuration
 
 - (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor {    
-    self.emoticonLabel.text = emoticonName;
+    self.emojiImageView.image = [UIImage imageNamed:emoticonName];
+  
     [self configureOuterRingWithColor:outerRingColor];
     [self configureInnerRingWithColor:innerRingColor];
 }

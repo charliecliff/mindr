@@ -9,15 +9,14 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *const MDRSelectEmoticonTitle = @"Choose an Emoticon";
-static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_page_view_controller";
+static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_view_controller";
 
-@interface MDREmoticonSelectionViewController () <HROPageControlDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
+@interface MDREmoticonSelectionViewController ()
 
 // PRIVATE
 @property(nonatomic) NSInteger selectedPageIndex;
 @property(nonatomic, strong) NSArray *emoticonImageNames;
 @property(nonatomic, strong) NSArray * orderedViewControllers;
-@property(nonatomic, strong) UIPageViewController *emoticonPageVC;
 
 // BINDING
 @property(nonatomic, weak) IBOutlet HROPageControl *pageControl;
@@ -41,14 +40,7 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selectedPageIndex =0;
-    
-    self.orderedViewControllers = @[[self collectionViewForEmoticonSet:@"emoji_faces"],
-                                    [self collectionViewForEmoticonSet:@"emoji_sports"],
-                                    [self collectionViewForEmoticonSet:@"emoji_food"],
-                                    [self collectionViewForEmoticonSet:@"emoji_nature"],
-                                    [self collectionViewForEmoticonSet:@"emoji_transport"],
-                                    [self collectionViewForEmoticonSet:@"emoji_objects"]];
-    
+      
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = MDRSelectEmoticonTitle;
     self.navigationItem.hidesBackButton = YES;
@@ -99,76 +91,26 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
      if ([segue.identifier isEqualToString:MDREmbedEmoticonPageViewController]) {
-         MDREmoticonCollectionViewController *emoticonCollectionVC = [self collectionViewForEmoticonSet:@"emoticons"];
-         self.emoticonPageVC = (UIPageViewController *)segue.destinationViewController;
-         [self.emoticonPageVC setViewControllers:@[emoticonCollectionVC] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-         self.emoticonPageVC.doubleSided = NO;
-         self.emoticonPageVC.dataSource = self;
-         self.emoticonPageVC.delegate = self;
+		 MDREmoticonCollectionViewController *emoticonCollectionVC = segue.destinationViewController;
+		 
+		 NSError *error;
+		 NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"Ordered_Emojis" ofType:@"txt"];
+		 NSString *txtFileContents = [NSString stringWithContentsOfFile:txtFilePath
+															   encoding:NSUTF8StringEncoding
+																  error:&error];
+		 NSCharacterSet *newlineCharSet = [NSCharacterSet newlineCharacterSet];
+		 NSArray *emojiCharacter = [txtFileContents componentsSeparatedByCharactersInSet:newlineCharSet];
+		 emoticonCollectionVC.emoticonUnicodeCharacters = emojiCharacter;
+		 emoticonCollectionVC.reminder = self.reminder;
     }
 }
 
-#pragma mark - Helpers
-
-- (MDREmoticonCollectionViewController *)collectionViewForEmoticonSet:(NSString *)emoticonSetName {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MDREmoticonSelection" bundle:[NSBundle mainBundle]];
-    MDREmoticonCollectionViewController *emoticonCollectionVC = [storyboard instantiateViewControllerWithIdentifier:@"collection_vc"];
-    
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:emoticonSetName ofType:@"plist"];
-    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:plistPath];
-    emoticonCollectionVC.emoticonUnicodeCharacters = [plistDictionary objectForKey:@"emoticons"];
-    
-    emoticonCollectionVC.reminder = self.reminder;
-    
-    return emoticonCollectionVC;
-}
-
 - (void)scrollToViewControllerAtIndex:(NSInteger)index {
-    MDREmoticonCollectionViewController *currentViewController = ((NSArray *)[self orderedViewControllers])[index];
-    [self.emoticonPageVC setViewControllers:@[currentViewController]
-                                  direction:UIPageViewControllerNavigationDirectionForward
-                                   animated:NO
-                                 completion:nil];
-    [currentViewController.collectionView reloadData];
-    [self updateForDisplayedViewController:currentViewController];
 }
 
 - (void)updateForDisplayedViewController:(UIViewController *)viewController {
     self.selectedPageIndex = [self.orderedViewControllers indexOfObject:viewController];
     [self.pageControl setSelectedIconAtIndex:self.selectedPageIndex];
-}
-
-#pragma mark - UIPageViewControllerDelegate
-
-- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
-    if (completed) {
-        MDREmoticonCollectionViewController *vc = [self.emoticonPageVC.viewControllers firstObject];
-        [self updateForDisplayedViewController:vc];
-    }
-}
-
-#pragma mark - UIPageViewControllerDataSource
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
-    if ( (self.selectedPageIndex - 1) < 0) {
-        return nil;
-    }
-    MDREmoticonCollectionViewController *emoticonCollectionVC = self.orderedViewControllers[self.selectedPageIndex - 1];
-    return emoticonCollectionVC;
-}
-
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
-    if ( (self.selectedPageIndex + 1) >= self.orderedViewControllers.count) {
-        return nil;
-    }
-    MDREmoticonCollectionViewController *emoticonCollectionVC = self.orderedViewControllers[self.selectedPageIndex + 1];
-    return emoticonCollectionVC;
-}
-
-#pragma mark - HROPageControlDelegate
-
-- (void)didSelectOptionForIndex:(NSInteger)index {
-    [self scrollToViewControllerAtIndex:index];
 }
 
 @end

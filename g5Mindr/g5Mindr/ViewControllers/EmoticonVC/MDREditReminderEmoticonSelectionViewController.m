@@ -33,8 +33,6 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 #pragma mark - View Life-Cycle
 
-#pragma mark - View Life-Cycle
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -43,12 +41,23 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+	
+	self.bounceNavigationController.delegate = self;
+	self.bounceNavigationController.datasource = self;
+	[self.bounceNavigationController reload];
+	
+	[super viewDidAppear:animated];
+}
+
+/**
+- (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.delegate = self;
     self.bounceNavigationController.datasource = self;
     [self.bounceNavigationController reload];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
     [super viewDidAppear:animated];
 }
+*/
 
 #pragma mark - g5BounceNavigationDelegate
 

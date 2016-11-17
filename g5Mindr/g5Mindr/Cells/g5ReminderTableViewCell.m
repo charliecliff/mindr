@@ -37,10 +37,11 @@
   [self layoutIfNeeded];
   [self.titleLabel setText:self.reminder.title];
   [self.explanationLabel setText:self.reminder.explanation];
-  [self.emojiImageView setImage:[UIImage imageNamed:self.reminder.emoji]];
   [self configureOuterRingWithColor:[UIColor whiteColor]];
   [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
-  
+  NSString *emojiFileName = [NSString stringWithFormat:@"%@_large", self.reminder.emoji];
+  [self.emojiImageView setImage:[UIImage imageNamed:emojiFileName]];
+
   if (reminder.isActive) {
     [self.onSwitch addToggleOnAnimation];
   } else {

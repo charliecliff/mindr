@@ -33,14 +33,22 @@ static NSString *const MDREmbedEmoticonPageViewController = @"embed_emoticon_pag
 
 #pragma mark - View Life-Cycle
 
-#pragma mark - View Life-Cycle
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.navigationItem.title = MDRSelectEmoticonTitle;
     self.navigationItem.hidesBackButton = YES;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+	
+	self.bounceNavigationController.delegate = self;
+	self.bounceNavigationController.datasource = self;
+	[self.bounceNavigationController reload];
+	
+	[super viewDidAppear:animated];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     self.bounceNavigationController.delegate = self;

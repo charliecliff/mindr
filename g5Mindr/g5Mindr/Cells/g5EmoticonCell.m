@@ -19,7 +19,6 @@
 - (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor {    
     self.emojiImageView.image = [UIImage imageNamed:emoticonName];
   
-  
     [self configureOuterRingWithColor:outerRingColor];
     [self configureInnerRingWithColor:innerRingColor];
 }

@@ -4,6 +4,7 @@
 #import "g5ConfigAndMacros.h"
 #import "PBJHexagonFlowLayout.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import "HROEmojiUtilities.h"
 
 @implementation MDREmoticonCollectionViewController
 
@@ -93,7 +94,8 @@ static NSString * const reuseIdentifier = @"Cell";
     // 4. Configure the Emoticon Cell
     NSInteger cellNumber = indexPath.row;
     NSString *selectedEmoticonImageName = [self.emoticonUnicodeCharacters objectAtIndex:cellNumber];
-    [cell configureWithEmoticonName:[NSString stringWithFormat:@"%@_large", selectedEmoticonImageName]
+  NSString *emojiFileName = [HROEmojiUtilities smallImageNameForEmoji:selectedEmoticonImageName];
+    [cell configureWithEmoticonName:emojiFileName
              withOuterRingWithColor:[UIColor whiteColor]
              withInnerRingWithColor:PRIMARY_STROKE_COLOR];
     

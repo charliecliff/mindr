@@ -2723,6 +2723,7 @@
 		DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E91481D516E3E00C1BF36 /* MDRUserManager.m */; };
 		DA9E914C1D516F5400C1BF36 /* MDRUserClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9E914B1D516F5400C1BF36 /* MDRUserClient.m */; };
 		DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */; };
+		DAAD966B1DDE599200DFD76E /* HROEmojiUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DAAD966A1DDE599200DFD76E /* HROEmojiUtilities.m */; };
 		DAB092461CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */; };
 		DAC069C11D9DA1FB00D3DC0B /* HROBounceNavigationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAF412561CF0CC950092DEF8 /* HROBounceNavigationController.xib */; };
 		DAC069C21D9DA47300D3DC0B /* g5DayOfTheWeekConditionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA2EA6E21CFB6AE4004338CA /* g5DayOfTheWeekConditionTableViewCell.xib */; };
@@ -5527,6 +5528,8 @@
 		DAA1984E1D9C17CB00D79281 /* Buoy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buoy.entitlements; sourceTree = "<group>"; };
 		DAAD3EC41D70EC870050F69C /* PBJHexagonFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBJHexagonFlowLayout.h; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.h"; sourceTree = SOURCE_ROOT; };
 		DAAD3EC51D70EC870050F69C /* PBJHexagonFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBJHexagonFlowLayout.m; path = "Third Party/PBJHexagonFlowLayout/PBJHexagonFlowLayout.m"; sourceTree = SOURCE_ROOT; };
+		DAAD96691DDE599200DFD76E /* HROEmojiUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HROEmojiUtilities.h; sourceTree = "<group>"; };
+		DAAD966A1DDE599200DFD76E /* HROEmojiUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HROEmojiUtilities.m; sourceTree = "<group>"; };
 		DAB092431CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = g5ReminderDetailButtonTableViewCell.h; sourceTree = "<group>"; };
 		DAB092441CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = g5ReminderDetailButtonTableViewCell.m; sourceTree = "<group>"; };
 		DAB092451CDFA48300F1157B /* g5ReminderDetailButtonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = g5ReminderDetailButtonTableViewCell.xib; sourceTree = "<group>"; };
@@ -5625,6 +5628,8 @@
 				DA00EED71DCABB3800397E3A /* Ordered_Emojis.txt */,
 				DA00DA2C1DC8124400397E3A /* emojis_large */,
 				DA00DF521DC8124E00397E3A /* emojis_small */,
+				DAAD96691DDE599200DFD76E /* HROEmojiUtilities.h */,
+				DAAD966A1DDE599200DFD76E /* HROEmojiUtilities.m */,
 			);
 			path = Emojis;
 			sourceTree = "<group>";
@@ -8815,6 +8820,7 @@
 					DA30CEE51C9DD38900FD4438 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 23CZC4883B;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -11588,7 +11594,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -11654,6 +11660,7 @@
 				DA366E2D1D9C308F00CB4307 /* MDRReminderSoundViewController.m in Sources */,
 				DAE9CAC81CA4A41700849427 /* MDRDateCondition.m in Sources */,
 				DA9E91491D516E3E00C1BF36 /* MDRUserManager.m in Sources */,
+				DAAD966B1DDE599200DFD76E /* HROEmojiUtilities.m in Sources */,
 				DAAD3EC61D70EC870050F69C /* PBJHexagonFlowLayout.m in Sources */,
 				DA366E2C1D9C308F00CB4307 /* mindrBounceNavigationViewController.m in Sources */,
 				DA0C4B4B1CC464A00030F927 /* g5PersistenceManager.m in Sources */,
@@ -11772,6 +11779,7 @@
 			baseConfigurationReference = EAB07C5425ECD310833D6ACE /* Pods-g5Mindr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = g5Mindr/Buoy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 23CZC4883B;
@@ -11785,6 +11793,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
 				PRODUCT_NAME = Buoy;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -11794,6 +11804,7 @@
 			baseConfigurationReference = 795CE638909D1A21AB1B802A /* Pods-g5Mindr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = g5Mindr/Buoy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 23CZC4883B;
@@ -11807,6 +11818,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hero.us.MindR;
 				PRODUCT_NAME = Buoy;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

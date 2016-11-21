@@ -9,6 +9,7 @@
 #import "g5ReminderTableViewCell.h"
 #import "BuoyToggleView.h"
 #import "g5ConfigAndMacros.h"
+#import "HROEmojiUtilities.h"
 
 @interface g5ReminderTableViewCell ()
 
@@ -39,7 +40,7 @@
   [self.explanationLabel setText:self.reminder.explanation];
   [self configureOuterRingWithColor:[UIColor whiteColor]];
   [self configureInnerRingWithColor:PRIMARY_STROKE_COLOR];
-  NSString *emojiFileName = [NSString stringWithFormat:@"%@_large", self.reminder.emoji];
+  NSString *emojiFileName = [HROEmojiUtilities largeImageNameForEmoji:self.reminder.emoji];
   [self.emojiImageView setImage:[UIImage imageNamed:emojiFileName]];
 
   if (reminder.isActive) {

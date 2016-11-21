@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -51,9 +51,6 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>Emoji-One-Regular.otf</string>
-		<string>emojione-apple.ttf</string>
-		<string>emoji-faces.ttf</string>
 		<string>fetch</string>
 		<string>location</string>
 		<string>remote-notification</string>

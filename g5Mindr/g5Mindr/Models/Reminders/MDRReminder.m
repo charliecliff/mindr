@@ -74,7 +74,7 @@ static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
                       g5DateType,
                       g5TemperatureType,
 //                      g5WeatherType, //TODO: Not Supported
-                      g5LocationType
+//                      g5LocationType //TODO: Not Supported
                       ];
     
     MDRTimeCondition *timeCondition = [[MDRTimeCondition alloc] init];
@@ -119,7 +119,7 @@ static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
     [_conditions setObject:dateCondition forKey:dateCondition.type];
     [_conditions setObject:temperatureCondition forKey:temperatureCondition.type];
 //    [_conditions setObject:weatherCondition forKey:weatherCondition.type]; //TODO
-    [_conditions setObject:locationCondition forKey:locationCondition.type];
+//    [_conditions setObject:locationCondition forKey:locationCondition.type]; //TODO
 }
 
 #pragma mark - Getters

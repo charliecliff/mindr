@@ -11,6 +11,8 @@
 #import "g5ReminderManager.h"
 
 #import "g5ConfigAndMacros.h"
+
+#import "HROEmojiUtilities.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 static NSString *MDRReminderDetailCellIdentifier = @"reminder_detail_cell";
@@ -53,11 +55,11 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 @property (nonatomic, strong, readwrite) NSMutableArray *cells;
 
 // OUTLETS
-@property (nonatomic, strong) IBOutlet UILabel *emoticonLabel;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *explanationLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *outerRingImageView;
 @property (nonatomic, strong) IBOutlet UIImageView *innerRingImageView;
+@property (nonatomic, strong) IBOutlet UIImageView *emojiImageView;
 
 @end
 
@@ -85,7 +87,7 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
     [self.bounceNavigationController setLeftButtonEnabled:YES];
     [self.bounceNavigationController setRightButtonEnabled:YES];
     [self.bounceNavigationController displayCornerButtons:YES bottomButton:NO bounceButton:NO withCompletion:nil];
-  [super viewDidAppear:animated];
+	[super viewDidAppear:animated];
 }
 
 #pragma mark - Binding
@@ -93,7 +95,13 @@ static NSString *MDRReminderDetailEmbedSegue = @"reminder_detail_embed";
 - (void)bindToReminder {
     RAC(self.titleLabel, text)       = RACObserve(self.reminder, title);
     RAC(self.explanationLabel, text) = RACObserve(self.reminder, explanation);
-    RAC(self.emoticonLabel, text)    = RACObserve(self.reminder, emoji);
+	
+	__weak __typeof(self)weakSelf = self;
+	[RACObserve(self.reminder, emoji) subscribeNext:^(NSString *emoji) {
+		__strong __typeof(weakSelf)strongSelf = weakSelf;		
+		NSString *emojiFileName = [HROEmojiUtilities largeImageNameForEmoji:self.reminder.emoji];		
+		strongSelf.emojiImageView.image = [UIImage imageNamed:emojiFileName];;
+	}];
 }
 
 #pragma mark - Actions

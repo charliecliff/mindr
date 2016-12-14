@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-g5Mindr.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DD7F380C031E6CB1A505CD46A1E21D4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2A403334B58C0AD3D797FAE6E1110C3D</key>
+		<key>12D0BE9AB489DA96C874BA686EAC1EEE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>788A29C2A64C46DD710971DAB3796E1E</key>
+		<key>66FE7193A4704EED25290BBB82F7F7E9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6E981A6EAF85EF653D400C91F03AE4F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8A37821A6F706B77AD3E16E83427A04C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

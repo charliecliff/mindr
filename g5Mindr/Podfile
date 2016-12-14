@@ -9,7 +9,7 @@ target 'g5Mindr' do
     pod 'Google/Analytics'
     pod 'AFNetworking', '~> 2.6.3'
     pod 'AMWaveTransition'
-    pod 'ReactiveCocoa', '~> 2.5'
-
+	
+	pod 'ReactiveCocoa', '~> 2.5'
     pod 'SWTableViewCell', '~> 0.3.7'
 end

@@ -70,12 +70,12 @@
                   moduleName = "Buoy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "501470634.548358"
+                  timestampString = "503430123.705543"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
                   endingLineNumber = "57"
-                  offsetFromSymbolStart = "646">
+                  offsetFromSymbolStart = "596">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -85,12 +85,12 @@
                   moduleName = "Buoy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/charlescliff/Documents/mindr/g5Mindr/g5Mindr/Client/MDRReminderClient.m"
-                  timestampString = "501470634.550562"
+                  timestampString = "503430123.708872"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
                   endingLineNumber = "57"
-                  offsetFromSymbolStart = "14">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -13,14 +13,14 @@
 +(NSString *)smallImageNameForEmoji:(NSString *)emoji {
 
   NSString *emojiFileName = [emoji lowercaseString];
-  emojiFileName = [NSString stringWithFormat:@"%@_large", emojiFileName];
+  emojiFileName = [NSString stringWithFormat:@"%@_small", emojiFileName];
   return emojiFileName;
 }
 
 +(NSString *)largeImageNameForEmoji:(NSString *)emoji {
   
   NSString *emojiFileName = [emoji lowercaseString];
-  emojiFileName = [NSString stringWithFormat:@"%@_small", emojiFileName];
+  emojiFileName = [NSString stringWithFormat:@"%@_large", emojiFileName];
   return emojiFileName;
 }
 

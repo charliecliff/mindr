@@ -94,7 +94,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 4. Configure the Emoticon Cell
     NSInteger cellNumber = indexPath.row;
     NSString *selectedEmoticonImageName = [self.emoticonUnicodeCharacters objectAtIndex:cellNumber];
-  NSString *emojiFileName = [HROEmojiUtilities largeImageNameForEmoji:selectedEmoticonImageName];
+	NSString *emojiFileName = [HROEmojiUtilities largeImageNameForEmoji:selectedEmoticonImageName];
     [cell configureWithEmoticonName:emojiFileName
              withOuterRingWithColor:[UIColor whiteColor]
              withInnerRingWithColor:PRIMARY_STROKE_COLOR];

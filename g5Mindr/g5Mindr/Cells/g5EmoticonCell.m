@@ -16,7 +16,9 @@
 
 #pragma mark - Configuration
 
-- (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor {    
+- (void)configureWithEmoticonName:(NSString *)emoticonName withOuterRingWithColor:(UIColor *)outerRingColor withInnerRingWithColor:(UIColor *)innerRingColor {
+	
+	UIImage *omage = [UIImage imageNamed:emoticonName];
     self.emojiImageView.image = [UIImage imageNamed:emoticonName];
   
     [self configureOuterRingWithColor:outerRingColor];

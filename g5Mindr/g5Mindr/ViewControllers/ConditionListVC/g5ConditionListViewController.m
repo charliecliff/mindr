@@ -5,7 +5,7 @@
 #import "g5DateConditionViewController.h"
 #import "g5TemperatureConditionViewController.h"
 #import "g5WeatherTypeConditionViewController.h"
-#import "g5LocationConditionViewController.h"
+//#import "g5LocationConditionViewController.h"
 #import "g5ConditionTableViewCell.h"
 #import "g5ReminderManager.h"
 #import "MDRMessageAndCopy.h"
@@ -117,12 +117,12 @@ static NSInteger const NumberOfTrailingConditionCells = 2;
     else if ( [condition.type isEqualToString:g5DayOfTheWeekType] ) {
         vc = [[g5DayOfTheWeekViewController alloc] initWithCondition:condition];
     }
-    else if ( [condition.type isEqualToString:g5LocationType] ) {
-        vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
-        ((g5LocationConditionViewController *)vc).regionBorderColor = [UIColor whiteColor];
-        ((g5LocationConditionViewController *)vc).normalTextColor = [UIColor whiteColor];
-        ((g5LocationConditionViewController *)vc).highlightedColor = [UIColor colorWithRed:92/255.0 green:122/255.0 blue:153/255.0 alpha:1];
-    }
+//    else if ( [condition.type isEqualToString:g5LocationType] ) {
+//        vc = [[g5LocationConditionViewController alloc] initWithCondition:condition];
+//        ((g5LocationConditionViewController *)vc).regionBorderColor = [UIColor whiteColor];
+//        ((g5LocationConditionViewController *)vc).normalTextColor = [UIColor whiteColor];
+//        ((g5LocationConditionViewController *)vc).highlightedColor = [UIColor colorWithRed:92/255.0 green:122/255.0 blue:153/255.0 alpha:1];
+//    }
     else if ( [condition.type isEqualToString:g5TemperatureType] ) {
         vc = [[g5TemperatureConditionViewController alloc] initWithCondition:condition];
     }

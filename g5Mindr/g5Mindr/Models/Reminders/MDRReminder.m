@@ -2,7 +2,6 @@
 #import "MDRDateCondition.h"
 #import "MDRTimeCondition.h"
 #import "MDRDayOfTheWeekCondition.h"
-#import "MDRLocationCondition.h"
 #import "MDRWeatherTypeCondition.h"
 #import "MDRTemperatureCondition.h"
 
@@ -107,11 +106,11 @@ static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
         [strongSelf updateExplanation];
     }];
     
-    MDRLocationCondition *locationCondition = [[MDRLocationCondition alloc] init];
-    [RACObserve(locationCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
-        __strong __typeof(weakSelf)strongSelf = weakSelf;
-        [strongSelf updateExplanation];
-    }];
+//    MDRLocationCondition *locationCondition = [[MDRLocationCondition alloc] init];
+//    [RACObserve(locationCondition, conditionDescription) subscribeNext:^(NSString *newDescription) {
+//        __strong __typeof(weakSelf)strongSelf = weakSelf;
+//        [strongSelf updateExplanation];
+//    }];
     
     _conditions   = [[NSMutableDictionary alloc] init];
     [_conditions setObject:timeCondition forKey:timeCondition.type];
@@ -183,8 +182,8 @@ static NSString *const kMDRReminderDefaultUID   = @"INVALID_REMINDER_ID";
             currentCondition = [[MDRTemperatureCondition alloc] initWithDictionary:currentConditionDictionary];
         else if ([conditionType isEqualToString:g5WeatherType])
             currentCondition = [[MDRWeatherTypeCondition alloc] initWithDictionary:currentConditionDictionary];
-        else if ([conditionType isEqualToString:g5LocationType])
-            currentCondition = [[MDRLocationCondition alloc] initWithDictionary:currentConditionDictionary];
+//        else if ([conditionType isEqualToString:g5LocationType])
+//            currentCondition = [[MDRLocationCondition alloc] initWithDictionary:currentConditionDictionary];
         else
             assert(false);
         [self.conditions setObject:currentCondition forKey:currentCondition.type];

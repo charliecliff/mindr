@@ -37,10 +37,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to better assist you buying tickets.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to better assist you buying tickets.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This Request Should Not Appear. Please Contact Suport Line.</string>
 	<key>UIAppFonts</key>
@@ -52,7 +48,6 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
-		<string>location</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

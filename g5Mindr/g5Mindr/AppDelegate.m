@@ -8,7 +8,6 @@
 
 
 #import "g5ReminderManager.h"
-#import "MDRLocationManager.h"
 #import "MDRUserManager.h"
 
 #import <Google/Analytics.h>
@@ -42,8 +41,8 @@
     
     //  Managers
     [[g5ReminderManager sharedManager] loadReminders];
-    [[MDRLocationManager sharedManager] startUpdatingLocation];
-    [[MDRUserManager sharedManager] bindToLocationManager:[MDRLocationManager sharedManager]];
+//    [[MDRLocationManager sharedManager] startUpdatingLocation];
+//    [[MDRUserManager sharedManager] bindToLocationManager:[MDRLocationManager sharedManager]];
   
     NSString *userID = [MDRUserManager sharedManager].currentUserContext.userID;
     //  Register For Push Notifications

@@ -1,6 +1,6 @@
 #import "g5LocationConditionViewController.h"
-#import "MDRLocationManager.h"
-#import "MDRLocationCondition.h"
+//#import "MDRLocationManager.h"
+//#import "MDRLocationCondition.h"
 #import "g5ConfigAndMacros.h"
 #import "UIGestureRecognizer+Cancel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
